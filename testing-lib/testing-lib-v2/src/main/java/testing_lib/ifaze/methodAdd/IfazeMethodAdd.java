@@ -4,5 +4,5 @@ public interface IfazeMethodAdd {
 
 	void method1();
 	
-	void methodAdded();
+	void method2();
 }

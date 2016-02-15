@@ -4,5 +4,5 @@ public interface IfazeMethodDelete {
 
 	void method1();
 	
-	void methodToBeDeleted();
+	void method2();
 }

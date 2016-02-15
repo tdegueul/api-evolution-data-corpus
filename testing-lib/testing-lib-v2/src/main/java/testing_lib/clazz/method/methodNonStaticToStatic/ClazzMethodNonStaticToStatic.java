@@ -1,6 +1,6 @@
 package testing_lib.clazz.method.methodNonStaticToStatic;
 
-public abstract class ClazzMethodNonStaticToStatic {
+public class ClazzMethodNonStaticToStatic {
 	
 	static void method1() {
 		
