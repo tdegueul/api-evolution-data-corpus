@@ -6,7 +6,4 @@ public class MembersClazzMethodDelete {
 		
 	}
 	
-	void method2() {
-		
-	}
 }
