@@ -2,7 +2,7 @@ package testing_lib.modifierMethodNativeToNonNative;
 
 public class ModifierMethodNativeToNonNative {
 	
-	void method1() {
+	public void method1() {
 		
 	}
 	

@@ -2,7 +2,7 @@ package testing_lib.modifierMethodFinalToNonFinal;
 
 public class ModifierMethodFinalToNonFinal {
 	
-	void method1() {
+	public void method1() {
 		
 	}
 	

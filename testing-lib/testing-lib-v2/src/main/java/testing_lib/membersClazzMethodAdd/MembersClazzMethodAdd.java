@@ -2,7 +2,7 @@ package testing_lib.membersClazzMethodAdd;
 
 public class MembersClazzMethodAdd {
 
-	void method1() {
+	public void method1() {
 		
 	}
 	

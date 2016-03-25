@@ -2,7 +2,7 @@ package testing_lib.modifierMethodStrictfpToNonStrictfp;
 
 public class ModifierMethodStrictfpToNonStrictfp {
 	
-	strictfp void method1() {
+	public strictfp void method1() {
 		
 	}
 	

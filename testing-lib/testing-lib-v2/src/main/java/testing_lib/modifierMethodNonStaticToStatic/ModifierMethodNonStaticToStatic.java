@@ -2,7 +2,7 @@ package testing_lib.modifierMethodNonStaticToStatic;
 
 public class ModifierMethodNonStaticToStatic {
 	
-	static void method1() {
+	public static void method1() {
 		
 	}
 	

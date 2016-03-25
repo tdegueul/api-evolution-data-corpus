@@ -2,6 +2,6 @@ package testing_lib.modifierFieldNonStaticToStatic;
 
 public class ModifierFieldNonStaticToStatic {
 	
-	Integer FIELD = 5;
+	public Integer FIELD = 5;
 
 }

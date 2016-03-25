@@ -2,6 +2,6 @@ package testing_lib.modifierMethodAbstractToNonAbstract;
 
 public abstract class ModifierMethodAbstractToNonAbstract {
 	
-	abstract void method1();
+	public abstract void method1();
 	
 }
