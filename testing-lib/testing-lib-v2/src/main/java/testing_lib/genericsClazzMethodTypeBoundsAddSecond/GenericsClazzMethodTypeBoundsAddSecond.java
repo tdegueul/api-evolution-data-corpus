@@ -4,7 +4,7 @@ import java.io.Serializable;
 
 public class GenericsClazzMethodTypeBoundsAddSecond {
 	
-	<T extends Number & Serializable> void method1() {
+	public <T extends Number & Serializable> void method1() {
 		
 	}
 	

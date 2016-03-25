@@ -2,7 +2,7 @@ package testing_lib.genericsClazzMethodTypeBoundsGeneralization;
 
 public class GenericsClazzMethodTypeBoundsGeneralization {
 	
-	<T extends Number> void method1() {
+	public <T extends Number> void method1() {
 		
 	}
 	

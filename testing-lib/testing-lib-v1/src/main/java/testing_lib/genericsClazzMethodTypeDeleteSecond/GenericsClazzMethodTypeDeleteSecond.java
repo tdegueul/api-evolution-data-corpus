@@ -2,7 +2,7 @@ package testing_lib.genericsClazzMethodTypeDeleteSecond;
 
 public class GenericsClazzMethodTypeDeleteSecond {
 	
-	<T, K> void method1() {
+	public <T, K> void method1() {
 		
 	}
 	

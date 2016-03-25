@@ -2,6 +2,6 @@ package testing_lib.dataTypeIfazeMethodReturnTypeNarrowing;
 
 public interface DataTypeIfazeMethodReturnTypeNarrowing {
 	
-	int method1();
+	public int method1();
 	
 }

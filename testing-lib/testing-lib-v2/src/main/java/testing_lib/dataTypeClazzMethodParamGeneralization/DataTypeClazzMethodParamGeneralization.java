@@ -2,7 +2,7 @@ package testing_lib.dataTypeClazzMethodParamGeneralization;
 
 public class DataTypeClazzMethodParamGeneralization {
 	
-	void method1(Number param1) {
+	public void method1(Number param1) {
 		
 	}
 	

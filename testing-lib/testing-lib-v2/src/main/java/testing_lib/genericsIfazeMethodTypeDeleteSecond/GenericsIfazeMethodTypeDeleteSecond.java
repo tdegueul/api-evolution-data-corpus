@@ -2,6 +2,6 @@ package testing_lib.genericsIfazeMethodTypeDeleteSecond;
 
 public interface GenericsIfazeMethodTypeDeleteSecond {
 	
-	<T> void methodNotParametrized();
+	public <T> void method1();
 	
 }

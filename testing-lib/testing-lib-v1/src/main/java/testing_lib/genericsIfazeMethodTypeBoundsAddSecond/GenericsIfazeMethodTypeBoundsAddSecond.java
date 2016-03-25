@@ -2,6 +2,6 @@ package testing_lib.genericsIfazeMethodTypeBoundsAddSecond;
 
 public interface GenericsIfazeMethodTypeBoundsAddSecond {
 	
-	<T extends Number> void methodNotParametrized();
+	public <T extends Number> void method1();
 	
 }

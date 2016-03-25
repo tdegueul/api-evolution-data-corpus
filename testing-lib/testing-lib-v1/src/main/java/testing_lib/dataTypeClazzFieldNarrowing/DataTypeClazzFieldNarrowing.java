@@ -2,6 +2,6 @@ package testing_lib.dataTypeClazzFieldNarrowing;
 
 public class DataTypeClazzFieldNarrowing {
 	
-	double count = 5;
+	public double field1 = 5;
 	
 }

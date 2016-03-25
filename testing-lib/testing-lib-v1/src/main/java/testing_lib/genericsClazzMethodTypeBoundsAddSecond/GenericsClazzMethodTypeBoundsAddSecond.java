@@ -2,7 +2,7 @@ package testing_lib.genericsClazzMethodTypeBoundsAddSecond;
 
 public class GenericsClazzMethodTypeBoundsAddSecond {
 	
-	<T extends Number> void method1() {
+	public <T extends Number> void method1() {
 		
 	}
 	

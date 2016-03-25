@@ -2,7 +2,7 @@ package testing_lib.genericsClazzMethodTypeBoundsAdd;
 
 public class GenericsClazzMethodTypeBoundsAdd {
 	
-	<T> void method1() {
+	public <T> void method1() {
 		
 	}
 	

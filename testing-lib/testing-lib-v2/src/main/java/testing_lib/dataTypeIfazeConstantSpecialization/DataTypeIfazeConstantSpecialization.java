@@ -2,6 +2,6 @@ package testing_lib.dataTypeIfazeConstantSpecialization;
 
 public interface DataTypeIfazeConstantSpecialization {
 	
-	Integer field = 5;
+	public Integer FIELD1 = 5;
 	
 }

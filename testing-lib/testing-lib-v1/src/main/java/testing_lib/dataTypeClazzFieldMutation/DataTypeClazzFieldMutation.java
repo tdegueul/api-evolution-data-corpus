@@ -2,6 +2,6 @@ package testing_lib.dataTypeClazzFieldMutation;
 
 public class DataTypeClazzFieldMutation {
 	
-	Integer count = 5;
+	public Integer field1 = 5;
 	
 }

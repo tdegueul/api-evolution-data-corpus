@@ -2,9 +2,9 @@ package testing_lib.dataTypeIfazeMethodReturnTypeMutation;
 
 public interface DataTypeIfazeMethodReturnTypeMutation {
 	
-	void methodVoidToInteger();
+	public void methodVoidToInteger();
 	
-	Integer methodIntegerToVoid();
+	public Integer methodIntegerToVoid();
 	
-	Integer methodIntegerToString();
+	public Integer methodIntegerToString();
 }

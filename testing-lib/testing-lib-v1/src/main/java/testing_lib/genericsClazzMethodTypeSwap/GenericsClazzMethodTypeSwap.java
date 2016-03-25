@@ -2,7 +2,7 @@ package testing_lib.genericsClazzMethodTypeSwap;
 
 public class GenericsClazzMethodTypeSwap {
 	
-	<T, K> void method1() {
+	public <T, K> void method1() {
 		
 	}
 	

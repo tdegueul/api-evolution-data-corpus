@@ -2,9 +2,10 @@ package testing_lib.accessModifierClazzNestedClazzAccessDecrease;
 
 public class AccessModifierClazzNestedClazzAccessDecrease {
 	
-	protected class ClazzPublicToProtected {
-		
-	}
+	//Clirr maven modul Null pointer exception 
+//	protected class ClazzPublicToProtected {
+//		
+//	}
 	
 	class ClazzPublicToNon {
 		

@@ -2,6 +2,6 @@ package testing_lib.dataTypeClazzFieldWidening;
 
 public class DataTypeClazzFieldWidening {
 	
-	int count = 5;
+	public int field1 = 5;
 	
 }

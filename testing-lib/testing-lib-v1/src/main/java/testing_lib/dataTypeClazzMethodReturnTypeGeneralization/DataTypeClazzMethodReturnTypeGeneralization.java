@@ -2,7 +2,7 @@ package testing_lib.dataTypeClazzMethodReturnTypeGeneralization;
 
 public class DataTypeClazzMethodReturnTypeGeneralization {
 	
-	Integer method() {
+	public Integer method() {
 		Integer result = 5;
 		return result;
 	}

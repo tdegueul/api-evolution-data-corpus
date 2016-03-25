@@ -2,6 +2,6 @@ package testing_lib.genericsIfazeMethodTypeBoundsDelete;
 
 public interface GenericsIfazeMethodTypeBoundsDelete {
 	
-	<T> void methodNotParametrized();
+	public <T> void method1();
 	
 }

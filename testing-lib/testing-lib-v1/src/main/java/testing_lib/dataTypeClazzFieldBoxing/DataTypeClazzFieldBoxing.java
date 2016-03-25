@@ -2,6 +2,6 @@ package testing_lib.dataTypeClazzFieldBoxing;
 
 public class DataTypeClazzFieldBoxing {
 	
-	int count = 5;
+	public int field1 = 5;
 	
 }

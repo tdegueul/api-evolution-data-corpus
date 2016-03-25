@@ -2,7 +2,7 @@ package testing_lib.genericsClazzMethodTypeAddSecond;
 
 public class GenericsClazzMethodTypeAddSecond {
 	
-	<T, K> void method1() {
+	public <T, K> void method1() {
 		
 	}
 	

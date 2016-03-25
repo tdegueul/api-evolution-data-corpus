@@ -2,7 +2,7 @@ package testing_lib.dataTypeClazzMethodParamMutation;
 
 public class DataTypeClazzMethodParamMutation {
 	
-	void method1(String param1) {
+	public void method1(String param1) {
 		
 	}
 	

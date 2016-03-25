@@ -2,6 +2,6 @@ package testing_lib.dataTypeClazzFieldGeneralization;
 
 public class DataTypeClazzFieldGeneralization {
 	
-	Number count = 5;
+	public Number field1 = 5;
 	
 }

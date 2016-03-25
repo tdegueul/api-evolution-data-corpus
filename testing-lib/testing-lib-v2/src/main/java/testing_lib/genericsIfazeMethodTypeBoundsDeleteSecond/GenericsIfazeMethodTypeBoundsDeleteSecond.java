@@ -2,6 +2,6 @@ package testing_lib.genericsIfazeMethodTypeBoundsDeleteSecond;
 
 public interface GenericsIfazeMethodTypeBoundsDeleteSecond {
 	
-	<T extends Number> void methodNotParametrized();
+	public <T extends Number> void method1();
 	
 }

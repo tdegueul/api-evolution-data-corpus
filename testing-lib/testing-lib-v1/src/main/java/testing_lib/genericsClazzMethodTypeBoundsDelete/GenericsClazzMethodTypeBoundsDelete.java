@@ -2,7 +2,7 @@ package testing_lib.genericsClazzMethodTypeBoundsDelete;
 
 public class GenericsClazzMethodTypeBoundsDelete {
 	
-	<T extends Number> void method1() {
+	public <T extends Number> void method1() {
 		
 	}
 	

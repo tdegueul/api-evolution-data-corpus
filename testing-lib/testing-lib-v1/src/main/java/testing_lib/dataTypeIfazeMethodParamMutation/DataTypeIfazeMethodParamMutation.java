@@ -2,6 +2,6 @@ package testing_lib.dataTypeIfazeMethodParamMutation;
 
 public interface DataTypeIfazeMethodParamMutation {
 	
-	void method1(Integer param1);
+	public void method1(Integer param1);
 	
 }

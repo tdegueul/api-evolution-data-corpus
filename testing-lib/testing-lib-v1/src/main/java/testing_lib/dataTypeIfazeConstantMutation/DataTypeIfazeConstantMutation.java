@@ -2,6 +2,6 @@ package testing_lib.dataTypeIfazeConstantMutation;
 
 public interface DataTypeIfazeConstantMutation {
 	
-	Integer field = 5;
+	public Integer FIELD1 = 5;
 	
 }

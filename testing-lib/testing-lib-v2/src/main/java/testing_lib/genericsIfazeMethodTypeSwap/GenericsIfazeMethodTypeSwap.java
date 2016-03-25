@@ -2,6 +2,6 @@ package testing_lib.genericsIfazeMethodTypeSwap;
 
 public interface GenericsIfazeMethodTypeSwap {
 	
-	<K, T> void methodNotParametrized();
+	public <K, T> void method1();
 	
 }

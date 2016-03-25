@@ -4,6 +4,6 @@ import java.io.Serializable;
 
 public interface GenericsIfazeMethodTypeBoundsAddSecond {
 	
-	<T extends Number & Serializable> void methodNotParametrized();
+	public <T extends Number & Serializable> void method1();
 	
 }

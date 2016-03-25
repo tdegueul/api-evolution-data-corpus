@@ -2,7 +2,7 @@ package testing_lib.genericsClazzMethodTypeBoundsMutation;
 
 public class GenericsClazzMethodTypeBoundsMutation {
 	
-	<T extends String> void method1() {
+	public <T extends String> void method1() {
 		
 	}
 	
