@@ -7,7 +7,7 @@ public class Main extends AccessModifierClazzFieldAccessIncrease {
 	public static void main(String[] args) {
 		Main constrExtended = new Main();
 		
-		Integer field = constrExtended.fieldProtectedToPublic;
+		System.out.println(constrExtended.fieldProtectedToPublic);
 	}
 	
 }

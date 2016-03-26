@@ -8,6 +8,7 @@ public class Main {
 		
 		double param1 = 5;
 		DataTypeClazzConstructorParamNarrowing constr = new DataTypeClazzConstructorParamNarrowing(param1);
+		constr.toString();
 	}
 
 }

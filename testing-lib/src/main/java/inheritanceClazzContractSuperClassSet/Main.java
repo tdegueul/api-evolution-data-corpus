@@ -8,6 +8,7 @@ public class Main {
 
 	public static void main(String[] args) {
 		Clazz1 constr = (Clazz2) new InheritanceClazzContractSuperInterfaceSet();
+		constr.toString();
 	}
 	
 }

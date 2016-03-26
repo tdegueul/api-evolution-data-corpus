@@ -10,7 +10,7 @@ public class Main extends AccessModifierClazzConstructorAccessIncrease {
 
 	public static void main(String[] args) {
 		int a = 5;
-		Main constr = new Main(a, a, a, a, a);
+		new Main(a, a, a, a, a);
 	}
 	
 }

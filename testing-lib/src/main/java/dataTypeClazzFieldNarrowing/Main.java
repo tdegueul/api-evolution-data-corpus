@@ -6,7 +6,7 @@ public class Main {
 
 	public static void main(String[] args) {
 
-		double field = new DataTypeClazzFieldNarrowing().field1;
+		System.out.println(new DataTypeClazzFieldNarrowing().field1);
 		
 	}
 

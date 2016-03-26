@@ -8,7 +8,7 @@ public class Main {
 
 		DataTypeClazzMethodReturnTypeUnboxing constr = new DataTypeClazzMethodReturnTypeUnboxing();
 		
-		Integer field = constr.method();
+		System.out.println(constr.method());
 		
 	}
 

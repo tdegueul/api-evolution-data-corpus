@@ -8,17 +8,17 @@ public class Main extends AccessModifierClazzFieldAccessDecrease {
 		
 		AccessModifierClazzFieldAccessDecrease constr = new AccessModifierClazzFieldAccessDecrease();
 		
-		Integer field = constr.fieldPublicToProtected;
+		System.out.println(constr.fieldPublicToProtected);
 		
-		Integer field2 = constr.fieldPublicToNon;
+		System.out.println(constr.fieldPublicToNon);
 		
-		Integer field3 = constr.fieldPublicToPrivate;
+		System.out.println(constr.fieldPublicToPrivate);
 		
 		Main constrExtended = new Main();
 		
-		Integer field4 = constrExtended.fieldProtectedToNon;
+		System.out.println(constrExtended.fieldProtectedToNon);
 		
-		Integer field5 = constrExtended.fieldProtectedToPrivate;
+		System.out.println(constrExtended.fieldProtectedToPrivate);
 	}
 	
 }

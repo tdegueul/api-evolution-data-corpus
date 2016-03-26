@@ -8,7 +8,7 @@ public class Main {
 		
 		DataTypeClazzMethodReturnTypeSpecialization constr = new DataTypeClazzMethodReturnTypeSpecialization();
 		
-		Number field = constr.method();
+		System.out.println(constr.method());
 
 	}
 

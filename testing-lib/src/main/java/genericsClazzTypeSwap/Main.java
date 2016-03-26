@@ -6,6 +6,7 @@ public class Main {
 
 	public static void main(String[] args) {
 		GenericsClazzTypeSwap<String, Integer> constr = new GenericsClazzTypeSwap<String, Integer>();
+		constr.toString();
 	}
 	
 }

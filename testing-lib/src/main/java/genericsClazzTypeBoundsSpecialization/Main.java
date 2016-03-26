@@ -6,6 +6,7 @@ public class Main {
 
 	public static void main(String[] args) {
 		GenericsClazzTypeBoundsSpecialization<Number> constr = new GenericsClazzTypeBoundsSpecialization<Number>();
+		constr.toString();
 	}
 	
 }

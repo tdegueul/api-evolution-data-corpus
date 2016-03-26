@@ -16,15 +16,15 @@ public class Main extends AccessModifierClazzConstructorAccessDecrease {
 		
 		int a = 5;
 		
-		AccessModifierClazzConstructorAccessDecrease constr = new AccessModifierClazzConstructorAccessDecrease();
+		new AccessModifierClazzConstructorAccessDecrease();
 		
-		AccessModifierClazzConstructorAccessDecrease constr2 = new AccessModifierClazzConstructorAccessDecrease(a);
+		new AccessModifierClazzConstructorAccessDecrease(a);
 		
-		AccessModifierClazzConstructorAccessDecrease constr3 = new AccessModifierClazzConstructorAccessDecrease(a, a);
+		new AccessModifierClazzConstructorAccessDecrease(a, a);
 		
-		Main constr4 = new Main(a, a, a);
+		new Main(a, a, a);
 		
-		Main constr5 = new Main(a, a, a, a);
+		new Main(a, a, a, a);
 	}
 	
 }

@@ -6,6 +6,6 @@ public class Main {
 
 	public static void main(String[] args) {
 		int a = 5;
-		MembersClazzConstructorDelete constr = new MembersClazzConstructorDelete(a);
+		new MembersClazzConstructorDelete(a);
 	}
 }

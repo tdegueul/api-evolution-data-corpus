@@ -6,7 +6,7 @@ public class Main {
 
 	public static void main(String[] args) {
 
-		int field = DataTypeIfazeConstantWidening.FIELD1;
+		System.out.println(DataTypeIfazeConstantWidening.FIELD1);
 		
 	}
 

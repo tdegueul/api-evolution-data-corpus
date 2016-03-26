@@ -8,7 +8,7 @@ public class Main {
 
 		DataTypeClazzMethodReturnTypeGeneralization constr = new DataTypeClazzMethodReturnTypeGeneralization();
 		
-		Integer field = constr.method();
+		System.out.println(constr.method());
 		
 	}
 

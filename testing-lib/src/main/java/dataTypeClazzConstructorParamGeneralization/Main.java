@@ -8,6 +8,7 @@ public class Main {
 		
 		int param1 = 5;
 		DataTypeClazzConstructorParamGeneralization constr = new DataTypeClazzConstructorParamGeneralization(param1);
+		constr.toString();
 	}
 	
 }

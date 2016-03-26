@@ -6,7 +6,7 @@ public class Main {
 
 	public static void main(String[] args) {
 
-		int field = DataTypeIfazeConstantBoxing.FIELD1;
+		System.out.println(DataTypeIfazeConstantBoxing.FIELD1);
 		
 	}
 

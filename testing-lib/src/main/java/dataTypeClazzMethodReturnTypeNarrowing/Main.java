@@ -8,7 +8,7 @@ public class Main {
 
 		DataTypeClazzMethodReturnTypeNarrowing constr = new DataTypeClazzMethodReturnTypeNarrowing();
 		
-		double field = constr.method();
+		System.out.println(constr.method());
 		
 		
 	}

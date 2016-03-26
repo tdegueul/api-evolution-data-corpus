@@ -8,6 +8,7 @@ public class Main {
 
 		Integer param1 = 5;
 		DataTypeClazzConstructorParamUnboxing constr = new DataTypeClazzConstructorParamUnboxing(param1);
+		constr.toString();
 	}
 
 }

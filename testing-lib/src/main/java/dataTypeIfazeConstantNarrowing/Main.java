@@ -6,7 +6,7 @@ public class Main {
 
 	public static void main(String[] args) {
 
-		double field = DataTypeIfazeConstantNarrowing.FIELD1;
+		System.out.println(DataTypeIfazeConstantNarrowing.FIELD1);
 		
 	}
 

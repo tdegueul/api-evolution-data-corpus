@@ -8,6 +8,7 @@ public class Main {
 		
 		Integer param1 = 5;
 		DataTypeClazzConstructorParamMutation constr = new DataTypeClazzConstructorParamMutation(param1);
+		constr.toString();
 	}
 
 }

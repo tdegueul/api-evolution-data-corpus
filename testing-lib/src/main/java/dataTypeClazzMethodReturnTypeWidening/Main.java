@@ -8,7 +8,7 @@ public class Main {
 
 		DataTypeClazzMethodReturnTypeWidening constr = new DataTypeClazzMethodReturnTypeWidening();
 		
-		int field = constr.method();
+		System.out.println(constr.method());
 		
 	}
 

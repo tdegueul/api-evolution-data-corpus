@@ -6,7 +6,7 @@ public class Main {
 
 	public static void main(String[] args) {
 
-		Number field = DataTypeIfazeConstantSpecialization.FIELD1;
+		System.out.println(DataTypeIfazeConstantSpecialization.FIELD1);
 		
 	}
 

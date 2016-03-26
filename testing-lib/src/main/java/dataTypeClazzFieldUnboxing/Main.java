@@ -6,7 +6,7 @@ public class Main {
 
 	public static void main(String[] args) {
 
-		Integer field = new DataTypeClazzFieldUnboxing().field1;
+		System.out.println(new DataTypeClazzFieldUnboxing().field1);
 	}
 
 }

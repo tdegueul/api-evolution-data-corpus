@@ -8,6 +8,7 @@ public class Main {
 
 		Number param1 = 5;
 		DataTypeClazzConstructorParamSpecialization constr = new DataTypeClazzConstructorParamSpecialization(param1);
+		constr.toString();
 	}
 
 }

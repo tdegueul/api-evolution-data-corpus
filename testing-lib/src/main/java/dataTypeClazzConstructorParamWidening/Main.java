@@ -8,6 +8,7 @@ public class Main {
 
 		int param1 = 5;
 		DataTypeClazzConstructorParamWidening constr = new DataTypeClazzConstructorParamWidening(param1);
+		constr.toString();
 	}
 
 }
