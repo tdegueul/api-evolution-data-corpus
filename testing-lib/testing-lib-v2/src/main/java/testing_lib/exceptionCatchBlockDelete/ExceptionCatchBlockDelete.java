@@ -1,11 +1,10 @@
-package testing_lib.exceptionCatchDelete;
+package testing_lib.exceptionCatchBlockDelete;
 
 import java.io.File;
-import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 
-public class ExceptionCatchAdd {
+public class ExceptionCatchBlockDelete {
 
 	public void method1() {
 		File file=new File("E://file.txt");
@@ -13,9 +12,6 @@ public class ExceptionCatchAdd {
 			try {
 				fr = new FileReader(file);
 				fr.close();
-			} catch (FileNotFoundException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
 			} catch (IOException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();

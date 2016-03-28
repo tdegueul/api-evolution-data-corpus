@@ -1,11 +1,11 @@
-package testing_lib.exceptionCatchAdd;
+package testing_lib.exceptionCatchBlockAdd;
 
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 
-public class ExceptionCatchAdd {
+public class ExceptionCatchBlockAdd {
 
 	public void method1() {
 		File file=new File("E://file.txt");
