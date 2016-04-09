@@ -5,10 +5,11 @@
   <parent>
     <groupId>cz.zcu.fav.kiv.augustar</groupId>
     <artifactId>testing-lib</artifactId>
-    <version>0.0.2</version>
+    <version>1.0.0</version>
   </parent>
   
   <artifactId>testing-lib-v1</artifactId>
+  <version>0.0.1</version>
   <packaging>jar</packaging> 
   <name>testing-lib-v1</name>
   <url>http://maven.apache.org</url>

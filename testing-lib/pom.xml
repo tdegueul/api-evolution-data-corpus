@@ -3,7 +3,7 @@
 
   <groupId>cz.zcu.fav.kiv.augustar</groupId>
   <artifactId>testing-lib</artifactId>
-  <version>0.0.2</version>
+  <version>1.0.0</version>
   <packaging>pom</packaging>
   
   <name>testing-lib</name>
@@ -47,8 +47,8 @@
     </repository>
   </distributionManagement>
   
-  <modules>
-  	<module>testing-lib-v1</module>
-  	<module>testing-lib-v2</module>
-  </modules>
+ <modules>
+ 	<module>testing-lib-v1</module>
+ 	<module>testing-lib-v2</module>
+ </modules>
 </project>

@@ -2,6 +2,7 @@ package testing_lib.accessModifierClazzNestedClazzAccessDecrease;
 
 public class AccessModifierClazzNestedClazzAccessDecrease {
 	
+	//Clirr maven plugin NullPointerException
 	public class ClazzPublicToProtected {
 		
 	}

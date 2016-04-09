@@ -5,10 +5,11 @@
   <parent>
     <groupId>cz.zcu.fav.kiv.augustar</groupId>
     <artifactId>testing-lib</artifactId>
-    <version>0.0.2</version>
+    <version>1.0.0</version>
   </parent>
   
   <artifactId>testing-lib-v2</artifactId>
+  <version>0.0.2</version>
   <packaging>jar</packaging> 
   <name>testing-lib-v2</name>
   <url>http://maven.apache.org</url>
@@ -23,12 +24,12 @@
       <artifactId>junit</artifactId>
       <version>3.8.1</version>
       <scope>test</scope>
-    </dependency>  
-    
+    </dependency>
+
     <dependency>
-      <groupId>cz.zcu.fav.kiv.augustar</groupId>
-      <artifactId>testing-lib-v1</artifactId>
-      <version>0.0.2</version>
+    	<groupId>cz.zcu.fav.kiv.augustar</groupId>
+    	<artifactId>testing-lib-v1</artifactId>
+    	<version>0.0.1</version>
     </dependency>
   </dependencies>
   
@@ -44,7 +45,7 @@
             <comparisonArtifact>
               <groupId>cz.zcu.fav.kiv.augustar</groupId>
               <artifactId>testing-lib-v1</artifactId>
-              <version>0.0.2</version>
+              <version>0.0.1</version>
             </comparisonArtifact>
           </comparisonArtifacts>
         </configuration>
@@ -76,6 +77,30 @@
        </executions>
       </plugin>
       
+<!--       <plugin> -->
+<!--         <groupId>com.googlecode.japi-checker</groupId> -->
+<!--         <artifactId>japi-checker-maven-plugin</artifactId> -->
+<!--         <version>0.1.4</version> The check is still in development at the moment so snapshot is the only way to get it. -->
+<!--         <configuration> -->
+<!--             <reference> -->
+<!--                 <groupId>cz.zcu.fav.kiv.augustar</groupId> -->
+<!--     			<artifactId>testing-lib-v1</artifactId> -->
+<!--                 <version>0.0.1</version> -->
+<!--             </reference> -->
+<!--             <rules> -->
+<!--                 <rule>com.googlecode.japi.checker.rules.AllRules</rule> -->
+<!--             </rules> -->
+<!--           </configuration> -->
+<!--           <executions> -->
+<!--             <execution> -->
+<!--               <phase>verify</phase> bind to the packaging phase -->
+<!--               <goals> -->
+<!--                 <goal>check</goal> -->
+<!--               </goals> -->
+<!--             </execution> -->
+<!--           </executions> -->
+<!--       </plugin> -->
+      
     </plugins>
   </build>
   
@@ -90,7 +115,7 @@
             <comparisonArtifact>
               <groupId>cz.zcu.fav.kiv.augustar</groupId>
               <artifactId>testing-lib-v1</artifactId>
-              <version>0.0.2</version>
+              <version>0.0.1</version>
             </comparisonArtifact>
           </comparisonArtifacts>
         </configuration>
