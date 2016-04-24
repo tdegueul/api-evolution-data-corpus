@@ -2,7 +2,7 @@ package testing_lib.genericsClazzConstructorTypeBoundsAddSecond;
 
 public class GenericsClazzConstructorTypeBoundsAddSecond {
 	
-	public <T extends Number> GenericsClazzConstructorTypeBoundsAddSecond(T param1) {
+	public <T extends Number> GenericsClazzConstructorTypeBoundsAddSecond() {
 
 	}
 	

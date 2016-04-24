@@ -2,14 +2,15 @@ package dataTypeIfazeMethodReturnTypeGeneralization;
 
 import testing_lib.dataTypeIfazeMethodReturnTypeGeneralization.DataTypeIfazeMethodReturnTypeGeneralization;
 
-public class Main implements DataTypeIfazeMethodReturnTypeGeneralization{
+public class Main implements DataTypeIfazeMethodReturnTypeGeneralization {
 
-	public static void main(String[] args) {
-
-	}
-
+	@Override
 	public Integer method() {
 		return null;
+	}
+	
+	public static void main(String[] args) {
+
 	}
 
 }

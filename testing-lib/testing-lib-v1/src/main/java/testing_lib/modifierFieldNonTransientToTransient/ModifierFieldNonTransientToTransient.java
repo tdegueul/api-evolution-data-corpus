@@ -2,6 +2,6 @@ package testing_lib.modifierFieldNonTransientToTransient;
 
 public class ModifierFieldNonTransientToTransient {
 	
-	public Integer FIELD = 5;
+	public Integer field = 5;
 
 }

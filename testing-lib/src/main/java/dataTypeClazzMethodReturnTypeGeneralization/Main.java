@@ -7,8 +7,7 @@ public class Main {
 	public static void main(String[] args) {
 
 		DataTypeClazzMethodReturnTypeGeneralization constr = new DataTypeClazzMethodReturnTypeGeneralization();
-		
-		System.out.println(constr.method());
+		Integer test = constr.method();
 		
 	}
 

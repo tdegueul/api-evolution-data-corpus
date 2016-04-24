@@ -6,7 +6,6 @@ public class Main {
 
 	public static void main(String[] args) {
 		GenericsClazzTypeBoundsAdd<Integer> constr = new GenericsClazzTypeBoundsAdd<Integer>();
-		constr.toString();
 	}
 	
 }

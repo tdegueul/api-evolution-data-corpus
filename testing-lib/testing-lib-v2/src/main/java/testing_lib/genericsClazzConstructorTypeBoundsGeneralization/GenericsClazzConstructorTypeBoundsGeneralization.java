@@ -2,7 +2,7 @@ package testing_lib.genericsClazzConstructorTypeBoundsGeneralization;
 
 public class GenericsClazzConstructorTypeBoundsGeneralization {
 	
-	public <T extends Number> GenericsClazzConstructorTypeBoundsGeneralization(T param1) {
+	public <T extends Number> GenericsClazzConstructorTypeBoundsGeneralization() {
 
 	}
 	

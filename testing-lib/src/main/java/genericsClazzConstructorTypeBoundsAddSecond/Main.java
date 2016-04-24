@@ -5,8 +5,7 @@ import testing_lib.genericsClazzConstructorTypeBoundsAddSecond.GenericsClazzCons
 public class Main {
 
 	public static void main(String[] args) {
-		GenericsClazzConstructorTypeBoundsAddSecond constr =  new GenericsClazzConstructorTypeBoundsAddSecond(new Integer(5));
-		constr.toString();
+		GenericsClazzConstructorTypeBoundsAddSecond constr =  new <Number>GenericsClazzConstructorTypeBoundsAddSecond();
 	}
 	
 }

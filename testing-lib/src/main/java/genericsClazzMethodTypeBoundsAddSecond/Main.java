@@ -6,7 +6,7 @@ public class Main {
 
 	public static void main(String[] args) {
 		GenericsClazzMethodTypeBoundsAddSecond constr = new GenericsClazzMethodTypeBoundsAddSecond();
-		constr.<Integer>method1();
+		constr.<Number>method1();
 	}
 	
 }

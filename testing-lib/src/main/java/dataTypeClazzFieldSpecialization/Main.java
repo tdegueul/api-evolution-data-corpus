@@ -6,8 +6,8 @@ public class Main {
 
 	public static void main(String[] args) {
 
-		System.out.println(new DataTypeClazzFieldSpecialization().field1);
-		
+		Number test = new DataTypeClazzFieldSpecialization().field1;
+		System.out.println(test);
 	}
 
 }

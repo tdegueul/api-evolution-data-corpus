@@ -5,8 +5,7 @@ import testing_lib.genericsClazzConstructorTypeBoundsMutation.GenericsClazzConst
 public class Main {
 
 	public static void main(String[] args) {
-		GenericsClazzConstructorTypeBoundsMutation constr =  new GenericsClazzConstructorTypeBoundsMutation(new Integer(5));
-		constr.toString();
+		GenericsClazzConstructorTypeBoundsMutation constr =  new <Integer>GenericsClazzConstructorTypeBoundsMutation();
 	}
 	
 }

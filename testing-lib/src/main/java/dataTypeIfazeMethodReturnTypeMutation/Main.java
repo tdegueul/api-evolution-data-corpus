@@ -4,22 +4,24 @@ import testing_lib.dataTypeIfazeMethodReturnTypeMutation.DataTypeIfazeMethodRetu
 
 public class Main implements DataTypeIfazeMethodReturnTypeMutation{
 	
-	public static void main(String[] args) {
-		
-	}
-
+	@Override
 	public void methodVoidToInteger() {
 		
 	}
 
+	@Override
 	public Integer methodIntegerToVoid() {
 		
 		return null;
 	}
 
+	@Override
 	public Integer methodIntegerToString() {
 		
 		return null;
 	}
 	
+	public static void main(String[] args) {
+		
+	}
 }

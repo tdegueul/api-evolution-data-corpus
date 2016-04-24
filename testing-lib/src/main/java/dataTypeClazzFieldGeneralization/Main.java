@@ -5,8 +5,8 @@ import testing_lib.dataTypeClazzFieldGeneralization.DataTypeClazzFieldGeneraliza
 public class Main {
 
 	public static void main(String[] args) {
-
-		System.out.println(new DataTypeClazzFieldGeneralization().field1); 
+		Integer test = new DataTypeClazzFieldGeneralization().field1;
+		System.out.println(test); 
 	}
 
 }

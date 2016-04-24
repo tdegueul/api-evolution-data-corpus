@@ -4,13 +4,14 @@ import testing_lib.dataTypeIfazeMethodReturnTypeBoxing.DataTypeIfazeMethodReturn
 
 public class Main implements DataTypeIfazeMethodReturnTypeBoxing{
 
-	public static void main(String[] args) {
-
-	}
-
+	@Override
 	public int method1() {
 		
 		return 0;
+	}
+	
+	public static void main(String[] args) {
+
 	}
 
 }

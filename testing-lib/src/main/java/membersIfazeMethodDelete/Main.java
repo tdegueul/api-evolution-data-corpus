@@ -8,6 +8,7 @@ public class Main implements MembersIfazeMethodDelete {
 		
 	}
 
+	@Override
 	public void method1() {
 
 	}

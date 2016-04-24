@@ -6,7 +6,6 @@ public class Main {
 
 	public static void main(String[] args) {
 		GenericsClazzConstructorTypeAdd constr = new GenericsClazzConstructorTypeAdd();
-		constr.toString();
 	}
 	
 }

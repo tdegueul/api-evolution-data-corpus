@@ -4,11 +4,12 @@ import testing_lib.dataTypeIfazeMethodParamNarrowing.DataTypeIfazeMethodParamNar
 
 public class Main implements DataTypeIfazeMethodParamNarrowing {
 
-	public static void main(String[] args) {
-
-	}
-
+	@Override
 	public void method1(double param1) {
+		
+	}
+	
+	public static void main(String[] args) {
 		
 	}
 

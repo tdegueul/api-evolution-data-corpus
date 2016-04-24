@@ -2,7 +2,7 @@ package testing_lib.accessModifierIfazeNestedIfazeAccessIncrease;
 
 public interface AccessModifierIfazeNestedIfazeAccessIncrease {
 	
-	interface IfazePublicToNon {
+	interface IfazeNonToPublic {
 		
 	}
 	

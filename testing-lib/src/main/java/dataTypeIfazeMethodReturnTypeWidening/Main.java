@@ -4,11 +4,12 @@ import testing_lib.dataTypeIfazeMethodReturnTypeWidening.DataTypeIfazeMethodRetu
 
 public class Main implements DataTypeIfazeMethodReturnTypeWidening {
 	
-	public static void main(String[] args) {
-		
-	}
-
+	@Override
 	public int method1() {
 		return 0;
+	}
+	
+	public static void main(String[] args) {
+		
 	}
 }

@@ -7,8 +7,7 @@ public class Main {
 	public static void main(String[] args) {
 
 		DataTypeClazzMethodReturnTypeBoxing constr = new DataTypeClazzMethodReturnTypeBoxing();
-		
-		System.out.println(constr.method());
+		Integer test = constr.method();
 		
 	}
 

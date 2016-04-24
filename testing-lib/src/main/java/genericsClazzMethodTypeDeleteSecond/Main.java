@@ -6,7 +6,7 @@ public class Main {
 
 	public static void main(String[] args) {
 		GenericsClazzMethodTypeDeleteSecond constr = new GenericsClazzMethodTypeDeleteSecond();
-		constr.<String, Integer>method1();
+		constr.<Integer, String>method1();
 	}
 	
 }

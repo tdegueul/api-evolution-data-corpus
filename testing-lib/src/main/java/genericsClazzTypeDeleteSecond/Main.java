@@ -5,8 +5,7 @@ import testing_lib.genericsClazzTypeDeleteSecond.GenericsClazzTypeDeleteSecond;
 public class Main {
 
 	public static void main(String[] args) {
-		GenericsClazzTypeDeleteSecond<String, Integer> constr = new GenericsClazzTypeDeleteSecond<String, Integer>();
-		constr.toString();
+		GenericsClazzTypeDeleteSecond<Integer, String> constr = new GenericsClazzTypeDeleteSecond<Integer, String>();
 	}
 	
 }

@@ -4,12 +4,12 @@ import testing_lib.dataTypeIfazeMethodReturnTypeNarrowing.DataTypeIfazeMethodRet
 
 public class Main implements DataTypeIfazeMethodReturnTypeNarrowing{
 
-	public static void main(String[] args) {
-
-	}
-
+	@Override
 	public double method1() {
 		return 0;
 	}
 
+	public static void main(String[] args) {
+		
+	}
 }

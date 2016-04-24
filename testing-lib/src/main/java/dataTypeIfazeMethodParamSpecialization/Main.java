@@ -4,12 +4,12 @@ import testing_lib.dataTypeIfazeMethodParamSpecialization.DataTypeIfazeMethodPar
 
 public class Main implements DataTypeIfazeMethodParamSpecialization{
 
-	public static void main(String[] args) {
-
-	}
-
+	@Override
 	public void method1(Number param1) {
 		
 	}
 
+	public static void main(String[] args) {
+		
+	}
 }

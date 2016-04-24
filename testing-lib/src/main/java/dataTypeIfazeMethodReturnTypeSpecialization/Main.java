@@ -4,12 +4,12 @@ import testing_lib.dataTypeIfazeMethodReturnTypeSpecialization.DataTypeIfazeMeth
 
 public class Main implements DataTypeIfazeMethodReturnTypeSpecialization {
 
-	public static void main(String[] args) {
-		
-	}
-
+	@Override
 	public Number method() {
 		return null;
 	}
 	
+	public static void main(String[] args) {
+		
+	}
 }

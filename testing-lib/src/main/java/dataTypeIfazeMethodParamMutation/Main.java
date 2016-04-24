@@ -4,11 +4,12 @@ import testing_lib.dataTypeIfazeMethodParamMutation.DataTypeIfazeMethodParamMuta
 
 public class Main implements DataTypeIfazeMethodParamMutation{
 
-	public static void main(String[] args) {
-
-	}
-
+	@Override
 	public void method1(Integer param1) {
+		
+	}
+	
+	public static void main(String[] args) {
 		
 	}
 

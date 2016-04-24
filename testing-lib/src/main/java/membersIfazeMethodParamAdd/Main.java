@@ -8,6 +8,7 @@ public class Main implements MembersIfazeMethodParamAdd {
 		
 	}
 
+	@Override
 	public void method1() {
 		
 	}

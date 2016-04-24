@@ -7,7 +7,7 @@ import testing_lib.genericsWildcardsClazzConstructorParamAdd.GenericsWildcardsCl
 public class Main {
 
 	public static void main(String[] args) {
-		ArrayList<String> param1 = new ArrayList<String>(); 
+		ArrayList<Integer> param1 = new ArrayList<Integer>(); 
 		GenericsWildcardsClazzConstructorParamAdd constr =  new GenericsWildcardsClazzConstructorParamAdd(param1);
 		constr.toString();
 	}

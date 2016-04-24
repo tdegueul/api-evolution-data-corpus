@@ -7,7 +7,7 @@ import testing_lib.genericsWildcardsClazzConstructorParamLowerBoundsAdd.Generics
 public class Main {
 
 	public static void main(String[] args) {
-		ArrayList<Integer> param1 = new ArrayList<Integer>(); 
+		ArrayList<String> param1 = new ArrayList<String>(); 
 		GenericsWildcardsClazzConstructorParamLowerBoundsAdd constr =  new GenericsWildcardsClazzConstructorParamLowerBoundsAdd(param1);
 		constr.toString();
 	}

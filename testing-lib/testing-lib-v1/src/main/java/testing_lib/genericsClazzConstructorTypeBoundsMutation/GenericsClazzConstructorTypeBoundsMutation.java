@@ -2,7 +2,7 @@ package testing_lib.genericsClazzConstructorTypeBoundsMutation;
 
 public class GenericsClazzConstructorTypeBoundsMutation {
 	
-	public <T extends Integer> GenericsClazzConstructorTypeBoundsMutation(T param1) {
+	public <T extends Integer> GenericsClazzConstructorTypeBoundsMutation() {
 
 	}
 	

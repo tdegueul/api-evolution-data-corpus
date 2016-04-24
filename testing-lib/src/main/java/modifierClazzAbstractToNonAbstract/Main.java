@@ -5,6 +5,6 @@ import testing_lib.modifierClazzAbstractToNonAbstract.ModifierClazzAbstractToNon
 public class Main extends ModifierClazzAbstractToNonAbstract {
 
 	public static void main(String[] args) {
-		
+		Main constr = new Main();
 	}
 }

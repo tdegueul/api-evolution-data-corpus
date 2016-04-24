@@ -7,7 +7,7 @@ public class Main {
 
 	public static void main(String[] args) {
 		Clazz1 constr = new InheritanceClazzStopInherite();
-		constr.toString();
+		constr.methodClazz1();
 	}
 	
 }

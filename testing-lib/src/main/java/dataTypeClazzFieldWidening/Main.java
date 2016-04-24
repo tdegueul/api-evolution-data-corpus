@@ -6,7 +6,8 @@ public class Main {
 
 	public static void main(String[] args) {
 
-		System.out.println(new DataTypeClazzFieldWidening().field1);
+		int test = new DataTypeClazzFieldWidening().field1;
+		System.out.println(test);
 		
 	}
 

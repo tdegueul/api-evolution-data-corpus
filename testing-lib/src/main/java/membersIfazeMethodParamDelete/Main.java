@@ -8,6 +8,7 @@ public class Main implements MembersIfazeMethodParamDelete {
 		
 	}
 
+	@Override
 	public void method1(Integer param1) {
 		
 	}

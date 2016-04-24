@@ -6,8 +6,8 @@ public class Main {
 
 	public static void main(String[] args) {
 
-		System.out.println(new DataTypeClazzFieldNarrowing().field1);
-		
+		double test = new DataTypeClazzFieldNarrowing().field1;
+		System.out.println(test);
 	}
 
 }

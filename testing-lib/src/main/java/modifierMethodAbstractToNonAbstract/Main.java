@@ -5,7 +5,8 @@ import testing_lib.modifierMethodAbstractToNonAbstract.ModifierMethodAbstractToN
 public class Main extends ModifierMethodAbstractToNonAbstract {
 
 	public static void main(String[] args) {
-		
+		Main constr = new Main();
+		constr.method1();
 	}
 
 	@Override

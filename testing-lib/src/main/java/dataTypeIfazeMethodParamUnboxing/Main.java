@@ -4,12 +4,12 @@ import testing_lib.dataTypeIfazeMethodParamUnboxing.DataTypeIfazeMethodParamUnbo
 
 public class Main implements DataTypeIfazeMethodParamUnboxing{
 
-	public static void main(String[] args) {
-
-	}
-
+	@Override
 	public void method1(Integer param1) {
 		
 	}
 
+	public static void main(String[] args) {
+		
+	}
 }

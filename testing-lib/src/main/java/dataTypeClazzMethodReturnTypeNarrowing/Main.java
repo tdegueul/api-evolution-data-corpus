@@ -7,9 +7,7 @@ public class Main {
 	public static void main(String[] args) {
 
 		DataTypeClazzMethodReturnTypeNarrowing constr = new DataTypeClazzMethodReturnTypeNarrowing();
-		
-		System.out.println(constr.method());
-		
+		double test = constr.method();
 		
 	}
 

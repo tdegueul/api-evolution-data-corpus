@@ -5,7 +5,8 @@ import testing_lib.membersIfazeNestedIfazeDelete.MembersIfazeNestedIfazeDelete.N
 public class Main implements NestedIfaze {
 
 	public static void main(String[] args) {
-		
+		NestedIfaze ifaze = new Main();
+		ifaze.toString();
 	}
 	
 }

@@ -4,12 +4,13 @@ import testing_lib.dataTypeIfazeMethodParamMutation.arrayToVarArity.DataTypeIfaz
 
 public class Main implements DataTypeIfazeMethodParamArrayToVarArity{
 
-	public static void main(String[] args) {
-
-	}
-
+	@Override
 	public void method1(Integer param1, Object[] param2) {
 		
+	}
+	
+	public static void main(String[] args) {
+
 	}
 
 }

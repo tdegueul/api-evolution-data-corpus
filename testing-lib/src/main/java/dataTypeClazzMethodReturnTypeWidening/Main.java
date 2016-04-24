@@ -7,8 +7,7 @@ public class Main {
 	public static void main(String[] args) {
 
 		DataTypeClazzMethodReturnTypeWidening constr = new DataTypeClazzMethodReturnTypeWidening();
-		
-		System.out.println(constr.method());
+		int test = constr.method();
 		
 	}
 

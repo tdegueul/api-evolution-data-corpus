@@ -6,8 +6,8 @@ public class Main {
 
 	public static void main(String[] args) {
 
-		System.out.println(DataTypeIfazeConstantNarrowing.FIELD1);
-		
+		double test = DataTypeIfazeConstantNarrowing.FIELD1;
+
 	}
 
 }

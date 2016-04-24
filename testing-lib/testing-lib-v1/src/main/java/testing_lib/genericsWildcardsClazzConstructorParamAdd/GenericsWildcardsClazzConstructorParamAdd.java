@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 public class GenericsWildcardsClazzConstructorParamAdd {
 	
-	public GenericsWildcardsClazzConstructorParamAdd(ArrayList<String> param1) {
+	public GenericsWildcardsClazzConstructorParamAdd(ArrayList<Integer> param1) {
 
 	}
 	

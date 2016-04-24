@@ -6,7 +6,8 @@ public class Main {
 
 	public static void main(String[] args) {
 
-		System.out.println(new DataTypeClazzFieldBoxing().field1);
+		int test = new DataTypeClazzFieldBoxing().field1;
+		System.out.println(test);
 	}
 
 }

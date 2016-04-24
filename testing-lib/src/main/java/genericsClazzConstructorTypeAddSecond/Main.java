@@ -5,8 +5,7 @@ import testing_lib.genericsClazzConstructorTypeAddSecond.GenericsClazzConstructo
 public class Main {
 
 	public static void main(String[] args) {
-		GenericsClazzConstructorTypeAddSecond constr = new GenericsClazzConstructorTypeAddSecond(new Integer(5));
-		constr.toString();
+		GenericsClazzConstructorTypeAddSecond constr = new <Integer>GenericsClazzConstructorTypeAddSecond();
 	}
 	
 }

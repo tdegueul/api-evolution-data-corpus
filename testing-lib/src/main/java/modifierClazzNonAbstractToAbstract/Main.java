@@ -5,7 +5,7 @@ import testing_lib.modifierClazzNonAbstractToAbstract.ModifierClazzNonAbstractTo
 public class Main {
 
 	public static void main(String[] args) {
-		new ModifierClazzNonAbstractToAbstract();
+		ModifierClazzNonAbstractToAbstract constr = new ModifierClazzNonAbstractToAbstract();
 	}
 	
 }

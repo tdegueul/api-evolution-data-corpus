@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 public class GenericsWildcardsClazzConstructorParamDelete {
 	
-	public GenericsWildcardsClazzConstructorParamDelete(ArrayList<String> param1) {
+	public GenericsWildcardsClazzConstructorParamDelete(ArrayList<Integer> param1) {
 
 	}
 	

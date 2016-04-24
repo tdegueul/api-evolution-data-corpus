@@ -6,8 +6,7 @@ public class Main {
 
 	public static void main(String[] args) {
 		
-		int param1 = 5;
-		DataTypeClazzConstructorParamGeneralization constr = new DataTypeClazzConstructorParamGeneralization(param1);
+		DataTypeClazzConstructorParamGeneralization constr = new DataTypeClazzConstructorParamGeneralization(new Integer(5));
 		constr.toString();
 	}
 	

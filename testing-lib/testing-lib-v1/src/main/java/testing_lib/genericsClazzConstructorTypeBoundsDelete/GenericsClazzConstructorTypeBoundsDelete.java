@@ -2,7 +2,7 @@ package testing_lib.genericsClazzConstructorTypeBoundsDelete;
 
 public class GenericsClazzConstructorTypeBoundsDelete {
 	
-	public <T extends Number> GenericsClazzConstructorTypeBoundsDelete(T param1) {
+	public <T extends Number> GenericsClazzConstructorTypeBoundsDelete() {
 
 	}
 	

@@ -7,8 +7,7 @@ public class Main {
 	public static void main(String[] args) {
 
 		DataTypeClazzMethodReturnTypeUnboxing constr = new DataTypeClazzMethodReturnTypeUnboxing();
-		
-		System.out.println(constr.method());
+		int test = constr.method();
 		
 	}
 

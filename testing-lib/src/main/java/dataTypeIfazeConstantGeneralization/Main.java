@@ -6,7 +6,7 @@ public class Main {
 
 	public static void main(String[] args) {
 
-		System.out.println(DataTypeIfazeConstantGeneralization.FIELD1);
+		Integer test = DataTypeIfazeConstantGeneralization.FIELD1;
 		
 	}
 

@@ -1,7 +1,5 @@
 package testing_lib.genericsClazzTypeBoundsAddSecond;
 
-import java.io.Serializable;
-
-public class GenericsClazzTypeBoundsAddSecond<T extends Number & Serializable> {
+public class GenericsClazzTypeBoundsAddSecond<T extends Number & Comparable<T>> {
 
 }

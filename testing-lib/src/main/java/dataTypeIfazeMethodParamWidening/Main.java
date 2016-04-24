@@ -4,12 +4,12 @@ import testing_lib.dataTypeIfazeMethodParamWidening.DataTypeIfazeMethodParamWide
 
 public class Main implements DataTypeIfazeMethodParamWidening{
 
-	public static void main(String[] args) {
-
-	}
-
+	@Override
 	public void method1(int param1) {
 		
 	}
 
+	public static void main(String[] args) {
+		
+	}
 }

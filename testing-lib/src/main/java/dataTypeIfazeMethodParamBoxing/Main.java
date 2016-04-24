@@ -2,13 +2,14 @@ package dataTypeIfazeMethodParamBoxing;
 
 import testing_lib.dataTypeIfazeMethodParamBoxing.DataTypeIfazeMethodParamBoxing;
 
-public class Main implements DataTypeIfazeMethodParamBoxing{
+public class Main implements DataTypeIfazeMethodParamBoxing {
 
-	public static void main(String[] args) {
-		
-	}
-
+	@Override
 	public void method1(int param1) {
+		System.out.println("method1");
+	}
+	
+	public static void main(String[] args) {
 		
 	}
 

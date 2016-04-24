@@ -4,12 +4,12 @@ import testing_lib.dataTypeIfazeMethodReturnTypeUnboxing.DataTypeIfazeMethodRetu
 
 public class Main implements DataTypeIfazeMethodReturnTypeUnboxing{
 
-	public static void main(String[] args) {
-		
-	}
-
+	@Override
 	public Integer method1() {
 		return null;
 	}
 	
+	public static void main(String[] args) {
+		
+	}
 }

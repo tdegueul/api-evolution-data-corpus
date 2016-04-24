@@ -8,7 +8,6 @@ public class Main {
 
 		DataTypeClazzMethodParamArrayToVarArity constr = new DataTypeClazzMethodParamArrayToVarArity();
 		Integer field = 5;
-		
 		Integer[] param1 = new Integer[5];
 		constr.method1(field, param1);
 		

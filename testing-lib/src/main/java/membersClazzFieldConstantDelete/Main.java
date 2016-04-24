@@ -5,7 +5,7 @@ import testing_lib.membersClazzFieldConstantDelete.MembersClazzFieldConstantDele
 public class Main {
 	
 	public static void main(String[] args) {
-		System.out.println(MembersClazzFieldConstantDelete.FIELD);
+		int test = MembersClazzFieldConstantDelete.FIELD;
 	}
 	
 }
