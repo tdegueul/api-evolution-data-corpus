@@ -5,13 +5,15 @@ import testing_lib.inheritanceIfazeExpandSuperinterfaceSet.Interface1;
 
 public class Main implements InheritanceIfazeExpandSuperinterfaceSet {
 
-	public static void main(String[] args) {
-		Main constr = new Main();
-		Interface1 ifaze = constr;
-	}
-
+	@Override
 	public void ifaze1method1() {
 		
 	}
 	
+	public static void main(String[] args) {
+		Main constr = new Main();
+		Interface1 ifaze = constr;
+		ifaze.ifaze1method1();
+	}
+
 }

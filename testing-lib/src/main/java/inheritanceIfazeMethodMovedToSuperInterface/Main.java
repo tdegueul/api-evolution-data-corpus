@@ -4,6 +4,7 @@ import testing_lib.inheritanceIfazeMethodMovedToSuperInterface.InheritanceIfazeM
 
 public class Main implements InheritanceIfazeMethodMovedToSuperInterface {
 
+	@Override
 	public void method1() {
 		
 	}

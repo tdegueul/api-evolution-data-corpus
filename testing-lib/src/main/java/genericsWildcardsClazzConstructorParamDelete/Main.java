@@ -7,7 +7,7 @@ import testing_lib.genericsWildcardsClazzConstructorParamDelete.GenericsWildcard
 public class Main {
 
 	public static void main(String[] args) {
-		ArrayList<Integer> param1 = new ArrayList<Integer>(); 
+		ArrayList<String> param1 = new ArrayList<String>(); 
 		GenericsWildcardsClazzConstructorParamDelete constr =  new GenericsWildcardsClazzConstructorParamDelete(param1);
 		constr.toString();
 	}
