@@ -2,11 +2,10 @@
 
   
 	<!-- with the run-experiment target, this class is then executed with both the old and the new version of the 3rd party lib -->
-	<property name="package" value="genericsClazzConstructorTypeAddSecond" />
+	<property name="package" value="modifierFieldVolatileToNonVolatile" />
 	<property name="error1" value="clear" />
   
 	<property name="main" value="${package}.Main" />
-	<echo message="Package ${package}"/>
 	<property name="program" value="main" />
 	<property name="lib.old" value="lib-1.0" />
 	<property name="lib.new" value="lib-2.0" />
@@ -35,6 +34,9 @@
 	<property name="lib.new.jar" value="${lib.new}.jar" />
 	<property name="lib.old.jar" value="${lib.old}.jar" />
 	  
+	<property name="binary.file" value="binary.txt" />
+	<property name="source.file" value="source.txt" />
+	
 	<target name="packageName">
 	  <antcall target="compile">  </antcall>  
 	  <antcall target="run-experiments">   </antcall>
@@ -58,6 +60,8 @@
 		<delete file="${program.bin}" />
 		<delete file="${lib.new.bin}" />
 		<delete file="${lib.old.bin}" />
+		<delete file="${binary.file}" />
+		<delete file="${source.file}" />
 		<mkdir dir="${new.bin}" />
 		<mkdir dir="${old.bin}" />
 		<mkdir dir="${program.bin}" />
@@ -115,61 +119,53 @@
 	<!-- run experiment with old lib version -->
 	<target name="run-with-lib-version1" description="run experiment with old lib version">
 		<echo>Executing ${main} with original library (${lib.old.jar})</echo>
-		<java classname="${main}" errorproperty="err">
+		<java classname="${main}">
         	<classpath>
            		<pathelement location="${program.jar}"/>
            		<pathelement location="${lib.old.jar}"/>
         	</classpath>
        </java>
-       <condition property="val" value="OK" else="FAIL">
-            <equals arg1="${err}" arg2=""/>
-        </condition>
-
-       <echo>Value of prop is ${err}.</echo>
-       <echo>Value is now  ${val}</echo>
 	</target>
 		
 	<target name="compile-with-lib-version1" description="compile against old lib version">
 	   <echo>Compiling program with original library (${lib.old.jar})</echo>
 	   <javac srcdir="${program.src}"
-		         destdir="${old.bin}"
-		         classpath="${lib.old.jar}"
-	   			 includes="${package}/**"
-		         debug="on"
-		         source="1.8"
-	   			 includeAntRuntime="false"
+		        destdir="${old.bin}"
+		        classpath="${lib.old.jar}"
+	   		 	includes="${package}/**"
+		        debug="on"
+		        source="1.8"
+	   		 	includeAntRuntime="false"
 		/> 	
 	</target>
 	
 	<!-- run experiment with new lib version -->
 	<target name="run-with-lib-version2" description="run experiment with new lib version">
        <echo>Executing ${main} with updated library (${lib.new.jar})</echo>
-       <record name="binary.txt" action="start"/>
-	   <java classname="${main}" errorProperty="err">
+       <record name="${binary.file}" action="start"/>
+	   <java classname="${main}">
         	<classpath>
            		<pathelement location="${program.jar}"/>
            		<pathelement location="${lib.new.jar}"/>
         	</classpath>  
        </java>
-       <record name="binary.txt" action="stop"/>
+       <record name="${binary.file}" action="stop"/>
        
-          
-        <echo>Value of prop is ${err}.</echo>
-       <echo>Value is now  ${val}</echo>
 	</target>
 	
 	<target name="compile-with-lib-version2" description="compile against new lib version">
 	   <echo>Compiling program with updated library (${lib.new.jar})</echo>
-	   <record name="source.txt" action="start"/>
+	   <record name="${source.file}" action="start"/>
 	   <javac srcdir="${program.src}"
-		         destdir="${new.bin}"
-		         classpath="${lib.new.jar}"
-	   			 includes="${package}/**"
-		         debug="on"
-		         source="1.8"
-	   	         includeAntRuntime="false"
+		        destdir="${new.bin}"
+		        classpath="${lib.new.jar}"
+	   			includes="${package}/**"
+		        debug="on"
+		        source="1.8"
+	   	        includeAntRuntime="false"
+	   			failonerror="false"
 		/> 	
-	   <record name="source.txt" action="stop"/>
+	   <record name="${source.file}" action="stop"/>
 	</target>
 
 </project>

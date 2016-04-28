@@ -2,11 +2,10 @@
 
   
 	<!-- with the run-experiment target, this class is then executed with both the old and the new version of the 3rd party lib -->
-	<property name="package" value="genericsWildcardsClazzMethodParamDelete" />
+	<property name="package" value="otherClazzDelete" />
 	<property name="error1" value="clear" />
   
 	<property name="main" value="${package}.Main" />
-	<echo message="Package ${package}"/>
 	<property name="program" value="main" />
 	<property name="lib.old" value="lib-1.0" />
 	<property name="lib.new" value="lib-2.0" />
@@ -73,68 +72,69 @@
 	</target>
 	
 	<!-- run experiment with class defined in main -->
-	<target name="run-experiments" depends="jar,run-with-lib-version1,run-with-lib-version2,compile-with-lib-version1,compile-with-lib-version2" description="run experiments">
-		<echo>Done - main class used was ${package}.Main</echo>
-	</target>
-	
-	<!-- run experiment with old lib version -->
-	<target name="run-with-lib-version1" description="run experiment with old lib version">
-		<echo>Executing ${main} with original library (${lib.old.jar})</echo>
-		<java classname="${main}" errorproperty="err">
-        	<classpath>
-           		<pathelement location="${program.jar}"/>
-           		<pathelement location="${lib.old.jar}"/>
-        	</classpath>
-       </java>
-       <condition property="val" value="OK" else="FAIL">
-            <equals arg1="${err}" arg2=""/>
-        </condition>
-
-       <echo>Value of prop is ${err}.</echo>
-       <echo>Value is now  ${val}</echo>
-	</target>
+		<target name="run-experiments" depends="jar,run-with-lib-version1,run-with-lib-version2,compile-with-lib-version1,compile-with-lib-version2" description="run experiments">
+			<echo>Done - main class used was ${package}.Main</echo>
+		</target>
 		
-	<target name="compile-with-lib-version1" description="compile against old lib version">
-	   <echo>Compiling program with original library (${lib.old.jar})</echo>
-	   <javac srcdir="${program.src}"
-		         destdir="${old.bin}"
-		         classpath="${lib.old.jar}"
-	   			 includes="${package}/**"
-		         debug="on"
-		         source="1.8"
-	   			 includeAntRuntime="false"
-		/> 	
-	</target>
-	
-	<!-- run experiment with new lib version -->
-	<target name="run-with-lib-version2" description="run experiment with new lib version">
-       <echo>Executing ${main} with updated library (${lib.new.jar})</echo>
-       <record name="binary.txt" action="start"/>
-	   <java classname="${main}" errorProperty="err">
-        	<classpath>
-           		<pathelement location="${program.jar}"/>
-           		<pathelement location="${lib.new.jar}"/>
-        	</classpath>  
-       </java>
-       <record name="binary.txt" action="stop"/>
-       
-          
-        <echo>Value of prop is ${err}.</echo>
-       <echo>Value is now  ${val}</echo>
-	</target>
-	
-	<target name="compile-with-lib-version2" description="compile against new lib version">
-	   <echo>Compiling program with updated library (${lib.new.jar})</echo>
-	   <record name="source.txt" action="start"/>
-	   <javac srcdir="${program.src}"
-		         destdir="${new.bin}"
-		         classpath="${lib.new.jar}"
-	   			 includes="${package}/**"
-		         debug="on"
-		         source="1.8"
-	   	         includeAntRuntime="false"
-		/> 	
-	   <record name="source.txt" action="stop"/>
-	</target>
+		<!-- run experiment with old lib version -->
+		<target name="run-with-lib-version1" description="run experiment with old lib version">
+			<echo>Executing ${main} with original library (${lib.old.jar})</echo>
+			<java classname="${main}" errorproperty="err">
+	        	<classpath>
+	           		<pathelement location="${program.jar}"/>
+	           		<pathelement location="${lib.old.jar}"/>
+	        	</classpath>
+	       </java>
+	       <condition property="val" value="OK" else="FAIL">
+	            <equals arg1="${err}" arg2=""/>
+	        </condition>
 
-</project>
+	       <echo>Value of prop is ${err}.</echo>
+	       <echo>Value is now  ${val}</echo>
+		</target>
+			
+		<target name="compile-with-lib-version1" description="compile against old lib version">
+		   <echo>Compiling program with original library (${lib.old.jar})</echo>
+		   <javac srcdir="${program.src}"
+			         destdir="${old.bin}"
+			         classpath="${lib.old.jar}"
+		   			 includes="${package}/**"
+			         debug="on"
+			         source="1.8"
+		   			 includeAntRuntime="false"
+			/> 	
+		</target>
+		
+		<!-- run experiment with new lib version -->
+		<target name="run-with-lib-version2" description="run experiment with new lib version">
+	       <echo>Executing ${main} with updated library (${lib.new.jar})</echo>
+	       <record name="binary.txt" action="start"/>
+		   <java classname="${main}" errorProperty="err">
+	        	<classpath>
+	           		<pathelement location="${program.jar}"/>
+	           		<pathelement location="${lib.new.jar}"/>
+	        	</classpath>  
+	       </java>
+	       <record name="binary.txt" action="stop"/>
+	       
+	          
+	        <echo>Value of prop is ${err}.</echo>
+	       <echo>Value is now  ${val}</echo>
+		</target>
+		
+		<target name="compile-with-lib-version2" description="compile against new lib version">
+		   <echo>Compiling program with updated library (${lib.new.jar})</echo>
+		   <record name="source.txt" action="start"/>
+		   <javac srcdir="${program.src}"
+			         destdir="${new.bin}"
+			         classpath="${lib.new.jar}"
+		   			 includes="${package}/**"
+			         debug="on"
+			         source="1.8"
+		   	         includeAntRuntime="false"
+		   			failonerror="false"
+			/> 	
+		   <record name="source.txt" action="stop"/>
+		</target>
+
+	</project>

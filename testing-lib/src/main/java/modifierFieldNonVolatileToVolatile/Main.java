@@ -1,11 +1,11 @@
 package modifierFieldNonVolatileToVolatile;
 
-import testing_lib.modifierFieldVolatileToNonVolatile.ModifierFieldVolatileToNonVolatile;
+import testing_lib.modifierFieldNonVolatileToVolatile.ModifierFieldNonVolatileToVolatile;
 
 public class Main {
 
 	public static void main(String[] args) {
-		ModifierFieldVolatileToNonVolatile constr = new ModifierFieldVolatileToNonVolatile();
+		ModifierFieldNonVolatileToVolatile constr = new ModifierFieldNonVolatileToVolatile();
 		Integer test = constr.field;
 	}
 	

@@ -8,7 +8,7 @@ public class Main {
 	public static void main(String[] args) {
 		
 		GenericsClazzMethodTypeBoundsAdd constr = new GenericsClazzMethodTypeBoundsAdd();
-		constr.<Integer>method1();
+		constr.<Object>method1();
 		
 	}
 	

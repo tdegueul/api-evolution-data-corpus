@@ -51,6 +51,6 @@
  <modules>
  	<module>testing-lib-v1</module>
  	<module>testing-lib-v2</module>
-    <module>testing-lib-clients</module>
+    
   </modules>
 </project>
