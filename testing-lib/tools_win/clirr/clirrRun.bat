@@ -1,0 +1,1 @@
+java -jar clirr-core-0.6-uber.jar -o ../test_lib/testing-lib-v1-0.0.1.jar -n ../test_lib/testing-lib-v2-0.0.2.jar -f clirrReport.txt

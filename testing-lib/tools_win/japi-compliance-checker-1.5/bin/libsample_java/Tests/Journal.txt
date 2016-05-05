@@ -1,0 +1,10 @@
+TEST CASE: Test_ClassRemovedField
+RESULT: FAILED
+OUTPUT:
+Exception in thread "main" java.lang.NoSuchFieldError: removedField
+	at Test_ClassRemovedField.main(Test_ClassRemovedField.java:5)
+
+
+TEST CASE: Test_RemovedAnnotation
+RESULT: SUCCESS
+

@@ -1,0 +1,1 @@
+@perl "F:\Luna_skola_workspace2\japi-compliance-checker-1.5\bin\japi-compliance-checker" %*
