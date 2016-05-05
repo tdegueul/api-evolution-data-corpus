@@ -17,4 +17,4 @@ echo Spusteni testu Jour:
 java -cp jour/jour-instrument-2.0.3.jar;jour/javassist.jar net.sf.jour.SignatureVerify --src jour/testing-lib-v2-0.0.2.jar -jars test_lib/rt.jar --signature jour/sigTestLib1ApiSignature.xml --level private > reports/jourReport.txt
 
 echo ********* japicc *********
-japi-compliance-checker-1.5/bin/japi-compliance-checker test_lib/testing-lib-v1-0.0.1.jar test_lib/testing-lib-v2-0.0.2.jar -report-path reports/japiccReport.html
+perl japi-compliance-checker-1.5/japi-compliance-checker test_lib/testing-lib-v1-0.0.1.jar test_lib/testing-lib-v2-0.0.2.jar -report-path reports/japiccReport.html

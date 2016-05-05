@@ -1,7 +1,0 @@
-net.sf.clirr.ant
-net.sf.clirr.cli
-net.sf.clirr.core
-net.sf.clirr.core.internal
-net.sf.clirr.core.internal.bcel
-net.sf.clirr.core.internal.checks
-net.sf.clirr.core.spi
