@@ -1,21 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <signature>
-  <interface modifiers="public" name="testing_lib.ZGenericsIfazeTypeDeletePlusMethod.GenericsIfazeTypeDeletePlusMethod">
-    <method modifiers="public abstract" name="method1" return="void">
-      <parameter type="java.lang.Object"/>
-    </method>
-  </interface>
-  <class modifiers="public" name="testing_lib.ZotherClazzMethodParamRename.ClazzMethodParamRename">
-    <constructor modifiers="public"/>
-    <method name="method1" return="void">
-      <parameter type="java.lang.Integer"/>
-    </method>
-  </class>
-  <interface modifiers="public" name="testing_lib.ZotherIfazeMethodParamRename.IfazeMethodParamRename">
-    <method modifiers="public abstract" name="method1" return="void">
-      <parameter type="java.lang.Integer"/>
-    </method>
-  </interface>
   <class modifiers="public" name="testing_lib.accessModifierClazzAccessDecrease.AccessModifierClazzAccessDecrease">
     <constructor modifiers="public"/>
   </class>
@@ -192,24 +176,6 @@
     </constructor>
     <field modifiers="final" name="this$0" type="testing_lib.accessModifierClazzNestedClazzAccessIncrease.AccessModifierClazzNestedClazzAccessIncrease"/>
   </class>
-  <class modifiers="public" name="testing_lib.accessModifierClazzNestedIfazeAccessDecrease.AccessModifierClazzNestedIfazeAccessDecrease">
-    <constructor modifiers="public"/>
-  </class>
-  <interface modifiers="static" name="testing_lib.accessModifierClazzNestedIfazeAccessDecrease.AccessModifierClazzNestedIfazeAccessDecrease$IfazeNonToPrivate"/>
-  <interface modifiers="public static" name="testing_lib.accessModifierClazzNestedIfazeAccessDecrease.AccessModifierClazzNestedIfazeAccessDecrease$IfazeProtectedToNon"/>
-  <interface modifiers="public static" name="testing_lib.accessModifierClazzNestedIfazeAccessDecrease.AccessModifierClazzNestedIfazeAccessDecrease$IfazeProtectedToPrivate"/>
-  <interface modifiers="public static" name="testing_lib.accessModifierClazzNestedIfazeAccessDecrease.AccessModifierClazzNestedIfazeAccessDecrease$IfazePublicToNon"/>
-  <interface modifiers="public static" name="testing_lib.accessModifierClazzNestedIfazeAccessDecrease.AccessModifierClazzNestedIfazeAccessDecrease$IfazePublicToPrivate"/>
-  <interface modifiers="public static" name="testing_lib.accessModifierClazzNestedIfazeAccessDecrease.AccessModifierClazzNestedIfazeAccessDecrease$IfazePublicToProtected"/>
-  <class modifiers="public" name="testing_lib.accessModifierClazzNestedIfazeAccessIncrease.AccessModifierClazzNestedIfazeAccessIncrease">
-    <constructor modifiers="public"/>
-  </class>
-  <interface modifiers="static" name="testing_lib.accessModifierClazzNestedIfazeAccessIncrease.AccessModifierClazzNestedIfazeAccessIncrease$IfazeNonToProtected"/>
-  <interface modifiers="static" name="testing_lib.accessModifierClazzNestedIfazeAccessIncrease.AccessModifierClazzNestedIfazeAccessIncrease$IfazeNonToPublic"/>
-  <interface modifiers="static" name="testing_lib.accessModifierClazzNestedIfazeAccessIncrease.AccessModifierClazzNestedIfazeAccessIncrease$IfazePrivateToNon"/>
-  <interface modifiers="static" name="testing_lib.accessModifierClazzNestedIfazeAccessIncrease.AccessModifierClazzNestedIfazeAccessIncrease$IfazePrivateToProtected"/>
-  <interface modifiers="static" name="testing_lib.accessModifierClazzNestedIfazeAccessIncrease.AccessModifierClazzNestedIfazeAccessIncrease$IfazePrivateToPublic"/>
-  <interface modifiers="public static" name="testing_lib.accessModifierClazzNestedIfazeAccessIncrease.AccessModifierClazzNestedIfazeAccessIncrease$IfazeProtectedToPublic"/>
   <interface modifiers="public" name="testing_lib.accessModifierIfazeFieldAccessDecrease.AccessModifierIfazeFieldAccessDecrease">
     <field modifiers="public static final" name="FIELD_PUBLIC_TO_NON" type="java.lang.Integer"/>
   </interface>
@@ -222,10 +188,6 @@
   <interface modifiers="public" name="testing_lib.accessModifierIfazeMethodAccessIncrease.AccessModifierIfazeMethodAccessIncrease">
     <method modifiers="public abstract" name="methodPublicToNon" return="void"/>
   </interface>
-  <interface modifiers="public" name="testing_lib.accessModifierIfazeNestedIfazeAccessDecrease.AccessModifierIfazeNestedIfazeAccessDecrease"/>
-  <interface modifiers="public static" name="testing_lib.accessModifierIfazeNestedIfazeAccessDecrease.AccessModifierIfazeNestedIfazeAccessDecrease$IfazePublicToNon"/>
-  <interface modifiers="public" name="testing_lib.accessModifierIfazeNestedIfazeAccessIncrease.AccessModifierIfazeNestedIfazeAccessIncrease"/>
-  <interface modifiers="public static" name="testing_lib.accessModifierIfazeNestedIfazeAccessIncrease.AccessModifierIfazeNestedIfazeAccessIncrease$IfazeNonToPublic"/>
   <class modifiers="public" name="testing_lib.dataTypeClazzConstructorParamBoxing.DataTypeClazzConstructorParamBoxing">
     <constructor modifiers="public">
       <parameter type="int"/>
@@ -307,20 +269,6 @@
       <parameter type="java.lang.Integer"/>
     </method>
   </class>
-  <class modifiers="public" name="testing_lib.dataTypeClazzMethodParamMutation.arrayToVarArity.DataTypeClazzMethodParamArrayToVarArity">
-    <constructor modifiers="public"/>
-    <method modifiers="public" name="method1" return="void">
-      <parameter type="java.lang.Integer"/>
-      <parameter type="java.lang.Object[]"/>
-    </method>
-  </class>
-  <class modifiers="public" name="testing_lib.dataTypeClazzMethodParamMutation.varArityToArray.DataTypeClazzMethodParamVarArityToArray">
-    <constructor modifiers="public"/>
-    <method modifiers="public transient" name="method1" return="void">
-      <parameter type="java.lang.Integer"/>
-      <parameter type="java.lang.Object[]"/>
-    </method>
-  </class>
   <class modifiers="public" name="testing_lib.dataTypeClazzMethodParamNarrowing.DataTypeClazzMethodParamNarrowing">
     <constructor modifiers="public"/>
     <method modifiers="public" name="method1" return="void">
@@ -374,7 +322,7 @@
     <method modifiers="public" name="method" return="int"/>
   </class>
   <interface modifiers="public" name="testing_lib.dataTypeIfazeConstantBoxing.DataTypeIfazeConstantBoxing">
-    <field constant-value="5" modifiers="public static final" name="FIELD1" type="int"/>
+    <field modifiers="public static final" name="FIELD1" type="java.lang.Integer"/>
   </interface>
   <interface modifiers="public" name="testing_lib.dataTypeIfazeConstantGeneralization.DataTypeIfazeConstantGeneralization">
     <field modifiers="public static final" name="FIELD1" type="java.lang.Integer"/>
@@ -409,18 +357,6 @@
       <parameter type="java.lang.Integer"/>
     </method>
   </interface>
-  <interface modifiers="public" name="testing_lib.dataTypeIfazeMethodParamMutation.arrayToVarArity.DataTypeIfazeMethodParamArrayToVarArity">
-    <method modifiers="public abstract" name="method1" return="void">
-      <parameter type="java.lang.Integer"/>
-      <parameter type="java.lang.Object[]"/>
-    </method>
-  </interface>
-  <interface modifiers="public" name="testing_lib.dataTypeIfazeMethodParamMutation.varArityToArray.DataTypeIfazeMethodParamVarArityToArray">
-    <method modifiers="public abstract transient" name="method1" return="void">
-      <parameter type="java.lang.Integer"/>
-      <parameter type="java.lang.Object[]"/>
-    </method>
-  </interface>
   <interface modifiers="public" name="testing_lib.dataTypeIfazeMethodParamNarrowing.DataTypeIfazeMethodParamNarrowing">
     <method modifiers="public abstract" name="method1" return="void">
       <parameter type="double"/>
@@ -445,7 +381,7 @@
     <method modifiers="public abstract" name="method1" return="int"/>
   </interface>
   <interface modifiers="public" name="testing_lib.dataTypeIfazeMethodReturnTypeGeneralization.DataTypeIfazeMethodReturnTypeGeneralization">
-    <method modifiers="public abstract" name="method" return="java.lang.Integer"/>
+    <method modifiers="public abstract" name="method1" return="java.lang.Integer"/>
   </interface>
   <interface modifiers="public" name="testing_lib.dataTypeIfazeMethodReturnTypeMutation.DataTypeIfazeMethodReturnTypeMutation">
     <method modifiers="public abstract" name="methodVoidToInteger" return="void"/>
@@ -456,7 +392,7 @@
     <method modifiers="public abstract" name="method1" return="double"/>
   </interface>
   <interface modifiers="public" name="testing_lib.dataTypeIfazeMethodReturnTypeSpecialization.DataTypeIfazeMethodReturnTypeSpecialization">
-    <method modifiers="public abstract" name="method" return="java.lang.Number"/>
+    <method modifiers="public abstract" name="method1" return="java.lang.Number"/>
   </interface>
   <interface modifiers="public" name="testing_lib.dataTypeIfazeMethodReturnTypeUnboxing.DataTypeIfazeMethodReturnTypeUnboxing">
     <method modifiers="public abstract" name="method1" return="java.lang.Integer"/>
@@ -1002,23 +938,6 @@
     </implements>
     <method modifiers="public abstract" name="ifaze2method1" return="void"/>
   </interface>
-  <interface modifiers="public" name="testing_lib.inheritanceIfazeDefaultMethodOverrideAdd.InheritanceIfazeDefaultMethodOverrideAdd">
-    <implements>
-      <interface name="testing_lib.inheritanceIfazeDefaultMethodOverrideAdd.Interface1"/>
-    </implements>
-  </interface>
-  <interface modifiers="public" name="testing_lib.inheritanceIfazeDefaultMethodOverrideAdd.Interface1">
-    <method modifiers="public" name="method1" return="void"/>
-  </interface>
-  <interface modifiers="public" name="testing_lib.inheritanceIfazeDefaultMethodOverrideDelete.InheritanceIfazeDefaultMethodOverrideDelete">
-    <implements>
-      <interface name="testing_lib.inheritanceIfazeDefaultMethodOverrideDelete.Interface1"/>
-    </implements>
-    <method modifiers="public" name="method1" return="void"/>
-  </interface>
-  <interface modifiers="public" name="testing_lib.inheritanceIfazeDefaultMethodOverrideDelete.Interface1">
-    <method modifiers="public" name="method1" return="void"/>
-  </interface>
   <interface modifiers="public" name="testing_lib.inheritanceIfazeExpandSuperinterfaceSet.InheritanceIfazeExpandSuperinterfaceSet">
     <implements>
       <interface name="testing_lib.inheritanceIfazeExpandSuperinterfaceSet.Interface1"/>
@@ -1124,15 +1043,12 @@
   <class modifiers="public" name="testing_lib.membersClazzNestedIfazeAdd.MembersClazzNestedIfazeAdd">
     <constructor modifiers="public"/>
   </class>
-  <class modifiers="public" name="testing_lib.membersClazzNestedIfazeDelete.MembersClazzNestedIfazeDelete">
-    <constructor modifiers="public"/>
-  </class>
-  <interface modifiers="public static" name="testing_lib.membersClazzNestedIfazeDelete.MembersClazzNestedIfazeDelete$NestedIfaze"/>
   <interface modifiers="public" name="testing_lib.membersIfazeConstantAdd.MembersIfazeConstantAdd"/>
   <interface modifiers="public" name="testing_lib.membersIfazeConstantDelete.MembersIfazeConstantDelete">
     <field modifiers="public static final" name="FIELD" type="java.lang.Integer"/>
   </interface>
   <interface modifiers="public" name="testing_lib.membersIfazeMethodAdd.MembersIfazeMethodAdd"/>
+  <interface modifiers="public" name="testing_lib.membersIfazeMethodDefaultAdd.MembersIfazeMethodDefaultAdd"/>
   <interface modifiers="public" name="testing_lib.membersIfazeMethodDelete.MembersIfazeMethodDelete">
     <method modifiers="public abstract" name="method1" return="void"/>
   </interface>
@@ -1145,8 +1061,6 @@
     </method>
   </interface>
   <interface modifiers="public" name="testing_lib.membersIfazeNestedIfazeAdd.MembersIfazeNestedIfazeAdd"/>
-  <interface modifiers="public" name="testing_lib.membersIfazeNestedIfazeDelete.MembersIfazeNestedIfazeDelete"/>
-  <interface modifiers="public static" name="testing_lib.membersIfazeNestedIfazeDelete.MembersIfazeNestedIfazeDelete$NestedIfaze"/>
   <class modifiers="public abstract" name="testing_lib.modifierClazzAbstractToNonAbstract.ModifierClazzAbstractToNonAbstract">
     <constructor modifiers="public"/>
   </class>
@@ -1194,10 +1108,6 @@
   <class modifiers="public" name="testing_lib.modifierFieldStaticToNonStatic.ModifierFieldStaticToNonStatic">
     <constructor modifiers="public"/>
     <field modifiers="public static" name="field" type="java.lang.Integer"/>
-  </class>
-  <class modifiers="public" name="testing_lib.modifierFieldTransientToNonTransient.ModifierFieldTransientToNonTransient">
-    <constructor modifiers="public"/>
-    <field modifiers="public transient" name="field" type="java.lang.Integer"/>
   </class>
   <class modifiers="public" name="testing_lib.modifierFieldVolatileToNonVolatile.ModifierFieldVolatileToNonVolatile">
     <constructor modifiers="public"/>
@@ -1250,6 +1160,15 @@
   <class modifiers="public" name="testing_lib.modifierMethodSynchronizedToNonSynchronized.ModifierMethodSynchronizedToNonSynchronized">
     <constructor modifiers="public"/>
     <method modifiers="public" name="method1" return="void"/>
+  </class>
+  <class modifiers="public" name="testing_lib.modifierNestedClazzNonStaticToStatic.ModifierNestedClazzNonStaticToStatic">
+    <constructor modifiers="public"/>
+  </class>
+  <class modifiers="public" name="testing_lib.modifierNestedClazzNonStaticToStatic.ModifierNestedClazzNonStaticToStatic$NestedClazz">
+    <constructor modifiers="public">
+      <parameter type="testing_lib.modifierNestedClazzNonStaticToStatic.ModifierNestedClazzNonStaticToStatic"/>
+    </constructor>
+    <field modifiers="final" name="this$0" type="testing_lib.modifierNestedClazzNonStaticToStatic.ModifierNestedClazzNonStaticToStatic"/>
   </class>
   <class modifiers="public" name="testing_lib.otherClazzDelete.OtherClazzDelete">
     <constructor modifiers="public"/>
