@@ -27,20 +27,20 @@
     </dependency>
   </dependencies>
   
-  <build>
-    <plugins>
+<!--   <build> -->
+<!--     <plugins> -->
     
-      <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-jar-plugin</artifactId>
-        <version>2.3.1</version>
-        <configuration>
-          <finalName>testing-lib-v2-0.0.1</finalName> 
-          <outputDirectory>../testing-lib-v2/target</outputDirectory>
-        </configuration>
-      </plugin>
+<!--       <plugin> -->
+<!--         <groupId>org.apache.maven.plugins</groupId> -->
+<!--         <artifactId>maven-jar-plugin</artifactId> -->
+<!--         <version>2.3.1</version> -->
+<!--         <configuration> -->
+<!--           <finalName>testing-lib-v2-0.0.1</finalName>  -->
+<!--           <outputDirectory>../testing-lib-v2/target</outputDirectory> -->
+<!--         </configuration> -->
+<!--       </plugin> -->
       
-    </plugins>
-  </build>
+<!--     </plugins> -->
+<!--   </build> -->
   
 </project>

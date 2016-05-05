@@ -1,3 +1,4 @@
+Tato složka obsahuje nástroje používané ve Windows 7 professional.
 Aby bylo možné použít nástroj Java API compliance checker (JAPICC) je nutné mít nainstalovaný perl.
 
 Složka "reports" obsahuje vygenerované reporty jednotlivých nástrojù

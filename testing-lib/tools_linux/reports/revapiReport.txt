@@ -1,0 +1,1189 @@
+old: class testing_lib.accessModifierClazzAccessDecrease.AccessModifierClazzAccessDecrease
+new: <none>
+java.class.externalClassNoLongerExposedInAPI BINARY: BREAKING, SOURCE: BREAKING: A class from supplementary archives is no longer used in a public capacity in the API.
+
+
+old: <none>
+new: class testing_lib.accessModifierClazzAccessIncrease.AccessModifierClazzAccessIncrease
+java.class.externalClassExposedInAPI SEMANTIC: POTENTIALLY_BREAKING, BINARY: NON_BREAKING, SOURCE: NON_BREAKING: A class from supplementary archives is used in a public capacity in the API.
+
+
+old: method void testing_lib.accessModifierClazzConstructorAccessDecrease.AccessModifierClazzConstructorAccessDecrease::<init>()
+new: method void testing_lib.accessModifierClazzConstructorAccessDecrease.AccessModifierClazzConstructorAccessDecrease::<init>()
+java.method.visibilityReduced BINARY: BREAKING, SOURCE: BREAKING: visibility reduced
+
+old: method void testing_lib.accessModifierClazzConstructorAccessDecrease.AccessModifierClazzConstructorAccessDecrease::<init>(int)
+new: method void testing_lib.accessModifierClazzConstructorAccessDecrease.AccessModifierClazzConstructorAccessDecrease::<init>(int)
+java.method.visibilityReduced BINARY: BREAKING, SOURCE: BREAKING: visibility reduced
+
+old: method void testing_lib.accessModifierClazzConstructorAccessDecrease.AccessModifierClazzConstructorAccessDecrease::<init>(int, int)
+new: method void testing_lib.accessModifierClazzConstructorAccessDecrease.AccessModifierClazzConstructorAccessDecrease::<init>(int, int)
+java.method.visibilityReduced BINARY: BREAKING, SOURCE: BREAKING: visibility reduced
+
+old: method void testing_lib.accessModifierClazzConstructorAccessDecrease.AccessModifierClazzConstructorAccessDecrease::<init>(int, int, int)
+new: method void testing_lib.accessModifierClazzConstructorAccessDecrease.AccessModifierClazzConstructorAccessDecrease::<init>(int, int, int)
+java.method.visibilityReduced BINARY: BREAKING, SOURCE: BREAKING: visibility reduced
+
+old: method void testing_lib.accessModifierClazzConstructorAccessDecrease.AccessModifierClazzConstructorAccessDecrease::<init>(int, int, int, int)
+new: method void testing_lib.accessModifierClazzConstructorAccessDecrease.AccessModifierClazzConstructorAccessDecrease::<init>(int, int, int, int)
+java.method.visibilityReduced BINARY: BREAKING, SOURCE: BREAKING: visibility reduced
+
+old: method void testing_lib.accessModifierClazzConstructorAccessIncrease.AccessModifierClazzConstructorAccessIncrease::<init>(int)
+new: method void testing_lib.accessModifierClazzConstructorAccessIncrease.AccessModifierClazzConstructorAccessIncrease::<init>(int)
+java.method.visibilityIncreased BINARY: NON_BREAKING, SOURCE: NON_BREAKING: visibility increased
+
+old: method void testing_lib.accessModifierClazzConstructorAccessIncrease.AccessModifierClazzConstructorAccessIncrease::<init>(int, int)
+new: method void testing_lib.accessModifierClazzConstructorAccessIncrease.AccessModifierClazzConstructorAccessIncrease::<init>(int, int)
+java.method.visibilityIncreased BINARY: NON_BREAKING, SOURCE: NON_BREAKING: visibility increased
+
+old: method void testing_lib.accessModifierClazzConstructorAccessIncrease.AccessModifierClazzConstructorAccessIncrease::<init>(int, int, int)
+new: method void testing_lib.accessModifierClazzConstructorAccessIncrease.AccessModifierClazzConstructorAccessIncrease::<init>(int, int, int)
+java.method.visibilityIncreased BINARY: NON_BREAKING, SOURCE: NON_BREAKING: visibility increased
+
+old: method void testing_lib.accessModifierClazzConstructorAccessIncrease.AccessModifierClazzConstructorAccessIncrease::<init>(int, int, int, int)
+new: method void testing_lib.accessModifierClazzConstructorAccessIncrease.AccessModifierClazzConstructorAccessIncrease::<init>(int, int, int, int)
+java.method.visibilityIncreased BINARY: NON_BREAKING, SOURCE: NON_BREAKING: visibility increased
+
+old: method void testing_lib.accessModifierClazzConstructorAccessIncrease.AccessModifierClazzConstructorAccessIncrease::<init>(int, int, int, int, int)
+new: method void testing_lib.accessModifierClazzConstructorAccessIncrease.AccessModifierClazzConstructorAccessIncrease::<init>(int, int, int, int, int)
+java.method.visibilityIncreased BINARY: NON_BREAKING, SOURCE: NON_BREAKING: visibility increased
+
+old: field testing_lib.accessModifierClazzFieldAccessDecrease.AccessModifierClazzFieldAccessDecrease.fieldProtectedToNon
+new: field testing_lib.accessModifierClazzFieldAccessDecrease.AccessModifierClazzFieldAccessDecrease.fieldProtectedToNon
+java.field.visibilityReduced BINARY: BREAKING, SOURCE: BREAKING: Visibility was reduced from 'protected' to 'package'.
+
+old: field testing_lib.accessModifierClazzFieldAccessDecrease.AccessModifierClazzFieldAccessDecrease.fieldProtectedToPrivate
+new: field testing_lib.accessModifierClazzFieldAccessDecrease.AccessModifierClazzFieldAccessDecrease.fieldProtectedToPrivate
+java.field.visibilityReduced BINARY: BREAKING, SOURCE: BREAKING: Visibility was reduced from 'protected' to 'private'.
+
+old: field testing_lib.accessModifierClazzFieldAccessDecrease.AccessModifierClazzFieldAccessDecrease.fieldPublicToNon
+new: field testing_lib.accessModifierClazzFieldAccessDecrease.AccessModifierClazzFieldAccessDecrease.fieldPublicToNon
+java.field.visibilityReduced BINARY: BREAKING, SOURCE: BREAKING: Visibility was reduced from 'public' to 'package'.
+
+old: field testing_lib.accessModifierClazzFieldAccessDecrease.AccessModifierClazzFieldAccessDecrease.fieldPublicToPrivate
+new: field testing_lib.accessModifierClazzFieldAccessDecrease.AccessModifierClazzFieldAccessDecrease.fieldPublicToPrivate
+java.field.visibilityReduced BINARY: BREAKING, SOURCE: BREAKING: Visibility was reduced from 'public' to 'private'.
+
+old: field testing_lib.accessModifierClazzFieldAccessDecrease.AccessModifierClazzFieldAccessDecrease.fieldPublicToProtected
+new: field testing_lib.accessModifierClazzFieldAccessDecrease.AccessModifierClazzFieldAccessDecrease.fieldPublicToProtected
+java.field.visibilityReduced BINARY: BREAKING, SOURCE: BREAKING: Visibility was reduced from 'public' to 'protected'.
+
+old: field testing_lib.accessModifierClazzFieldAccessIncrease.AccessModifierClazzFieldAccessIncrease.fieldNonToProtected
+new: field testing_lib.accessModifierClazzFieldAccessIncrease.AccessModifierClazzFieldAccessIncrease.fieldNonToProtected
+java.field.visibilityIncreased BINARY: NON_BREAKING, SOURCE: NON_BREAKING: Visibility increased from 'package' to 'protected'.
+
+old: field testing_lib.accessModifierClazzFieldAccessIncrease.AccessModifierClazzFieldAccessIncrease.fieldNonToPublic
+new: field testing_lib.accessModifierClazzFieldAccessIncrease.AccessModifierClazzFieldAccessIncrease.fieldNonToPublic
+java.field.visibilityIncreased BINARY: NON_BREAKING, SOURCE: NON_BREAKING: Visibility increased from 'package' to 'public'.
+
+old: field testing_lib.accessModifierClazzFieldAccessIncrease.AccessModifierClazzFieldAccessIncrease.fieldPrivateToProtected
+new: field testing_lib.accessModifierClazzFieldAccessIncrease.AccessModifierClazzFieldAccessIncrease.fieldPrivateToProtected
+java.field.visibilityIncreased BINARY: NON_BREAKING, SOURCE: NON_BREAKING: Visibility increased from 'private' to 'protected'.
+
+old: field testing_lib.accessModifierClazzFieldAccessIncrease.AccessModifierClazzFieldAccessIncrease.fieldPrivateToPublic
+new: field testing_lib.accessModifierClazzFieldAccessIncrease.AccessModifierClazzFieldAccessIncrease.fieldPrivateToPublic
+java.field.visibilityIncreased BINARY: NON_BREAKING, SOURCE: NON_BREAKING: Visibility increased from 'private' to 'public'.
+
+old: field testing_lib.accessModifierClazzFieldAccessIncrease.AccessModifierClazzFieldAccessIncrease.fieldProtectedToPublic
+new: field testing_lib.accessModifierClazzFieldAccessIncrease.AccessModifierClazzFieldAccessIncrease.fieldProtectedToPublic
+java.field.visibilityIncreased BINARY: NON_BREAKING, SOURCE: NON_BREAKING: Visibility increased from 'protected' to 'public'.
+
+old: method void testing_lib.accessModifierClazzMethodAccessDecrease.AccessModifierClazzMethodAccessDecrease::methodProtectedToNon()
+new: method void testing_lib.accessModifierClazzMethodAccessDecrease.AccessModifierClazzMethodAccessDecrease::methodProtectedToNon()
+java.method.visibilityReduced BINARY: BREAKING, SOURCE: BREAKING: visibility reduced
+
+old: method void testing_lib.accessModifierClazzMethodAccessDecrease.AccessModifierClazzMethodAccessDecrease::methodProtectedToPrivate()
+new: method void testing_lib.accessModifierClazzMethodAccessDecrease.AccessModifierClazzMethodAccessDecrease::methodProtectedToPrivate()
+java.method.visibilityReduced BINARY: BREAKING, SOURCE: BREAKING: visibility reduced
+
+old: method void testing_lib.accessModifierClazzMethodAccessDecrease.AccessModifierClazzMethodAccessDecrease::methodPublicToNon()
+new: method void testing_lib.accessModifierClazzMethodAccessDecrease.AccessModifierClazzMethodAccessDecrease::methodPublicToNon()
+java.method.visibilityReduced BINARY: BREAKING, SOURCE: BREAKING: visibility reduced
+
+old: method void testing_lib.accessModifierClazzMethodAccessDecrease.AccessModifierClazzMethodAccessDecrease::methodPublicToPrivate()
+new: method void testing_lib.accessModifierClazzMethodAccessDecrease.AccessModifierClazzMethodAccessDecrease::methodPublicToPrivate()
+java.method.visibilityReduced BINARY: BREAKING, SOURCE: BREAKING: visibility reduced
+
+old: method void testing_lib.accessModifierClazzMethodAccessDecrease.AccessModifierClazzMethodAccessDecrease::methodPublicToProtected()
+new: method void testing_lib.accessModifierClazzMethodAccessDecrease.AccessModifierClazzMethodAccessDecrease::methodPublicToProtected()
+java.method.visibilityReduced BINARY: BREAKING, SOURCE: BREAKING: visibility reduced
+
+old: method void testing_lib.accessModifierClazzMethodAccessIncrease.AccessModifierClazzMethodAccessIncrease::methodNonToProtected()
+new: method void testing_lib.accessModifierClazzMethodAccessIncrease.AccessModifierClazzMethodAccessIncrease::methodNonToProtected()
+java.method.visibilityIncreased BINARY: NON_BREAKING, SOURCE: NON_BREAKING: visibility increased
+
+old: method void testing_lib.accessModifierClazzMethodAccessIncrease.AccessModifierClazzMethodAccessIncrease::methodNonToPublic()
+new: method void testing_lib.accessModifierClazzMethodAccessIncrease.AccessModifierClazzMethodAccessIncrease::methodNonToPublic()
+java.method.visibilityIncreased BINARY: NON_BREAKING, SOURCE: NON_BREAKING: visibility increased
+
+old: method void testing_lib.accessModifierClazzMethodAccessIncrease.AccessModifierClazzMethodAccessIncrease::methodPrivateToProtected()
+new: method void testing_lib.accessModifierClazzMethodAccessIncrease.AccessModifierClazzMethodAccessIncrease::methodPrivateToProtected()
+java.method.visibilityIncreased BINARY: NON_BREAKING, SOURCE: NON_BREAKING: visibility increased
+
+old: method void testing_lib.accessModifierClazzMethodAccessIncrease.AccessModifierClazzMethodAccessIncrease::methodPrivateToPublic()
+new: method void testing_lib.accessModifierClazzMethodAccessIncrease.AccessModifierClazzMethodAccessIncrease::methodPrivateToPublic()
+java.method.visibilityIncreased BINARY: NON_BREAKING, SOURCE: NON_BREAKING: visibility increased
+
+old: method void testing_lib.accessModifierClazzMethodAccessIncrease.AccessModifierClazzMethodAccessIncrease::methodProtectedToPublic()
+new: method void testing_lib.accessModifierClazzMethodAccessIncrease.AccessModifierClazzMethodAccessIncrease::methodProtectedToPublic()
+java.method.visibilityIncreased BINARY: NON_BREAKING, SOURCE: NON_BREAKING: visibility increased
+
+old: method void testing_lib.accessModifierClazzNestedClazzAccessDecrease.AccessModifierClazzNestedClazzAccessDecrease.ClazzProtectedToNon::<init>()
+new: method void testing_lib.accessModifierClazzNestedClazzAccessDecrease.AccessModifierClazzNestedClazzAccessDecrease.ClazzProtectedToNon::<init>()
+java.method.visibilityReduced BINARY: BREAKING, SOURCE: BREAKING: visibility reduced
+
+old: class testing_lib.accessModifierClazzNestedClazzAccessDecrease.AccessModifierClazzNestedClazzAccessDecrease.ClazzProtectedToNon
+new: class testing_lib.accessModifierClazzNestedClazzAccessDecrease.AccessModifierClazzNestedClazzAccessDecrease.ClazzProtectedToNon
+java.class.visibilityReduced BINARY: BREAKING, SOURCE: BREAKING: Visibility was reduced from 'protected' to 'package'.
+
+old: method void testing_lib.accessModifierClazzNestedClazzAccessDecrease.AccessModifierClazzNestedClazzAccessDecrease.ClazzProtectedToPrivate::<init>()
+new: method void testing_lib.accessModifierClazzNestedClazzAccessDecrease.AccessModifierClazzNestedClazzAccessDecrease.ClazzProtectedToPrivate::<init>()
+java.method.visibilityReduced BINARY: BREAKING, SOURCE: BREAKING: visibility reduced
+
+old: class testing_lib.accessModifierClazzNestedClazzAccessDecrease.AccessModifierClazzNestedClazzAccessDecrease.ClazzProtectedToPrivate
+new: class testing_lib.accessModifierClazzNestedClazzAccessDecrease.AccessModifierClazzNestedClazzAccessDecrease.ClazzProtectedToPrivate
+java.class.visibilityReduced BINARY: BREAKING, SOURCE: BREAKING: Visibility was reduced from 'protected' to 'private'.
+
+old: method void testing_lib.accessModifierClazzNestedClazzAccessDecrease.AccessModifierClazzNestedClazzAccessDecrease.ClazzPublicToNon::<init>()
+new: method void testing_lib.accessModifierClazzNestedClazzAccessDecrease.AccessModifierClazzNestedClazzAccessDecrease.ClazzPublicToNon::<init>()
+java.method.visibilityReduced BINARY: BREAKING, SOURCE: BREAKING: visibility reduced
+
+old: class testing_lib.accessModifierClazzNestedClazzAccessDecrease.AccessModifierClazzNestedClazzAccessDecrease.ClazzPublicToNon
+new: class testing_lib.accessModifierClazzNestedClazzAccessDecrease.AccessModifierClazzNestedClazzAccessDecrease.ClazzPublicToNon
+java.class.visibilityReduced BINARY: BREAKING, SOURCE: BREAKING: Visibility was reduced from 'public' to 'package'.
+
+old: method void testing_lib.accessModifierClazzNestedClazzAccessDecrease.AccessModifierClazzNestedClazzAccessDecrease.ClazzPublicToPrivate::<init>()
+new: method void testing_lib.accessModifierClazzNestedClazzAccessDecrease.AccessModifierClazzNestedClazzAccessDecrease.ClazzPublicToPrivate::<init>()
+java.method.visibilityReduced BINARY: BREAKING, SOURCE: BREAKING: visibility reduced
+
+old: class testing_lib.accessModifierClazzNestedClazzAccessDecrease.AccessModifierClazzNestedClazzAccessDecrease.ClazzPublicToPrivate
+new: class testing_lib.accessModifierClazzNestedClazzAccessDecrease.AccessModifierClazzNestedClazzAccessDecrease.ClazzPublicToPrivate
+java.class.visibilityReduced BINARY: BREAKING, SOURCE: BREAKING: Visibility was reduced from 'public' to 'private'.
+
+old: method void testing_lib.accessModifierClazzNestedClazzAccessDecrease.AccessModifierClazzNestedClazzAccessDecrease.ClazzPublicToProtected::<init>()
+new: method void testing_lib.accessModifierClazzNestedClazzAccessDecrease.AccessModifierClazzNestedClazzAccessDecrease.ClazzPublicToProtected::<init>()
+java.method.visibilityReduced BINARY: BREAKING, SOURCE: BREAKING: visibility reduced
+
+old: class testing_lib.accessModifierClazzNestedClazzAccessDecrease.AccessModifierClazzNestedClazzAccessDecrease.ClazzPublicToProtected
+new: class testing_lib.accessModifierClazzNestedClazzAccessDecrease.AccessModifierClazzNestedClazzAccessDecrease.ClazzPublicToProtected
+java.class.visibilityReduced BINARY: BREAKING, SOURCE: BREAKING: Visibility was reduced from 'public' to 'protected'.
+
+old: method void testing_lib.accessModifierClazzNestedClazzAccessIncrease.AccessModifierClazzNestedClazzAccessIncrease.ClazzNonToProtected::<init>()
+new: method void testing_lib.accessModifierClazzNestedClazzAccessIncrease.AccessModifierClazzNestedClazzAccessIncrease.ClazzNonToProtected::<init>()
+java.method.visibilityIncreased BINARY: NON_BREAKING, SOURCE: NON_BREAKING: visibility increased
+
+old: class testing_lib.accessModifierClazzNestedClazzAccessIncrease.AccessModifierClazzNestedClazzAccessIncrease.ClazzNonToProtected
+new: class testing_lib.accessModifierClazzNestedClazzAccessIncrease.AccessModifierClazzNestedClazzAccessIncrease.ClazzNonToProtected
+java.class.visibilityIncreased BINARY: NON_BREAKING, SOURCE: NON_BREAKING: Visibility increased from 'package' to 'protected'.
+
+old: method void testing_lib.accessModifierClazzNestedClazzAccessIncrease.AccessModifierClazzNestedClazzAccessIncrease.ClazzNonToPublic::<init>()
+new: method void testing_lib.accessModifierClazzNestedClazzAccessIncrease.AccessModifierClazzNestedClazzAccessIncrease.ClazzNonToPublic::<init>()
+java.method.visibilityIncreased BINARY: NON_BREAKING, SOURCE: NON_BREAKING: visibility increased
+
+old: class testing_lib.accessModifierClazzNestedClazzAccessIncrease.AccessModifierClazzNestedClazzAccessIncrease.ClazzNonToPublic
+new: class testing_lib.accessModifierClazzNestedClazzAccessIncrease.AccessModifierClazzNestedClazzAccessIncrease.ClazzNonToPublic
+java.class.visibilityIncreased BINARY: NON_BREAKING, SOURCE: NON_BREAKING: Visibility increased from 'package' to 'public'.
+
+old: method void testing_lib.accessModifierClazzNestedClazzAccessIncrease.AccessModifierClazzNestedClazzAccessIncrease.ClazzPrivateToProtected::<init>()
+new: method void testing_lib.accessModifierClazzNestedClazzAccessIncrease.AccessModifierClazzNestedClazzAccessIncrease.ClazzPrivateToProtected::<init>()
+java.method.visibilityIncreased BINARY: NON_BREAKING, SOURCE: NON_BREAKING: visibility increased
+
+old: class testing_lib.accessModifierClazzNestedClazzAccessIncrease.AccessModifierClazzNestedClazzAccessIncrease.ClazzPrivateToProtected
+new: class testing_lib.accessModifierClazzNestedClazzAccessIncrease.AccessModifierClazzNestedClazzAccessIncrease.ClazzPrivateToProtected
+java.class.visibilityIncreased BINARY: NON_BREAKING, SOURCE: NON_BREAKING: Visibility increased from 'private' to 'protected'.
+
+old: method void testing_lib.accessModifierClazzNestedClazzAccessIncrease.AccessModifierClazzNestedClazzAccessIncrease.ClazzPrivateToPublic::<init>()
+new: method void testing_lib.accessModifierClazzNestedClazzAccessIncrease.AccessModifierClazzNestedClazzAccessIncrease.ClazzPrivateToPublic::<init>()
+java.method.visibilityIncreased BINARY: NON_BREAKING, SOURCE: NON_BREAKING: visibility increased
+
+old: class testing_lib.accessModifierClazzNestedClazzAccessIncrease.AccessModifierClazzNestedClazzAccessIncrease.ClazzPrivateToPublic
+new: class testing_lib.accessModifierClazzNestedClazzAccessIncrease.AccessModifierClazzNestedClazzAccessIncrease.ClazzPrivateToPublic
+java.class.visibilityIncreased BINARY: NON_BREAKING, SOURCE: NON_BREAKING: Visibility increased from 'private' to 'public'.
+
+old: method void testing_lib.accessModifierClazzNestedClazzAccessIncrease.AccessModifierClazzNestedClazzAccessIncrease.ClazzProtectedToPublic::<init>()
+new: method void testing_lib.accessModifierClazzNestedClazzAccessIncrease.AccessModifierClazzNestedClazzAccessIncrease.ClazzProtectedToPublic::<init>()
+java.method.visibilityIncreased BINARY: NON_BREAKING, SOURCE: NON_BREAKING: visibility increased
+
+old: class testing_lib.accessModifierClazzNestedClazzAccessIncrease.AccessModifierClazzNestedClazzAccessIncrease.ClazzProtectedToPublic
+new: class testing_lib.accessModifierClazzNestedClazzAccessIncrease.AccessModifierClazzNestedClazzAccessIncrease.ClazzProtectedToPublic
+java.class.visibilityIncreased BINARY: NON_BREAKING, SOURCE: NON_BREAKING: Visibility increased from 'protected' to 'public'.
+
+old: class testing_lib.accessModifierClazzNestedIfazeAccessDecrease.AccessModifierClazzNestedIfazeAccessDecrease.IfazeProtectedToNon
+new: class testing_lib.accessModifierClazzNestedIfazeAccessDecrease.AccessModifierClazzNestedIfazeAccessDecrease.IfazeProtectedToNon
+java.class.visibilityReduced BINARY: BREAKING, SOURCE: BREAKING: Visibility was reduced from 'protected' to 'package'.
+
+old: class testing_lib.accessModifierClazzNestedIfazeAccessDecrease.AccessModifierClazzNestedIfazeAccessDecrease.IfazeProtectedToPrivate
+new: class testing_lib.accessModifierClazzNestedIfazeAccessDecrease.AccessModifierClazzNestedIfazeAccessDecrease.IfazeProtectedToPrivate
+java.class.visibilityReduced BINARY: BREAKING, SOURCE: BREAKING: Visibility was reduced from 'protected' to 'private'.
+
+old: class testing_lib.accessModifierClazzNestedIfazeAccessDecrease.AccessModifierClazzNestedIfazeAccessDecrease.IfazePublicToNon
+new: class testing_lib.accessModifierClazzNestedIfazeAccessDecrease.AccessModifierClazzNestedIfazeAccessDecrease.IfazePublicToNon
+java.class.visibilityReduced BINARY: BREAKING, SOURCE: BREAKING: Visibility was reduced from 'public' to 'package'.
+
+old: class testing_lib.accessModifierClazzNestedIfazeAccessDecrease.AccessModifierClazzNestedIfazeAccessDecrease.IfazePublicToPrivate
+new: class testing_lib.accessModifierClazzNestedIfazeAccessDecrease.AccessModifierClazzNestedIfazeAccessDecrease.IfazePublicToPrivate
+java.class.visibilityReduced BINARY: BREAKING, SOURCE: BREAKING: Visibility was reduced from 'public' to 'private'.
+
+old: class testing_lib.accessModifierClazzNestedIfazeAccessDecrease.AccessModifierClazzNestedIfazeAccessDecrease.IfazePublicToProtected
+new: class testing_lib.accessModifierClazzNestedIfazeAccessDecrease.AccessModifierClazzNestedIfazeAccessDecrease.IfazePublicToProtected
+java.class.visibilityReduced BINARY: BREAKING, SOURCE: BREAKING: Visibility was reduced from 'public' to 'protected'.
+
+old: class testing_lib.accessModifierClazzNestedIfazeAccessIncrease.AccessModifierClazzNestedIfazeAccessIncrease.IfazeNonToProtected
+new: class testing_lib.accessModifierClazzNestedIfazeAccessIncrease.AccessModifierClazzNestedIfazeAccessIncrease.IfazeNonToProtected
+java.class.visibilityIncreased BINARY: NON_BREAKING, SOURCE: NON_BREAKING: Visibility increased from 'package' to 'protected'.
+
+old: class testing_lib.accessModifierClazzNestedIfazeAccessIncrease.AccessModifierClazzNestedIfazeAccessIncrease.IfazeNonToPublic
+new: class testing_lib.accessModifierClazzNestedIfazeAccessIncrease.AccessModifierClazzNestedIfazeAccessIncrease.IfazeNonToPublic
+java.class.visibilityIncreased BINARY: NON_BREAKING, SOURCE: NON_BREAKING: Visibility increased from 'package' to 'public'.
+
+old: class testing_lib.accessModifierClazzNestedIfazeAccessIncrease.AccessModifierClazzNestedIfazeAccessIncrease.IfazePrivateToProtected
+new: class testing_lib.accessModifierClazzNestedIfazeAccessIncrease.AccessModifierClazzNestedIfazeAccessIncrease.IfazePrivateToProtected
+java.class.visibilityIncreased BINARY: NON_BREAKING, SOURCE: NON_BREAKING: Visibility increased from 'private' to 'protected'.
+
+old: class testing_lib.accessModifierClazzNestedIfazeAccessIncrease.AccessModifierClazzNestedIfazeAccessIncrease.IfazePrivateToPublic
+new: class testing_lib.accessModifierClazzNestedIfazeAccessIncrease.AccessModifierClazzNestedIfazeAccessIncrease.IfazePrivateToPublic
+java.class.visibilityIncreased BINARY: NON_BREAKING, SOURCE: NON_BREAKING: Visibility increased from 'private' to 'public'.
+
+old: class testing_lib.accessModifierClazzNestedIfazeAccessIncrease.AccessModifierClazzNestedIfazeAccessIncrease.IfazeProtectedToPublic
+new: class testing_lib.accessModifierClazzNestedIfazeAccessIncrease.AccessModifierClazzNestedIfazeAccessIncrease.IfazeProtectedToPublic
+java.class.visibilityIncreased BINARY: NON_BREAKING, SOURCE: NON_BREAKING: Visibility increased from 'protected' to 'public'.
+
+old: method parameter void testing_lib.dataTypeClazzConstructorParamBoxing.DataTypeClazzConstructorParamBoxing::<init>(===int===)
+new: method parameter void testing_lib.dataTypeClazzConstructorParamBoxing.DataTypeClazzConstructorParamBoxing::<init>(===java.lang.Integer===)
+java.method.parameterTypeChanged BINARY: BREAKING, SOURCE: POTENTIALLY_BREAKING: The type of the parameter changed from 'int' to 'java.lang.Integer'.
+
+old: method parameter void testing_lib.dataTypeClazzConstructorParamGeneralization.DataTypeClazzConstructorParamGeneralization::<init>(===java.lang.Integer===)
+new: method parameter void testing_lib.dataTypeClazzConstructorParamGeneralization.DataTypeClazzConstructorParamGeneralization::<init>(===java.lang.Number===)
+java.method.parameterTypeChanged BINARY: BREAKING, SOURCE: POTENTIALLY_BREAKING: The type of the parameter changed from 'java.lang.Integer' to 'java.lang.Number'.
+
+old: method parameter void testing_lib.dataTypeClazzConstructorParamMutation.DataTypeClazzConstructorParamMutation::<init>(===java.lang.Integer===)
+new: method parameter void testing_lib.dataTypeClazzConstructorParamMutation.DataTypeClazzConstructorParamMutation::<init>(===java.lang.String===)
+java.method.parameterTypeChanged BINARY: BREAKING, SOURCE: POTENTIALLY_BREAKING: The type of the parameter changed from 'java.lang.Integer' to 'java.lang.String'.
+
+old: method parameter void testing_lib.dataTypeClazzConstructorParamNarrowing.DataTypeClazzConstructorParamNarrowing::<init>(===double===)
+new: method parameter void testing_lib.dataTypeClazzConstructorParamNarrowing.DataTypeClazzConstructorParamNarrowing::<init>(===int===)
+java.method.parameterTypeChanged BINARY: BREAKING, SOURCE: POTENTIALLY_BREAKING: The type of the parameter changed from 'double' to 'int'.
+
+old: method parameter void testing_lib.dataTypeClazzConstructorParamSpecialization.DataTypeClazzConstructorParamSpecialization::<init>(===java.lang.Number===)
+new: method parameter void testing_lib.dataTypeClazzConstructorParamSpecialization.DataTypeClazzConstructorParamSpecialization::<init>(===java.lang.Integer===)
+java.method.parameterTypeChanged BINARY: BREAKING, SOURCE: POTENTIALLY_BREAKING: The type of the parameter changed from 'java.lang.Number' to 'java.lang.Integer'.
+
+old: method parameter void testing_lib.dataTypeClazzConstructorParamUnboxing.DataTypeClazzConstructorParamUnboxing::<init>(===java.lang.Integer===)
+new: method parameter void testing_lib.dataTypeClazzConstructorParamUnboxing.DataTypeClazzConstructorParamUnboxing::<init>(===int===)
+java.method.parameterTypeChanged BINARY: BREAKING, SOURCE: POTENTIALLY_BREAKING: The type of the parameter changed from 'java.lang.Integer' to 'int'.
+
+old: method parameter void testing_lib.dataTypeClazzConstructorParamWidening.DataTypeClazzConstructorParamWidening::<init>(===int===)
+new: method parameter void testing_lib.dataTypeClazzConstructorParamWidening.DataTypeClazzConstructorParamWidening::<init>(===double===)
+java.method.parameterTypeChanged BINARY: BREAKING, SOURCE: POTENTIALLY_BREAKING: The type of the parameter changed from 'int' to 'double'.
+
+old: field testing_lib.dataTypeClazzFieldBoxing.DataTypeClazzFieldBoxing.field1
+new: field testing_lib.dataTypeClazzFieldBoxing.DataTypeClazzFieldBoxing.field1
+java.field.typeChanged BINARY: BREAKING, SOURCE: BREAKING: The type of the field changed from 'int' to 'java.lang.Integer'.
+
+old: field testing_lib.dataTypeClazzFieldGeneralization.DataTypeClazzFieldGeneralization.field1
+new: field testing_lib.dataTypeClazzFieldGeneralization.DataTypeClazzFieldGeneralization.field1
+java.field.typeChanged BINARY: BREAKING, SOURCE: BREAKING: The type of the field changed from 'java.lang.Integer' to 'java.lang.Number'.
+
+old: field testing_lib.dataTypeClazzFieldMutation.DataTypeClazzFieldMutation.field1
+new: field testing_lib.dataTypeClazzFieldMutation.DataTypeClazzFieldMutation.field1
+java.field.typeChanged BINARY: BREAKING, SOURCE: BREAKING: The type of the field changed from 'java.lang.Integer' to 'java.lang.String'.
+
+old: field testing_lib.dataTypeClazzFieldNarrowing.DataTypeClazzFieldNarrowing.field1
+new: field testing_lib.dataTypeClazzFieldNarrowing.DataTypeClazzFieldNarrowing.field1
+java.field.typeChanged BINARY: BREAKING, SOURCE: BREAKING: The type of the field changed from 'double' to 'int'.
+
+old: field testing_lib.dataTypeClazzFieldSpecialization.DataTypeClazzFieldSpecialization.field1
+new: field testing_lib.dataTypeClazzFieldSpecialization.DataTypeClazzFieldSpecialization.field1
+java.field.typeChanged BINARY: BREAKING, SOURCE: BREAKING: The type of the field changed from 'java.lang.Number' to 'java.lang.Integer'.
+
+old: field testing_lib.dataTypeClazzFieldUnboxing.DataTypeClazzFieldUnboxing.field1
+new: field testing_lib.dataTypeClazzFieldUnboxing.DataTypeClazzFieldUnboxing.field1
+java.field.typeChanged BINARY: BREAKING, SOURCE: BREAKING: The type of the field changed from 'java.lang.Integer' to 'int'.
+
+old: field testing_lib.dataTypeClazzFieldWidening.DataTypeClazzFieldWidening.field1
+new: field testing_lib.dataTypeClazzFieldWidening.DataTypeClazzFieldWidening.field1
+java.field.typeChanged BINARY: BREAKING, SOURCE: BREAKING: The type of the field changed from 'int' to 'double'.
+
+old: method parameter void testing_lib.dataTypeClazzMethodParamBoxing.DataTypeClazzMethodParamBoxing::method1(===int===)
+new: method parameter void testing_lib.dataTypeClazzMethodParamBoxing.DataTypeClazzMethodParamBoxing::method1(===java.lang.Integer===)
+java.method.parameterTypeChanged BINARY: BREAKING, SOURCE: POTENTIALLY_BREAKING: The type of the parameter changed from 'int' to 'java.lang.Integer'.
+
+old: method parameter void testing_lib.dataTypeClazzMethodParamGeneralization.DataTypeClazzMethodParamGeneralization::method1(===java.lang.Integer===)
+new: method parameter void testing_lib.dataTypeClazzMethodParamGeneralization.DataTypeClazzMethodParamGeneralization::method1(===java.lang.Number===)
+java.method.parameterTypeChanged BINARY: BREAKING, SOURCE: POTENTIALLY_BREAKING: The type of the parameter changed from 'java.lang.Integer' to 'java.lang.Number'.
+
+old: method parameter void testing_lib.dataTypeClazzMethodParamMutation.DataTypeClazzMethodParamMutation::method1(===java.lang.Integer===)
+new: method parameter void testing_lib.dataTypeClazzMethodParamMutation.DataTypeClazzMethodParamMutation::method1(===java.lang.String===)
+java.method.parameterTypeChanged BINARY: BREAKING, SOURCE: POTENTIALLY_BREAKING: The type of the parameter changed from 'java.lang.Integer' to 'java.lang.String'.
+
+old: method parameter void testing_lib.dataTypeClazzMethodParamNarrowing.DataTypeClazzMethodParamNarrowing::method1(===double===)
+new: method parameter void testing_lib.dataTypeClazzMethodParamNarrowing.DataTypeClazzMethodParamNarrowing::method1(===int===)
+java.method.parameterTypeChanged BINARY: BREAKING, SOURCE: POTENTIALLY_BREAKING: The type of the parameter changed from 'double' to 'int'.
+
+old: method parameter void testing_lib.dataTypeClazzMethodParamSpecialization.DataTypeClazzMethodParamSpecialization::method1(===java.lang.Number===)
+new: method parameter void testing_lib.dataTypeClazzMethodParamSpecialization.DataTypeClazzMethodParamSpecialization::method1(===java.lang.Integer===)
+java.method.parameterTypeChanged BINARY: BREAKING, SOURCE: POTENTIALLY_BREAKING: The type of the parameter changed from 'java.lang.Number' to 'java.lang.Integer'.
+
+old: method parameter void testing_lib.dataTypeClazzMethodParamUnboxing.DataTypeClazzMethodParamUnboxing::method1(===java.lang.Integer===)
+new: method parameter void testing_lib.dataTypeClazzMethodParamUnboxing.DataTypeClazzMethodParamUnboxing::method1(===int===)
+java.method.parameterTypeChanged BINARY: BREAKING, SOURCE: POTENTIALLY_BREAKING: The type of the parameter changed from 'java.lang.Integer' to 'int'.
+
+old: method parameter void testing_lib.dataTypeClazzMethodParamWidening.DataTypeClazzMethodParamWidening::method1(===int===)
+new: method parameter void testing_lib.dataTypeClazzMethodParamWidening.DataTypeClazzMethodParamWidening::method1(===double===)
+java.method.parameterTypeChanged BINARY: BREAKING, SOURCE: POTENTIALLY_BREAKING: The type of the parameter changed from 'int' to 'double'.
+
+old: method int testing_lib.dataTypeClazzMethodReturnTypeBoxing.DataTypeClazzMethodReturnTypeBoxing::method()
+new: method java.lang.Integer testing_lib.dataTypeClazzMethodReturnTypeBoxing.DataTypeClazzMethodReturnTypeBoxing::method()
+java.method.returnTypeChanged BINARY: BREAKING, SOURCE: POTENTIALLY_BREAKING: The return type changed from 'int' to  'java.lang.Integer'.
+
+old: method java.lang.Integer testing_lib.dataTypeClazzMethodReturnTypeGeneralization.DataTypeClazzMethodReturnTypeGeneralization::method()
+new: method java.lang.Number testing_lib.dataTypeClazzMethodReturnTypeGeneralization.DataTypeClazzMethodReturnTypeGeneralization::method()
+java.method.returnTypeChanged BINARY: BREAKING, SOURCE: POTENTIALLY_BREAKING: The return type changed from 'java.lang.Integer' to  'java.lang.Number'.
+
+old: method java.lang.Integer testing_lib.dataTypeClazzMethodReturnTypeMutation.DataTypeClazzMethodReturnTypeMutation::method()
+new: method java.lang.String testing_lib.dataTypeClazzMethodReturnTypeMutation.DataTypeClazzMethodReturnTypeMutation::method()
+java.method.returnTypeChanged BINARY: BREAKING, SOURCE: POTENTIALLY_BREAKING: The return type changed from 'java.lang.Integer' to  'java.lang.String'.
+
+old: method double testing_lib.dataTypeClazzMethodReturnTypeNarrowing.DataTypeClazzMethodReturnTypeNarrowing::method()
+new: method int testing_lib.dataTypeClazzMethodReturnTypeNarrowing.DataTypeClazzMethodReturnTypeNarrowing::method()
+java.method.returnTypeChanged BINARY: BREAKING, SOURCE: POTENTIALLY_BREAKING: The return type changed from 'double' to  'int'.
+
+old: method java.lang.Number testing_lib.dataTypeClazzMethodReturnTypeSpecialization.DataTypeClazzMethodReturnTypeSpecialization::method()
+new: method java.lang.Integer testing_lib.dataTypeClazzMethodReturnTypeSpecialization.DataTypeClazzMethodReturnTypeSpecialization::method()
+java.method.returnTypeChanged BINARY: BREAKING, SOURCE: POTENTIALLY_BREAKING: The return type changed from 'java.lang.Number' to  'java.lang.Integer'.
+
+old: method java.lang.Integer testing_lib.dataTypeClazzMethodReturnTypeUnboxing.DataTypeClazzMethodReturnTypeUnboxing::method()
+new: method int testing_lib.dataTypeClazzMethodReturnTypeUnboxing.DataTypeClazzMethodReturnTypeUnboxing::method()
+java.method.returnTypeChanged BINARY: BREAKING, SOURCE: POTENTIALLY_BREAKING: The return type changed from 'java.lang.Integer' to  'int'.
+
+old: method int testing_lib.dataTypeClazzMethodReturnTypeWidening.DataTypeClazzMethodReturnTypeWidening::method()
+new: method double testing_lib.dataTypeClazzMethodReturnTypeWidening.DataTypeClazzMethodReturnTypeWidening::method()
+java.method.returnTypeChanged BINARY: BREAKING, SOURCE: POTENTIALLY_BREAKING: The return type changed from 'int' to  'double'.
+
+old: field testing_lib.dataTypeIfazeConstantGeneralization.DataTypeIfazeConstantGeneralization.FIELD1
+new: field testing_lib.dataTypeIfazeConstantGeneralization.DataTypeIfazeConstantGeneralization.FIELD1
+java.field.typeChanged BINARY: BREAKING, SOURCE: BREAKING: The type of the field changed from 'java.lang.Integer' to 'java.lang.Number'.
+
+old: field testing_lib.dataTypeIfazeConstantMutation.DataTypeIfazeConstantMutation.FIELD1
+new: field testing_lib.dataTypeIfazeConstantMutation.DataTypeIfazeConstantMutation.FIELD1
+java.field.nowConstant BINARY: NON_BREAKING, SOURCE: NON_BREAKING: Field now declares a compile time constant value '5'.
+java.field.typeChanged BINARY: BREAKING, SOURCE: BREAKING: The type of the field changed from 'java.lang.Integer' to 'java.lang.String'.
+
+old: field testing_lib.dataTypeIfazeConstantNarrowing.DataTypeIfazeConstantNarrowing.FIELD1
+new: field testing_lib.dataTypeIfazeConstantNarrowing.DataTypeIfazeConstantNarrowing.FIELD1
+java.field.constantValueChanged SEMANTIC: BREAKING, BINARY: NON_BREAKING, SOURCE: NON_BREAKING: Constant field changed value from '5.0' to '5'.
+java.field.typeChanged BINARY: BREAKING, SOURCE: BREAKING: The type of the field changed from 'double' to 'int'.
+
+old: field testing_lib.dataTypeIfazeConstantSpecialization.DataTypeIfazeConstantSpecialization.FIELD1
+new: field testing_lib.dataTypeIfazeConstantSpecialization.DataTypeIfazeConstantSpecialization.FIELD1
+java.field.typeChanged BINARY: BREAKING, SOURCE: BREAKING: The type of the field changed from 'java.lang.Number' to 'java.lang.Integer'.
+
+old: field testing_lib.dataTypeIfazeConstantUnboxing.DataTypeIfazeConstantUnboxing.FIELD1
+new: field testing_lib.dataTypeIfazeConstantUnboxing.DataTypeIfazeConstantUnboxing.FIELD1
+java.field.nowConstant BINARY: NON_BREAKING, SOURCE: NON_BREAKING: Field now declares a compile time constant value '5'.
+java.field.typeChanged BINARY: BREAKING, SOURCE: BREAKING: The type of the field changed from 'java.lang.Integer' to 'int'.
+
+old: field testing_lib.dataTypeIfazeConstantWidening.DataTypeIfazeConstantWidening.FIELD1
+new: field testing_lib.dataTypeIfazeConstantWidening.DataTypeIfazeConstantWidening.FIELD1
+java.field.constantValueChanged SEMANTIC: BREAKING, BINARY: NON_BREAKING, SOURCE: NON_BREAKING: Constant field changed value from '5' to '5.0'.
+java.field.typeChanged BINARY: BREAKING, SOURCE: BREAKING: The type of the field changed from 'int' to 'double'.
+
+old: method parameter void testing_lib.dataTypeIfazeMethodParamBoxing.DataTypeIfazeMethodParamBoxing::method1(===int===)
+new: method parameter void testing_lib.dataTypeIfazeMethodParamBoxing.DataTypeIfazeMethodParamBoxing::method1(===java.lang.Integer===)
+java.method.parameterTypeChanged BINARY: BREAKING, SOURCE: POTENTIALLY_BREAKING: The type of the parameter changed from 'int' to 'java.lang.Integer'.
+
+old: method parameter void testing_lib.dataTypeIfazeMethodParamGeneralization.DataTypeIfazeMethodParamGeneralization::method1(===java.lang.Integer===)
+new: method parameter void testing_lib.dataTypeIfazeMethodParamGeneralization.DataTypeIfazeMethodParamGeneralization::method1(===java.lang.Number===)
+java.method.parameterTypeChanged BINARY: BREAKING, SOURCE: POTENTIALLY_BREAKING: The type of the parameter changed from 'java.lang.Integer' to 'java.lang.Number'.
+
+old: method parameter void testing_lib.dataTypeIfazeMethodParamMutation.DataTypeIfazeMethodParamMutation::method1(===java.lang.Integer===)
+new: method parameter void testing_lib.dataTypeIfazeMethodParamMutation.DataTypeIfazeMethodParamMutation::method1(===java.lang.String===)
+java.method.parameterTypeChanged BINARY: BREAKING, SOURCE: POTENTIALLY_BREAKING: The type of the parameter changed from 'java.lang.Integer' to 'java.lang.String'.
+
+old: method parameter void testing_lib.dataTypeIfazeMethodParamNarrowing.DataTypeIfazeMethodParamNarrowing::method1(===double===)
+new: method parameter void testing_lib.dataTypeIfazeMethodParamNarrowing.DataTypeIfazeMethodParamNarrowing::method1(===int===)
+java.method.parameterTypeChanged BINARY: BREAKING, SOURCE: POTENTIALLY_BREAKING: The type of the parameter changed from 'double' to 'int'.
+
+old: method parameter void testing_lib.dataTypeIfazeMethodParamSpecialization.DataTypeIfazeMethodParamSpecialization::method1(===java.lang.Number===)
+new: method parameter void testing_lib.dataTypeIfazeMethodParamSpecialization.DataTypeIfazeMethodParamSpecialization::method1(===java.lang.Integer===)
+java.method.parameterTypeChanged BINARY: BREAKING, SOURCE: POTENTIALLY_BREAKING: The type of the parameter changed from 'java.lang.Number' to 'java.lang.Integer'.
+
+old: method parameter void testing_lib.dataTypeIfazeMethodParamUnboxing.DataTypeIfazeMethodParamUnboxing::method1(===java.lang.Integer===)
+new: method parameter void testing_lib.dataTypeIfazeMethodParamUnboxing.DataTypeIfazeMethodParamUnboxing::method1(===int===)
+java.method.parameterTypeChanged BINARY: BREAKING, SOURCE: POTENTIALLY_BREAKING: The type of the parameter changed from 'java.lang.Integer' to 'int'.
+
+old: method parameter void testing_lib.dataTypeIfazeMethodParamWidening.DataTypeIfazeMethodParamWidening::method1(===int===)
+new: method parameter void testing_lib.dataTypeIfazeMethodParamWidening.DataTypeIfazeMethodParamWidening::method1(===double===)
+java.method.parameterTypeChanged BINARY: BREAKING, SOURCE: POTENTIALLY_BREAKING: The type of the parameter changed from 'int' to 'double'.
+
+old: method int testing_lib.dataTypeIfazeMethodReturnTypeBoxing.DataTypeIfazeMethodReturnTypeBoxing::method1()
+new: method java.lang.Integer testing_lib.dataTypeIfazeMethodReturnTypeBoxing.DataTypeIfazeMethodReturnTypeBoxing::method1()
+java.method.returnTypeChanged BINARY: BREAKING, SOURCE: POTENTIALLY_BREAKING: The return type changed from 'int' to  'java.lang.Integer'.
+
+old: method java.lang.Integer testing_lib.dataTypeIfazeMethodReturnTypeGeneralization.DataTypeIfazeMethodReturnTypeGeneralization::method1()
+new: method java.lang.Number testing_lib.dataTypeIfazeMethodReturnTypeGeneralization.DataTypeIfazeMethodReturnTypeGeneralization::method1()
+java.method.returnTypeChanged BINARY: BREAKING, SOURCE: POTENTIALLY_BREAKING: The return type changed from 'java.lang.Integer' to  'java.lang.Number'.
+
+old: method java.lang.Integer testing_lib.dataTypeIfazeMethodReturnTypeMutation.DataTypeIfazeMethodReturnTypeMutation::methodIntegerToString()
+new: method java.lang.String testing_lib.dataTypeIfazeMethodReturnTypeMutation.DataTypeIfazeMethodReturnTypeMutation::methodIntegerToString()
+java.method.returnTypeChanged BINARY: BREAKING, SOURCE: POTENTIALLY_BREAKING: The return type changed from 'java.lang.Integer' to  'java.lang.String'.
+
+old: method java.lang.Integer testing_lib.dataTypeIfazeMethodReturnTypeMutation.DataTypeIfazeMethodReturnTypeMutation::methodIntegerToVoid()
+new: method void testing_lib.dataTypeIfazeMethodReturnTypeMutation.DataTypeIfazeMethodReturnTypeMutation::methodIntegerToVoid()
+java.method.returnTypeChanged BINARY: BREAKING, SOURCE: POTENTIALLY_BREAKING: The return type changed from 'java.lang.Integer' to  'void'.
+
+old: method void testing_lib.dataTypeIfazeMethodReturnTypeMutation.DataTypeIfazeMethodReturnTypeMutation::methodVoidToInteger()
+new: method java.lang.Integer testing_lib.dataTypeIfazeMethodReturnTypeMutation.DataTypeIfazeMethodReturnTypeMutation::methodVoidToInteger()
+java.method.returnTypeChanged BINARY: BREAKING, SOURCE: POTENTIALLY_BREAKING: The return type changed from 'void' to  'java.lang.Integer'.
+
+old: method double testing_lib.dataTypeIfazeMethodReturnTypeNarrowing.DataTypeIfazeMethodReturnTypeNarrowing::method1()
+new: method int testing_lib.dataTypeIfazeMethodReturnTypeNarrowing.DataTypeIfazeMethodReturnTypeNarrowing::method1()
+java.method.returnTypeChanged BINARY: BREAKING, SOURCE: POTENTIALLY_BREAKING: The return type changed from 'double' to  'int'.
+
+old: method java.lang.Number testing_lib.dataTypeIfazeMethodReturnTypeSpecialization.DataTypeIfazeMethodReturnTypeSpecialization::method1()
+new: method java.lang.Integer testing_lib.dataTypeIfazeMethodReturnTypeSpecialization.DataTypeIfazeMethodReturnTypeSpecialization::method1()
+java.method.returnTypeChanged BINARY: BREAKING, SOURCE: POTENTIALLY_BREAKING: The return type changed from 'java.lang.Number' to  'java.lang.Integer'.
+
+old: method java.lang.Integer testing_lib.dataTypeIfazeMethodReturnTypeUnboxing.DataTypeIfazeMethodReturnTypeUnboxing::method1()
+new: method int testing_lib.dataTypeIfazeMethodReturnTypeUnboxing.DataTypeIfazeMethodReturnTypeUnboxing::method1()
+java.method.returnTypeChanged BINARY: BREAKING, SOURCE: POTENTIALLY_BREAKING: The return type changed from 'java.lang.Integer' to  'int'.
+
+old: method int testing_lib.dataTypeIfazeMethodReturnTypeWidening.DataTypeIfazeMethodReturnTypeWidening::method1()
+new: method double testing_lib.dataTypeIfazeMethodReturnTypeWidening.DataTypeIfazeMethodReturnTypeWidening::method1()
+java.method.returnTypeChanged BINARY: BREAKING, SOURCE: POTENTIALLY_BREAKING: The return type changed from 'int' to  'double'.
+
+old: method void testing_lib.exceptionClazzMethodThrowCheckedAdd.ExceptionClazzMethodThrowCheckedAdd::method1()
+new: method void testing_lib.exceptionClazzMethodThrowCheckedAdd.ExceptionClazzMethodThrowCheckedAdd::method1() throws java.io.IOException
+java.method.exception.checkedAdded BINARY: NON_BREAKING, SOURCE: BREAKING: Method newly throws checked exceptions: [java.io.IOException].
+
+old: method void testing_lib.exceptionClazzMethodThrowCheckedDelete.ExceptionClazzMethodThrowCheckedDelete::method1() throws java.io.IOException
+new: method void testing_lib.exceptionClazzMethodThrowCheckedDelete.ExceptionClazzMethodThrowCheckedDelete::method1()
+java.method.exception.checkedRemoved BINARY: NON_BREAKING, SOURCE: BREAKING: Method no longer throws checked exceptions: [java.io.IOException].
+
+old: method void testing_lib.exceptionClazzMethodThrowCheckedGeneralization.ExceptionClazzMethodThrowCheckedGeneralization::method1() throws java.io.FileNotFoundException
+new: method void testing_lib.exceptionClazzMethodThrowCheckedGeneralization.ExceptionClazzMethodThrowCheckedGeneralization::method1() throws java.io.IOException
+java.method.exception.checkedAdded BINARY: NON_BREAKING, SOURCE: BREAKING: Method newly throws checked exceptions: [java.io.IOException].
+java.method.exception.checkedRemoved BINARY: NON_BREAKING, SOURCE: BREAKING: Method no longer throws checked exceptions: [java.io.FileNotFoundException].
+
+old: method void testing_lib.exceptionClazzMethodThrowCheckedMutation.ExceptionClazzMethodThrowCheckedMutation::method1() throws java.io.FileNotFoundException
+new: method void testing_lib.exceptionClazzMethodThrowCheckedMutation.ExceptionClazzMethodThrowCheckedMutation::method1() throws java.lang.NullPointerException
+java.method.exception.runtimeAdded BINARY: NON_BREAKING, SOURCE: NON_BREAKING: Method newly throws runtime exceptions: [java.lang.NullPointerException].
+java.method.exception.checkedRemoved BINARY: NON_BREAKING, SOURCE: BREAKING: Method no longer throws checked exceptions: [java.io.FileNotFoundException].
+
+old: method void testing_lib.exceptionClazzMethodThrowCheckedSpecialization.ExceptionClazzMethodThrowCheckedSpecialization::method1() throws java.io.IOException
+new: method void testing_lib.exceptionClazzMethodThrowCheckedSpecialization.ExceptionClazzMethodThrowCheckedSpecialization::method1() throws java.io.FileNotFoundException
+java.method.exception.checkedAdded BINARY: NON_BREAKING, SOURCE: BREAKING: Method newly throws checked exceptions: [java.io.FileNotFoundException].
+java.method.exception.checkedRemoved BINARY: NON_BREAKING, SOURCE: BREAKING: Method no longer throws checked exceptions: [java.io.IOException].
+
+old: method void testing_lib.exceptionClazzMethodThrowCheckedToTryCatch.ExceptionClazzMethodThrowCheckedToTryCatch::method1(java.io.File) throws java.io.IOException
+new: method void testing_lib.exceptionClazzMethodThrowCheckedToTryCatch.ExceptionClazzMethodThrowCheckedToTryCatch::method1(java.io.File)
+java.method.exception.checkedRemoved BINARY: NON_BREAKING, SOURCE: BREAKING: Method no longer throws checked exceptions: [java.io.IOException].
+
+old: method void testing_lib.exceptionClazzMethodThrowUncheckedAdd.ExceptionClazzMethodThrowUncheckedAdd::method1()
+new: method void testing_lib.exceptionClazzMethodThrowUncheckedAdd.ExceptionClazzMethodThrowUncheckedAdd::method1() throws java.lang.NullPointerException
+java.method.exception.runtimeAdded BINARY: NON_BREAKING, SOURCE: NON_BREAKING: Method newly throws runtime exceptions: [java.lang.NullPointerException].
+
+old: method void testing_lib.exceptionClazzMethodThrowUncheckedDelete.ExceptionClazzMethodThrowUncheckedDelete::method1() throws java.lang.NullPointerException
+new: method void testing_lib.exceptionClazzMethodThrowUncheckedDelete.ExceptionClazzMethodThrowUncheckedDelete::method1()
+java.method.exception.runtimeRemoved BINARY: NON_BREAKING, SOURCE: NON_BREAKING: Method no longer throws runtime exceptions: [java.lang.NullPointerException].
+
+old: method void testing_lib.exceptionClazzMethodThrowUncheckedGeneralization.ExceptionClazzMethodThrowUncheckedGeneralization::method1() throws java.lang.NullPointerException
+new: method void testing_lib.exceptionClazzMethodThrowUncheckedGeneralization.ExceptionClazzMethodThrowUncheckedGeneralization::method1() throws java.lang.RuntimeException
+java.method.exception.runtimeRemoved BINARY: NON_BREAKING, SOURCE: NON_BREAKING: Method no longer throws runtime exceptions: [java.lang.NullPointerException].
+java.method.exception.runtimeAdded BINARY: NON_BREAKING, SOURCE: NON_BREAKING: Method newly throws runtime exceptions: [java.lang.RuntimeException].
+
+old: method void testing_lib.exceptionClazzMethodThrowUncheckedMutation.ExceptionClazzMethodThrowUncheckedMutation::method1() throws java.lang.NullPointerException
+new: method void testing_lib.exceptionClazzMethodThrowUncheckedMutation.ExceptionClazzMethodThrowUncheckedMutation::method1() throws java.io.IOException
+java.method.exception.runtimeRemoved BINARY: NON_BREAKING, SOURCE: NON_BREAKING: Method no longer throws runtime exceptions: [java.lang.NullPointerException].
+java.method.exception.checkedAdded BINARY: NON_BREAKING, SOURCE: BREAKING: Method newly throws checked exceptions: [java.io.IOException].
+
+old: method void testing_lib.exceptionClazzMethodThrowUncheckedSpecialization.ExceptionClazzMethodThrowUncheckedSpecialization::method1() throws java.lang.RuntimeException
+new: method void testing_lib.exceptionClazzMethodThrowUncheckedSpecialization.ExceptionClazzMethodThrowUncheckedSpecialization::method1() throws java.lang.NullPointerException
+java.method.exception.runtimeRemoved BINARY: NON_BREAKING, SOURCE: NON_BREAKING: Method no longer throws runtime exceptions: [java.lang.RuntimeException].
+java.method.exception.runtimeAdded BINARY: NON_BREAKING, SOURCE: NON_BREAKING: Method newly throws runtime exceptions: [java.lang.NullPointerException].
+
+old: method void testing_lib.exceptionClazzMethodTryCatchToThrowChecked.ExceptionClazzMethodTryCatchToThrowChecked::method1(java.io.File)
+new: method void testing_lib.exceptionClazzMethodTryCatchToThrowChecked.ExceptionClazzMethodTryCatchToThrowChecked::method1(java.io.File) throws java.io.IOException
+java.method.exception.checkedAdded BINARY: NON_BREAKING, SOURCE: BREAKING: Method newly throws checked exceptions: [java.io.IOException].
+
+old: method void testing_lib.exceptionIfazeMethodThrowCheckedAdd.ExceptionIfazeMethodThrowCheckedAdd::method1()
+new: method void testing_lib.exceptionIfazeMethodThrowCheckedAdd.ExceptionIfazeMethodThrowCheckedAdd::method1() throws java.io.IOException
+java.method.exception.checkedAdded BINARY: NON_BREAKING, SOURCE: BREAKING: Method newly throws checked exceptions: [java.io.IOException].
+
+old: method void testing_lib.exceptionIfazeMethodThrowCheckedDelete.ExceptionIfazeMethodThrowCheckedDelete::method1() throws java.io.IOException
+new: method void testing_lib.exceptionIfazeMethodThrowCheckedDelete.ExceptionIfazeMethodThrowCheckedDelete::method1()
+java.method.exception.checkedRemoved BINARY: NON_BREAKING, SOURCE: BREAKING: Method no longer throws checked exceptions: [java.io.IOException].
+
+old: method void testing_lib.exceptionIfazeMethodThrowCheckedGeneralization.ExceptionIfazeMethodThrowCheckedGeneralization::method1() throws java.io.FileNotFoundException
+new: method void testing_lib.exceptionIfazeMethodThrowCheckedGeneralization.ExceptionIfazeMethodThrowCheckedGeneralization::method1() throws java.io.IOException
+java.method.exception.checkedAdded BINARY: NON_BREAKING, SOURCE: BREAKING: Method newly throws checked exceptions: [java.io.IOException].
+java.method.exception.checkedRemoved BINARY: NON_BREAKING, SOURCE: BREAKING: Method no longer throws checked exceptions: [java.io.FileNotFoundException].
+
+old: method void testing_lib.exceptionIfazeMethodThrowCheckedMutation.ExceptionIfazeMethodThrowCheckedMutation::method1() throws java.io.FileNotFoundException
+new: method void testing_lib.exceptionIfazeMethodThrowCheckedMutation.ExceptionIfazeMethodThrowCheckedMutation::method1() throws java.lang.NullPointerException
+java.method.exception.runtimeAdded BINARY: NON_BREAKING, SOURCE: NON_BREAKING: Method newly throws runtime exceptions: [java.lang.NullPointerException].
+java.method.exception.checkedRemoved BINARY: NON_BREAKING, SOURCE: BREAKING: Method no longer throws checked exceptions: [java.io.FileNotFoundException].
+
+old: method void testing_lib.exceptionIfazeMethodThrowCheckedSpecialization.ExceptionIfazeMethodThrowCheckedSpecialization::method1() throws java.io.IOException
+new: method void testing_lib.exceptionIfazeMethodThrowCheckedSpecialization.ExceptionIfazeMethodThrowCheckedSpecialization::method1() throws java.io.FileNotFoundException
+java.method.exception.checkedAdded BINARY: NON_BREAKING, SOURCE: BREAKING: Method newly throws checked exceptions: [java.io.FileNotFoundException].
+java.method.exception.checkedRemoved BINARY: NON_BREAKING, SOURCE: BREAKING: Method no longer throws checked exceptions: [java.io.IOException].
+
+old: method void testing_lib.exceptionIfazeMethodThrowUncheckedAdd.ExceptionIfazeMethodThrowUncheckedAdd::method1()
+new: method void testing_lib.exceptionIfazeMethodThrowUncheckedAdd.ExceptionIfazeMethodThrowUncheckedAdd::method1() throws java.lang.NullPointerException
+java.method.exception.runtimeAdded BINARY: NON_BREAKING, SOURCE: NON_BREAKING: Method newly throws runtime exceptions: [java.lang.NullPointerException].
+
+old: method void testing_lib.exceptionIfazeMethodThrowUncheckedDelete.ExceptionIfazeMethodThrowUncheckedDelete::method1() throws java.lang.NullPointerException
+new: method void testing_lib.exceptionIfazeMethodThrowUncheckedDelete.ExceptionIfazeMethodThrowUncheckedDelete::method1()
+java.method.exception.runtimeRemoved BINARY: NON_BREAKING, SOURCE: NON_BREAKING: Method no longer throws runtime exceptions: [java.lang.NullPointerException].
+
+old: method void testing_lib.exceptionIfazeMethodThrowUncheckedGeneralization.ExceptionIfazeMethodThrowUncheckedGeneralization::method1() throws java.lang.NullPointerException
+new: method void testing_lib.exceptionIfazeMethodThrowUncheckedGeneralization.ExceptionIfazeMethodThrowUncheckedGeneralization::method1() throws java.lang.RuntimeException
+java.method.exception.runtimeRemoved BINARY: NON_BREAKING, SOURCE: NON_BREAKING: Method no longer throws runtime exceptions: [java.lang.NullPointerException].
+java.method.exception.runtimeAdded BINARY: NON_BREAKING, SOURCE: NON_BREAKING: Method newly throws runtime exceptions: [java.lang.RuntimeException].
+
+old: method void testing_lib.exceptionIfazeMethodThrowUncheckedMutation.ExceptionIfazeMethodThrowUncheckedMutation::method1() throws java.lang.NullPointerException
+new: method void testing_lib.exceptionIfazeMethodThrowUncheckedMutation.ExceptionIfazeMethodThrowUncheckedMutation::method1() throws java.io.IOException
+java.method.exception.runtimeRemoved BINARY: NON_BREAKING, SOURCE: NON_BREAKING: Method no longer throws runtime exceptions: [java.lang.NullPointerException].
+java.method.exception.checkedAdded BINARY: NON_BREAKING, SOURCE: BREAKING: Method newly throws checked exceptions: [java.io.IOException].
+
+old: method void testing_lib.exceptionIfazeMethodThrowUncheckedSpecialization.ExceptionIfazeMethodThrowUncheckedSpecialization::method1() throws java.lang.RuntimeException
+new: method void testing_lib.exceptionIfazeMethodThrowUncheckedSpecialization.ExceptionIfazeMethodThrowUncheckedSpecialization::method1() throws java.lang.NullPointerException
+java.method.exception.runtimeRemoved BINARY: NON_BREAKING, SOURCE: NON_BREAKING: Method no longer throws runtime exceptions: [java.lang.RuntimeException].
+java.method.exception.runtimeAdded BINARY: NON_BREAKING, SOURCE: NON_BREAKING: Method newly throws runtime exceptions: [java.lang.NullPointerException].
+
+old: method void testing_lib.genericsClazzConstructorTypeAdd.GenericsClazzConstructorTypeAdd::<init>()
+new: method <T> void testing_lib.genericsClazzConstructorTypeAdd.GenericsClazzConstructorTypeAdd::<init>()
+java.generics.elementNowParameterized SEMANTIC: POTENTIALLY_BREAKING, BINARY: NON_BREAKING, SOURCE: NON_BREAKING: Element now defines formal type parameters.
+java.generics.formalTypeParameterAdded BINARY: NON_BREAKING, SOURCE: BREAKING: A new formal type parameter added to element: 'T'.
+
+old: method <T> void testing_lib.genericsClazzConstructorTypeAddSecond.GenericsClazzConstructorTypeAddSecond::<init>()
+new: method <T, K> void testing_lib.genericsClazzConstructorTypeAddSecond.GenericsClazzConstructorTypeAddSecond::<init>()
+java.generics.formalTypeParameterAdded BINARY: NON_BREAKING, SOURCE: BREAKING: A new formal type parameter added to element: 'K'.
+
+old: method <T> void testing_lib.genericsClazzConstructorTypeBoundsAdd.GenericsClazzConstructorTypeBoundsAdd::<init>()
+new: method <T extends java.lang.Number> void testing_lib.genericsClazzConstructorTypeBoundsAdd.GenericsClazzConstructorTypeBoundsAdd::<init>()
+java.generics.formalTypeParameterChanged BINARY: NON_BREAKING, SOURCE: BREAKING: The formal type parameter changed from 'T' to 'T extends java.lang.Number'.
+
+old: method <T extends java.lang.Number> void testing_lib.genericsClazzConstructorTypeBoundsAddSecond.GenericsClazzConstructorTypeBoundsAddSecond::<init>()
+new: method <T extends java.lang.Number, java.lang.Comparable<T>> void testing_lib.genericsClazzConstructorTypeBoundsAddSecond.GenericsClazzConstructorTypeBoundsAddSecond::<init>()
+java.generics.formalTypeParameterChanged BINARY: NON_BREAKING, SOURCE: BREAKING: The formal type parameter changed from 'T extends java.lang.Number' to 'T extends java.lang.Number, java.lang.Comparable<T extends java.lang.Number, java.lang.Comparable<T>>'.
+
+old: method <T extends java.lang.Number> void testing_lib.genericsClazzConstructorTypeBoundsDelete.GenericsClazzConstructorTypeBoundsDelete::<init>()
+new: method <T> void testing_lib.genericsClazzConstructorTypeBoundsDelete.GenericsClazzConstructorTypeBoundsDelete::<init>()
+java.generics.formalTypeParameterChanged BINARY: NON_BREAKING, SOURCE: BREAKING: The formal type parameter changed from 'T extends java.lang.Number' to 'T'.
+
+old: method <T extends java.lang.Number, java.lang.Comparable<T>> void testing_lib.genericsClazzConstructorTypeBoundsDeleteSecond.GenericsClazzConstructorTypeBoundsDeleteSecond::<init>()
+new: method <T extends java.lang.Number> void testing_lib.genericsClazzConstructorTypeBoundsDeleteSecond.GenericsClazzConstructorTypeBoundsDeleteSecond::<init>()
+java.generics.formalTypeParameterChanged BINARY: NON_BREAKING, SOURCE: BREAKING: The formal type parameter changed from 'T extends java.lang.Number, java.lang.Comparable<T extends java.lang.Number, java.lang.Comparable<T>>' to 'T extends java.lang.Number'.
+
+old: method <T extends java.lang.Integer> void testing_lib.genericsClazzConstructorTypeBoundsGeneralization.GenericsClazzConstructorTypeBoundsGeneralization::<init>()
+new: method <T extends java.lang.Number> void testing_lib.genericsClazzConstructorTypeBoundsGeneralization.GenericsClazzConstructorTypeBoundsGeneralization::<init>()
+java.generics.formalTypeParameterChanged BINARY: NON_BREAKING, SOURCE: BREAKING: The formal type parameter changed from 'T extends java.lang.Integer' to 'T extends java.lang.Number'.
+
+old: method <T extends java.lang.Integer> void testing_lib.genericsClazzConstructorTypeBoundsMutation.GenericsClazzConstructorTypeBoundsMutation::<init>()
+new: method <T extends java.lang.String> void testing_lib.genericsClazzConstructorTypeBoundsMutation.GenericsClazzConstructorTypeBoundsMutation::<init>()
+java.generics.formalTypeParameterChanged BINARY: NON_BREAKING, SOURCE: BREAKING: The formal type parameter changed from 'T extends java.lang.Integer' to 'T extends java.lang.String'.
+
+old: method <T extends java.lang.Number> void testing_lib.genericsClazzConstructorTypeBoundsSpecialization.GenericsClazzConstructorTypeBoundsSpecialization::<init>()
+new: method <T extends java.lang.Integer> void testing_lib.genericsClazzConstructorTypeBoundsSpecialization.GenericsClazzConstructorTypeBoundsSpecialization::<init>()
+java.generics.formalTypeParameterChanged BINARY: NON_BREAKING, SOURCE: BREAKING: The formal type parameter changed from 'T extends java.lang.Number' to 'T extends java.lang.Integer'.
+
+old: method <T> void testing_lib.genericsClazzConstructorTypeDelete.GenericsClazzConstructorTypeDelete::<init>()
+new: method void testing_lib.genericsClazzConstructorTypeDelete.GenericsClazzConstructorTypeDelete::<init>()
+java.generics.formalTypeParameterRemoved BINARY: NON_BREAKING, SOURCE: BREAKING: The formal type parameter 'T' was removed from the element.
+
+old: method <T, K> void testing_lib.genericsClazzConstructorTypeDeleteSecond.GenericsClazzConstructorTypeDeleteSecond::<init>()
+new: method <T> void testing_lib.genericsClazzConstructorTypeDeleteSecond.GenericsClazzConstructorTypeDeleteSecond::<init>()
+java.generics.formalTypeParameterRemoved BINARY: NON_BREAKING, SOURCE: BREAKING: The formal type parameter 'K' was removed from the element.
+
+old: method void testing_lib.genericsClazzMethodTypeAdd.GenericsClazzMethodTypeAdd::method1()
+new: method <T> void testing_lib.genericsClazzMethodTypeAdd.GenericsClazzMethodTypeAdd::method1()
+java.generics.elementNowParameterized SEMANTIC: POTENTIALLY_BREAKING, BINARY: NON_BREAKING, SOURCE: NON_BREAKING: Element now defines formal type parameters.
+java.generics.formalTypeParameterAdded BINARY: NON_BREAKING, SOURCE: BREAKING: A new formal type parameter added to element: 'T'.
+
+old: method <T> void testing_lib.genericsClazzMethodTypeAddSecond.GenericsClazzMethodTypeAddSecond::method1()
+new: method <T, K> void testing_lib.genericsClazzMethodTypeAddSecond.GenericsClazzMethodTypeAddSecond::method1()
+java.generics.formalTypeParameterAdded BINARY: NON_BREAKING, SOURCE: BREAKING: A new formal type parameter added to element: 'K'.
+
+old: method <T> void testing_lib.genericsClazzMethodTypeBoundsAdd.GenericsClazzMethodTypeBoundsAdd::method1()
+new: method <T extends java.lang.Number> void testing_lib.genericsClazzMethodTypeBoundsAdd.GenericsClazzMethodTypeBoundsAdd::method1()
+java.generics.formalTypeParameterChanged BINARY: NON_BREAKING, SOURCE: BREAKING: The formal type parameter changed from 'T' to 'T extends java.lang.Number'.
+
+old: method <T extends java.lang.Number> void testing_lib.genericsClazzMethodTypeBoundsAddSecond.GenericsClazzMethodTypeBoundsAddSecond::method1()
+new: method <T extends java.lang.Number, java.lang.Comparable<T>> void testing_lib.genericsClazzMethodTypeBoundsAddSecond.GenericsClazzMethodTypeBoundsAddSecond::method1()
+java.generics.formalTypeParameterChanged BINARY: NON_BREAKING, SOURCE: BREAKING: The formal type parameter changed from 'T extends java.lang.Number' to 'T extends java.lang.Number, java.lang.Comparable<T extends java.lang.Number, java.lang.Comparable<T>>'.
+
+old: method <T extends java.lang.Number> void testing_lib.genericsClazzMethodTypeBoundsDelete.GenericsClazzMethodTypeBoundsDelete::method1()
+new: method <T> void testing_lib.genericsClazzMethodTypeBoundsDelete.GenericsClazzMethodTypeBoundsDelete::method1()
+java.generics.formalTypeParameterChanged BINARY: NON_BREAKING, SOURCE: BREAKING: The formal type parameter changed from 'T extends java.lang.Number' to 'T'.
+
+old: method <T extends java.lang.Number, java.lang.Comparable<T>> void testing_lib.genericsClazzMethodTypeBoundsDeleteSecond.GenericsClazzMethodTypeBoundsDeleteSecond::method1()
+new: method <T extends java.lang.Number> void testing_lib.genericsClazzMethodTypeBoundsDeleteSecond.GenericsClazzMethodTypeBoundsDeleteSecond::method1()
+java.generics.formalTypeParameterChanged BINARY: NON_BREAKING, SOURCE: BREAKING: The formal type parameter changed from 'T extends java.lang.Number, java.lang.Comparable<T extends java.lang.Number, java.lang.Comparable<T>>' to 'T extends java.lang.Number'.
+
+old: method <T extends java.lang.Integer> void testing_lib.genericsClazzMethodTypeBoundsGeneralization.GenericsClazzMethodTypeBoundsGeneralization::method1()
+new: method <T extends java.lang.Number> void testing_lib.genericsClazzMethodTypeBoundsGeneralization.GenericsClazzMethodTypeBoundsGeneralization::method1()
+java.generics.formalTypeParameterChanged BINARY: NON_BREAKING, SOURCE: BREAKING: The formal type parameter changed from 'T extends java.lang.Integer' to 'T extends java.lang.Number'.
+
+old: method <T extends java.lang.Integer> void testing_lib.genericsClazzMethodTypeBoundsMutation.GenericsClazzMethodTypeBoundsMutation::method1()
+new: method <T extends java.lang.String> void testing_lib.genericsClazzMethodTypeBoundsMutation.GenericsClazzMethodTypeBoundsMutation::method1()
+java.generics.formalTypeParameterChanged BINARY: NON_BREAKING, SOURCE: BREAKING: The formal type parameter changed from 'T extends java.lang.Integer' to 'T extends java.lang.String'.
+
+old: method <T extends java.lang.Number> void testing_lib.genericsClazzMethodTypeBoundsSpecialization.GenericsClazzMethodTypeBoundsSpecialization::method1()
+new: method <T extends java.lang.Integer> void testing_lib.genericsClazzMethodTypeBoundsSpecialization.GenericsClazzMethodTypeBoundsSpecialization::method1()
+java.generics.formalTypeParameterChanged BINARY: NON_BREAKING, SOURCE: BREAKING: The formal type parameter changed from 'T extends java.lang.Number' to 'T extends java.lang.Integer'.
+
+old: method <T> void testing_lib.genericsClazzMethodTypeDelete.GenericsClazzMethodTypeDelete::method1()
+new: method void testing_lib.genericsClazzMethodTypeDelete.GenericsClazzMethodTypeDelete::method1()
+java.generics.formalTypeParameterRemoved BINARY: NON_BREAKING, SOURCE: BREAKING: The formal type parameter 'T' was removed from the element.
+
+old: method <T, K> void testing_lib.genericsClazzMethodTypeDeleteSecond.GenericsClazzMethodTypeDeleteSecond::method1()
+new: method <T> void testing_lib.genericsClazzMethodTypeDeleteSecond.GenericsClazzMethodTypeDeleteSecond::method1()
+java.generics.formalTypeParameterRemoved BINARY: NON_BREAKING, SOURCE: BREAKING: The formal type parameter 'K' was removed from the element.
+
+old: class testing_lib.genericsClazzTypeAdd.GenericsClazzTypeAdd
+new: class testing_lib.genericsClazzTypeAdd.GenericsClazzTypeAdd<T>
+java.generics.elementNowParameterized SEMANTIC: POTENTIALLY_BREAKING, BINARY: NON_BREAKING, SOURCE: NON_BREAKING: Element now defines formal type parameters.
+java.generics.formalTypeParameterAdded BINARY: NON_BREAKING, SOURCE: BREAKING: A new formal type parameter added to element: 'T'.
+
+old: class testing_lib.genericsClazzTypeAddSecond.GenericsClazzTypeAddSecond<T>
+new: class testing_lib.genericsClazzTypeAddSecond.GenericsClazzTypeAddSecond<T, K>
+java.generics.formalTypeParameterAdded BINARY: NON_BREAKING, SOURCE: BREAKING: A new formal type parameter added to element: 'K'.
+
+old: class testing_lib.genericsClazzTypeBoundsAdd.GenericsClazzTypeBoundsAdd<T>
+new: class testing_lib.genericsClazzTypeBoundsAdd.GenericsClazzTypeBoundsAdd<T extends java.lang.Number>
+java.generics.formalTypeParameterChanged BINARY: NON_BREAKING, SOURCE: BREAKING: The formal type parameter changed from 'T' to 'T extends java.lang.Number'.
+
+old: class testing_lib.genericsClazzTypeBoundsAddSecond.GenericsClazzTypeBoundsAddSecond<T extends java.lang.Number>
+new: class testing_lib.genericsClazzTypeBoundsAddSecond.GenericsClazzTypeBoundsAddSecond<T extends java.lang.Number, java.lang.Comparable<T extends java.lang.Number, java.lang.Comparable<T>>>
+java.generics.formalTypeParameterChanged BINARY: NON_BREAKING, SOURCE: BREAKING: The formal type parameter changed from 'T extends java.lang.Number' to 'T extends java.lang.Number, java.lang.Comparable<T extends java.lang.Number, java.lang.Comparable<T>>'.
+
+old: class testing_lib.genericsClazzTypeBoundsDelete.GenericsClazzTypeBoundsDelete<T extends java.lang.Number>
+new: class testing_lib.genericsClazzTypeBoundsDelete.GenericsClazzTypeBoundsDelete<T>
+java.generics.formalTypeParameterChanged BINARY: NON_BREAKING, SOURCE: BREAKING: The formal type parameter changed from 'T extends java.lang.Number' to 'T'.
+
+old: class testing_lib.genericsClazzTypeBoundsDeleteSecond.GenericsClazzTypeBoundsDeleteSecond<T extends java.lang.Number, java.lang.Comparable<T extends java.lang.Number, java.lang.Comparable<T>>>
+new: class testing_lib.genericsClazzTypeBoundsDeleteSecond.GenericsClazzTypeBoundsDeleteSecond<T extends java.lang.Number>
+java.generics.formalTypeParameterChanged BINARY: NON_BREAKING, SOURCE: BREAKING: The formal type parameter changed from 'T extends java.lang.Number, java.lang.Comparable<T extends java.lang.Number, java.lang.Comparable<T>>' to 'T extends java.lang.Number'.
+
+old: class testing_lib.genericsClazzTypeBoundsGeneralization.GenericsClazzTypeBoundsGeneralization<T extends java.lang.Integer>
+new: class testing_lib.genericsClazzTypeBoundsGeneralization.GenericsClazzTypeBoundsGeneralization<T extends java.lang.Number>
+java.generics.formalTypeParameterChanged BINARY: NON_BREAKING, SOURCE: BREAKING: The formal type parameter changed from 'T extends java.lang.Integer' to 'T extends java.lang.Number'.
+
+old: class testing_lib.genericsClazzTypeBoundsMutation.GenericsClazzTypeBoundsMutation<T extends java.lang.Integer>
+new: class testing_lib.genericsClazzTypeBoundsMutation.GenericsClazzTypeBoundsMutation<T extends java.lang.String>
+java.generics.formalTypeParameterChanged BINARY: NON_BREAKING, SOURCE: BREAKING: The formal type parameter changed from 'T extends java.lang.Integer' to 'T extends java.lang.String'.
+
+old: class testing_lib.genericsClazzTypeBoundsSpecialization.GenericsClazzTypeBoundsSpecialization<T extends java.lang.Number>
+new: class testing_lib.genericsClazzTypeBoundsSpecialization.GenericsClazzTypeBoundsSpecialization<T extends java.lang.Integer>
+java.generics.formalTypeParameterChanged BINARY: NON_BREAKING, SOURCE: BREAKING: The formal type parameter changed from 'T extends java.lang.Number' to 'T extends java.lang.Integer'.
+
+old: class testing_lib.genericsClazzTypeDelete.GenericsClazzTypeDelete<T>
+new: class testing_lib.genericsClazzTypeDelete.GenericsClazzTypeDelete
+java.generics.formalTypeParameterRemoved BINARY: NON_BREAKING, SOURCE: BREAKING: The formal type parameter 'T' was removed from the element.
+
+old: class testing_lib.genericsClazzTypeDeleteSecond.GenericsClazzTypeDeleteSecond<T, K>
+new: class testing_lib.genericsClazzTypeDeleteSecond.GenericsClazzTypeDeleteSecond<T>
+java.generics.formalTypeParameterRemoved BINARY: NON_BREAKING, SOURCE: BREAKING: The formal type parameter 'K' was removed from the element.
+
+old: method void testing_lib.genericsIfazeMethodTypeAdd.GenericsIfazeMethodTypeAdd::method1()
+new: method <T> void testing_lib.genericsIfazeMethodTypeAdd.GenericsIfazeMethodTypeAdd::method1()
+java.generics.elementNowParameterized SEMANTIC: POTENTIALLY_BREAKING, BINARY: NON_BREAKING, SOURCE: NON_BREAKING: Element now defines formal type parameters.
+java.generics.formalTypeParameterAdded BINARY: NON_BREAKING, SOURCE: BREAKING: A new formal type parameter added to element: 'T'.
+
+old: method <T> void testing_lib.genericsIfazeMethodTypeAddSecond.GenericsIfazeMethodTypeAddSecond::method1()
+new: method <T, K> void testing_lib.genericsIfazeMethodTypeAddSecond.GenericsIfazeMethodTypeAddSecond::method1()
+java.generics.formalTypeParameterAdded BINARY: NON_BREAKING, SOURCE: BREAKING: A new formal type parameter added to element: 'K'.
+
+old: method <T> void testing_lib.genericsIfazeMethodTypeBoundsAdd.GenericsIfazeMethodTypeBoundsAdd::method1()
+new: method <T extends java.lang.Number> void testing_lib.genericsIfazeMethodTypeBoundsAdd.GenericsIfazeMethodTypeBoundsAdd::method1()
+java.generics.formalTypeParameterChanged BINARY: NON_BREAKING, SOURCE: BREAKING: The formal type parameter changed from 'T' to 'T extends java.lang.Number'.
+
+old: method <T extends java.lang.Number> void testing_lib.genericsIfazeMethodTypeBoundsAddSecond.GenericsIfazeMethodTypeBoundsAddSecond::method1()
+new: method <T extends java.lang.Number, java.lang.Comparable<T>> void testing_lib.genericsIfazeMethodTypeBoundsAddSecond.GenericsIfazeMethodTypeBoundsAddSecond::method1()
+java.generics.formalTypeParameterChanged BINARY: NON_BREAKING, SOURCE: BREAKING: The formal type parameter changed from 'T extends java.lang.Number' to 'T extends java.lang.Number, java.lang.Comparable<T extends java.lang.Number, java.lang.Comparable<T>>'.
+
+old: method <T extends java.lang.Number> void testing_lib.genericsIfazeMethodTypeBoundsDelete.GenericsIfazeMethodTypeBoundsDelete::method1()
+new: method <T> void testing_lib.genericsIfazeMethodTypeBoundsDelete.GenericsIfazeMethodTypeBoundsDelete::method1()
+java.generics.formalTypeParameterChanged BINARY: NON_BREAKING, SOURCE: BREAKING: The formal type parameter changed from 'T extends java.lang.Number' to 'T'.
+
+old: method <T extends java.lang.Number, java.lang.Comparable<T>> void testing_lib.genericsIfazeMethodTypeBoundsDeleteSecond.GenericsIfazeMethodTypeBoundsDeleteSecond::method1()
+new: method <T extends java.lang.Number> void testing_lib.genericsIfazeMethodTypeBoundsDeleteSecond.GenericsIfazeMethodTypeBoundsDeleteSecond::method1()
+java.generics.formalTypeParameterChanged BINARY: NON_BREAKING, SOURCE: BREAKING: The formal type parameter changed from 'T extends java.lang.Number, java.lang.Comparable<T extends java.lang.Number, java.lang.Comparable<T>>' to 'T extends java.lang.Number'.
+
+old: method <T extends java.lang.Integer> void testing_lib.genericsIfazeMethodTypeBoundsGeneralization.GenericsIfazeMethodTypeBoundsGeneralization::method1()
+new: method <T extends java.lang.Number> void testing_lib.genericsIfazeMethodTypeBoundsGeneralization.GenericsIfazeMethodTypeBoundsGeneralization::method1()
+java.generics.formalTypeParameterChanged BINARY: NON_BREAKING, SOURCE: BREAKING: The formal type parameter changed from 'T extends java.lang.Integer' to 'T extends java.lang.Number'.
+
+old: method <T extends java.lang.Integer> void testing_lib.genericsIfazeMethodTypeBoundsMutation.GenericsIfazeMethodTypeBoundsMutation::method1()
+new: method <T extends java.lang.String> void testing_lib.genericsIfazeMethodTypeBoundsMutation.GenericsIfazeMethodTypeBoundsMutation::method1()
+java.generics.formalTypeParameterChanged BINARY: NON_BREAKING, SOURCE: BREAKING: The formal type parameter changed from 'T extends java.lang.Integer' to 'T extends java.lang.String'.
+
+old: method <T extends java.lang.Number> void testing_lib.genericsIfazeMethodTypeBoundsSpecialization.GenericsIfazeMethodTypeBoundsSpecialization::method1()
+new: method <T extends java.lang.Integer> void testing_lib.genericsIfazeMethodTypeBoundsSpecialization.GenericsIfazeMethodTypeBoundsSpecialization::method1()
+java.generics.formalTypeParameterChanged BINARY: NON_BREAKING, SOURCE: BREAKING: The formal type parameter changed from 'T extends java.lang.Number' to 'T extends java.lang.Integer'.
+
+old: method <T> void testing_lib.genericsIfazeMethodTypeDelete.GenericsIfazeMethodTypeDelete::method1()
+new: method void testing_lib.genericsIfazeMethodTypeDelete.GenericsIfazeMethodTypeDelete::method1()
+java.generics.formalTypeParameterRemoved BINARY: NON_BREAKING, SOURCE: BREAKING: The formal type parameter 'T' was removed from the element.
+
+old: method <T, K> void testing_lib.genericsIfazeMethodTypeDeleteSecond.GenericsIfazeMethodTypeDeleteSecond::method1()
+new: method <T> void testing_lib.genericsIfazeMethodTypeDeleteSecond.GenericsIfazeMethodTypeDeleteSecond::method1()
+java.generics.formalTypeParameterRemoved BINARY: NON_BREAKING, SOURCE: BREAKING: The formal type parameter 'K' was removed from the element.
+
+old: class testing_lib.genericsIfazeTypeAdd.GenericsIfazeTypeAdd
+new: class testing_lib.genericsIfazeTypeAdd.GenericsIfazeTypeAdd<T>
+java.generics.elementNowParameterized SEMANTIC: POTENTIALLY_BREAKING, BINARY: NON_BREAKING, SOURCE: NON_BREAKING: Element now defines formal type parameters.
+java.generics.formalTypeParameterAdded BINARY: NON_BREAKING, SOURCE: BREAKING: A new formal type parameter added to element: 'T'.
+
+old: class testing_lib.genericsIfazeTypeAddSecond.GenericsIfazeTypeAddSecond<T>
+new: class testing_lib.genericsIfazeTypeAddSecond.GenericsIfazeTypeAddSecond<T, K>
+java.generics.formalTypeParameterAdded BINARY: NON_BREAKING, SOURCE: BREAKING: A new formal type parameter added to element: 'K'.
+
+old: class testing_lib.genericsIfazeTypeBoundsAdd.GenericsIfazeTypeBoundsAdd<T>
+new: class testing_lib.genericsIfazeTypeBoundsAdd.GenericsIfazeTypeBoundsAdd<T extends java.lang.Number>
+java.generics.formalTypeParameterChanged BINARY: NON_BREAKING, SOURCE: BREAKING: The formal type parameter changed from 'T' to 'T extends java.lang.Number'.
+
+old: class testing_lib.genericsIfazeTypeBoundsAddSecond.GenericsIfazeTypeBoundsAddSecond<T extends java.lang.Number>
+new: class testing_lib.genericsIfazeTypeBoundsAddSecond.GenericsIfazeTypeBoundsAddSecond<T extends java.lang.Number, java.lang.Comparable<T extends java.lang.Number, java.lang.Comparable<T>>>
+java.generics.formalTypeParameterChanged BINARY: NON_BREAKING, SOURCE: BREAKING: The formal type parameter changed from 'T extends java.lang.Number' to 'T extends java.lang.Number, java.lang.Comparable<T extends java.lang.Number, java.lang.Comparable<T>>'.
+
+old: class testing_lib.genericsIfazeTypeBoundsDelete.GenericsIfazeTypeBoundsDelete<T extends java.lang.Number>
+new: class testing_lib.genericsIfazeTypeBoundsDelete.GenericsIfazeTypeBoundsDelete<T>
+java.generics.formalTypeParameterChanged BINARY: NON_BREAKING, SOURCE: BREAKING: The formal type parameter changed from 'T extends java.lang.Number' to 'T'.
+
+old: class testing_lib.genericsIfazeTypeBoundsDeleteSecond.GenericsIfazeTypeBoundsDeleteSecond<T extends java.lang.Number, java.lang.Comparable<T extends java.lang.Number, java.lang.Comparable<T>>>
+new: class testing_lib.genericsIfazeTypeBoundsDeleteSecond.GenericsIfazeTypeBoundsDeleteSecond<T extends java.lang.Number>
+java.generics.formalTypeParameterChanged BINARY: NON_BREAKING, SOURCE: BREAKING: The formal type parameter changed from 'T extends java.lang.Number, java.lang.Comparable<T extends java.lang.Number, java.lang.Comparable<T>>' to 'T extends java.lang.Number'.
+
+old: class testing_lib.genericsIfazeTypeBoundsGeneralization.GenericsIfazeTypeBoundsGeneralization<T extends java.lang.Integer>
+new: class testing_lib.genericsIfazeTypeBoundsGeneralization.GenericsIfazeTypeBoundsGeneralization<T extends java.lang.Number>
+java.generics.formalTypeParameterChanged BINARY: NON_BREAKING, SOURCE: BREAKING: The formal type parameter changed from 'T extends java.lang.Integer' to 'T extends java.lang.Number'.
+
+old: class testing_lib.genericsIfazeTypeBoundsMutation.GenericsIfazeTypeBoundsMutation<T extends java.lang.Integer>
+new: class testing_lib.genericsIfazeTypeBoundsMutation.GenericsIfazeTypeBoundsMutation<T extends java.lang.String>
+java.generics.formalTypeParameterChanged BINARY: NON_BREAKING, SOURCE: BREAKING: The formal type parameter changed from 'T extends java.lang.Integer' to 'T extends java.lang.String'.
+
+old: class testing_lib.genericsIfazeTypeBoundsSpecialization.GenericsIfazeTypeBoundsSpecialization<T extends java.lang.Number>
+new: class testing_lib.genericsIfazeTypeBoundsSpecialization.GenericsIfazeTypeBoundsSpecialization<T extends java.lang.Integer>
+java.generics.formalTypeParameterChanged BINARY: NON_BREAKING, SOURCE: BREAKING: The formal type parameter changed from 'T extends java.lang.Number' to 'T extends java.lang.Integer'.
+
+old: class testing_lib.genericsIfazeTypeDelete.GenericsIfazeTypeDelete<T>
+new: class testing_lib.genericsIfazeTypeDelete.GenericsIfazeTypeDelete
+java.generics.formalTypeParameterRemoved BINARY: NON_BREAKING, SOURCE: BREAKING: The formal type parameter 'T' was removed from the element.
+
+old: class testing_lib.genericsIfazeTypeDeleteSecond.GenericsIfazeTypeDeleteSecond<T, K>
+new: class testing_lib.genericsIfazeTypeDeleteSecond.GenericsIfazeTypeDeleteSecond<T>
+java.generics.formalTypeParameterRemoved BINARY: NON_BREAKING, SOURCE: BREAKING: The formal type parameter 'K' was removed from the element.
+
+old: method parameter void testing_lib.genericsWildcardsClazzConstructorParamAdd.GenericsWildcardsClazzConstructorParamAdd::<init>(===java.util.ArrayList<java.lang.Integer>===)
+new: method parameter void testing_lib.genericsWildcardsClazzConstructorParamAdd.GenericsWildcardsClazzConstructorParamAdd::<init>(===java.util.ArrayList<?>===)
+java.method.parameterTypeChanged BINARY: BREAKING, SOURCE: POTENTIALLY_BREAKING: The type of the parameter changed from 'java.util.ArrayList<java.lang.Integer>' to 'java.util.ArrayList<?>'.
+
+old: method parameter void testing_lib.genericsWildcardsClazzConstructorParamDelete.GenericsWildcardsClazzConstructorParamDelete::<init>(===java.util.ArrayList<?>===)
+new: method parameter void testing_lib.genericsWildcardsClazzConstructorParamDelete.GenericsWildcardsClazzConstructorParamDelete::<init>(===java.util.ArrayList<java.lang.Integer>===)
+java.method.parameterTypeChanged BINARY: BREAKING, SOURCE: POTENTIALLY_BREAKING: The type of the parameter changed from 'java.util.ArrayList<?>' to 'java.util.ArrayList<java.lang.Integer>'.
+
+old: method parameter void testing_lib.genericsWildcardsClazzConstructorParamLowerBoundsAdd.GenericsWildcardsClazzConstructorParamLowerBoundsAdd::<init>(===java.util.ArrayList<?>===)
+new: method parameter void testing_lib.genericsWildcardsClazzConstructorParamLowerBoundsAdd.GenericsWildcardsClazzConstructorParamLowerBoundsAdd::<init>(===java.util.ArrayList<? super java.lang.Number>===)
+java.method.parameterTypeChanged BINARY: BREAKING, SOURCE: POTENTIALLY_BREAKING: The type of the parameter changed from 'java.util.ArrayList<?>' to 'java.util.ArrayList<? super java.lang.Number>'.
+
+old: method parameter void testing_lib.genericsWildcardsClazzConstructorParamLowerBoundsDelete.GenericsWildcardsClazzConstructorParamLowerBoundsDelete::<init>(===java.util.ArrayList<? super java.lang.Number>===)
+new: method parameter void testing_lib.genericsWildcardsClazzConstructorParamLowerBoundsDelete.GenericsWildcardsClazzConstructorParamLowerBoundsDelete::<init>(===java.util.ArrayList<?>===)
+java.method.parameterTypeChanged BINARY: BREAKING, SOURCE: POTENTIALLY_BREAKING: The type of the parameter changed from 'java.util.ArrayList<? super java.lang.Number>' to 'java.util.ArrayList<?>'.
+
+old: method parameter void testing_lib.genericsWildcardsClazzConstructorParamLowerBoundsGeneralization.GenericsWildcardsClazzConstructorParamLowerBoundsGeneralization::<init>(===java.util.ArrayList<? super java.lang.Integer>===)
+new: method parameter void testing_lib.genericsWildcardsClazzConstructorParamLowerBoundsGeneralization.GenericsWildcardsClazzConstructorParamLowerBoundsGeneralization::<init>(===java.util.ArrayList<? super java.lang.Number>===)
+java.method.parameterTypeChanged BINARY: BREAKING, SOURCE: POTENTIALLY_BREAKING: The type of the parameter changed from 'java.util.ArrayList<? super java.lang.Integer>' to 'java.util.ArrayList<? super java.lang.Number>'.
+
+old: method parameter void testing_lib.genericsWildcardsClazzConstructorParamLowerBoundsMutation.GenericsWildcardsClazzConstructorParamLowerBoundsMutation::<init>(===java.util.ArrayList<? super java.lang.Integer>===)
+new: method parameter void testing_lib.genericsWildcardsClazzConstructorParamLowerBoundsMutation.GenericsWildcardsClazzConstructorParamLowerBoundsMutation::<init>(===java.util.ArrayList<? super java.lang.String>===)
+java.method.parameterTypeChanged BINARY: BREAKING, SOURCE: POTENTIALLY_BREAKING: The type of the parameter changed from 'java.util.ArrayList<? super java.lang.Integer>' to 'java.util.ArrayList<? super java.lang.String>'.
+
+old: method parameter void testing_lib.genericsWildcardsClazzConstructorParamLowerBoundsSpecialization.GenericsWildcardsClazzConstructorParamLowerBoundsSpecializaion::<init>(===java.util.ArrayList<? super java.lang.Number>===)
+new: method parameter void testing_lib.genericsWildcardsClazzConstructorParamLowerBoundsSpecialization.GenericsWildcardsClazzConstructorParamLowerBoundsSpecializaion::<init>(===java.util.ArrayList<? super java.lang.Integer>===)
+java.method.parameterTypeChanged BINARY: BREAKING, SOURCE: POTENTIALLY_BREAKING: The type of the parameter changed from 'java.util.ArrayList<? super java.lang.Number>' to 'java.util.ArrayList<? super java.lang.Integer>'.
+
+old: method parameter void testing_lib.genericsWildcardsClazzConstructorParamLowerBoundsToUpperBounds.GenericsWildcardsClazzConstructorParamLowerBoundsToUpperBounds::<init>(===java.util.ArrayList<? super java.lang.Number>===)
+new: method parameter void testing_lib.genericsWildcardsClazzConstructorParamLowerBoundsToUpperBounds.GenericsWildcardsClazzConstructorParamLowerBoundsToUpperBounds::<init>(===java.util.ArrayList<? extends java.lang.Number>===)
+java.method.parameterTypeChanged BINARY: BREAKING, SOURCE: POTENTIALLY_BREAKING: The type of the parameter changed from 'java.util.ArrayList<? super java.lang.Number>' to 'java.util.ArrayList<? extends java.lang.Number>'.
+
+old: method parameter void testing_lib.genericsWildcardsClazzConstructorParamUpperBoundsAdd.GenericsWildcardsClazzConstructorParamUpperBoundsAdd::<init>(===java.util.ArrayList<?>===)
+new: method parameter void testing_lib.genericsWildcardsClazzConstructorParamUpperBoundsAdd.GenericsWildcardsClazzConstructorParamUpperBoundsAdd::<init>(===java.util.ArrayList<? extends java.lang.Number>===)
+java.method.parameterTypeChanged BINARY: BREAKING, SOURCE: POTENTIALLY_BREAKING: The type of the parameter changed from 'java.util.ArrayList<?>' to 'java.util.ArrayList<? extends java.lang.Number>'.
+
+old: method parameter void testing_lib.genericsWildcardsClazzConstructorParamUpperBoundsDelete.GenericsWildcardsClazzConstructorParamUpperBoundsDelete::<init>(===java.util.ArrayList<? extends java.lang.Number>===)
+new: method parameter void testing_lib.genericsWildcardsClazzConstructorParamUpperBoundsDelete.GenericsWildcardsClazzConstructorParamUpperBoundsDelete::<init>(===java.util.ArrayList<?>===)
+java.method.parameterTypeChanged BINARY: BREAKING, SOURCE: POTENTIALLY_BREAKING: The type of the parameter changed from 'java.util.ArrayList<? extends java.lang.Number>' to 'java.util.ArrayList<?>'.
+
+old: method parameter void testing_lib.genericsWildcardsClazzConstructorParamUpperBoundsGeneralization.GenericsWildcardsClazzConstructorParamUpperBoundsGeneralization::<init>(===java.util.ArrayList<? extends java.lang.Integer>===)
+new: method parameter void testing_lib.genericsWildcardsClazzConstructorParamUpperBoundsGeneralization.GenericsWildcardsClazzConstructorParamUpperBoundsGeneralization::<init>(===java.util.ArrayList<? extends java.lang.Number>===)
+java.method.parameterTypeChanged BINARY: BREAKING, SOURCE: POTENTIALLY_BREAKING: The type of the parameter changed from 'java.util.ArrayList<? extends java.lang.Integer>' to 'java.util.ArrayList<? extends java.lang.Number>'.
+
+old: method parameter void testing_lib.genericsWildcardsClazzConstructorParamUpperBoundsMutation.GenericsWildcardsClazzConstructorParamUpperBoundsMutation::<init>(===java.util.ArrayList<? extends java.lang.Integer>===)
+new: method parameter void testing_lib.genericsWildcardsClazzConstructorParamUpperBoundsMutation.GenericsWildcardsClazzConstructorParamUpperBoundsMutation::<init>(===java.util.ArrayList<? extends java.lang.String>===)
+java.method.parameterTypeChanged BINARY: BREAKING, SOURCE: POTENTIALLY_BREAKING: The type of the parameter changed from 'java.util.ArrayList<? extends java.lang.Integer>' to 'java.util.ArrayList<? extends java.lang.String>'.
+
+old: method parameter void testing_lib.genericsWildcardsClazzConstructorParamUpperBoundsSpecialization.GenericsWildcardsClazzConstructorParamUpperBoundsSpecialization::<init>(===java.util.ArrayList<? extends java.lang.Number>===)
+new: method parameter void testing_lib.genericsWildcardsClazzConstructorParamUpperBoundsSpecialization.GenericsWildcardsClazzConstructorParamUpperBoundsSpecialization::<init>(===java.util.ArrayList<? extends java.lang.Integer>===)
+java.method.parameterTypeChanged BINARY: BREAKING, SOURCE: POTENTIALLY_BREAKING: The type of the parameter changed from 'java.util.ArrayList<? extends java.lang.Number>' to 'java.util.ArrayList<? extends java.lang.Integer>'.
+
+old: method parameter void testing_lib.genericsWildcardsClazzConstructorParamUpperBoundsToLowerBounds.GenericsWildcardsClazzConstructorParamUpperBoundsToLowerBounds::<init>(===java.util.ArrayList<? extends java.lang.Number>===)
+new: method parameter void testing_lib.genericsWildcardsClazzConstructorParamUpperBoundsToLowerBounds.GenericsWildcardsClazzConstructorParamUpperBoundsToLowerBounds::<init>(===java.util.ArrayList<? super java.lang.Number>===)
+java.method.parameterTypeChanged BINARY: BREAKING, SOURCE: POTENTIALLY_BREAKING: The type of the parameter changed from 'java.util.ArrayList<? extends java.lang.Number>' to 'java.util.ArrayList<? super java.lang.Number>'.
+
+old: method parameter void testing_lib.genericsWildcardsClazzMethodParamAdd.GenericsWildcardsClazzMethodParamAdd::method1(===java.util.ArrayList<java.lang.String>===)
+new: method parameter void testing_lib.genericsWildcardsClazzMethodParamAdd.GenericsWildcardsClazzMethodParamAdd::method1(===java.util.ArrayList<?>===)
+java.method.parameterTypeChanged BINARY: BREAKING, SOURCE: POTENTIALLY_BREAKING: The type of the parameter changed from 'java.util.ArrayList<java.lang.String>' to 'java.util.ArrayList<?>'.
+
+old: method parameter void testing_lib.genericsWildcardsClazzMethodParamDelete.GenericsWildcardsClazzMethodParamDelete::method1(===java.util.ArrayList<?>===)
+new: method parameter void testing_lib.genericsWildcardsClazzMethodParamDelete.GenericsWildcardsClazzMethodParamDelete::method1(===java.util.ArrayList<java.lang.String>===)
+java.method.parameterTypeChanged BINARY: BREAKING, SOURCE: POTENTIALLY_BREAKING: The type of the parameter changed from 'java.util.ArrayList<?>' to 'java.util.ArrayList<java.lang.String>'.
+
+old: method parameter void testing_lib.genericsWildcardsClazzMethodParamLowerBoundsAdd.GenericsWildcardsClazzMethodParamLowerBoundsAdd::method1(===java.util.ArrayList<?>===)
+new: method parameter void testing_lib.genericsWildcardsClazzMethodParamLowerBoundsAdd.GenericsWildcardsClazzMethodParamLowerBoundsAdd::method1(===java.util.ArrayList<? super java.lang.Number>===)
+java.method.parameterTypeChanged BINARY: BREAKING, SOURCE: POTENTIALLY_BREAKING: The type of the parameter changed from 'java.util.ArrayList<?>' to 'java.util.ArrayList<? super java.lang.Number>'.
+
+old: method parameter void testing_lib.genericsWildcardsClazzMethodParamLowerBoundsDelete.GenericsWildcardsClazzMethodParamLowerBoundsDelete::method1(===java.util.ArrayList<? super java.lang.Number>===)
+new: method parameter void testing_lib.genericsWildcardsClazzMethodParamLowerBoundsDelete.GenericsWildcardsClazzMethodParamLowerBoundsDelete::method1(===java.util.ArrayList<?>===)
+java.method.parameterTypeChanged BINARY: BREAKING, SOURCE: POTENTIALLY_BREAKING: The type of the parameter changed from 'java.util.ArrayList<? super java.lang.Number>' to 'java.util.ArrayList<?>'.
+
+old: method parameter void testing_lib.genericsWildcardsClazzMethodParamLowerBoundsGeneralization.GenericsWildcardsClazzMethodParamLowerBoundsGeneralization::method1(===java.util.ArrayList<? super java.lang.Integer>===)
+new: method parameter void testing_lib.genericsWildcardsClazzMethodParamLowerBoundsGeneralization.GenericsWildcardsClazzMethodParamLowerBoundsGeneralization::method1(===java.util.ArrayList<? super java.lang.Number>===)
+java.method.parameterTypeChanged BINARY: BREAKING, SOURCE: POTENTIALLY_BREAKING: The type of the parameter changed from 'java.util.ArrayList<? super java.lang.Integer>' to 'java.util.ArrayList<? super java.lang.Number>'.
+
+old: method parameter void testing_lib.genericsWildcardsClazzMethodParamLowerBoundsMutation.GenericsWildcardsClazzMethodParamLowerBoundsMutation::method1(===java.util.ArrayList<? super java.lang.Integer>===)
+new: method parameter void testing_lib.genericsWildcardsClazzMethodParamLowerBoundsMutation.GenericsWildcardsClazzMethodParamLowerBoundsMutation::method1(===java.util.ArrayList<? super java.lang.String>===)
+java.method.parameterTypeChanged BINARY: BREAKING, SOURCE: POTENTIALLY_BREAKING: The type of the parameter changed from 'java.util.ArrayList<? super java.lang.Integer>' to 'java.util.ArrayList<? super java.lang.String>'.
+
+old: method parameter void testing_lib.genericsWildcardsClazzMethodParamLowerBoundsSpecialization.GenericsWildcardsClazzMethodParamLowerBoundsSpecialization::method1(===java.util.ArrayList<? super java.lang.Number>===)
+new: method parameter void testing_lib.genericsWildcardsClazzMethodParamLowerBoundsSpecialization.GenericsWildcardsClazzMethodParamLowerBoundsSpecialization::method1(===java.util.ArrayList<? super java.lang.Integer>===)
+java.method.parameterTypeChanged BINARY: BREAKING, SOURCE: POTENTIALLY_BREAKING: The type of the parameter changed from 'java.util.ArrayList<? super java.lang.Number>' to 'java.util.ArrayList<? super java.lang.Integer>'.
+
+old: method parameter void testing_lib.genericsWildcardsClazzMethodParamLowerBoundsToUpperBounds.GenericsWildcardsClazzMethodParamLowerBoundsToUpperBounds::method1(===java.util.ArrayList<? super java.lang.Number>===)
+new: method parameter void testing_lib.genericsWildcardsClazzMethodParamLowerBoundsToUpperBounds.GenericsWildcardsClazzMethodParamLowerBoundsToUpperBounds::method1(===java.util.ArrayList<? extends java.lang.Number>===)
+java.method.parameterTypeChanged BINARY: BREAKING, SOURCE: POTENTIALLY_BREAKING: The type of the parameter changed from 'java.util.ArrayList<? super java.lang.Number>' to 'java.util.ArrayList<? extends java.lang.Number>'.
+
+old: method parameter void testing_lib.genericsWildcardsClazzMethodParamUpperBoundsAdd.GenericsWildcardsClazzMethodParamUpperBoundsAdd::method1(===java.util.ArrayList<?>===)
+new: method parameter void testing_lib.genericsWildcardsClazzMethodParamUpperBoundsAdd.GenericsWildcardsClazzMethodParamUpperBoundsAdd::method1(===java.util.ArrayList<? extends java.lang.Number>===)
+java.method.parameterTypeChanged BINARY: BREAKING, SOURCE: POTENTIALLY_BREAKING: The type of the parameter changed from 'java.util.ArrayList<?>' to 'java.util.ArrayList<? extends java.lang.Number>'.
+
+old: method parameter void testing_lib.genericsWildcardsClazzMethodParamUpperBoundsDelete.GenericsWildcardsClazzMethodParamUpperBoundsDelete::method1(===java.util.ArrayList<? extends java.lang.Number>===)
+new: method parameter void testing_lib.genericsWildcardsClazzMethodParamUpperBoundsDelete.GenericsWildcardsClazzMethodParamUpperBoundsDelete::method1(===java.util.ArrayList<?>===)
+java.method.parameterTypeChanged BINARY: BREAKING, SOURCE: POTENTIALLY_BREAKING: The type of the parameter changed from 'java.util.ArrayList<? extends java.lang.Number>' to 'java.util.ArrayList<?>'.
+
+old: method parameter void testing_lib.genericsWildcardsClazzMethodParamUpperBoundsGeneralization.GenericsWildcardsClazzMethodParamUpperBoundsGeneralization::method1(===java.util.ArrayList<? extends java.lang.Integer>===)
+new: method parameter void testing_lib.genericsWildcardsClazzMethodParamUpperBoundsGeneralization.GenericsWildcardsClazzMethodParamUpperBoundsGeneralization::method1(===java.util.ArrayList<? extends java.lang.Number>===)
+java.method.parameterTypeChanged BINARY: BREAKING, SOURCE: POTENTIALLY_BREAKING: The type of the parameter changed from 'java.util.ArrayList<? extends java.lang.Integer>' to 'java.util.ArrayList<? extends java.lang.Number>'.
+
+old: method parameter void testing_lib.genericsWildcardsClazzMethodParamUpperBoundsMutation.GenericsWildcardsClazzMethodParamUpperBoundsMutation::method1(===java.util.ArrayList<? extends java.lang.Integer>===)
+new: method parameter void testing_lib.genericsWildcardsClazzMethodParamUpperBoundsMutation.GenericsWildcardsClazzMethodParamUpperBoundsMutation::method1(===java.util.ArrayList<? extends java.lang.String>===)
+java.method.parameterTypeChanged BINARY: BREAKING, SOURCE: POTENTIALLY_BREAKING: The type of the parameter changed from 'java.util.ArrayList<? extends java.lang.Integer>' to 'java.util.ArrayList<? extends java.lang.String>'.
+
+old: method parameter void testing_lib.genericsWildcardsClazzMethodParamUpperBoundsSpecialization.GenericsWildcardsClazzMethodParamUpperBoundsSpecialization::method1(===java.util.ArrayList<? extends java.lang.Number>===)
+new: method parameter void testing_lib.genericsWildcardsClazzMethodParamUpperBoundsSpecialization.GenericsWildcardsClazzMethodParamUpperBoundsSpecialization::method1(===java.util.ArrayList<? extends java.lang.Integer>===)
+java.method.parameterTypeChanged BINARY: BREAKING, SOURCE: POTENTIALLY_BREAKING: The type of the parameter changed from 'java.util.ArrayList<? extends java.lang.Number>' to 'java.util.ArrayList<? extends java.lang.Integer>'.
+
+old: method parameter void testing_lib.genericsWildcardsClazzMethodParamUpperBoundsToLowerBounds.GenericsWildcardsClazzMethodParamUpperBoundsToLowerBounds::method1(===java.util.ArrayList<? extends java.lang.Number>===)
+new: method parameter void testing_lib.genericsWildcardsClazzMethodParamUpperBoundsToLowerBounds.GenericsWildcardsClazzMethodParamUpperBoundsToLowerBounds::method1(===java.util.ArrayList<? super java.lang.Number>===)
+java.method.parameterTypeChanged BINARY: BREAKING, SOURCE: POTENTIALLY_BREAKING: The type of the parameter changed from 'java.util.ArrayList<? extends java.lang.Number>' to 'java.util.ArrayList<? super java.lang.Number>'.
+
+old: class testing_lib.inheritanceClazzContractSuperClassSet.Clazz2
+new: <none>
+java.class.removed BINARY: BREAKING, SOURCE: BREAKING: Class was removed.
+
+old: class testing_lib.inheritanceClazzContractSuperClassSet.InheritanceClazzContractSuperInterfaceSet
+new: class testing_lib.inheritanceClazzContractSuperClassSet.InheritanceClazzContractSuperInterfaceSet
+java.class.noLongerInheritsFromClass BINARY: BREAKING, SOURCE: BREAKING: Class no longer inherits from 'testing_lib.inheritanceClazzContractSuperClassSet.Clazz2'.
+
+old: <none>
+new: class testing_lib.inheritanceClazzExpandSuperClassSet.Clazz2
+java.class.added BINARY: NON_BREAKING, SOURCE: NON_BREAKING: Class was added.
+
+old: class testing_lib.inheritanceClazzExpandSuperClassSet.InheritanceClazzExpandSuperClassSet
+new: class testing_lib.inheritanceClazzExpandSuperClassSet.InheritanceClazzExpandSuperClassSet
+java.class.nonFinalClassInheritsFromNewClass BINARY: POTENTIALLY_BREAKING, SOURCE: POTENTIALLY_BREAKING: Non-final class now inherits from 'testing_lib.inheritanceClazzExpandSuperClassSet.Clazz2'.
+
+old: method void testing_lib.inheritanceClazzMethodMovedFromSuperClass.Clazz1::method1()
+new: <none>
+java.method.removed BINARY: BREAKING, SOURCE: BREAKING: Method was removed.
+
+old: <none>
+new: method void testing_lib.inheritanceClazzMethodMovedFromSuperClass.InheritanceClazzMethodMovedFromSuperClass::method1()
+java.method.added BINARY: NON_BREAKING, SOURCE: NON_BREAKING: Method was added.
+
+old: <none>
+new: method void testing_lib.inheritanceClazzMethodMovedToSuperClass.Clazz1::method1()
+java.method.added BINARY: NON_BREAKING, SOURCE: NON_BREAKING: Method was added.
+
+old: method void testing_lib.inheritanceClazzMethodMovedToSuperClass.InheritanceClazzMethodMovedToSuperClass::method1()
+new: <none>
+java.method.overridingMethodRemoved BINARY: NON_BREAKING, SOURCE: NON_BREAKING: A method that overrides another method in some of its superclasses has been removed.
+
+old: <none>
+new: method void testing_lib.inheritanceClazzMethodOverrideAdd.InheritanceClazzMethodOverrideAdd::method1()
+java.method.added BINARY: NON_BREAKING, SOURCE: NON_BREAKING: Method was added.
+
+old: method void testing_lib.inheritanceClazzMethodOverrideDelete.InheritanceClazzMethodOverrideDelete::method1()
+new: <none>
+java.method.overridingMethodRemoved BINARY: NON_BREAKING, SOURCE: NON_BREAKING: A method that overrides another method in some of its superclasses has been removed.
+
+old: class testing_lib.inheritanceClazzStartInherite.InheritanceClazzStartInherite
+new: class testing_lib.inheritanceClazzStartInherite.InheritanceClazzStartInherite
+java.class.nonFinalClassInheritsFromNewClass BINARY: POTENTIALLY_BREAKING, SOURCE: POTENTIALLY_BREAKING: Non-final class now inherits from 'testing_lib.inheritanceClazzStartInherite.Clazz1'.
+
+old: class testing_lib.inheritanceClazzStopInherite.InheritanceClazzStopInherite
+new: class testing_lib.inheritanceClazzStopInherite.InheritanceClazzStopInherite
+java.class.noLongerInheritsFromClass BINARY: BREAKING, SOURCE: BREAKING: Class no longer inherits from 'testing_lib.inheritanceClazzStopInherite.Clazz1'.
+
+old: class testing_lib.inheritanceIfazeContractSuperinterfaceSet.InheritanceIfazeContractSuperinterfaceSet
+new: class testing_lib.inheritanceIfazeContractSuperinterfaceSet.InheritanceIfazeContractSuperinterfaceSet
+java.class.nowImplementsInterface BINARY: NON_BREAKING, SOURCE: NON_BREAKING: Class now implements interface 'testing_lib.inheritanceIfazeContractSuperinterfaceSet.Interface1'.
+
+old: class testing_lib.inheritanceIfazeContractSuperinterfaceSet.Interface2
+new: <none>
+java.class.removed BINARY: BREAKING, SOURCE: BREAKING: Class was removed.
+
+old: <none>
+new: method void testing_lib.inheritanceIfazeDefaultMethodOverrideAdd.InheritanceIfazeDefaultMethodOverrideAdd::method1()
+java.method.defaultMethodAddedToInterface BINARY: NON_BREAKING, SOURCE: NON_BREAKING: A default method has been added to the interface.
+
+old: method void testing_lib.inheritanceIfazeDefaultMethodOverrideDelete.InheritanceIfazeDefaultMethodOverrideDelete::method1()
+new: <none>
+java.method.removed BINARY: BREAKING, SOURCE: BREAKING: Method was removed.
+
+old: <none>
+new: class testing_lib.inheritanceIfazeExpandSuperinterfaceSet.Interface2
+java.class.added BINARY: NON_BREAKING, SOURCE: NON_BREAKING: Class was added.
+
+old: <none>
+new: method void testing_lib.inheritanceIfazeMethodMovedFromSuperInterface.InheritanceIfazeMethodMovedFromSuperInterface::method1()
+java.method.addedToInterface SEMANTIC: POTENTIALLY_BREAKING, BINARY: NON_BREAKING, SOURCE: BREAKING: Method was added to an interface.
+
+old: method void testing_lib.inheritanceIfazeMethodMovedFromSuperInterface.Interface1::method1()
+new: <none>
+java.method.removed BINARY: BREAKING, SOURCE: BREAKING: Method was removed.
+
+old: method void testing_lib.inheritanceIfazeMethodMovedToSuperInterface.InheritanceIfazeMethodMovedToSuperInterface::method1()
+new: <none>
+java.method.removed BINARY: BREAKING, SOURCE: BREAKING: Method was removed.
+
+old: <none>
+new: method void testing_lib.inheritanceIfazeMethodMovedToSuperInterface.Interface1::method1()
+java.method.addedToInterface SEMANTIC: POTENTIALLY_BREAKING, BINARY: NON_BREAKING, SOURCE: BREAKING: Method was added to an interface.
+
+old: class testing_lib.inheritanceIfazeStartInherite.InheritanceIfazeStartInherite
+new: class testing_lib.inheritanceIfazeStartInherite.InheritanceIfazeStartInherite
+java.class.nowImplementsInterface BINARY: NON_BREAKING, SOURCE: NON_BREAKING: Class now implements interface 'testing_lib.inheritanceIfazeStartInherite.Interface1'.
+
+old: class testing_lib.inheritanceIfazeStopInherite.InheritanceIfazeStopInherite
+new: class testing_lib.inheritanceIfazeStopInherite.InheritanceIfazeStopInherite
+java.class.noLongerImplementsInterface BINARY: BREAKING, SOURCE: BREAKING: Class no longer implements interface 'testing_lib.inheritanceIfazeStopInherite.Interface1'.
+
+old: <none>
+new: method void testing_lib.membersClazzConstructorAdd.MembersClazzConstructorAdd::<init>(int)
+java.method.added BINARY: NON_BREAKING, SOURCE: NON_BREAKING: Method was added.
+
+old: method void testing_lib.membersClazzConstructorDelete.MembersClazzConstructorDelete::<init>(int)
+new: <none>
+java.method.removed BINARY: BREAKING, SOURCE: BREAKING: Method was removed.
+
+old: method void testing_lib.membersClazzConstructorParamAdd.MembersClazzConstructorParamAdd::<init>()
+new: method void testing_lib.membersClazzConstructorParamAdd.MembersClazzConstructorParamAdd::<init>(java.lang.Integer)
+java.method.numberOfParametersChanged BINARY: BREAKING, SOURCE: BREAKING: The number of parameters of the method have changed.
+
+old: method void testing_lib.membersClazzConstructorParamDelete.MembersClazzConstructorParamDelete::<init>(java.lang.Integer)
+new: method void testing_lib.membersClazzConstructorParamDelete.MembersClazzConstructorParamDelete::<init>()
+java.method.numberOfParametersChanged BINARY: BREAKING, SOURCE: BREAKING: The number of parameters of the method have changed.
+
+old: <none>
+new: field testing_lib.membersClazzFieldAdd.MembersClazzFieldAdd.field
+java.field.added BINARY: NON_BREAKING, SOURCE: NON_BREAKING: Field added to class.
+
+old: <none>
+new: field testing_lib.membersClazzFieldConstantAdd.MembersClazzFieldConstantAdd.FIELD
+java.field.addedStaticField BINARY: NON_BREAKING, SOURCE: NON_BREAKING: Static field added to class.
+
+old: field testing_lib.membersClazzFieldConstantDelete.MembersClazzFieldConstantDelete.FIELD
+new: <none>
+java.field.removedWithConstant SEMANTIC: POTENTIALLY_BREAKING, BINARY: NON_BREAKING, SOURCE: BREAKING: Field with constant value has been removed.
+
+old: field testing_lib.membersClazzFieldDelete.MembersClazzFieldDelete.field
+new: <none>
+java.field.removed BINARY: BREAKING, SOURCE: BREAKING: Field removed from class.
+
+old: <none>
+new: method void testing_lib.membersClazzMethodAbstractAdd.MembersClazzMethodAbstractAdd::method1()
+java.method.abstractMethodAdded BINARY: BREAKING, SOURCE: BREAKING: Abstract method was added.
+
+old: method void testing_lib.membersClazzMethodAbstractDelete.MembersClazzMethodAbstractDelete::method1()
+new: <none>
+java.method.removed BINARY: BREAKING, SOURCE: BREAKING: Method was removed.
+
+old: class testing_lib.membersClazzMethodAbstractDelete.MembersClazzMethodAbstractDelete
+new: class testing_lib.membersClazzMethodAbstractDelete.MembersClazzMethodAbstractDelete
+java.class.noLongerAbstract BINARY: NON_BREAKING, SOURCE: NON_BREAKING: Class is no longer abstract.
+
+old: <none>
+new: method void testing_lib.membersClazzMethodAdd.MembersClazzMethodAdd::method1()
+java.method.added BINARY: NON_BREAKING, SOURCE: NON_BREAKING: Method was added.
+
+old: method void testing_lib.membersClazzMethodDelete.MembersClazzMethodDelete::method1()
+new: <none>
+java.method.removed BINARY: BREAKING, SOURCE: BREAKING: Method was removed.
+
+old: method void testing_lib.membersClazzMethodParamAdd.MembersClazzMethodParamAdd::method1()
+new: method void testing_lib.membersClazzMethodParamAdd.MembersClazzMethodParamAdd::method1(java.lang.Integer)
+java.method.numberOfParametersChanged BINARY: BREAKING, SOURCE: BREAKING: The number of parameters of the method have changed.
+
+old: method void testing_lib.membersClazzMethodParamDelete.MembersClazzMethodParamDelete::method1(java.lang.Integer)
+new: method void testing_lib.membersClazzMethodParamDelete.MembersClazzMethodParamDelete::method1()
+java.method.numberOfParametersChanged BINARY: BREAKING, SOURCE: BREAKING: The number of parameters of the method have changed.
+
+old: <none>
+new: class testing_lib.membersClazzNestedClazzAdd.MembersClazzNestedClazzAdd.NestedClazz
+java.class.added BINARY: NON_BREAKING, SOURCE: NON_BREAKING: Class was added.
+
+old: class testing_lib.membersClazzNestedClazzDelete.MembersClazzNestedClazzDelete.NestedClazz
+new: <none>
+java.class.removed BINARY: BREAKING, SOURCE: BREAKING: Class was removed.
+
+old: <none>
+new: class testing_lib.membersClazzNestedIfazeAdd.MembersClazzNestedIfazeAdd.NestedIfaze
+java.class.added BINARY: NON_BREAKING, SOURCE: NON_BREAKING: Class was added.
+
+old: class testing_lib.membersClazzNestedIfazeDelete.MembersClazzNestedIfazeDelete.NestedIfaze
+new: <none>
+java.class.removed BINARY: BREAKING, SOURCE: BREAKING: Class was removed.
+
+old: <none>
+new: field testing_lib.membersIfazeConstantAdd.MembersIfazeConstantAdd.FIELD
+java.field.addedStaticField BINARY: NON_BREAKING, SOURCE: NON_BREAKING: Static field added to class.
+
+old: field testing_lib.membersIfazeConstantDelete.MembersIfazeConstantDelete.FIELD
+new: <none>
+java.field.removed BINARY: BREAKING, SOURCE: BREAKING: Field removed from class.
+
+old: <none>
+new: method void testing_lib.membersIfazeMethodAdd.MembersIfazeMethodAdd::method1()
+java.method.addedToInterface SEMANTIC: POTENTIALLY_BREAKING, BINARY: NON_BREAKING, SOURCE: BREAKING: Method was added to an interface.
+
+old: <none>
+new: method void testing_lib.membersIfazeMethodDefaultAdd.MembersIfazeMethodDefaultAdd::method1()
+java.method.defaultMethodAddedToInterface BINARY: NON_BREAKING, SOURCE: NON_BREAKING: A default method has been added to the interface.
+
+old: method void testing_lib.membersIfazeMethodDefaultDelete.MembersIfazeMethodDefaultDelete::method1()
+new: <none>
+java.method.removed BINARY: BREAKING, SOURCE: BREAKING: Method was removed.
+
+old: method void testing_lib.membersIfazeMethodDelete.MembersIfazeMethodDelete::method1()
+new: <none>
+java.method.removed BINARY: BREAKING, SOURCE: BREAKING: Method was removed.
+
+old: method void testing_lib.membersIfazeMethodParamAdd.MembersIfazeMethodParamAdd::method1()
+new: method void testing_lib.membersIfazeMethodParamAdd.MembersIfazeMethodParamAdd::method1(java.lang.Integer)
+java.method.numberOfParametersChanged BINARY: BREAKING, SOURCE: BREAKING: The number of parameters of the method have changed.
+
+old: method void testing_lib.membersIfazeMethodParamDelete.MembersIfazeMethodParamDelete::method1(java.lang.Integer)
+new: method void testing_lib.membersIfazeMethodParamDelete.MembersIfazeMethodParamDelete::method1()
+java.method.numberOfParametersChanged BINARY: BREAKING, SOURCE: BREAKING: The number of parameters of the method have changed.
+
+old: <none>
+new: class testing_lib.membersIfazeNestedIfazeAdd.MembersIfazeNestedIfazeAdd.NestedIfaze
+java.class.added BINARY: NON_BREAKING, SOURCE: NON_BREAKING: Class was added.
+
+old: class testing_lib.membersIfazeNestedIfazeDelete.MembersIfazeNestedIfazeDelete.NestedIfaze
+new: <none>
+java.class.removed BINARY: BREAKING, SOURCE: BREAKING: Class was removed.
+
+old: class testing_lib.modifierClazzAbstractToNonAbstract.ModifierClazzAbstractToNonAbstract
+new: class testing_lib.modifierClazzAbstractToNonAbstract.ModifierClazzAbstractToNonAbstract
+java.class.noLongerAbstract BINARY: NON_BREAKING, SOURCE: NON_BREAKING: Class is no longer abstract.
+
+old: class testing_lib.modifierClazzEffectivelyFinalToFinal.ModifierClazzEffectivelyFinalToFinal
+new: class testing_lib.modifierClazzEffectivelyFinalToFinal.ModifierClazzEffectivelyFinalToFinal
+java.class.nowFinal BINARY: BREAKING, SOURCE: BREAKING: Class is now final.
+
+old: class testing_lib.modifierClazzFinalToEffectivelyFinal.ModifierClazzFinalToEffectivelyFinal
+new: class testing_lib.modifierClazzFinalToEffectivelyFinal.ModifierClazzFinalToEffectivelyFinal
+java.class.noLongerFinal BINARY: NON_BREAKING, SOURCE: NON_BREAKING: Class is no longer final.
+
+old: class testing_lib.modifierClazzFinalToNonFinal.ModifierClazzFinalToNonFinal
+new: class testing_lib.modifierClazzFinalToNonFinal.ModifierClazzFinalToNonFinal
+java.class.noLongerFinal BINARY: NON_BREAKING, SOURCE: NON_BREAKING: Class is no longer final.
+
+old: class testing_lib.modifierClazzNonAbstractToAbstract.ModifierClazzNonAbstractToAbstract
+new: class testing_lib.modifierClazzNonAbstractToAbstract.ModifierClazzNonAbstractToAbstract
+java.class.nowAbstract BINARY: BREAKING, SOURCE: BREAKING: Class is now abstract.
+
+old: class testing_lib.modifierClazzNonFinalToFinal.ModifierClazzNonFinalToFinal
+new: class testing_lib.modifierClazzNonFinalToFinal.ModifierClazzNonFinalToFinal
+java.class.nowFinal BINARY: BREAKING, SOURCE: BREAKING: Class is now final.
+
+old: field testing_lib.modifierFieldFinalToNonFinal.ModifierFieldFinalToNonFinal.field
+new: field testing_lib.modifierFieldFinalToNonFinal.ModifierFieldFinalToNonFinal.field
+java.field.noLongerFinal BINARY: NON_BREAKING, SOURCE: NON_BREAKING: Field is no longer final.
+
+old: field testing_lib.modifierFieldNonFinalToFinal.ModifierFieldNonFinalToFinal.field
+new: field testing_lib.modifierFieldNonFinalToFinal.ModifierFieldNonFinalToFinal.field
+java.field.nowFinal BINARY: BREAKING, SOURCE: BREAKING: Field is now final.
+
+old: field testing_lib.modifierFieldNonStaticToStatic.ModifierFieldNonStaticToStatic.field
+new: field testing_lib.modifierFieldNonStaticToStatic.ModifierFieldNonStaticToStatic.field
+java.field.nowStatic BINARY: BREAKING, SOURCE: NON_BREAKING: Field is now static.
+
+old: field testing_lib.modifierFieldStaticToNonStatic.ModifierFieldStaticToNonStatic.field
+new: field testing_lib.modifierFieldStaticToNonStatic.ModifierFieldStaticToNonStatic.field
+java.field.noLongerStatic BINARY: BREAKING, SOURCE: BREAKING: Field is no longer static.
+
+old: method void testing_lib.modifierMethodFinalToNonFinal.ModifierMethodFinalToNonFinal::method1()
+new: method void testing_lib.modifierMethodFinalToNonFinal.ModifierMethodFinalToNonFinal::method1()
+java.method.noLongerFinal BINARY: NON_BREAKING, SOURCE: NON_BREAKING: Method is no longer final.
+
+old: method void testing_lib.modifierMethodNonFinalToFinal.ModifierMethodNonFinalToFinal::method1()
+new: method void testing_lib.modifierMethodNonFinalToFinal.ModifierMethodNonFinalToFinal::method1()
+java.method.nowFinal BINARY: BREAKING, SOURCE: BREAKING: Method is now final.
+
+old: method void testing_lib.modifierMethodNonStaticToStatic.ModifierMethodNonStaticToStatic::method1()
+new: method void testing_lib.modifierMethodNonStaticToStatic.ModifierMethodNonStaticToStatic::method1()
+java.method.nowStatic BINARY: BREAKING, SOURCE: NON_BREAKING: method now static
+
+old: method void testing_lib.modifierMethodStaticToNonStatic.ModifierMethodStaticToNonStatic::method1()
+new: method void testing_lib.modifierMethodStaticToNonStatic.ModifierMethodStaticToNonStatic::method1()
+java.method.noLongerStatic BINARY: BREAKING, SOURCE: BREAKING: method no longer static
+
+old: <none>
+new: class testing_lib.otherClazzAdd.OtherClazzAdd
+java.class.added BINARY: NON_BREAKING, SOURCE: NON_BREAKING: Class was added.
+
+old: class testing_lib.otherClazzDelete.OtherClazzDelete
+new: <none>
+java.class.removed BINARY: BREAKING, SOURCE: BREAKING: Class was removed.
+
+old: method void testing_lib.otherClazzToIfaze.ClazzToIfaze::<init>()
+new: <none>
+java.method.removed BINARY: BREAKING, SOURCE: BREAKING: Method was removed.
+
+old: class testing_lib.otherClazzToIfaze.ClazzToIfaze
+new: class testing_lib.otherClazzToIfaze.ClazzToIfaze
+java.class.kindChanged BINARY: BREAKING, SOURCE: BREAKING: Class kind changed from 'class' to 'interface'.
+java.class.nowAbstract BINARY: BREAKING, SOURCE: BREAKING: Class is now abstract.
+
+old: <none>
+new: class testing_lib.otherIfazeAdd.OtherIfazeAdd
+java.class.added BINARY: NON_BREAKING, SOURCE: NON_BREAKING: Class was added.
+
+old: class testing_lib.otherIfazeDelete.OtherIfazeDelete
+new: <none>
+java.class.removed BINARY: BREAKING, SOURCE: BREAKING: Class was removed.
+
+old: <none>
+new: method void testing_lib.otherIfazeToClass.IfazeToClass::<init>()
+java.method.added BINARY: NON_BREAKING, SOURCE: NON_BREAKING: Method was added.
+
+old: class testing_lib.otherIfazeToClass.IfazeToClass
+new: class testing_lib.otherIfazeToClass.IfazeToClass
+java.class.kindChanged BINARY: BREAKING, SOURCE: BREAKING: Class kind changed from 'interface' to 'class'.
+java.class.noLongerAbstract BINARY: NON_BREAKING, SOURCE: NON_BREAKING: Class is no longer abstract.
+
