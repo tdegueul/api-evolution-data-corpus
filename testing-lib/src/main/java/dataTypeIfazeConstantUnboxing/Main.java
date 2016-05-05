@@ -2,11 +2,11 @@ package dataTypeIfazeConstantUnboxing;
 
 import testing_lib.dataTypeIfazeConstantUnboxing.DataTypeIfazeConstantUnboxing;
 
-public class Main {
+public class Main implements DataTypeIfazeConstantUnboxing {
 
 	public static void main(String[] args) {
 
-		int test = DataTypeIfazeConstantUnboxing.FIELD1;
+		Integer test = DataTypeIfazeConstantUnboxing.FIELD1;
 		
 	}
 

@@ -10,6 +10,7 @@ public class Main implements DataTypeIfazeMethodParamUnboxing{
 	}
 
 	public static void main(String[] args) {
-		
+		DataTypeIfazeMethodParamUnboxing ifaze = new Main();
+		ifaze.method1(5);
 	}
 }

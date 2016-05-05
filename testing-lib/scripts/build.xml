@@ -2,7 +2,7 @@
 
   
 	<!-- with the run-experiment target, this class is then executed with both the old and the new version of the 3rd party lib -->
-	<property name="package" value="modifierFieldVolatileToNonVolatile" />
+	<property name="package" value="modifierNestedClazzStaticToNonStatic" />
 	<property name="error1" value="clear" />
   
 	<property name="main" value="${package}.Main" />

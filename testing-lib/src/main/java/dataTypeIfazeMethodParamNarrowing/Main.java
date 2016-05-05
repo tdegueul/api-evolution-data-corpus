@@ -10,7 +10,8 @@ public class Main implements DataTypeIfazeMethodParamNarrowing {
 	}
 	
 	public static void main(String[] args) {
-		
+		DataTypeIfazeMethodParamNarrowing ifaze = new Main();
+		ifaze.method1(5);
 	}
 
 }

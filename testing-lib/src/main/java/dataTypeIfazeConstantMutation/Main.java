@@ -2,7 +2,7 @@ package dataTypeIfazeConstantMutation;
 
 import testing_lib.dataTypeIfazeConstantMutation.DataTypeIfazeConstantMutation;
 
-public class Main {
+public class Main implements DataTypeIfazeConstantMutation {
 
 	public static void main(String[] args) {
 

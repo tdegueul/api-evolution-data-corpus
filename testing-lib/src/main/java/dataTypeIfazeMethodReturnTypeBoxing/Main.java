@@ -6,12 +6,15 @@ public class Main implements DataTypeIfazeMethodReturnTypeBoxing{
 
 	@Override
 	public int method1() {
-		
-		return 0;
+		int result = 5;
+		return result;
 	}
 	
 	public static void main(String[] args) {
 
+		DataTypeIfazeMethodReturnTypeBoxing constr = new Main();
+		int test = constr.method1();
+		
 	}
 
 }

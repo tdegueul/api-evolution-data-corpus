@@ -2,7 +2,7 @@ package dataTypeIfazeMethodReturnTypeMutation;
 
 import testing_lib.dataTypeIfazeMethodReturnTypeMutation.DataTypeIfazeMethodReturnTypeMutation;
 
-public class Main implements DataTypeIfazeMethodReturnTypeMutation{
+public class Main implements DataTypeIfazeMethodReturnTypeMutation {
 	
 	@Override
 	public void methodVoidToInteger() {
@@ -12,16 +12,19 @@ public class Main implements DataTypeIfazeMethodReturnTypeMutation{
 	@Override
 	public Integer methodIntegerToVoid() {
 		
-		return null;
+		return new Integer(4);
 	}
 
 	@Override
 	public Integer methodIntegerToString() {
 		
-		return null;
+		return new Integer(5);
 	}
 	
 	public static void main(String[] args) {
-		
+		DataTypeIfazeMethodReturnTypeMutation ifaze = new Main();
+		int test = ifaze.methodIntegerToString();
+		test = ifaze.methodIntegerToVoid();
+		ifaze.methodVoidToInteger();
 	}
 }

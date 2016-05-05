@@ -2,6 +2,6 @@ package testing_lib.dataTypeIfazeMethodReturnTypeGeneralization;
 
 public interface DataTypeIfazeMethodReturnTypeGeneralization {
 	
-	public Integer method();
+	public Integer method1();
 	
 }

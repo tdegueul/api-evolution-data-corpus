@@ -6,7 +6,7 @@ public class Main {
 
 	public static void main(String[] args) {
 
-		Integer test = DataTypeIfazeConstantBoxing.FIELD1;
+		int test = DataTypeIfazeConstantBoxing.FIELD1;
 		
 	}
 

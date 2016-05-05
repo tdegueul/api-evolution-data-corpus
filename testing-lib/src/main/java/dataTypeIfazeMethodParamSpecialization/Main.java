@@ -10,6 +10,7 @@ public class Main implements DataTypeIfazeMethodParamSpecialization{
 	}
 
 	public static void main(String[] args) {
-		
+		DataTypeIfazeMethodParamSpecialization ifaze = new Main();
+		ifaze.method1(5);
 	}
 }

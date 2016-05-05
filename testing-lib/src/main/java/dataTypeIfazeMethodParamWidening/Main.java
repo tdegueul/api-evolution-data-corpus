@@ -10,6 +10,7 @@ public class Main implements DataTypeIfazeMethodParamWidening{
 	}
 
 	public static void main(String[] args) {
-		
+		DataTypeIfazeMethodParamWidening ifaze = new Main();
+		ifaze.method1(5);
 	}
 }
