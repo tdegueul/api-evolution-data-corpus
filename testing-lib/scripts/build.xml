@@ -2,7 +2,7 @@
 
   
 	<!-- with the run-experiment target, this class is then executed with both the old and the new version of the 3rd party lib -->
-	<property name="package" value="dataTypeIfazeMethodReturnTypeGeneralization" />
+	<property name="package" value="accessModifierClazzAccessDecrease" />
 	<property name="error1" value="clear" />
   
 	<property name="main" value="${package}.Main" />
@@ -15,11 +15,6 @@
 	<property name="lib.old.project" value="../testing-lib-v1" />
 	<property name="lib.new.project" value="../testing-lib-v2" />
 	
-	<!-- compilation targets used by Eclipse ! -->
-	<property name="program.bin" value="${program.project}/target/classes" />
-	<property name="lib.new.bin" value="${lib.new.project}/target/classes" />
-	<property name="lib.old.bin" value="${lib.old.project}/target/classes" />
-	
 	<!-- source used by Eclipse ! -->
 	<property name="program.src" value="${program.project}/src/main/java" />
 	<property name="lib.new.src" value="${lib.new.project}/src/main/java" />
@@ -28,12 +23,17 @@
 	<!-- tmp folders for compilation -->
 	<property name="new.bin" value="bin-version2" />
 	<property name="old.bin" value="bin-version1" />
+
+	<property name="client.bin" value="bin-client" />
+	<property name="lib.old.bin" value="bin-lib1" />
+	<property name="lib.new.bin" value="bin-lib2" />
 	
 	<!-- jar file names -->
 	<property name="program.jar" value="${program}.jar" />
 	<property name="lib.new.jar" value="${lib.new}.jar" />
 	<property name="lib.old.jar" value="${lib.old}.jar" />
-	  
+	 
+	<!-- output file names -->
 	<property name="binary.file" value="binary.txt" />
 	<property name="source.file" value="source.txt" />
 	
@@ -55,26 +55,48 @@
 		<delete file="${program.jar}" />
 		<delete file="${lib.new.jar}" />
 		<delete file="${lib.old.jar}" />
-		<delete file="${new.bin}" />
-		<delete file="${old.bin}" />
-		<delete file="${program.bin}" />
-		<delete file="${lib.new.bin}" />
-		<delete file="${lib.old.bin}" />
+		<delete dir="${new.bin}" />
+		<delete dir="${old.bin}" />
 		<delete file="${binary.file}" />
 		<delete file="${source.file}" />
 		<mkdir dir="${new.bin}" />
 		<mkdir dir="${old.bin}" />
-		<mkdir dir="${program.bin}" />
-		<mkdir dir="${lib.new.bin}" />
-		<mkdir dir="${lib.old.bin}" />
-		
 	</target>
-  
+	
 	<!-- build the jars -->
 	<target name="jar" depends="prepare" description="Create the jar files">
-		<jar jarfile="${program.jar}" basedir="${program.bin}" />
-		<jar jarfile="${lib.new.jar}" basedir="${lib.new.bin}" />
+		<mkdir dir="${client.bin}" />
+		<mkdir dir="${lib.old.bin}" />
+		<mkdir dir="${lib.new.bin}" />
+		
+		<javac srcdir="${lib.old.src}"
+		        destdir="${lib.old.bin}"
+		        debug="on"
+		        source="1.8"
+	   		 	includeAntRuntime="false"
+		/> 	
+		
+		<javac srcdir="${lib.new.src}"
+		        destdir="${lib.new.bin}"
+		        debug="on"
+		        source="1.8"
+	   		 	includeAntRuntime="false"
+		/> 	
+		
 		<jar jarfile="${lib.old.jar}" basedir="${lib.old.bin}" />
+		<jar jarfile="${lib.new.jar}" basedir="${lib.new.bin}" />
+		
+		<javac srcdir="${program.src}"
+		        destdir="${client.bin}"
+		        classpath="${lib.old.jar}"
+	   		 	includes="${package}/**"
+		        debug="on"
+		        source="1.8"
+	   		 	includeAntRuntime="false"
+		/>
+		
+		<jar jarfile="${program.jar}" basedir="${client.bin}" />
+		
 	</target>
 	
 	<!-- print instructions -->
@@ -92,7 +114,7 @@
 	
 	<!-- run experiment with old lib version -->
 	<target name="run-with-lib-version1" description="run experiment with old lib version">
-		<echo>Executing ${main} with original library (${lib.old.jar})</echo>
+		<echo>===Executing ${main} with original library (${lib.old.jar})===</echo>
 		<java classname="${main}">
         	<classpath>
            		<pathelement location="${program.jar}"/>
@@ -102,7 +124,7 @@
 	</target>
 		
 	<target name="compile-with-lib-version1" description="compile against old lib version">
-	   <echo>Compiling program with original library (${lib.old.jar})</echo>
+	   <echo>***Compiling program with original library (${lib.old.jar})***</echo>
 	   <javac srcdir="${program.src}"
 		        destdir="${old.bin}"
 		        classpath="${lib.old.jar}"
@@ -115,7 +137,7 @@
 	
 	<!-- run experiment with new lib version -->
 	<target name="run-with-lib-version2" description="run experiment with new lib version">
-       <echo>Executing ${main} with updated library (${lib.new.jar})</echo>
+       <echo>===Executing ${main} with updated library (${lib.new.jar})===</echo>
        <record name="${binary.file}" action="start"/>
 	   <java classname="${main}">
         	<classpath>
@@ -128,7 +150,7 @@
 	</target>
 	
 	<target name="compile-with-lib-version2" description="compile against new lib version">
-	   <echo>Compiling program with updated library (${lib.new.jar})</echo>
+	   <echo>***Compiling program with updated library (${lib.new.jar})***</echo>
 	   <record name="${source.file}" action="start"/>
 	   <javac srcdir="${program.src}"
 		        destdir="${new.bin}"
