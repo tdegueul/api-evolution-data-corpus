@@ -5,7 +5,7 @@ import testing_lib.accessModifierIfazeFieldAccessDecrease.AccessModifierIfazeFie
 public class Main {
 
 	public static void main(String[] args) {
-		System.out.println(AccessModifierIfazeFieldAccessDecrease.FIELD_PUBLIC_TO_NON);
+		Integer test = AccessModifierIfazeFieldAccessDecrease.FIELD_PUBLIC_TO_NON;
 	}
 	
 }

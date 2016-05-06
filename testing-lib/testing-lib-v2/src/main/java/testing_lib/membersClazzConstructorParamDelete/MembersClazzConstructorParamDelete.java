@@ -5,5 +5,9 @@ public class MembersClazzConstructorParamDelete {
 	public MembersClazzConstructorParamDelete() {
 
 	}
+
+	public MembersClazzConstructorParamDelete(Integer param1) {
+
+	}
 	
 }

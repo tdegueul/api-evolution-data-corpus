@@ -5,7 +5,7 @@ import testing_lib.membersClazzConstructorParamAdd.MembersClazzConstructorParamA
 public class Main {
 
 	public static void main(String[] args) {
-		MembersClazzConstructorParamAdd constr = new MembersClazzConstructorParamAdd();
+		MembersClazzConstructorParamAdd constr = new MembersClazzConstructorParamAdd(new Integer(5));
 		constr.toString();
 	}
 	

@@ -1,4 +1,6 @@
-Jour u tìchto testù hlásil runtime errory - proto je nutné, aby nástroj mìl trochu upravenou knihovnu
+Jour u tìchto testù hlásil runtime errory 
+proto je nutné, aby nástroj mìl trochu upravenou knihovnu bez tìchto testù
+
 
 accesModifierClazzNestedIfazeAccessDecrease
 accesModifierClazzNestedIfazeAccessIncrease

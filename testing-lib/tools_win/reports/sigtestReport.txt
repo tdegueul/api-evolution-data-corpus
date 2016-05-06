@@ -5,12 +5,6 @@ Check mode: src [throws normalized]
 Constant checking: on
 
 
-- Class testing_lib.ZGenericsIfazeTypeDeletePlusMethod.GenericsIfazeTypeDeletePlusMethod
-
-- Class testing_lib.ZotherClazzMethodParamRename.ClazzMethodParamRename
-
-- Class testing_lib.ZotherIfazeMethodParamRename.IfazeMethodParamRename
-
 - Class testing_lib.accessModifierClazzAccessDecrease.AccessModifierClazzAccessDecrease
 
 + Class testing_lib.accessModifierClazzAccessIncrease.AccessModifierClazzAccessIncrease
@@ -317,16 +311,6 @@ Class testing_lib.dataTypeClazzMethodParamMutation.DataTypeClazzMethodParamMutat
   Added Methods
     method public void testing_lib.dataTypeClazzMethodParamMutation.DataTypeClazzMethodParamMutation.method1(java.lang.String)
 
-Class testing_lib.dataTypeClazzMethodParamMutation.arrayToVarArity.DataTypeClazzMethodParamArrayToVarArity
-  Changed
-    method public void testing_lib.dataTypeClazzMethodParamMutation.arrayToVarArity.DataTypeClazzMethodParamArrayToVarArity.method1(java.lang.Integer,java.lang.Object[])
-    + [!varargs]
-
-Class testing_lib.dataTypeClazzMethodParamMutation.varArityToArray.DataTypeClazzMethodParamVarArityToArray
-  Changed
-    method public !varargs void testing_lib.dataTypeClazzMethodParamMutation.varArityToArray.DataTypeClazzMethodParamVarArityToArray.method1(java.lang.Integer,java.lang.Object[])
-    - [!varargs]
-
 Class testing_lib.dataTypeClazzMethodParamNarrowing.DataTypeClazzMethodParamNarrowing
   Missing Methods
     method public void testing_lib.dataTypeClazzMethodParamNarrowing.DataTypeClazzMethodParamNarrowing.method1(double)
@@ -393,14 +377,6 @@ Class testing_lib.dataTypeClazzMethodReturnTypeWidening.DataTypeClazzMethodRetur
     - type: int
     + type: double
 
-Class testing_lib.dataTypeIfazeConstantBoxing.DataTypeIfazeConstantBoxing
-  Changed
-    field public final static int testing_lib.dataTypeIfazeConstantBoxing.DataTypeIfazeConstantBoxing.FIELD1 = 5
-    - type: int
-    + type: java.lang.Integer
-    field public final static int testing_lib.dataTypeIfazeConstantBoxing.DataTypeIfazeConstantBoxing.FIELD1 = 5
-    - value: 5
-
 Class testing_lib.dataTypeIfazeConstantGeneralization.DataTypeIfazeConstantGeneralization
   Changed
     field public final static java.lang.Integer testing_lib.dataTypeIfazeConstantGeneralization.DataTypeIfazeConstantGeneralization.FIELD1
@@ -465,16 +441,6 @@ Class testing_lib.dataTypeIfazeMethodParamMutation.DataTypeIfazeMethodParamMutat
   Added Methods
     method public abstract void testing_lib.dataTypeIfazeMethodParamMutation.DataTypeIfazeMethodParamMutation.method1(java.lang.String)
 
-Class testing_lib.dataTypeIfazeMethodParamMutation.arrayToVarArity.DataTypeIfazeMethodParamArrayToVarArity
-  Changed
-    method public abstract void testing_lib.dataTypeIfazeMethodParamMutation.arrayToVarArity.DataTypeIfazeMethodParamArrayToVarArity.method1(java.lang.Integer,java.lang.Object[])
-    + [!varargs]
-
-Class testing_lib.dataTypeIfazeMethodParamMutation.varArityToArray.DataTypeIfazeMethodParamVarArityToArray
-  Changed
-    method public abstract !varargs void testing_lib.dataTypeIfazeMethodParamMutation.varArityToArray.DataTypeIfazeMethodParamVarArityToArray.method1(java.lang.Integer,java.lang.Object[])
-    - [!varargs]
-
 Class testing_lib.dataTypeIfazeMethodParamNarrowing.DataTypeIfazeMethodParamNarrowing
   Missing Methods
     method public abstract void testing_lib.dataTypeIfazeMethodParamNarrowing.DataTypeIfazeMethodParamNarrowing.method1(double)
@@ -507,7 +473,7 @@ Class testing_lib.dataTypeIfazeMethodReturnTypeBoxing.DataTypeIfazeMethodReturnT
 
 Class testing_lib.dataTypeIfazeMethodReturnTypeGeneralization.DataTypeIfazeMethodReturnTypeGeneralization
   Changed
-    method public abstract java.lang.Integer testing_lib.dataTypeIfazeMethodReturnTypeGeneralization.DataTypeIfazeMethodReturnTypeGeneralization.method()
+    method public abstract java.lang.Integer testing_lib.dataTypeIfazeMethodReturnTypeGeneralization.DataTypeIfazeMethodReturnTypeGeneralization.method1()
     - type: java.lang.Integer
     + type: java.lang.Number
 
@@ -531,7 +497,7 @@ Class testing_lib.dataTypeIfazeMethodReturnTypeNarrowing.DataTypeIfazeMethodRetu
 
 Class testing_lib.dataTypeIfazeMethodReturnTypeSpecialization.DataTypeIfazeMethodReturnTypeSpecialization
   Changed
-    method public abstract java.lang.Number testing_lib.dataTypeIfazeMethodReturnTypeSpecialization.DataTypeIfazeMethodReturnTypeSpecialization.method()
+    method public abstract java.lang.Number testing_lib.dataTypeIfazeMethodReturnTypeSpecialization.DataTypeIfazeMethodReturnTypeSpecialization.method1()
     - type: java.lang.Number
     + type: java.lang.Integer
 
@@ -1259,6 +1225,14 @@ Class testing_lib.membersIfazeMethodAdd.MembersIfazeMethodAdd
   Added Methods
     method public abstract void testing_lib.membersIfazeMethodAdd.MembersIfazeMethodAdd.method1()
 
+Class testing_lib.membersIfazeMethodDefaultAdd.MembersIfazeMethodDefaultAdd
+  Added Methods
+    method public void testing_lib.membersIfazeMethodDefaultAdd.MembersIfazeMethodDefaultAdd.method1()
+
+Class testing_lib.membersIfazeMethodDefaultDelete.MembersIfazeMethodDefaultDelete
+  Missing Methods
+    method public void testing_lib.membersIfazeMethodDefaultDelete.MembersIfazeMethodDefaultDelete.method1()
+
 Class testing_lib.membersIfazeMethodDelete.MembersIfazeMethodDelete
   Missing Methods
     method public abstract void testing_lib.membersIfazeMethodDelete.MembersIfazeMethodDelete.method1()
@@ -1361,6 +1335,26 @@ Class testing_lib.modifierMethodStaticToNonStatic.ModifierMethodStaticToNonStati
     method public static void testing_lib.modifierMethodStaticToNonStatic.ModifierMethodStaticToNonStatic.method1()
     - [static]
 
+Class testing_lib.modifierNestedClazzNonStaticToStatic.ModifierNestedClazzNonStaticToStatic$NestedClazz
+  Changed
+    inner public testing_lib.modifierNestedClazzNonStaticToStatic.ModifierNestedClazzNonStaticToStatic$NestedClazz
+    + [static]
+    + [static]
+  Missing Constructors
+    constructor public testing_lib.modifierNestedClazzNonStaticToStatic.ModifierNestedClazzNonStaticToStatic$NestedClazz.<init>(testing_lib.modifierNestedClazzNonStaticToStatic.ModifierNestedClazzNonStaticToStatic)
+  Added Constructors
+    constructor public testing_lib.modifierNestedClazzNonStaticToStatic.ModifierNestedClazzNonStaticToStatic$NestedClazz.<init>()
+
+Class testing_lib.modifierNestedClazzStaticToNonStatic.ModifierNestedClazzStaticToNonStatic$NestedClazz
+  Changed
+    nested public static testing_lib.modifierNestedClazzStaticToNonStatic.ModifierNestedClazzStaticToNonStatic$NestedClazz
+    - [static]
+    - [static]
+  Missing Constructors
+    constructor public testing_lib.modifierNestedClazzStaticToNonStatic.ModifierNestedClazzStaticToNonStatic$NestedClazz.<init>()
+  Added Constructors
+    constructor public testing_lib.modifierNestedClazzStaticToNonStatic.ModifierNestedClazzStaticToNonStatic$NestedClazz.<init>(testing_lib.modifierNestedClazzStaticToNonStatic.ModifierNestedClazzStaticToNonStatic)
+
 + Class testing_lib.otherClazzAdd.OtherClazzAdd
 
 - Class testing_lib.otherClazzDelete.OtherClazzDelete
@@ -1410,4 +1404,4 @@ Class testing_lib.otherIfazeToClass.IfazeToClass
     superclass java.lang.Object
 
 
-STATUS:Failed.396 errors
+STATUS:Failed.397 errors

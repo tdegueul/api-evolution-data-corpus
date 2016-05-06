@@ -6,6 +6,11 @@ import testing_lib.accessModifierClazzNestedIfazeAccessDecrease.AccessModifierCl
 
 public class Main implements IfazePublicToProtected, IfazePublicToNon, IfazePublicToPrivate {
 
+	public static void main(String[] args) {
+		IfazePublicToProtected constr = new Main();
+		IfazePublicToNon constr2 = new Main();
+		IfazePublicToPrivate constr3 = new Main();
+	}
 	
 	
 }

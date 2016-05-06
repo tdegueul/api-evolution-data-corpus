@@ -2,7 +2,7 @@
 
   
 	<!-- with the run-experiment target, this class is then executed with both the old and the new version of the 3rd party lib -->
-	<property name="package" value="modifierNestedClazzStaticToNonStatic" />
+	<property name="package" value="dataTypeIfazeMethodReturnTypeGeneralization" />
 	<property name="error1" value="clear" />
   
 	<property name="main" value="${package}.Main" />
@@ -16,9 +16,9 @@
 	<property name="lib.new.project" value="../testing-lib-v2" />
 	
 	<!-- compilation targets used by Eclipse ! -->
-	<property name="program.bin" value="${program.project}/bin" />
-	<property name="lib.new.bin" value="${lib.new.project}/bin" />
-	<property name="lib.old.bin" value="${lib.old.project}/bin" />
+	<property name="program.bin" value="${program.project}/target/classes" />
+	<property name="lib.new.bin" value="${lib.new.project}/target/classes" />
+	<property name="lib.old.bin" value="${lib.old.project}/target/classes" />
 	
 	<!-- source used by Eclipse ! -->
 	<property name="program.src" value="${program.project}/src/main/java" />
@@ -37,7 +37,7 @@
 	<property name="binary.file" value="binary.txt" />
 	<property name="source.file" value="source.txt" />
 	
-	<target name="packageName">
+	<target name="packageName" >
 	  <antcall target="compile">  </antcall>  
 	  <antcall target="run-experiments">   </antcall>
 	   
@@ -70,32 +70,6 @@
 		
 	</target>
   
-	<target name="compile" depends="prepare" description="Compile sources">
-		<javac srcdir="${lib.new.src}"
-	        destdir="${lib.new.bin}"
-	        debug="on"
-	        source="1.8"
-		 	includeAntRuntime="false"
-		/>
-		<javac srcdir="${lib.old.src}"
-	        destdir="${lib.old.bin}"
-	        debug="on"
-	        source="1.8"
-		 	includeAntRuntime="false"
-	 	/>
-		
-		<jar jarfile="${lib.old.jar}" basedir="${lib.old.bin}" />
-		
-		<javac srcdir="${program.src}"
-			destdir="${program.bin}"
-			classpath="${lib.old.jar}"
-			includes="${package}/**"
-			debug="on"
-			source="1.8"
-		 	includeAntRuntime="false"
-	  	/>
-	</target>
-	
 	<!-- build the jars -->
 	<target name="jar" depends="prepare" description="Create the jar files">
 		<jar jarfile="${program.jar}" basedir="${program.bin}" />

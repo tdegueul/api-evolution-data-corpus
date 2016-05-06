@@ -1,6 +1,3 @@
-ERROR: 8001: testing_lib.ZGenericsIfazeTypeDeletePlusMethod.GenericsIfazeTypeDeletePlusMethod: Class testing_lib.ZGenericsIfazeTypeDeletePlusMethod.GenericsIfazeTypeDeletePlusMethod removed
-ERROR: 8001: testing_lib.ZotherClazzMethodParamRename.ClazzMethodParamRename: Class testing_lib.ZotherClazzMethodParamRename.ClazzMethodParamRename removed
-ERROR: 8001: testing_lib.ZotherIfazeMethodParamRename.IfazeMethodParamRename: Class testing_lib.ZotherIfazeMethodParamRename.IfazeMethodParamRename removed
 ERROR: 1001: testing_lib.accessModifierClazzAccessDecrease.AccessModifierClazzAccessDecrease: Decreased visibility of class from public to package
 INFO: 1000: testing_lib.accessModifierClazzAccessIncrease.AccessModifierClazzAccessIncrease: Increased visibility of class from package to public
 ERROR: 7009: testing_lib.accessModifierClazzConstructorAccessDecrease.AccessModifierClazzConstructorAccessDecrease: Accessibility of method 'public AccessModifierClazzConstructorAccessDecrease()' has been decreased from public to protected
@@ -83,8 +80,6 @@ ERROR: 7006: testing_lib.dataTypeClazzMethodReturnTypeNarrowing.DataTypeClazzMet
 ERROR: 7006: testing_lib.dataTypeClazzMethodReturnTypeSpecialization.DataTypeClazzMethodReturnTypeSpecialization: Return type of method 'public java.lang.Number method()' has been changed to java.lang.Integer
 ERROR: 7006: testing_lib.dataTypeClazzMethodReturnTypeUnboxing.DataTypeClazzMethodReturnTypeUnboxing: Return type of method 'public java.lang.Integer method()' has been changed to int
 ERROR: 7006: testing_lib.dataTypeClazzMethodReturnTypeWidening.DataTypeClazzMethodReturnTypeWidening: Return type of method 'public int method()' has been changed to double
-ERROR: 6004: testing_lib.dataTypeIfazeConstantBoxing.DataTypeIfazeConstantBoxing: Changed type of field FIELD1 from int to java.lang.Integer
-WARNING: 6002: testing_lib.dataTypeIfazeConstantBoxing.DataTypeIfazeConstantBoxing: Value of field FIELD1 is no longer a compile-time constant
 ERROR: 6004: testing_lib.dataTypeIfazeConstantGeneralization.DataTypeIfazeConstantGeneralization: Changed type of field FIELD1 from java.lang.Integer to java.lang.Number
 ERROR: 6004: testing_lib.dataTypeIfazeConstantMutation.DataTypeIfazeConstantMutation: Changed type of field FIELD1 from java.lang.Integer to java.lang.String
 ERROR: 6004: testing_lib.dataTypeIfazeConstantNarrowing.DataTypeIfazeConstantNarrowing: Changed type of field FIELD1 from double to int
@@ -101,12 +96,12 @@ ERROR: 7005: testing_lib.dataTypeIfazeMethodParamSpecialization.DataTypeIfazeMet
 ERROR: 7005: testing_lib.dataTypeIfazeMethodParamUnboxing.DataTypeIfazeMethodParamUnboxing: Parameter 1 of 'public void method1(java.lang.Integer)' has changed its type to int
 ERROR: 7005: testing_lib.dataTypeIfazeMethodParamWidening.DataTypeIfazeMethodParamWidening: Parameter 1 of 'public void method1(int)' has changed its type to double
 ERROR: 7006: testing_lib.dataTypeIfazeMethodReturnTypeBoxing.DataTypeIfazeMethodReturnTypeBoxing: Return type of method 'public int method1()' has been changed to java.lang.Integer
-ERROR: 7006: testing_lib.dataTypeIfazeMethodReturnTypeGeneralization.DataTypeIfazeMethodReturnTypeGeneralization: Return type of method 'public java.lang.Integer method()' has been changed to java.lang.Number
+ERROR: 7006: testing_lib.dataTypeIfazeMethodReturnTypeGeneralization.DataTypeIfazeMethodReturnTypeGeneralization: Return type of method 'public java.lang.Integer method1()' has been changed to java.lang.Number
 ERROR: 7006: testing_lib.dataTypeIfazeMethodReturnTypeMutation.DataTypeIfazeMethodReturnTypeMutation: Return type of method 'public java.lang.Integer methodIntegerToString()' has been changed to java.lang.String
 ERROR: 7006: testing_lib.dataTypeIfazeMethodReturnTypeMutation.DataTypeIfazeMethodReturnTypeMutation: Return type of method 'public java.lang.Integer methodIntegerToVoid()' has been changed to void
 ERROR: 7006: testing_lib.dataTypeIfazeMethodReturnTypeMutation.DataTypeIfazeMethodReturnTypeMutation: Return type of method 'public void methodVoidToInteger()' has been changed to java.lang.Integer
 ERROR: 7006: testing_lib.dataTypeIfazeMethodReturnTypeNarrowing.DataTypeIfazeMethodReturnTypeNarrowing: Return type of method 'public double method1()' has been changed to int
-ERROR: 7006: testing_lib.dataTypeIfazeMethodReturnTypeSpecialization.DataTypeIfazeMethodReturnTypeSpecialization: Return type of method 'public java.lang.Number method()' has been changed to java.lang.Integer
+ERROR: 7006: testing_lib.dataTypeIfazeMethodReturnTypeSpecialization.DataTypeIfazeMethodReturnTypeSpecialization: Return type of method 'public java.lang.Number method1()' has been changed to java.lang.Integer
 ERROR: 7006: testing_lib.dataTypeIfazeMethodReturnTypeUnboxing.DataTypeIfazeMethodReturnTypeUnboxing: Return type of method 'public java.lang.Integer method1()' has been changed to int
 ERROR: 7006: testing_lib.dataTypeIfazeMethodReturnTypeWidening.DataTypeIfazeMethodReturnTypeWidening: Return type of method 'public int method1()' has been changed to double
 ERROR: 8001: testing_lib.inheritanceClazzContractSuperClassSet.Clazz2: Class testing_lib.inheritanceClazzContractSuperClassSet.Clazz2 removed
@@ -155,6 +150,8 @@ ERROR: 8001: testing_lib.membersClazzNestedIfazeDelete.MembersClazzNestedIfazeDe
 INFO: 6000: testing_lib.membersIfazeConstantAdd.MembersIfazeConstantAdd: Added public field FIELD
 ERROR: 6001: testing_lib.membersIfazeConstantDelete.MembersIfazeConstantDelete: Removed field FIELD
 ERROR: 7012: testing_lib.membersIfazeMethodAdd.MembersIfazeMethodAdd: Method 'public void method1()' has been added to an interface
+ERROR: 7012: testing_lib.membersIfazeMethodDefaultAdd.MembersIfazeMethodDefaultAdd: Method 'public void method1()' has been added to an interface
+ERROR: 7002: testing_lib.membersIfazeMethodDefaultDelete.MembersIfazeMethodDefaultDelete: Method 'public void method1()' has been removed
 ERROR: 7002: testing_lib.membersIfazeMethodDelete.MembersIfazeMethodDelete: Method 'public void method1()' has been removed
 ERROR: 7004: testing_lib.membersIfazeMethodParamAdd.MembersIfazeMethodParamAdd: In method 'public void method1()' the number of arguments has changed
 ERROR: 7004: testing_lib.membersIfazeMethodParamDelete.MembersIfazeMethodParamDelete: In method 'public void method1(java.lang.Integer)' the number of arguments has changed
@@ -172,6 +169,8 @@ ERROR: 6008: testing_lib.modifierFieldNonStaticToStatic.ModifierFieldNonStaticTo
 ERROR: 6007: testing_lib.modifierFieldStaticToNonStatic.ModifierFieldStaticToNonStatic: Field field is now non-static
 INFO: 7015: testing_lib.modifierMethodFinalToNonFinal.ModifierMethodFinalToNonFinal: Method 'public void method1()' is no longer final
 ERROR: 7014: testing_lib.modifierMethodNonFinalToFinal.ModifierMethodNonFinalToFinal: Method 'public void method1()' is now final
+ERROR: 7004: testing_lib.modifierNestedClazzNonStaticToStatic.ModifierNestedClazzNonStaticToStatic$NestedClazz: In method 'public ModifierNestedClazzNonStaticToStatic$NestedClazz(testing_lib.modifierNestedClazzNonStaticToStatic.ModifierNestedClazzNonStaticToStatic)' the number of arguments has changed
+ERROR: 7004: testing_lib.modifierNestedClazzStaticToNonStatic.ModifierNestedClazzStaticToNonStatic$NestedClazz: In method 'public ModifierNestedClazzStaticToNonStatic$NestedClazz()' the number of arguments has changed
 INFO: 8000: testing_lib.otherClazzAdd.OtherClazzAdd: Class testing_lib.otherClazzAdd.OtherClazzAdd added
 ERROR: 8001: testing_lib.otherClazzDelete.OtherClazzDelete: Class testing_lib.otherClazzDelete.OtherClazzDelete removed
 ERROR: 2000: testing_lib.otherClazzToIfaze.ClazzToIfaze: Changed from class to interface
