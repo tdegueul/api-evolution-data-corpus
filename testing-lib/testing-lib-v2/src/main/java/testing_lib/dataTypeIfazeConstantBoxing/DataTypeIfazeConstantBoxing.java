@@ -2,6 +2,6 @@ package testing_lib.dataTypeIfazeConstantBoxing;
 
 public interface DataTypeIfazeConstantBoxing {
 	
-	public Integer FIELD1 = 5;
+	public Integer FIELD1 = 2;
 	
 }

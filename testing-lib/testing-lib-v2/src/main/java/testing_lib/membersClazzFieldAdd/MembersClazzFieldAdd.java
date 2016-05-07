@@ -2,6 +2,6 @@ package testing_lib.membersClazzFieldAdd;
 
 public class MembersClazzFieldAdd {
 	
-	public int field = 0;
+	public int field1 = 0;
 	
 }

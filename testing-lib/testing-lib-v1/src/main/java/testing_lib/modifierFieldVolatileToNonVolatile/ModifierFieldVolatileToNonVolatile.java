@@ -2,6 +2,6 @@ package testing_lib.modifierFieldVolatileToNonVolatile;
 
 public class ModifierFieldVolatileToNonVolatile {
 	
-	public volatile Integer field = 5;
+	public volatile Integer field1 = 5;
 
 }

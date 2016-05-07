@@ -7,7 +7,7 @@ public class Main {
 
 	public static void main(String[] args) {
 		ModifierFieldVolatileToNonVolatile constr = new ModifierFieldVolatileToNonVolatile();
-		Integer test = constr.field;
+		Integer test = constr.field1;
 	}
 	
 }

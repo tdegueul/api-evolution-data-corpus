@@ -2,6 +2,6 @@ package testing_lib.membersIfazeConstantDelete;
 
 public interface MembersIfazeConstantDelete {
 
-	int FIELD = 5;
+	int FIELD1 = 5;
 	
 }

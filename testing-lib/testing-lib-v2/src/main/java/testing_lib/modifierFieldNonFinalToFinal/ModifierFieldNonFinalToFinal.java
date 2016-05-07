@@ -2,6 +2,6 @@ package testing_lib.modifierFieldNonFinalToFinal;
 
 public class ModifierFieldNonFinalToFinal {
 	
-	public final Integer field = 5;
+	public final Integer field1 = 5;
 
 }
