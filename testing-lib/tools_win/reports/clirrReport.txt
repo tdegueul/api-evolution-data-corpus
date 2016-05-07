@@ -130,8 +130,8 @@ INFO: 4000: testing_lib.inheritanceIfazeStartInherite.InheritanceIfazeStartInher
 ERROR: 4001: testing_lib.inheritanceIfazeStopInherite.InheritanceIfazeStopInherite: Removed testing_lib.inheritanceIfazeStopInherite.Interface1 from the set of implemented interfaces
 INFO: 7011: testing_lib.membersClazzConstructorAdd.MembersClazzConstructorAdd: Method 'public MembersClazzConstructorAdd(int)' has been added
 ERROR: 7002: testing_lib.membersClazzConstructorDelete.MembersClazzConstructorDelete: Method 'public MembersClazzConstructorDelete(int)' has been removed
-ERROR: 7004: testing_lib.membersClazzConstructorParamAdd.MembersClazzConstructorParamAdd: In method 'public MembersClazzConstructorParamAdd()' the number of arguments has changed
-ERROR: 7004: testing_lib.membersClazzConstructorParamDelete.MembersClazzConstructorParamDelete: In method 'public MembersClazzConstructorParamDelete(java.lang.Integer)' the number of arguments has changed
+ERROR: 7004: testing_lib.membersClazzConstructorParamAdd.MembersClazzConstructorParamAdd: In method 'public MembersClazzConstructorParamAdd(java.lang.Integer)' the number of arguments has changed
+ERROR: 7004: testing_lib.membersClazzConstructorParamDelete.MembersClazzConstructorParamDelete: In method 'public MembersClazzConstructorParamDelete(java.lang.Integer, java.lang.String)' the number of arguments has changed
 INFO: 6000: testing_lib.membersClazzFieldAdd.MembersClazzFieldAdd: Added public field field
 INFO: 6000: testing_lib.membersClazzFieldConstantAdd.MembersClazzFieldConstantAdd: Added public field FIELD
 ERROR: 6011: testing_lib.membersClazzFieldConstantDelete.MembersClazzFieldConstantDelete: Field FIELD has been removed, but it was previously a constant
@@ -148,7 +148,7 @@ ERROR: 8001: testing_lib.membersClazzNestedClazzDelete.MembersClazzNestedClazzDe
 INFO: 8000: testing_lib.membersClazzNestedIfazeAdd.MembersClazzNestedIfazeAdd$NestedIfaze: Class testing_lib.membersClazzNestedIfazeAdd.MembersClazzNestedIfazeAdd$NestedIfaze added
 ERROR: 8001: testing_lib.membersClazzNestedIfazeDelete.MembersClazzNestedIfazeDelete$NestedIfaze: Class testing_lib.membersClazzNestedIfazeDelete.MembersClazzNestedIfazeDelete$NestedIfaze removed
 INFO: 6000: testing_lib.membersIfazeConstantAdd.MembersIfazeConstantAdd: Added public field FIELD
-ERROR: 6001: testing_lib.membersIfazeConstantDelete.MembersIfazeConstantDelete: Removed field FIELD
+ERROR: 6011: testing_lib.membersIfazeConstantDelete.MembersIfazeConstantDelete: Field FIELD has been removed, but it was previously a constant
 ERROR: 7012: testing_lib.membersIfazeMethodAdd.MembersIfazeMethodAdd: Method 'public void method1()' has been added to an interface
 ERROR: 7012: testing_lib.membersIfazeMethodDefaultAdd.MembersIfazeMethodDefaultAdd: Method 'public void method1()' has been added to an interface
 ERROR: 7002: testing_lib.membersIfazeMethodDefaultDelete.MembersIfazeMethodDefaultDelete: Method 'public void method1()' has been removed

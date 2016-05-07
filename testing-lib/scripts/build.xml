@@ -2,13 +2,13 @@
 
   
 	<!-- with the run-experiment target, this class is then executed with both the old and the new version of the 3rd party lib -->
-	<property name="package" value="accessModifierClazzAccessDecrease" />
+	<property name="package" value="dataTypeIfazeConstantBoxing" />
 	<property name="error1" value="clear" />
   
 	<property name="main" value="${package}.Main" />
 	<property name="program" value="main" />
-	<property name="lib.old" value="lib-1.0" />
-	<property name="lib.new" value="lib-2.0" />
+	<property name="lib.old" value="testing-lib-v1-0.0.1" />
+	<property name="lib.new" value="testing-lib-v2-0.0.2" />
 	
 	<!-- references to other Eclipse projects that must be checked out into a parallel folder -->
 	<property name="program.project" value="../../testing-lib" />
@@ -29,10 +29,10 @@
 	<property name="lib.new.bin" value="bin-lib2" />
 	
 	<!-- jar file names -->
-	<property name="program.jar" value="${program}.jar" />
-	<property name="lib.new.jar" value="${lib.new}.jar" />
-	<property name="lib.old.jar" value="${lib.old}.jar" />
-	 
+	<property name="program.jar" value="${program.project}/target/${program}.jar" />
+	<property name="lib.new.jar" value="${lib.new.project}/target/${lib.new}.jar" />
+	<property name="lib.old.jar" value="${lib.old.project}/target/${lib.old}.jar" />
+	
 	<!-- output file names -->
 	<property name="binary.file" value="binary.txt" />
 	<property name="source.file" value="source.txt" />
@@ -63,8 +63,8 @@
 		<mkdir dir="${old.bin}" />
 	</target>
 	
-	<!-- build the jars -->
-	<target name="jar" depends="prepare" description="Create the jar files">
+	<!-- Compile sources to classes -->
+	<target name="compile" description="Compile source files to classes">
 		<mkdir dir="${client.bin}" />
 		<mkdir dir="${lib.old.bin}" />
 		<mkdir dir="${lib.new.bin}" />
@@ -75,7 +75,7 @@
 		        source="1.8"
 	   		 	includeAntRuntime="false"
 		/> 	
-		
+			
 		<javac srcdir="${lib.new.src}"
 		        destdir="${lib.new.bin}"
 		        debug="on"
@@ -84,19 +84,38 @@
 		/> 	
 		
 		<jar jarfile="${lib.old.jar}" basedir="${lib.old.bin}" />
-		<jar jarfile="${lib.new.jar}" basedir="${lib.new.bin}" />
 		
 		<javac srcdir="${program.src}"
 		        destdir="${client.bin}"
 		        classpath="${lib.old.jar}"
-	   		 	includes="${package}/**"
 		        debug="on"
 		        source="1.8"
 	   		 	includeAntRuntime="false"
 		/>
 		
-		<jar jarfile="${program.jar}" basedir="${client.bin}" />
+		<delete file="${lib.old.jar}" />
 		
+	</target>
+
+	<!-- Clean script direcrtion -->
+	<target name="clean" description="Clean script direcrtion">
+		<delete file="${program.jar}" />
+		<delete file="${lib.new.jar}" />
+		<delete file="${lib.old.jar}" />
+		<delete dir="${new.bin}" />
+		<delete dir="${old.bin}" />
+		<delete file="${binary.file}" />
+		<delete file="${source.file}" />
+		<delete dir="${client.bin}" />
+		<delete dir="${lib.old.bin}" />
+		<delete dir="${lib.new.bin}" />
+	</target>
+	
+	<!-- build the jars -->
+	<target name="jar" depends="prepare" description="Create the jar files">
+		<jar jarfile="${lib.old.jar}" basedir="${lib.old.bin}" />
+		<jar jarfile="${lib.new.jar}" basedir="${lib.new.bin}" />
+		<jar jarfile="${program.jar}" basedir="${client.bin}" />
 	</target>
 	
 	<!-- print instructions -->

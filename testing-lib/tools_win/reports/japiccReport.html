@@ -1,5 +1,5 @@
-<!-- kind:binary;verdict:incompatible;affected:24.2;added:72;removed:69;type_problems_high:28;type_problems_medium:4;type_problems_low:7;method_problems_high:15;method_problems_medium:1;method_problems_low:21;tool_version:1.5 -->
-<!-- kind:source;verdict:incompatible;affected:26.1;added:71;removed:68;type_problems_high:29;type_problems_medium:4;type_problems_low:1;method_problems_high:13;method_problems_medium:23;method_problems_low:1;tool_version:1.5 -->
+<!-- kind:binary;verdict:incompatible;affected:24;added:72;removed:69;type_problems_high:28;type_problems_medium:4;type_problems_low:7;method_problems_high:15;method_problems_medium:1;method_problems_low:21;tool_version:1.5 -->
+<!-- kind:source;verdict:incompatible;affected:26;added:71;removed:68;type_problems_high:29;type_problems_medium:4;type_problems_low:1;method_problems_high:13;method_problems_medium:23;method_problems_low:1;tool_version:1.5 -->
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
     <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
     <head>
@@ -344,9 +344,9 @@
 <tr><th>Subject</th><td width='150px'>Binary Compatibility</td></tr>
 </table>
 <h2>Test Results</h2><hr/><table cellpadding='3' cellspacing='0' class='summary'><tr><th>Total JARs</th><td><a href='#Checked_Archives' style='color:Blue;'>1</a></td></tr>
-<tr><th>Total Methods / Classes</th><td>414 / 297</td></tr>
+<tr><th>Total Methods / Classes</th><td>416 / 297</td></tr>
 <tr><th>Compatibility</th>
-<td class='incompatible'>75.8%</td>
+<td class='incompatible'>76%</td>
 </tr>
 </table>
 <h2>Problem Summary</h2><hr/><table cellpadding='3' cellspacing='0' class='summary'><tr><th></th><th style='text-align:center;'>Severity</th><th style='text-align:center;'>Count</th></tr><tr><th>Added Methods</th><td>-</td><td class='new'><a href='#Binary_Added' style='color:Blue;'>72</a></td></tr><tr><th>Removed Methods</th><td>High</td><td class='failed'><a href='#Binary_Removed' style='color:Blue;'>69</a></td></tr><tr><th rowspan='3'>Problems with<br/>Data Types</th><td>High</td><td class='failed'><a href='#Type_Binary_Problems_High' style='color:Blue;'>28</a></td></tr><tr><td>Medium</td><td class='failed'><a href='#Type_Binary_Problems_Medium' style='color:Blue;'>4</a></td></tr><tr><td>Low</td><td class='warning'><a href='#Type_Binary_Problems_Low' style='color:Blue;'>7</a></td></tr><tr><th rowspan='3'>Problems with<br/>Methods</th><td>High</td><td class='failed'><a href='#Method_Binary_Problems_High' style='color:Blue;'>15</a></td></tr><tr><td>Medium</td><td class='failed'><a href='#Method_Binary_Problems_Medium' style='color:Blue;'>1</a></td></tr><tr><td>Low</td><td class='warning'><a href='#Method_Binary_Problems_Low' style='color:Blue;'>21</a></td></tr><tr><th>Other Changes<br/>in Data Types</th><td>-</td><td class='passed'><a href='#Other_Binary_Changes_In_Types' style='color:Blue;'>3</a></td></tr>
@@ -866,19 +866,19 @@ MembersClazzConstructorAdd.MembersClazzConstructorAdd&#160;<span class='sym_p'><
 <span class='jar'>testing-lib-v2-0.0.2.jar</span>, <span class='cname'>MembersClazzConstructorParamAdd.class</span><br/>
 <span class='package_title'>package</span> <span class='package'>testing_lib.membersClazzConstructorParamAdd</span><br/>
 <span class="section" onclick="showContent(this, 'c_59')">
-MembersClazzConstructorParamAdd.MembersClazzConstructorParamAdd&#160;<span class='sym_p'><span>(&#160;Integer <span class='color_p'>param1</span></span>&#160;)</span></span>
+MembersClazzConstructorParamAdd.MembersClazzConstructorParamAdd&#160;<span class='sym_p'><span>(&#160;Integer <span class='color_p'>param1</span></span>, <span>String <span class='color_p'>param2</span></span>&#160;)</span></span>
 <br/>
 <div id="c_59" style="display:none;">
-<span class='mangled'>[mangled: <b>testing_lib/membersClazzConstructorParamAdd/MembersClazzConstructorParamAdd.&quot;&lt;init&gt;&quot;:(Ljava/lang/Integer;)V</b>]</span><br/><br/></div>
+<span class='mangled'>[mangled: <b>testing_lib/membersClazzConstructorParamAdd/MembersClazzConstructorParamAdd.&quot;&lt;init&gt;&quot;:(Ljava/lang/Integer;Ljava/lang/String;)V</b>]</span><br/><br/></div>
 
 <br/>
 <span class='jar'>testing-lib-v2-0.0.2.jar</span>, <span class='cname'>MembersClazzConstructorParamDelete.class</span><br/>
 <span class='package_title'>package</span> <span class='package'>testing_lib.membersClazzConstructorParamDelete</span><br/>
 <span class="section" onclick="showContent(this, 'c_60')">
-MembersClazzConstructorParamDelete.MembersClazzConstructorParamDelete&#160;<span class='sym_p'>(&#160;)</span></span>
+MembersClazzConstructorParamDelete.MembersClazzConstructorParamDelete&#160;<span class='sym_p'><span>(&#160;Integer <span class='color_p'>param1</span></span>&#160;)</span></span>
 <br/>
 <div id="c_60" style="display:none;">
-<span class='mangled'>[mangled: <b>testing_lib/membersClazzConstructorParamDelete/MembersClazzConstructorParamDelete.&quot;&lt;init&gt;&quot;:()V</b>]</span><br/><br/></div>
+<span class='mangled'>[mangled: <b>testing_lib/membersClazzConstructorParamDelete/MembersClazzConstructorParamDelete.&quot;&lt;init&gt;&quot;:(Ljava/lang/Integer;)V</b>]</span><br/><br/></div>
 
 <br/>
 <span class='jar'>testing-lib-v2-0.0.2.jar</span>, <span class='cname'>MembersClazzMethodAbstractAdd.class</span><br/>
@@ -1473,19 +1473,19 @@ MembersClazzConstructorDelete.MembersClazzConstructorDelete&#160;<span class='sy
 <span class='jar'>testing-lib-v1-0.0.1.jar</span>, <span class='cname'>MembersClazzConstructorParamAdd.class</span><br/>
 <span class='package_title'>package</span> <span class='package'>testing_lib.membersClazzConstructorParamAdd</span><br/>
 <span class="section" onclick="showContent(this, 'c_128')">
-MembersClazzConstructorParamAdd.MembersClazzConstructorParamAdd&#160;<span class='sym_p'>(&#160;)</span></span>
+MembersClazzConstructorParamAdd.MembersClazzConstructorParamAdd&#160;<span class='sym_p'><span>(&#160;Integer <span class='color_p'>param1</span></span>&#160;)</span></span>
 <br/>
 <div id="c_128" style="display:none;">
-<span class='mangled'>[mangled: <b>testing_lib/membersClazzConstructorParamAdd/MembersClazzConstructorParamAdd.&quot;&lt;init&gt;&quot;:()V</b>]</span><br/><br/></div>
+<span class='mangled'>[mangled: <b>testing_lib/membersClazzConstructorParamAdd/MembersClazzConstructorParamAdd.&quot;&lt;init&gt;&quot;:(Ljava/lang/Integer;)V</b>]</span><br/><br/></div>
 
 <br/>
 <span class='jar'>testing-lib-v1-0.0.1.jar</span>, <span class='cname'>MembersClazzConstructorParamDelete.class</span><br/>
 <span class='package_title'>package</span> <span class='package'>testing_lib.membersClazzConstructorParamDelete</span><br/>
 <span class="section" onclick="showContent(this, 'c_129')">
-MembersClazzConstructorParamDelete.MembersClazzConstructorParamDelete&#160;<span class='sym_p'><span>(&#160;Integer <span class='color_p'>param1</span></span>&#160;)</span></span>
+MembersClazzConstructorParamDelete.MembersClazzConstructorParamDelete&#160;<span class='sym_p'><span>(&#160;Integer <span class='color_p'>param1</span></span>, <span>String <span class='color_p'>param2</span></span>&#160;)</span></span>
 <br/>
 <div id="c_129" style="display:none;">
-<span class='mangled'>[mangled: <b>testing_lib/membersClazzConstructorParamDelete/MembersClazzConstructorParamDelete.&quot;&lt;init&gt;&quot;:(Ljava/lang/Integer;)V</b>]</span><br/><br/></div>
+<span class='mangled'>[mangled: <b>testing_lib/membersClazzConstructorParamDelete/MembersClazzConstructorParamDelete.&quot;&lt;init&gt;&quot;:(Ljava/lang/Integer;Ljava/lang/String;)V</b>]</span><br/><br/></div>
 
 <br/>
 <span class='jar'>testing-lib-v1-0.0.1.jar</span>, <span class='cname'>MembersClazzMethodAbstractDelete.class</span><br/>
@@ -2462,9 +2462,9 @@ testing-lib-v1-0.0.1.jar<br/>
 <tr><th>Subject</th><td width='150px'>Source Compatibility</td></tr>
 </table>
 <h2>Test Results</h2><hr/><table cellpadding='3' cellspacing='0' class='summary'><tr><th>Total JARs</th><td><a href='#Checked_Archives' style='color:Blue;'>1</a></td></tr>
-<tr><th>Total Methods / Classes</th><td>414 / 297</td></tr>
+<tr><th>Total Methods / Classes</th><td>416 / 297</td></tr>
 <tr><th>Compatibility</th>
-<td class='incompatible'>73.9%</td>
+<td class='incompatible'>74%</td>
 </tr>
 </table>
 <h2>Problem Summary</h2><hr/><table cellpadding='3' cellspacing='0' class='summary'><tr><th></th><th style='text-align:center;'>Severity</th><th style='text-align:center;'>Count</th></tr><tr><th>Added Methods</th><td>-</td><td class='new'><a href='#Source_Added' style='color:Blue;'>71</a></td></tr><tr><th>Removed Methods</th><td>High</td><td class='failed'><a href='#Source_Removed' style='color:Blue;'>68</a></td></tr><tr><th rowspan='3'>Problems with<br/>Data Types</th><td>High</td><td class='failed'><a href='#Type_Source_Problems_High' style='color:Blue;'>29</a></td></tr><tr><td>Medium</td><td class='failed'><a href='#Type_Source_Problems_Medium' style='color:Blue;'>4</a></td></tr><tr><td>Low</td><td class='warning'><a href='#Type_Source_Problems_Low' style='color:Blue;'>1</a></td></tr><tr><th rowspan='3'>Problems with<br/>Methods</th><td>High</td><td class='failed'><a href='#Method_Source_Problems_High' style='color:Blue;'>13</a></td></tr><tr><td>Medium</td><td class='failed'><a href='#Method_Source_Problems_Medium' style='color:Blue;'>23</a></td></tr><tr><td>Low</td><td class='warning'><a href='#Method_Source_Problems_Low' style='color:Blue;'>1</a></td></tr><tr><th>Other Changes<br/>in Data Types</th><td>-</td><td class='passed'><a href='#Other_Source_Changes_In_Types' style='color:Blue;'>2</a></td></tr>
@@ -2978,19 +2978,19 @@ MembersClazzConstructorAdd.MembersClazzConstructorAdd&#160;<span class='sym_p'><
 <span class='jar'>testing-lib-v2-0.0.2.jar</span>, <span class='cname'>MembersClazzConstructorParamAdd.class</span><br/>
 <span class='package_title'>package</span> <span class='package'>testing_lib.membersClazzConstructorParamAdd</span><br/>
 <span class="section" onclick="showContent(this, 'c_306')">
-MembersClazzConstructorParamAdd.MembersClazzConstructorParamAdd&#160;<span class='sym_p'><span>(&#160;Integer <span class='color_p'>param1</span></span>&#160;)</span></span>
+MembersClazzConstructorParamAdd.MembersClazzConstructorParamAdd&#160;<span class='sym_p'><span>(&#160;Integer <span class='color_p'>param1</span></span>, <span>String <span class='color_p'>param2</span></span>&#160;)</span></span>
 <br/>
 <div id="c_306" style="display:none;">
-<span class='mangled'>[mangled: <b>testing_lib/membersClazzConstructorParamAdd/MembersClazzConstructorParamAdd.&quot;&lt;init&gt;&quot;:(Ljava/lang/Integer;)V</b>]</span><br/><br/></div>
+<span class='mangled'>[mangled: <b>testing_lib/membersClazzConstructorParamAdd/MembersClazzConstructorParamAdd.&quot;&lt;init&gt;&quot;:(Ljava/lang/Integer;Ljava/lang/String;)V</b>]</span><br/><br/></div>
 
 <br/>
 <span class='jar'>testing-lib-v2-0.0.2.jar</span>, <span class='cname'>MembersClazzConstructorParamDelete.class</span><br/>
 <span class='package_title'>package</span> <span class='package'>testing_lib.membersClazzConstructorParamDelete</span><br/>
 <span class="section" onclick="showContent(this, 'c_307')">
-MembersClazzConstructorParamDelete.MembersClazzConstructorParamDelete&#160;<span class='sym_p'>(&#160;)</span></span>
+MembersClazzConstructorParamDelete.MembersClazzConstructorParamDelete&#160;<span class='sym_p'><span>(&#160;Integer <span class='color_p'>param1</span></span>&#160;)</span></span>
 <br/>
 <div id="c_307" style="display:none;">
-<span class='mangled'>[mangled: <b>testing_lib/membersClazzConstructorParamDelete/MembersClazzConstructorParamDelete.&quot;&lt;init&gt;&quot;:()V</b>]</span><br/><br/></div>
+<span class='mangled'>[mangled: <b>testing_lib/membersClazzConstructorParamDelete/MembersClazzConstructorParamDelete.&quot;&lt;init&gt;&quot;:(Ljava/lang/Integer;)V</b>]</span><br/><br/></div>
 
 <br/>
 <span class='jar'>testing-lib-v2-0.0.2.jar</span>, <span class='cname'>MembersClazzMethodAbstractAdd.class</span><br/>
@@ -3579,19 +3579,19 @@ MembersClazzConstructorDelete.MembersClazzConstructorDelete&#160;<span class='sy
 <span class='jar'>testing-lib-v1-0.0.1.jar</span>, <span class='cname'>MembersClazzConstructorParamAdd.class</span><br/>
 <span class='package_title'>package</span> <span class='package'>testing_lib.membersClazzConstructorParamAdd</span><br/>
 <span class="section" onclick="showContent(this, 'c_374')">
-MembersClazzConstructorParamAdd.MembersClazzConstructorParamAdd&#160;<span class='sym_p'>(&#160;)</span></span>
+MembersClazzConstructorParamAdd.MembersClazzConstructorParamAdd&#160;<span class='sym_p'><span>(&#160;Integer <span class='color_p'>param1</span></span>&#160;)</span></span>
 <br/>
 <div id="c_374" style="display:none;">
-<span class='mangled'>[mangled: <b>testing_lib/membersClazzConstructorParamAdd/MembersClazzConstructorParamAdd.&quot;&lt;init&gt;&quot;:()V</b>]</span><br/><br/></div>
+<span class='mangled'>[mangled: <b>testing_lib/membersClazzConstructorParamAdd/MembersClazzConstructorParamAdd.&quot;&lt;init&gt;&quot;:(Ljava/lang/Integer;)V</b>]</span><br/><br/></div>
 
 <br/>
 <span class='jar'>testing-lib-v1-0.0.1.jar</span>, <span class='cname'>MembersClazzConstructorParamDelete.class</span><br/>
 <span class='package_title'>package</span> <span class='package'>testing_lib.membersClazzConstructorParamDelete</span><br/>
 <span class="section" onclick="showContent(this, 'c_375')">
-MembersClazzConstructorParamDelete.MembersClazzConstructorParamDelete&#160;<span class='sym_p'><span>(&#160;Integer <span class='color_p'>param1</span></span>&#160;)</span></span>
+MembersClazzConstructorParamDelete.MembersClazzConstructorParamDelete&#160;<span class='sym_p'><span>(&#160;Integer <span class='color_p'>param1</span></span>, <span>String <span class='color_p'>param2</span></span>&#160;)</span></span>
 <br/>
 <div id="c_375" style="display:none;">
-<span class='mangled'>[mangled: <b>testing_lib/membersClazzConstructorParamDelete/MembersClazzConstructorParamDelete.&quot;&lt;init&gt;&quot;:(Ljava/lang/Integer;)V</b>]</span><br/><br/></div>
+<span class='mangled'>[mangled: <b>testing_lib/membersClazzConstructorParamDelete/MembersClazzConstructorParamDelete.&quot;&lt;init&gt;&quot;:(Ljava/lang/Integer;Ljava/lang/String;)V</b>]</span><br/><br/></div>
 
 <br/>
 <span class='jar'>testing-lib-v1-0.0.1.jar</span>, <span class='cname'>MembersClazzMethodAbstractDelete.class</span><br/>

@@ -1133,15 +1133,15 @@ Class testing_lib.membersClazzConstructorDelete.MembersClazzConstructorDelete
 
 Class testing_lib.membersClazzConstructorParamAdd.MembersClazzConstructorParamAdd
   Missing Constructors
-    constructor public testing_lib.membersClazzConstructorParamAdd.MembersClazzConstructorParamAdd.<init>()
-  Added Constructors
     constructor public testing_lib.membersClazzConstructorParamAdd.MembersClazzConstructorParamAdd.<init>(java.lang.Integer)
+  Added Constructors
+    constructor public testing_lib.membersClazzConstructorParamAdd.MembersClazzConstructorParamAdd.<init>(java.lang.Integer,java.lang.String)
 
 Class testing_lib.membersClazzConstructorParamDelete.MembersClazzConstructorParamDelete
   Missing Constructors
-    constructor public testing_lib.membersClazzConstructorParamDelete.MembersClazzConstructorParamDelete.<init>(java.lang.Integer)
+    constructor public testing_lib.membersClazzConstructorParamDelete.MembersClazzConstructorParamDelete.<init>(java.lang.Integer,java.lang.String)
   Added Constructors
-    constructor public testing_lib.membersClazzConstructorParamDelete.MembersClazzConstructorParamDelete.<init>()
+    constructor public testing_lib.membersClazzConstructorParamDelete.MembersClazzConstructorParamDelete.<init>(java.lang.Integer)
 
 Class testing_lib.membersClazzFieldAdd.MembersClazzFieldAdd
   Added Fields
@@ -1219,7 +1219,7 @@ Class testing_lib.membersIfazeConstantAdd.MembersIfazeConstantAdd
 
 Class testing_lib.membersIfazeConstantDelete.MembersIfazeConstantDelete
   Missing Fields
-    field public final static java.lang.Integer testing_lib.membersIfazeConstantDelete.MembersIfazeConstantDelete.FIELD
+    field public final static int testing_lib.membersIfazeConstantDelete.MembersIfazeConstantDelete.FIELD = 5
 
 Class testing_lib.membersIfazeMethodAdd.MembersIfazeMethodAdd
   Added Methods

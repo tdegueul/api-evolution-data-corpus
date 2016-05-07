@@ -43,7 +43,7 @@ ERROR: testing_lib/exceptionClazzMethodThrowCheckedGeneralization/ExceptionClazz
 ERROR: testing_lib/exceptionClazzMethodThrowCheckedGeneralization/ExceptionClazzMethodThrowCheckedGeneralization.java(9): method method1(()V) is now throwing java/io/IOException.
 ERROR: testing_lib/exceptionClazzMethodThrowUncheckedMutation/ExceptionClazzMethodThrowUncheckedMutation.java(9): method method1(()V) is not throwing java/lang/NullPointerException anymore.
 ERROR: testing_lib/exceptionClazzMethodThrowUncheckedMutation/ExceptionClazzMethodThrowUncheckedMutation.java(9): method method1(()V) is now throwing java/io/IOException.
-ERROR: testing_lib/membersClazzConstructorParamAdd/MembersClazzConstructorParamAdd.java: Could not find method <init>(()V) in newer version.
+ERROR: testing_lib/membersClazzConstructorParamAdd/MembersClazzConstructorParamAdd.java: Could not find method <init>((Ljava/lang/Integer;)V) in newer version.
 ERROR: testing_lib/modifierMethodNonFinalToFinal/ModifierMethodNonFinalToFinal.java(7): The method method1(()V) has been made final, this now prevents overriding.
 ERROR: testing_lib/membersIfazeMethodDefaultDelete/MembersIfazeMethodDefaultDelete.java: Could not find method method1(()V) in newer version.
 ERROR: testing_lib/dataTypeClazzFieldSpecialization/DataTypeClazzFieldSpecialization.java: The field field1 has been modified from Ljava/lang/Number; to Ljava/lang/Integer;
@@ -141,7 +141,7 @@ ERROR: testing_lib/otherClazzDelete/OtherClazzDelete.java: Public class testing_
 ERROR: testing_lib/otherIfazeToClass/IfazeToClass.java: The class testing_lib/otherIfazeToClass/IfazeToClass has been change into an interface.
 ERROR: testing_lib/membersClazzMethodDelete/MembersClazzMethodDelete.java: Could not find method method1(()V) in newer version.
 ERROR: testing_lib/dataTypeIfazeMethodParamWidening/DataTypeIfazeMethodParamWidening.java: Could not find method method1((I)V) in newer version.
-ERROR: testing_lib/membersIfazeConstantDelete/MembersIfazeConstantDelete.java: Could not find field FIELD(Ljava/lang/Integer;) in newer version.
+ERROR: testing_lib/membersIfazeConstantDelete/MembersIfazeConstantDelete.java: Could not find field FIELD(I) in newer version.
 ERROR: testing_lib/inheritanceClazzStartInherite/InheritanceClazzStartInherite.java: testing_lib/inheritanceClazzStartInherite/InheritanceClazzStartInherite extends testing_lib/inheritanceClazzStartInherite/Clazz1 and not java/lang/Object anymore.
 ERROR: testing_lib/accessModifierClazzNestedClazzAccessDecrease/AccessModifierClazzNestedClazzAccessDecrease.java: The visibility of the testing_lib/accessModifierClazzNestedClazzAccessDecrease/AccessModifierClazzNestedClazzAccessDecrease$ClazzProtectedToNon class has been changed from PUBLIC to NO_SCOPE
 ERROR: testing_lib/accessModifierClazzNestedClazzAccessDecrease/AccessModifierClazzNestedClazzAccessDecrease.java(18): The visibility of the <init> method has been changed from PROTECTED to NO_SCOPE
@@ -171,7 +171,7 @@ ERROR: testing_lib/dataTypeClazzConstructorParamGeneralization/DataTypeClazzCons
 ERROR: testing_lib/inheritanceIfazeExpandSuperinterfaceSet/InheritanceIfazeExpandSuperinterfaceSet.java: testing_lib/inheritanceIfazeExpandSuperinterfaceSet/InheritanceIfazeExpandSuperinterfaceSet is not implementing testing_lib/inheritanceIfazeExpandSuperinterfaceSet/Interface1 anymore.
 ERROR: testing_lib/inheritanceIfazeMethodMovedFromSuperInterface/Interface1.java: Could not find method method1(()V) in newer version.
 ERROR: testing_lib/membersIfazeMethodParamAdd/MembersIfazeMethodParamAdd.java: Could not find method method1(()V) in newer version.
-ERROR: testing_lib/membersClazzConstructorParamDelete/MembersClazzConstructorParamDelete.java: Could not find method <init>((Ljava/lang/Integer;)V) in newer version.
+ERROR: testing_lib/membersClazzConstructorParamDelete/MembersClazzConstructorParamDelete.java: Could not find method <init>((Ljava/lang/Integer;Ljava/lang/String;)V) in newer version.
 ERROR: testing_lib/membersClazzNestedIfazeDelete/MembersClazzNestedIfazeDelete.java: Public class testing_lib/membersClazzNestedIfazeDelete/MembersClazzNestedIfazeDelete$NestedIfaze has been removed.
 ERROR: testing_lib/dataTypeClazzMethodReturnTypeWidening/DataTypeClazzMethodReturnTypeWidening.java: Could not find method method(()I) in newer version.
 ERROR: testing_lib/dataTypeIfazeMethodReturnTypeSpecialization/DataTypeIfazeMethodReturnTypeSpecialization.java: Could not find method method1(()Ljava/lang/Number;) in newer version.
