@@ -2,7 +2,7 @@
 
   
 	<!-- with the run-experiment target, this class is then executed with both the old and the new version of the 3rd party lib -->
-	<property name="package" value="modifierFieldStaticToNonStatic" />
+	<property name="package" value="testing_lib.accessModifierClazzAccessDecrease" />
 	<property name="error1" value="clear" />
   
 	<property name="main" value="${package}.Main" />
@@ -112,7 +112,7 @@
 	</target>
 	
 	<!-- build the jars -->
-	<target name="jar" depends="prepare" description="Create the jar files">
+	<target name="jar" depends="prepare,compile" description="Create the jar files">
 		<jar jarfile="${lib.old.jar}" basedir="${lib.old.bin}" />
 		<jar jarfile="${lib.new.jar}" basedir="${lib.new.bin}" />
 		<jar jarfile="${program.jar}" basedir="${client.bin}" />
