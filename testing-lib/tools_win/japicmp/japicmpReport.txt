@@ -1,4 +1,4 @@
-Comparing f:\Luna_skola_workspace2\testing-lib\tools_win\..\testing-lib-v1\target\testing-lib-v1-0.0.1.jar with f:\Luna_skola_workspace2\testing-lib\tools_win\..\testing-lib-v2\target\testing-lib-v2-0.0.2.jar:
+Comparing f:\Luna_skola_workspace2\testing-lib\tools_win\japicmp\..\..\testing-lib-v1\target\testing-lib-v1-0.0.1.jar with f:\Luna_skola_workspace2\testing-lib\tools_win\japicmp\..\..\testing-lib-v2\target\testing-lib-v2-0.0.2.jar:
 ***! MODIFIED CLASS: PACKAGE_PROTECTED (<- PUBLIC) testing_lib.accessModifierClazzAccessDecrease.AccessModifierClazzAccessDecrease  (not serializable)
 	***! MODIFIED CONSTRUCTOR: PACKAGE_PROTECTED (<- PUBLIC) AccessModifierClazzAccessDecrease()
 ***  MODIFIED CLASS: PUBLIC (<- PACKAGE_PROTECTED) testing_lib.accessModifierClazzAccessIncrease.AccessModifierClazzAccessIncrease  (not serializable)

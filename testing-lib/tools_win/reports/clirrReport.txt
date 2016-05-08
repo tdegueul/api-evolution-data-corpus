@@ -132,10 +132,10 @@ INFO: 7011: testing_lib.membersClazzConstructorAdd.MembersClazzConstructorAdd: M
 ERROR: 7002: testing_lib.membersClazzConstructorDelete.MembersClazzConstructorDelete: Method 'public MembersClazzConstructorDelete(int)' has been removed
 ERROR: 7004: testing_lib.membersClazzConstructorParamAdd.MembersClazzConstructorParamAdd: In method 'public MembersClazzConstructorParamAdd(java.lang.Integer)' the number of arguments has changed
 ERROR: 7004: testing_lib.membersClazzConstructorParamDelete.MembersClazzConstructorParamDelete: In method 'public MembersClazzConstructorParamDelete(java.lang.Integer, java.lang.String)' the number of arguments has changed
-INFO: 6000: testing_lib.membersClazzFieldAdd.MembersClazzFieldAdd: Added public field field
-INFO: 6000: testing_lib.membersClazzFieldConstantAdd.MembersClazzFieldConstantAdd: Added public field FIELD
-ERROR: 6011: testing_lib.membersClazzFieldConstantDelete.MembersClazzFieldConstantDelete: Field FIELD has been removed, but it was previously a constant
-ERROR: 6001: testing_lib.membersClazzFieldDelete.MembersClazzFieldDelete: Removed field field
+INFO: 6000: testing_lib.membersClazzFieldAdd.MembersClazzFieldAdd: Added public field field1
+INFO: 6000: testing_lib.membersClazzFieldConstantAdd.MembersClazzFieldConstantAdd: Added public field FIELD1
+ERROR: 6011: testing_lib.membersClazzFieldConstantDelete.MembersClazzFieldConstantDelete: Field FIELD1 has been removed, but it was previously a constant
+ERROR: 6001: testing_lib.membersClazzFieldDelete.MembersClazzFieldDelete: Removed field field1
 ERROR: 7013: testing_lib.membersClazzMethodAbstractAdd.MembersClazzMethodAbstractAdd: Abstract method 'public void method1()' has been added
 INFO: 3004: testing_lib.membersClazzMethodAbstractDelete.MembersClazzMethodAbstractDelete: Removed abstract modifier from class
 ERROR: 7002: testing_lib.membersClazzMethodAbstractDelete.MembersClazzMethodAbstractDelete: Method 'public void method1()' has been removed
@@ -147,8 +147,8 @@ INFO: 8000: testing_lib.membersClazzNestedClazzAdd.MembersClazzNestedClazzAdd$Ne
 ERROR: 8001: testing_lib.membersClazzNestedClazzDelete.MembersClazzNestedClazzDelete$NestedClazz: Class testing_lib.membersClazzNestedClazzDelete.MembersClazzNestedClazzDelete$NestedClazz removed
 INFO: 8000: testing_lib.membersClazzNestedIfazeAdd.MembersClazzNestedIfazeAdd$NestedIfaze: Class testing_lib.membersClazzNestedIfazeAdd.MembersClazzNestedIfazeAdd$NestedIfaze added
 ERROR: 8001: testing_lib.membersClazzNestedIfazeDelete.MembersClazzNestedIfazeDelete$NestedIfaze: Class testing_lib.membersClazzNestedIfazeDelete.MembersClazzNestedIfazeDelete$NestedIfaze removed
-INFO: 6000: testing_lib.membersIfazeConstantAdd.MembersIfazeConstantAdd: Added public field FIELD
-ERROR: 6011: testing_lib.membersIfazeConstantDelete.MembersIfazeConstantDelete: Field FIELD has been removed, but it was previously a constant
+INFO: 6000: testing_lib.membersIfazeConstantAdd.MembersIfazeConstantAdd: Added public field FIELD1
+ERROR: 6011: testing_lib.membersIfazeConstantDelete.MembersIfazeConstantDelete: Field FIELD1 has been removed, but it was previously a constant
 ERROR: 7012: testing_lib.membersIfazeMethodAdd.MembersIfazeMethodAdd: Method 'public void method1()' has been added to an interface
 ERROR: 7012: testing_lib.membersIfazeMethodDefaultAdd.MembersIfazeMethodDefaultAdd: Method 'public void method1()' has been added to an interface
 ERROR: 7002: testing_lib.membersIfazeMethodDefaultDelete.MembersIfazeMethodDefaultDelete: Method 'public void method1()' has been removed
@@ -163,10 +163,10 @@ INFO: 3001: testing_lib.modifierClazzFinalToEffectivelyFinal.ModifierClazzFinalT
 INFO: 3001: testing_lib.modifierClazzFinalToNonFinal.ModifierClazzFinalToNonFinal: Removed final modifier from class
 ERROR: 3005: testing_lib.modifierClazzNonAbstractToAbstract.ModifierClazzNonAbstractToAbstract: Added abstract modifier to class
 ERROR: 3003: testing_lib.modifierClazzNonFinalToFinal.ModifierClazzNonFinalToFinal: Added final modifier to class
-INFO: 6005: testing_lib.modifierFieldFinalToNonFinal.ModifierFieldFinalToNonFinal: Field field is now non-final
-ERROR: 6006: testing_lib.modifierFieldNonFinalToFinal.ModifierFieldNonFinalToFinal: Field field is now final
-ERROR: 6008: testing_lib.modifierFieldNonStaticToStatic.ModifierFieldNonStaticToStatic: Field field is now static
-ERROR: 6007: testing_lib.modifierFieldStaticToNonStatic.ModifierFieldStaticToNonStatic: Field field is now non-static
+INFO: 6005: testing_lib.modifierFieldFinalToNonFinal.ModifierFieldFinalToNonFinal: Field field1 is now non-final
+ERROR: 6006: testing_lib.modifierFieldNonFinalToFinal.ModifierFieldNonFinalToFinal: Field field1 is now final
+ERROR: 6008: testing_lib.modifierFieldNonStaticToStatic.ModifierFieldNonStaticToStatic: Field field1 is now static
+ERROR: 6007: testing_lib.modifierFieldStaticToNonStatic.ModifierFieldStaticToNonStatic: Field field1 is now non-static
 INFO: 7015: testing_lib.modifierMethodFinalToNonFinal.ModifierMethodFinalToNonFinal: Method 'public void method1()' is no longer final
 ERROR: 7014: testing_lib.modifierMethodNonFinalToFinal.ModifierMethodNonFinalToFinal: Method 'public void method1()' is now final
 ERROR: 7004: testing_lib.modifierNestedClazzNonStaticToStatic.ModifierNestedClazzNonStaticToStatic$NestedClazz: In method 'public ModifierNestedClazzNonStaticToStatic$NestedClazz(testing_lib.modifierNestedClazzNonStaticToStatic.ModifierNestedClazzNonStaticToStatic)' the number of arguments has changed
