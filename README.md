@@ -10,11 +10,40 @@ Backward compatibility is an issue to cope with today. To assess the backward co
 
 The corpus contain two main directories:  **lib-v1** and **lib-v2** with API examples in version one and its evolution in version two. Each directory contains thousands of packages, where each package simulates one API change. The change is projected in the **package name**. 
 
+Directory **client** contains a simple client application that invokes API from the library. Its purpose is to simulate usage of the API
+
 ## Invocation
 
-TODO ant 
+One can build the corpus simply by typing:
+```
+ant jar
+```
+It produces three JAR files: `lib-v1.jar`, `lib-v2.jar` and  `client.jar` containing all API classes and the client compiled in byte-code.
+
+The data  may be used as such for instance to benchmark third-party tools. 
 
 # Suplementary Materials
+
+A set of other materials is provided to help with using the corpus. 
+
+## Compatibility types
+
+A table with API incompatibility results may be generated. It is performed simply by typing:
+
+```
+./compatibility.sh
+```
+
+This script tries to commpile and run the client with both library versions and generates a `CSV` file with results. The file lists one-by-one each API change a informs if the change is `source` or `binary` compatible. 
+
+Example showing `unboxing` of a constant and `access modifier`  change, where "1" means compatible while "0" incompatible:
+
+| Change        | Source           | Binary  |
+| ------------- |-------------:| -----:|
+| dataTypeIfazeConstantUnboxing          | 1    | 0 |
+| accessModifierClazzAccessDecrease      | 0    |   0 |
+
+
 
 ## Benchmark
 
