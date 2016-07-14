@@ -1,10 +1,10 @@
 #!/usr/bin/env bash
 
-RT_JAR="${JAVA_HOME}/jre/lib/rt.jar"
+RT_JAR="$JAVA_HOME/jre/lib/rt.jar"
 
 echo "********* Japitools *********"
-japize as japitools/japizeSigFile packages ../lib-v1.jar lib_dependencies/rt.jar +testing_lib
-japize as japitools/japizeSigFile2 packages ../lib-v2.jar lib_dependencies/rt.jar +testing_lib
+japize as japitools/japizeSigFile packages ../lib-v1.jar "$RT_JAR" +testing_lib
+japize as japitools/japizeSigFile2 packages ../lib-v2.jar "$RT_JAR" +testing_lib
 japicompat -o .reports/japitool.txt japitools/japizeSigFile.japi.gz japitools/japizeSigFile2.japi.gz
 
 echo "********* Revapi *********"
@@ -23,11 +23,11 @@ echo "********* japicmp *********"
 java -jar japicmp/japicmp-0.7.2-jar-with-dependencies.jar -o ../lib-v1.jar -n ../lib-v2.jar -a private > .reports/japicmp.txt
 
 echo "********* sigtest *********"
-java -jar sigtest/sigtestdev.jar SetupAndTest -reference ../lib-v1.jar:lib_dependencies/rt.jar -test ../lib-v2.jar:lib_dependencies/rt.jar -package testing_lib -H -out .reports/sigtest.txt
+java -jar sigtest/sigtestdev.jar SetupAndTest -reference ../lib-v1.jar:"$RT_JAR" -test ../lib-v2.jar:"$RT_JAR" -package testing_lib -H -out .reports/sigtest.txt
 
 echo "********* Jour *********"
-java -cp jour/jour-instrument-2.0.3.jar:jour/javassist.jar net.sf.jour.SignatureGenerator --src ../lib-v1.jar -jars lib_dependencies/rt.jar --packages testing_lib --dst jour/sigTestLib1ApiSignature.xml --level private
-java -cp jour/jour-instrument-2.0.3.jar:jour/javassist.jar net.sf.jour.SignatureVerify --src ../lib-v2.jar -jars lib_dependencies/rt.jar --signature jour/sigTestLib1ApiSignature.xml --level private > .reports/jour.txt
+java -cp jour/jour-instrument-2.0.3.jar:jour/javassist.jar net.sf.jour.SignatureGenerator --src ../lib-v1.jar -jars "$RT_JAR" --packages testing_lib --dst jour/sigTestLib1ApiSignature.xml --level private
+java -cp jour/jour-instrument-2.0.3.jar:jour/javassist.jar net.sf.jour.SignatureVerify --src ../lib-v2.jar -jars "$RT_JAR" --signature jour/sigTestLib1ApiSignature.xml --level private > .reports/jour.txt
 
 echo "********* japicc *********"
 perl japi-compliance-checker-1.5/japi-compliance-checker ../lib-v1.jar ../lib-v2.jar -report-path .reports/japicc.html
