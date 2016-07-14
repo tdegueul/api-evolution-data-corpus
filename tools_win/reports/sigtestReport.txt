@@ -1,0 +1,1407 @@
+SignatureTest report
+Base version: 
+Tested version: 
+Check mode: src [throws normalized]
+Constant checking: on
+
+
+- Class testing_lib.accessModifierClazzAccessDecrease.AccessModifierClazzAccessDecrease
+
++ Class testing_lib.accessModifierClazzAccessIncrease.AccessModifierClazzAccessIncrease
+
+Class testing_lib.accessModifierClazzConstructorAccessDecrease.AccessModifierClazzConstructorAccessDecrease
+  Missing Constructors
+    constructor protected testing_lib.accessModifierClazzConstructorAccessDecrease.AccessModifierClazzConstructorAccessDecrease.<init>(int,int,int)
+    constructor protected testing_lib.accessModifierClazzConstructorAccessDecrease.AccessModifierClazzConstructorAccessDecrease.<init>(int,int,int,int)
+    constructor public testing_lib.accessModifierClazzConstructorAccessDecrease.AccessModifierClazzConstructorAccessDecrease.<init>(int)
+    constructor public testing_lib.accessModifierClazzConstructorAccessDecrease.AccessModifierClazzConstructorAccessDecrease.<init>(int,int)
+  Changed
+    constructor public testing_lib.accessModifierClazzConstructorAccessDecrease.AccessModifierClazzConstructorAccessDecrease.<init>()
+    - [public]
+    + [protected]
+
+Class testing_lib.accessModifierClazzConstructorAccessIncrease.AccessModifierClazzConstructorAccessIncrease
+  Added Constructors
+    constructor protected testing_lib.accessModifierClazzConstructorAccessIncrease.AccessModifierClazzConstructorAccessIncrease.<init>(int)
+    constructor protected testing_lib.accessModifierClazzConstructorAccessIncrease.AccessModifierClazzConstructorAccessIncrease.<init>(int,int,int)
+    constructor public testing_lib.accessModifierClazzConstructorAccessIncrease.AccessModifierClazzConstructorAccessIncrease.<init>(int,int)
+    constructor public testing_lib.accessModifierClazzConstructorAccessIncrease.AccessModifierClazzConstructorAccessIncrease.<init>(int,int,int,int)
+  Changed
+    constructor protected testing_lib.accessModifierClazzConstructorAccessIncrease.AccessModifierClazzConstructorAccessIncrease.<init>(int,int,int,int,int)
+    - [protected]
+    + [public]
+
+Class testing_lib.accessModifierClazzFieldAccessDecrease.AccessModifierClazzFieldAccessDecrease
+  Missing Fields
+    field protected java.lang.Integer testing_lib.accessModifierClazzFieldAccessDecrease.AccessModifierClazzFieldAccessDecrease.fieldProtectedToNon
+    field protected java.lang.Integer testing_lib.accessModifierClazzFieldAccessDecrease.AccessModifierClazzFieldAccessDecrease.fieldProtectedToPrivate
+    field public java.lang.Integer testing_lib.accessModifierClazzFieldAccessDecrease.AccessModifierClazzFieldAccessDecrease.fieldPublicToNon
+    field public java.lang.Integer testing_lib.accessModifierClazzFieldAccessDecrease.AccessModifierClazzFieldAccessDecrease.fieldPublicToPrivate
+  Changed
+    field public java.lang.Integer testing_lib.accessModifierClazzFieldAccessDecrease.AccessModifierClazzFieldAccessDecrease.fieldPublicToProtected
+    - [public]
+    + [protected]
+
+Class testing_lib.accessModifierClazzFieldAccessIncrease.AccessModifierClazzFieldAccessIncrease
+  Added Fields
+    field protected java.lang.Integer testing_lib.accessModifierClazzFieldAccessIncrease.AccessModifierClazzFieldAccessIncrease.fieldNonToProtected
+    field protected java.lang.Integer testing_lib.accessModifierClazzFieldAccessIncrease.AccessModifierClazzFieldAccessIncrease.fieldPrivateToProtected
+    field public java.lang.Integer testing_lib.accessModifierClazzFieldAccessIncrease.AccessModifierClazzFieldAccessIncrease.fieldNonToPublic
+    field public java.lang.Integer testing_lib.accessModifierClazzFieldAccessIncrease.AccessModifierClazzFieldAccessIncrease.fieldPrivateToPublic
+  Changed
+    field protected java.lang.Integer testing_lib.accessModifierClazzFieldAccessIncrease.AccessModifierClazzFieldAccessIncrease.fieldProtectedToPublic
+    - [protected]
+    + [public]
+
+Class testing_lib.accessModifierClazzMethodAccessDecrease.AccessModifierClazzMethodAccessDecrease
+  Missing Methods
+    method protected void testing_lib.accessModifierClazzMethodAccessDecrease.AccessModifierClazzMethodAccessDecrease.methodProtectedToNon()
+    method protected void testing_lib.accessModifierClazzMethodAccessDecrease.AccessModifierClazzMethodAccessDecrease.methodProtectedToPrivate()
+    method public void testing_lib.accessModifierClazzMethodAccessDecrease.AccessModifierClazzMethodAccessDecrease.methodPublicToNon()
+    method public void testing_lib.accessModifierClazzMethodAccessDecrease.AccessModifierClazzMethodAccessDecrease.methodPublicToPrivate()
+  Changed
+    method public void testing_lib.accessModifierClazzMethodAccessDecrease.AccessModifierClazzMethodAccessDecrease.methodPublicToProtected()
+    - [public]
+    + [protected]
+
+Class testing_lib.accessModifierClazzMethodAccessIncrease.AccessModifierClazzMethodAccessIncrease
+  Added Methods
+    method protected void testing_lib.accessModifierClazzMethodAccessIncrease.AccessModifierClazzMethodAccessIncrease.methodNonToProtected()
+    method protected void testing_lib.accessModifierClazzMethodAccessIncrease.AccessModifierClazzMethodAccessIncrease.methodPrivateToProtected()
+    method public void testing_lib.accessModifierClazzMethodAccessIncrease.AccessModifierClazzMethodAccessIncrease.methodNonToPublic()
+    method public void testing_lib.accessModifierClazzMethodAccessIncrease.AccessModifierClazzMethodAccessIncrease.methodPrivateToPublic()
+  Changed
+    method protected void testing_lib.accessModifierClazzMethodAccessIncrease.AccessModifierClazzMethodAccessIncrease.methodProtectedToPublic()
+    - [protected]
+    + [public]
+
+Class testing_lib.accessModifierClazzNestedClazzAccessDecrease.AccessModifierClazzNestedClazzAccessDecrease$ClazzProtectedToNon
+  Missing Nested Classes
+    inner protected testing_lib.accessModifierClazzNestedClazzAccessDecrease.AccessModifierClazzNestedClazzAccessDecrease$ClazzProtectedToNon
+
+Class testing_lib.accessModifierClazzNestedClazzAccessDecrease.AccessModifierClazzNestedClazzAccessDecrease$ClazzProtectedToPrivate
+  Missing Nested Classes
+    inner protected testing_lib.accessModifierClazzNestedClazzAccessDecrease.AccessModifierClazzNestedClazzAccessDecrease$ClazzProtectedToPrivate
+
+Class testing_lib.accessModifierClazzNestedClazzAccessDecrease.AccessModifierClazzNestedClazzAccessDecrease$ClazzPublicToNon
+  Missing Nested Classes
+    inner public testing_lib.accessModifierClazzNestedClazzAccessDecrease.AccessModifierClazzNestedClazzAccessDecrease$ClazzPublicToNon
+
+Class testing_lib.accessModifierClazzNestedClazzAccessDecrease.AccessModifierClazzNestedClazzAccessDecrease$ClazzPublicToPrivate
+  Missing Nested Classes
+    inner public testing_lib.accessModifierClazzNestedClazzAccessDecrease.AccessModifierClazzNestedClazzAccessDecrease$ClazzPublicToPrivate
+
+Class testing_lib.accessModifierClazzNestedClazzAccessDecrease.AccessModifierClazzNestedClazzAccessDecrease$ClazzPublicToProtected
+  Changed
+    inner public testing_lib.accessModifierClazzNestedClazzAccessDecrease.AccessModifierClazzNestedClazzAccessDecrease$ClazzPublicToProtected
+    - [public]
+    + [protected]
+
+- Class testing_lib.accessModifierClazzNestedClazzAccessDecrease.AccessModifierClazzNestedClazzAccessDecrease$ClazzProtectedToNon
+
+- Class testing_lib.accessModifierClazzNestedClazzAccessDecrease.AccessModifierClazzNestedClazzAccessDecrease$ClazzProtectedToPrivate
+
+- Class testing_lib.accessModifierClazzNestedClazzAccessDecrease.AccessModifierClazzNestedClazzAccessDecrease$ClazzPublicToNon
+
+- Class testing_lib.accessModifierClazzNestedClazzAccessDecrease.AccessModifierClazzNestedClazzAccessDecrease$ClazzPublicToPrivate
+
+Class testing_lib.accessModifierClazzNestedClazzAccessDecrease.AccessModifierClazzNestedClazzAccessDecrease$ClazzPublicToProtected
+  Changed
+    - [public]
+    + [protected]
+    constructor public testing_lib.accessModifierClazzNestedClazzAccessDecrease.AccessModifierClazzNestedClazzAccessDecrease$ClazzPublicToProtected.<init>(testing_lib.accessModifierClazzNestedClazzAccessDecrease.AccessModifierClazzNestedClazzAccessDecrease)
+    - [public]
+    + [protected]
+
+Class testing_lib.accessModifierClazzNestedClazzAccessIncrease.AccessModifierClazzNestedClazzAccessIncrease$ClazzNonToProtected
+  Added Nested Classes
+    inner protected testing_lib.accessModifierClazzNestedClazzAccessIncrease.AccessModifierClazzNestedClazzAccessIncrease$ClazzNonToProtected
+
+Class testing_lib.accessModifierClazzNestedClazzAccessIncrease.AccessModifierClazzNestedClazzAccessIncrease$ClazzPrivateToProtected
+  Added Nested Classes
+    inner protected testing_lib.accessModifierClazzNestedClazzAccessIncrease.AccessModifierClazzNestedClazzAccessIncrease$ClazzPrivateToProtected
+
+Class testing_lib.accessModifierClazzNestedClazzAccessIncrease.AccessModifierClazzNestedClazzAccessIncrease$ClazzNonToPublic
+  Added Nested Classes
+    inner public testing_lib.accessModifierClazzNestedClazzAccessIncrease.AccessModifierClazzNestedClazzAccessIncrease$ClazzNonToPublic
+
+Class testing_lib.accessModifierClazzNestedClazzAccessIncrease.AccessModifierClazzNestedClazzAccessIncrease$ClazzPrivateToPublic
+  Added Nested Classes
+    inner public testing_lib.accessModifierClazzNestedClazzAccessIncrease.AccessModifierClazzNestedClazzAccessIncrease$ClazzPrivateToPublic
+
+Class testing_lib.accessModifierClazzNestedClazzAccessIncrease.AccessModifierClazzNestedClazzAccessIncrease$ClazzProtectedToPublic
+  Changed
+    inner protected testing_lib.accessModifierClazzNestedClazzAccessIncrease.AccessModifierClazzNestedClazzAccessIncrease$ClazzProtectedToPublic
+    - [protected]
+    + [public]
+
++ Class testing_lib.accessModifierClazzNestedClazzAccessIncrease.AccessModifierClazzNestedClazzAccessIncrease$ClazzNonToProtected
+
++ Class testing_lib.accessModifierClazzNestedClazzAccessIncrease.AccessModifierClazzNestedClazzAccessIncrease$ClazzNonToPublic
+
++ Class testing_lib.accessModifierClazzNestedClazzAccessIncrease.AccessModifierClazzNestedClazzAccessIncrease$ClazzPrivateToProtected
+
++ Class testing_lib.accessModifierClazzNestedClazzAccessIncrease.AccessModifierClazzNestedClazzAccessIncrease$ClazzPrivateToPublic
+
+Class testing_lib.accessModifierClazzNestedClazzAccessIncrease.AccessModifierClazzNestedClazzAccessIncrease$ClazzProtectedToPublic
+  Changed
+    - [protected]
+    + [public]
+    constructor protected testing_lib.accessModifierClazzNestedClazzAccessIncrease.AccessModifierClazzNestedClazzAccessIncrease$ClazzProtectedToPublic.<init>(testing_lib.accessModifierClazzNestedClazzAccessIncrease.AccessModifierClazzNestedClazzAccessIncrease)
+    - [protected]
+    + [public]
+
+Class testing_lib.accessModifierClazzNestedIfazeAccessDecrease.AccessModifierClazzNestedIfazeAccessDecrease$IfazeProtectedToNon
+  Missing Nested Classes
+    nested protected abstract interface static testing_lib.accessModifierClazzNestedIfazeAccessDecrease.AccessModifierClazzNestedIfazeAccessDecrease$IfazeProtectedToNon
+
+Class testing_lib.accessModifierClazzNestedIfazeAccessDecrease.AccessModifierClazzNestedIfazeAccessDecrease$IfazeProtectedToPrivate
+  Missing Nested Classes
+    nested protected abstract interface static testing_lib.accessModifierClazzNestedIfazeAccessDecrease.AccessModifierClazzNestedIfazeAccessDecrease$IfazeProtectedToPrivate
+
+Class testing_lib.accessModifierClazzNestedIfazeAccessDecrease.AccessModifierClazzNestedIfazeAccessDecrease$IfazePublicToNon
+  Missing Nested Classes
+    nested public abstract interface static testing_lib.accessModifierClazzNestedIfazeAccessDecrease.AccessModifierClazzNestedIfazeAccessDecrease$IfazePublicToNon
+
+Class testing_lib.accessModifierClazzNestedIfazeAccessDecrease.AccessModifierClazzNestedIfazeAccessDecrease$IfazePublicToPrivate
+  Missing Nested Classes
+    nested public abstract interface static testing_lib.accessModifierClazzNestedIfazeAccessDecrease.AccessModifierClazzNestedIfazeAccessDecrease$IfazePublicToPrivate
+
+- Class testing_lib.accessModifierClazzNestedIfazeAccessDecrease.AccessModifierClazzNestedIfazeAccessDecrease$IfazeProtectedToNon
+
+- Class testing_lib.accessModifierClazzNestedIfazeAccessDecrease.AccessModifierClazzNestedIfazeAccessDecrease$IfazeProtectedToPrivate
+
+- Class testing_lib.accessModifierClazzNestedIfazeAccessDecrease.AccessModifierClazzNestedIfazeAccessDecrease$IfazePublicToNon
+
+- Class testing_lib.accessModifierClazzNestedIfazeAccessDecrease.AccessModifierClazzNestedIfazeAccessDecrease$IfazePublicToPrivate
+
+Class testing_lib.accessModifierClazzNestedIfazeAccessDecrease.AccessModifierClazzNestedIfazeAccessDecrease$IfazePublicToProtected
+  Changed
+    - [public]
+    + [protected]
+
+Class testing_lib.accessModifierClazzNestedIfazeAccessIncrease.AccessModifierClazzNestedIfazeAccessIncrease$IfazeNonToProtected
+  Added Nested Classes
+    nested protected abstract interface static testing_lib.accessModifierClazzNestedIfazeAccessIncrease.AccessModifierClazzNestedIfazeAccessIncrease$IfazeNonToProtected
+
+Class testing_lib.accessModifierClazzNestedIfazeAccessIncrease.AccessModifierClazzNestedIfazeAccessIncrease$IfazePrivateToProtected
+  Added Nested Classes
+    nested protected abstract interface static testing_lib.accessModifierClazzNestedIfazeAccessIncrease.AccessModifierClazzNestedIfazeAccessIncrease$IfazePrivateToProtected
+
+Class testing_lib.accessModifierClazzNestedIfazeAccessIncrease.AccessModifierClazzNestedIfazeAccessIncrease$IfazeNonToPublic
+  Added Nested Classes
+    nested public abstract interface static testing_lib.accessModifierClazzNestedIfazeAccessIncrease.AccessModifierClazzNestedIfazeAccessIncrease$IfazeNonToPublic
+
+Class testing_lib.accessModifierClazzNestedIfazeAccessIncrease.AccessModifierClazzNestedIfazeAccessIncrease$IfazePrivateToPublic
+  Added Nested Classes
+    nested public abstract interface static testing_lib.accessModifierClazzNestedIfazeAccessIncrease.AccessModifierClazzNestedIfazeAccessIncrease$IfazePrivateToPublic
+
++ Class testing_lib.accessModifierClazzNestedIfazeAccessIncrease.AccessModifierClazzNestedIfazeAccessIncrease$IfazeNonToProtected
+
++ Class testing_lib.accessModifierClazzNestedIfazeAccessIncrease.AccessModifierClazzNestedIfazeAccessIncrease$IfazeNonToPublic
+
++ Class testing_lib.accessModifierClazzNestedIfazeAccessIncrease.AccessModifierClazzNestedIfazeAccessIncrease$IfazePrivateToProtected
+
++ Class testing_lib.accessModifierClazzNestedIfazeAccessIncrease.AccessModifierClazzNestedIfazeAccessIncrease$IfazePrivateToPublic
+
+Class testing_lib.accessModifierClazzNestedIfazeAccessIncrease.AccessModifierClazzNestedIfazeAccessIncrease$IfazeProtectedToPublic
+  Changed
+    - [protected]
+    + [public]
+
+Class testing_lib.dataTypeClazzConstructorParamBoxing.DataTypeClazzConstructorParamBoxing
+  Missing Constructors
+    constructor public testing_lib.dataTypeClazzConstructorParamBoxing.DataTypeClazzConstructorParamBoxing.<init>(int)
+  Added Constructors
+    constructor public testing_lib.dataTypeClazzConstructorParamBoxing.DataTypeClazzConstructorParamBoxing.<init>(java.lang.Integer)
+
+Class testing_lib.dataTypeClazzConstructorParamGeneralization.DataTypeClazzConstructorParamGeneralization
+  Missing Constructors
+    constructor public testing_lib.dataTypeClazzConstructorParamGeneralization.DataTypeClazzConstructorParamGeneralization.<init>(java.lang.Integer)
+  Added Constructors
+    constructor public testing_lib.dataTypeClazzConstructorParamGeneralization.DataTypeClazzConstructorParamGeneralization.<init>(java.lang.Number)
+
+Class testing_lib.dataTypeClazzConstructorParamMutation.DataTypeClazzConstructorParamMutation
+  Missing Constructors
+    constructor public testing_lib.dataTypeClazzConstructorParamMutation.DataTypeClazzConstructorParamMutation.<init>(java.lang.Integer)
+  Added Constructors
+    constructor public testing_lib.dataTypeClazzConstructorParamMutation.DataTypeClazzConstructorParamMutation.<init>(java.lang.String)
+
+Class testing_lib.dataTypeClazzConstructorParamNarrowing.DataTypeClazzConstructorParamNarrowing
+  Missing Constructors
+    constructor public testing_lib.dataTypeClazzConstructorParamNarrowing.DataTypeClazzConstructorParamNarrowing.<init>(double)
+  Added Constructors
+    constructor public testing_lib.dataTypeClazzConstructorParamNarrowing.DataTypeClazzConstructorParamNarrowing.<init>(int)
+
+Class testing_lib.dataTypeClazzConstructorParamSpecialization.DataTypeClazzConstructorParamSpecialization
+  Missing Constructors
+    constructor public testing_lib.dataTypeClazzConstructorParamSpecialization.DataTypeClazzConstructorParamSpecialization.<init>(java.lang.Number)
+  Added Constructors
+    constructor public testing_lib.dataTypeClazzConstructorParamSpecialization.DataTypeClazzConstructorParamSpecialization.<init>(java.lang.Integer)
+
+Class testing_lib.dataTypeClazzConstructorParamUnboxing.DataTypeClazzConstructorParamUnboxing
+  Missing Constructors
+    constructor public testing_lib.dataTypeClazzConstructorParamUnboxing.DataTypeClazzConstructorParamUnboxing.<init>(java.lang.Integer)
+  Added Constructors
+    constructor public testing_lib.dataTypeClazzConstructorParamUnboxing.DataTypeClazzConstructorParamUnboxing.<init>(int)
+
+Class testing_lib.dataTypeClazzConstructorParamWidening.DataTypeClazzConstructorParamWidening
+  Missing Constructors
+    constructor public testing_lib.dataTypeClazzConstructorParamWidening.DataTypeClazzConstructorParamWidening.<init>(int)
+  Added Constructors
+    constructor public testing_lib.dataTypeClazzConstructorParamWidening.DataTypeClazzConstructorParamWidening.<init>(double)
+
+Class testing_lib.dataTypeClazzFieldBoxing.DataTypeClazzFieldBoxing
+  Changed
+    field public int testing_lib.dataTypeClazzFieldBoxing.DataTypeClazzFieldBoxing.field1
+    - type: int
+    + type: java.lang.Integer
+
+Class testing_lib.dataTypeClazzFieldGeneralization.DataTypeClazzFieldGeneralization
+  Changed
+    field public java.lang.Integer testing_lib.dataTypeClazzFieldGeneralization.DataTypeClazzFieldGeneralization.field1
+    - type: java.lang.Integer
+    + type: java.lang.Number
+
+Class testing_lib.dataTypeClazzFieldMutation.DataTypeClazzFieldMutation
+  Changed
+    field public java.lang.Integer testing_lib.dataTypeClazzFieldMutation.DataTypeClazzFieldMutation.field1
+    - type: java.lang.Integer
+    + type: java.lang.String
+
+Class testing_lib.dataTypeClazzFieldNarrowing.DataTypeClazzFieldNarrowing
+  Changed
+    field public double testing_lib.dataTypeClazzFieldNarrowing.DataTypeClazzFieldNarrowing.field1
+    - type: double
+    + type: int
+
+Class testing_lib.dataTypeClazzFieldSpecialization.DataTypeClazzFieldSpecialization
+  Changed
+    field public java.lang.Number testing_lib.dataTypeClazzFieldSpecialization.DataTypeClazzFieldSpecialization.field1
+    - type: java.lang.Number
+    + type: java.lang.Integer
+
+Class testing_lib.dataTypeClazzFieldUnboxing.DataTypeClazzFieldUnboxing
+  Changed
+    field public java.lang.Integer testing_lib.dataTypeClazzFieldUnboxing.DataTypeClazzFieldUnboxing.field1
+    - type: java.lang.Integer
+    + type: int
+
+Class testing_lib.dataTypeClazzFieldWidening.DataTypeClazzFieldWidening
+  Changed
+    field public int testing_lib.dataTypeClazzFieldWidening.DataTypeClazzFieldWidening.field1
+    - type: int
+    + type: double
+
+Class testing_lib.dataTypeClazzMethodParamBoxing.DataTypeClazzMethodParamBoxing
+  Missing Methods
+    method public void testing_lib.dataTypeClazzMethodParamBoxing.DataTypeClazzMethodParamBoxing.method1(int)
+  Added Methods
+    method public void testing_lib.dataTypeClazzMethodParamBoxing.DataTypeClazzMethodParamBoxing.method1(java.lang.Integer)
+
+Class testing_lib.dataTypeClazzMethodParamGeneralization.DataTypeClazzMethodParamGeneralization
+  Missing Methods
+    method public void testing_lib.dataTypeClazzMethodParamGeneralization.DataTypeClazzMethodParamGeneralization.method1(java.lang.Integer)
+  Added Methods
+    method public void testing_lib.dataTypeClazzMethodParamGeneralization.DataTypeClazzMethodParamGeneralization.method1(java.lang.Number)
+
+Class testing_lib.dataTypeClazzMethodParamMutation.DataTypeClazzMethodParamMutation
+  Missing Methods
+    method public void testing_lib.dataTypeClazzMethodParamMutation.DataTypeClazzMethodParamMutation.method1(java.lang.Integer)
+  Added Methods
+    method public void testing_lib.dataTypeClazzMethodParamMutation.DataTypeClazzMethodParamMutation.method1(java.lang.String)
+
+Class testing_lib.dataTypeClazzMethodParamNarrowing.DataTypeClazzMethodParamNarrowing
+  Missing Methods
+    method public void testing_lib.dataTypeClazzMethodParamNarrowing.DataTypeClazzMethodParamNarrowing.method1(double)
+  Added Methods
+    method public void testing_lib.dataTypeClazzMethodParamNarrowing.DataTypeClazzMethodParamNarrowing.method1(int)
+
+Class testing_lib.dataTypeClazzMethodParamSpecialization.DataTypeClazzMethodParamSpecialization
+  Missing Methods
+    method public void testing_lib.dataTypeClazzMethodParamSpecialization.DataTypeClazzMethodParamSpecialization.method1(java.lang.Number)
+  Added Methods
+    method public void testing_lib.dataTypeClazzMethodParamSpecialization.DataTypeClazzMethodParamSpecialization.method1(java.lang.Integer)
+
+Class testing_lib.dataTypeClazzMethodParamUnboxing.DataTypeClazzMethodParamUnboxing
+  Missing Methods
+    method public void testing_lib.dataTypeClazzMethodParamUnboxing.DataTypeClazzMethodParamUnboxing.method1(java.lang.Integer)
+  Added Methods
+    method public void testing_lib.dataTypeClazzMethodParamUnboxing.DataTypeClazzMethodParamUnboxing.method1(int)
+
+Class testing_lib.dataTypeClazzMethodParamWidening.DataTypeClazzMethodParamWidening
+  Missing Methods
+    method public void testing_lib.dataTypeClazzMethodParamWidening.DataTypeClazzMethodParamWidening.method1(int)
+  Added Methods
+    method public void testing_lib.dataTypeClazzMethodParamWidening.DataTypeClazzMethodParamWidening.method1(double)
+
+Class testing_lib.dataTypeClazzMethodReturnTypeBoxing.DataTypeClazzMethodReturnTypeBoxing
+  Changed
+    method public int testing_lib.dataTypeClazzMethodReturnTypeBoxing.DataTypeClazzMethodReturnTypeBoxing.method()
+    - type: int
+    + type: java.lang.Integer
+
+Class testing_lib.dataTypeClazzMethodReturnTypeGeneralization.DataTypeClazzMethodReturnTypeGeneralization
+  Changed
+    method public java.lang.Integer testing_lib.dataTypeClazzMethodReturnTypeGeneralization.DataTypeClazzMethodReturnTypeGeneralization.method()
+    - type: java.lang.Integer
+    + type: java.lang.Number
+
+Class testing_lib.dataTypeClazzMethodReturnTypeMutation.DataTypeClazzMethodReturnTypeMutation
+  Changed
+    method public java.lang.Integer testing_lib.dataTypeClazzMethodReturnTypeMutation.DataTypeClazzMethodReturnTypeMutation.method()
+    - type: java.lang.Integer
+    + type: java.lang.String
+
+Class testing_lib.dataTypeClazzMethodReturnTypeNarrowing.DataTypeClazzMethodReturnTypeNarrowing
+  Changed
+    method public double testing_lib.dataTypeClazzMethodReturnTypeNarrowing.DataTypeClazzMethodReturnTypeNarrowing.method()
+    - type: double
+    + type: int
+
+Class testing_lib.dataTypeClazzMethodReturnTypeSpecialization.DataTypeClazzMethodReturnTypeSpecialization
+  Changed
+    method public java.lang.Number testing_lib.dataTypeClazzMethodReturnTypeSpecialization.DataTypeClazzMethodReturnTypeSpecialization.method()
+    - type: java.lang.Number
+    + type: java.lang.Integer
+
+Class testing_lib.dataTypeClazzMethodReturnTypeUnboxing.DataTypeClazzMethodReturnTypeUnboxing
+  Changed
+    method public java.lang.Integer testing_lib.dataTypeClazzMethodReturnTypeUnboxing.DataTypeClazzMethodReturnTypeUnboxing.method()
+    - type: java.lang.Integer
+    + type: int
+
+Class testing_lib.dataTypeClazzMethodReturnTypeWidening.DataTypeClazzMethodReturnTypeWidening
+  Changed
+    method public int testing_lib.dataTypeClazzMethodReturnTypeWidening.DataTypeClazzMethodReturnTypeWidening.method()
+    - type: int
+    + type: double
+
+Class testing_lib.dataTypeIfazeConstantGeneralization.DataTypeIfazeConstantGeneralization
+  Changed
+    field public final static java.lang.Integer testing_lib.dataTypeIfazeConstantGeneralization.DataTypeIfazeConstantGeneralization.FIELD1
+    - type: java.lang.Integer
+    + type: java.lang.Number
+
+Class testing_lib.dataTypeIfazeConstantMutation.DataTypeIfazeConstantMutation
+  Changed
+    field public final static java.lang.Integer testing_lib.dataTypeIfazeConstantMutation.DataTypeIfazeConstantMutation.FIELD1
+    + value: "5"
+    field public final static java.lang.Integer testing_lib.dataTypeIfazeConstantMutation.DataTypeIfazeConstantMutation.FIELD1
+    - type: java.lang.Integer
+    + type: java.lang.String
+
+Class testing_lib.dataTypeIfazeConstantNarrowing.DataTypeIfazeConstantNarrowing
+  Changed
+    field public final static double testing_lib.dataTypeIfazeConstantNarrowing.DataTypeIfazeConstantNarrowing.FIELD1 = 5.0
+    - type: double
+    + type: int
+    field public final static double testing_lib.dataTypeIfazeConstantNarrowing.DataTypeIfazeConstantNarrowing.FIELD1 = 5.0
+    - value: 5.0
+    + value: 5
+
+Class testing_lib.dataTypeIfazeConstantSpecialization.DataTypeIfazeConstantSpecialization
+  Changed
+    field public final static java.lang.Number testing_lib.dataTypeIfazeConstantSpecialization.DataTypeIfazeConstantSpecialization.FIELD1
+    - type: java.lang.Number
+    + type: java.lang.Integer
+
+Class testing_lib.dataTypeIfazeConstantUnboxing.DataTypeIfazeConstantUnboxing
+  Changed
+    field public final static java.lang.Integer testing_lib.dataTypeIfazeConstantUnboxing.DataTypeIfazeConstantUnboxing.FIELD1
+    + value: 5
+    field public final static java.lang.Integer testing_lib.dataTypeIfazeConstantUnboxing.DataTypeIfazeConstantUnboxing.FIELD1
+    - type: java.lang.Integer
+    + type: int
+
+Class testing_lib.dataTypeIfazeConstantWidening.DataTypeIfazeConstantWidening
+  Changed
+    field public final static int testing_lib.dataTypeIfazeConstantWidening.DataTypeIfazeConstantWidening.FIELD1 = 5
+    - type: int
+    + type: double
+    field public final static int testing_lib.dataTypeIfazeConstantWidening.DataTypeIfazeConstantWidening.FIELD1 = 5
+    - value: 5
+    + value: 5.0
+
+Class testing_lib.dataTypeIfazeMethodParamBoxing.DataTypeIfazeMethodParamBoxing
+  Missing Methods
+    method public abstract void testing_lib.dataTypeIfazeMethodParamBoxing.DataTypeIfazeMethodParamBoxing.method1(int)
+  Added Methods
+    method public abstract void testing_lib.dataTypeIfazeMethodParamBoxing.DataTypeIfazeMethodParamBoxing.method1(java.lang.Integer)
+
+Class testing_lib.dataTypeIfazeMethodParamGeneralization.DataTypeIfazeMethodParamGeneralization
+  Missing Methods
+    method public abstract void testing_lib.dataTypeIfazeMethodParamGeneralization.DataTypeIfazeMethodParamGeneralization.method1(java.lang.Integer)
+  Added Methods
+    method public abstract void testing_lib.dataTypeIfazeMethodParamGeneralization.DataTypeIfazeMethodParamGeneralization.method1(java.lang.Number)
+
+Class testing_lib.dataTypeIfazeMethodParamMutation.DataTypeIfazeMethodParamMutation
+  Missing Methods
+    method public abstract void testing_lib.dataTypeIfazeMethodParamMutation.DataTypeIfazeMethodParamMutation.method1(java.lang.Integer)
+  Added Methods
+    method public abstract void testing_lib.dataTypeIfazeMethodParamMutation.DataTypeIfazeMethodParamMutation.method1(java.lang.String)
+
+Class testing_lib.dataTypeIfazeMethodParamNarrowing.DataTypeIfazeMethodParamNarrowing
+  Missing Methods
+    method public abstract void testing_lib.dataTypeIfazeMethodParamNarrowing.DataTypeIfazeMethodParamNarrowing.method1(double)
+  Added Methods
+    method public abstract void testing_lib.dataTypeIfazeMethodParamNarrowing.DataTypeIfazeMethodParamNarrowing.method1(int)
+
+Class testing_lib.dataTypeIfazeMethodParamSpecialization.DataTypeIfazeMethodParamSpecialization
+  Missing Methods
+    method public abstract void testing_lib.dataTypeIfazeMethodParamSpecialization.DataTypeIfazeMethodParamSpecialization.method1(java.lang.Number)
+  Added Methods
+    method public abstract void testing_lib.dataTypeIfazeMethodParamSpecialization.DataTypeIfazeMethodParamSpecialization.method1(java.lang.Integer)
+
+Class testing_lib.dataTypeIfazeMethodParamUnboxing.DataTypeIfazeMethodParamUnboxing
+  Missing Methods
+    method public abstract void testing_lib.dataTypeIfazeMethodParamUnboxing.DataTypeIfazeMethodParamUnboxing.method1(java.lang.Integer)
+  Added Methods
+    method public abstract void testing_lib.dataTypeIfazeMethodParamUnboxing.DataTypeIfazeMethodParamUnboxing.method1(int)
+
+Class testing_lib.dataTypeIfazeMethodParamWidening.DataTypeIfazeMethodParamWidening
+  Missing Methods
+    method public abstract void testing_lib.dataTypeIfazeMethodParamWidening.DataTypeIfazeMethodParamWidening.method1(int)
+  Added Methods
+    method public abstract void testing_lib.dataTypeIfazeMethodParamWidening.DataTypeIfazeMethodParamWidening.method1(double)
+
+Class testing_lib.dataTypeIfazeMethodReturnTypeBoxing.DataTypeIfazeMethodReturnTypeBoxing
+  Changed
+    method public abstract int testing_lib.dataTypeIfazeMethodReturnTypeBoxing.DataTypeIfazeMethodReturnTypeBoxing.method1()
+    - type: int
+    + type: java.lang.Integer
+
+Class testing_lib.dataTypeIfazeMethodReturnTypeGeneralization.DataTypeIfazeMethodReturnTypeGeneralization
+  Changed
+    method public abstract java.lang.Integer testing_lib.dataTypeIfazeMethodReturnTypeGeneralization.DataTypeIfazeMethodReturnTypeGeneralization.method1()
+    - type: java.lang.Integer
+    + type: java.lang.Number
+
+Class testing_lib.dataTypeIfazeMethodReturnTypeMutation.DataTypeIfazeMethodReturnTypeMutation
+  Changed
+    method public abstract java.lang.Integer testing_lib.dataTypeIfazeMethodReturnTypeMutation.DataTypeIfazeMethodReturnTypeMutation.methodIntegerToString()
+    - type: java.lang.Integer
+    + type: java.lang.String
+    method public abstract java.lang.Integer testing_lib.dataTypeIfazeMethodReturnTypeMutation.DataTypeIfazeMethodReturnTypeMutation.methodIntegerToVoid()
+    - type: java.lang.Integer
+    + type: void
+    method public abstract void testing_lib.dataTypeIfazeMethodReturnTypeMutation.DataTypeIfazeMethodReturnTypeMutation.methodVoidToInteger()
+    - type: void
+    + type: java.lang.Integer
+
+Class testing_lib.dataTypeIfazeMethodReturnTypeNarrowing.DataTypeIfazeMethodReturnTypeNarrowing
+  Changed
+    method public abstract double testing_lib.dataTypeIfazeMethodReturnTypeNarrowing.DataTypeIfazeMethodReturnTypeNarrowing.method1()
+    - type: double
+    + type: int
+
+Class testing_lib.dataTypeIfazeMethodReturnTypeSpecialization.DataTypeIfazeMethodReturnTypeSpecialization
+  Changed
+    method public abstract java.lang.Number testing_lib.dataTypeIfazeMethodReturnTypeSpecialization.DataTypeIfazeMethodReturnTypeSpecialization.method1()
+    - type: java.lang.Number
+    + type: java.lang.Integer
+
+Class testing_lib.dataTypeIfazeMethodReturnTypeUnboxing.DataTypeIfazeMethodReturnTypeUnboxing
+  Changed
+    method public abstract java.lang.Integer testing_lib.dataTypeIfazeMethodReturnTypeUnboxing.DataTypeIfazeMethodReturnTypeUnboxing.method1()
+    - type: java.lang.Integer
+    + type: int
+
+Class testing_lib.dataTypeIfazeMethodReturnTypeWidening.DataTypeIfazeMethodReturnTypeWidening
+  Changed
+    method public abstract int testing_lib.dataTypeIfazeMethodReturnTypeWidening.DataTypeIfazeMethodReturnTypeWidening.method1()
+    - type: int
+    + type: double
+
+Class testing_lib.exceptionClazzMethodThrowCheckedAdd.ExceptionClazzMethodThrowCheckedAdd
+  Changed
+    method public void testing_lib.exceptionClazzMethodThrowCheckedAdd.ExceptionClazzMethodThrowCheckedAdd.method1()
+    + Throws: [java.io.IOException]
+
+Class testing_lib.exceptionClazzMethodThrowCheckedDelete.ExceptionClazzMethodThrowCheckedDelete
+  Changed
+    method public void testing_lib.exceptionClazzMethodThrowCheckedDelete.ExceptionClazzMethodThrowCheckedDelete.method1() throws java.io.IOException
+    - Throws: [java.io.IOException]
+
+Class testing_lib.exceptionClazzMethodThrowCheckedGeneralization.ExceptionClazzMethodThrowCheckedGeneralization
+  Changed
+    method public void testing_lib.exceptionClazzMethodThrowCheckedGeneralization.ExceptionClazzMethodThrowCheckedGeneralization.method1() throws java.io.FileNotFoundException
+    - Throws: [java.io.FileNotFoundException]
+    + Throws: [java.io.IOException]
+
+Class testing_lib.exceptionClazzMethodThrowCheckedMutation.ExceptionClazzMethodThrowCheckedMutation
+  Changed
+    method public void testing_lib.exceptionClazzMethodThrowCheckedMutation.ExceptionClazzMethodThrowCheckedMutation.method1() throws java.io.FileNotFoundException
+    - Throws: [java.io.FileNotFoundException]
+
+Class testing_lib.exceptionClazzMethodThrowCheckedSpecialization.ExceptionClazzMethodThrowCheckedSpecialization
+  Changed
+    method public void testing_lib.exceptionClazzMethodThrowCheckedSpecialization.ExceptionClazzMethodThrowCheckedSpecialization.method1() throws java.io.IOException
+    - Throws: [java.io.IOException]
+    + Throws: [java.io.FileNotFoundException]
+
+Class testing_lib.exceptionClazzMethodThrowCheckedToTryCatch.ExceptionClazzMethodThrowCheckedToTryCatch
+  Changed
+    method public void testing_lib.exceptionClazzMethodThrowCheckedToTryCatch.ExceptionClazzMethodThrowCheckedToTryCatch.method1(java.io.File) throws java.io.IOException
+    - Throws: [java.io.IOException]
+
+Class testing_lib.exceptionClazzMethodThrowUncheckedMutation.ExceptionClazzMethodThrowUncheckedMutation
+  Changed
+    method public void testing_lib.exceptionClazzMethodThrowUncheckedMutation.ExceptionClazzMethodThrowUncheckedMutation.method1()
+    + Throws: [java.io.IOException]
+
+Class testing_lib.exceptionClazzMethodTryCatchToThrowChecked.ExceptionClazzMethodTryCatchToThrowChecked
+  Changed
+    method public void testing_lib.exceptionClazzMethodTryCatchToThrowChecked.ExceptionClazzMethodTryCatchToThrowChecked.method1(java.io.File)
+    + Throws: [java.io.IOException]
+
+Class testing_lib.exceptionIfazeMethodThrowCheckedAdd.ExceptionIfazeMethodThrowCheckedAdd
+  Changed
+    method public abstract void testing_lib.exceptionIfazeMethodThrowCheckedAdd.ExceptionIfazeMethodThrowCheckedAdd.method1()
+    + Throws: [java.io.IOException]
+
+Class testing_lib.exceptionIfazeMethodThrowCheckedDelete.ExceptionIfazeMethodThrowCheckedDelete
+  Changed
+    method public abstract void testing_lib.exceptionIfazeMethodThrowCheckedDelete.ExceptionIfazeMethodThrowCheckedDelete.method1() throws java.io.IOException
+    - Throws: [java.io.IOException]
+
+Class testing_lib.exceptionIfazeMethodThrowCheckedGeneralization.ExceptionIfazeMethodThrowCheckedGeneralization
+  Changed
+    method public abstract void testing_lib.exceptionIfazeMethodThrowCheckedGeneralization.ExceptionIfazeMethodThrowCheckedGeneralization.method1() throws java.io.FileNotFoundException
+    - Throws: [java.io.FileNotFoundException]
+    + Throws: [java.io.IOException]
+
+Class testing_lib.exceptionIfazeMethodThrowCheckedMutation.ExceptionIfazeMethodThrowCheckedMutation
+  Changed
+    method public abstract void testing_lib.exceptionIfazeMethodThrowCheckedMutation.ExceptionIfazeMethodThrowCheckedMutation.method1() throws java.io.FileNotFoundException
+    - Throws: [java.io.FileNotFoundException]
+
+Class testing_lib.exceptionIfazeMethodThrowCheckedSpecialization.ExceptionIfazeMethodThrowCheckedSpecialization
+  Changed
+    method public abstract void testing_lib.exceptionIfazeMethodThrowCheckedSpecialization.ExceptionIfazeMethodThrowCheckedSpecialization.method1() throws java.io.IOException
+    - Throws: [java.io.IOException]
+    + Throws: [java.io.FileNotFoundException]
+
+Class testing_lib.exceptionIfazeMethodThrowUncheckedMutation.ExceptionIfazeMethodThrowUncheckedMutation
+  Changed
+    method public abstract void testing_lib.exceptionIfazeMethodThrowUncheckedMutation.ExceptionIfazeMethodThrowUncheckedMutation.method1()
+    + Throws: [java.io.IOException]
+
+Class testing_lib.genericsClazzConstructorTypeAdd.GenericsClazzConstructorTypeAdd
+  Changed
+    constructor public testing_lib.genericsClazzConstructorTypeAdd.GenericsClazzConstructorTypeAdd.<init>()
+    + Type parameters: [%0 extends java.lang.Object]
+
+Class testing_lib.genericsClazzConstructorTypeAddSecond.GenericsClazzConstructorTypeAddSecond
+  Changed
+    constructor public <%0 extends java.lang.Object> testing_lib.genericsClazzConstructorTypeAddSecond.GenericsClazzConstructorTypeAddSecond.<init>()
+    + Type parameters: [%1 extends java.lang.Object]
+
+Class testing_lib.genericsClazzConstructorTypeBoundsAdd.GenericsClazzConstructorTypeBoundsAdd
+  Changed
+    constructor public <%0 extends java.lang.Object> testing_lib.genericsClazzConstructorTypeBoundsAdd.GenericsClazzConstructorTypeBoundsAdd.<init>()
+    - Type parameters: [%0 extends java.lang.Object]
+    + Type parameters: [%0 extends java.lang.Number]
+
+Class testing_lib.genericsClazzConstructorTypeBoundsAddSecond.GenericsClazzConstructorTypeBoundsAddSecond
+  Changed
+    constructor public <%0 extends java.lang.Number> testing_lib.genericsClazzConstructorTypeBoundsAddSecond.GenericsClazzConstructorTypeBoundsAddSecond.<init>()
+    - Type parameters: [%0 extends java.lang.Number]
+    + Type parameters: [%0 extends java.lang.Number & java.lang.Comparable<{%%0}>]
+
+Class testing_lib.genericsClazzConstructorTypeBoundsDelete.GenericsClazzConstructorTypeBoundsDelete
+  Changed
+    constructor public <%0 extends java.lang.Number> testing_lib.genericsClazzConstructorTypeBoundsDelete.GenericsClazzConstructorTypeBoundsDelete.<init>()
+    - Type parameters: [%0 extends java.lang.Number]
+    + Type parameters: [%0 extends java.lang.Object]
+
+Class testing_lib.genericsClazzConstructorTypeBoundsDeleteSecond.GenericsClazzConstructorTypeBoundsDeleteSecond
+  Changed
+    constructor public <%0 extends java.lang.Number & java.lang.Comparable<{%%0}>> testing_lib.genericsClazzConstructorTypeBoundsDeleteSecond.GenericsClazzConstructorTypeBoundsDeleteSecond.<init>()
+    - Type parameters: [%0 extends java.lang.Number & java.lang.Comparable<{%%0}>]
+    + Type parameters: [%0 extends java.lang.Number]
+
+Class testing_lib.genericsClazzConstructorTypeBoundsGeneralization.GenericsClazzConstructorTypeBoundsGeneralization
+  Changed
+    constructor public <%0 extends java.lang.Integer> testing_lib.genericsClazzConstructorTypeBoundsGeneralization.GenericsClazzConstructorTypeBoundsGeneralization.<init>()
+    - Type parameters: [%0 extends java.lang.Integer]
+    + Type parameters: [%0 extends java.lang.Number]
+
+Class testing_lib.genericsClazzConstructorTypeBoundsMutation.GenericsClazzConstructorTypeBoundsMutation
+  Changed
+    constructor public <%0 extends java.lang.Integer> testing_lib.genericsClazzConstructorTypeBoundsMutation.GenericsClazzConstructorTypeBoundsMutation.<init>()
+    - Type parameters: [%0 extends java.lang.Integer]
+    + Type parameters: [%0 extends java.lang.String]
+
+Class testing_lib.genericsClazzConstructorTypeBoundsSpecialization.GenericsClazzConstructorTypeBoundsSpecialization
+  Changed
+    constructor public <%0 extends java.lang.Number> testing_lib.genericsClazzConstructorTypeBoundsSpecialization.GenericsClazzConstructorTypeBoundsSpecialization.<init>()
+    - Type parameters: [%0 extends java.lang.Number]
+    + Type parameters: [%0 extends java.lang.Integer]
+
+Class testing_lib.genericsClazzConstructorTypeDelete.GenericsClazzConstructorTypeDelete
+  Changed
+    constructor public <%0 extends java.lang.Object> testing_lib.genericsClazzConstructorTypeDelete.GenericsClazzConstructorTypeDelete.<init>()
+    - Type parameters: [%0 extends java.lang.Object]
+
+Class testing_lib.genericsClazzConstructorTypeDeleteSecond.GenericsClazzConstructorTypeDeleteSecond
+  Changed
+    constructor public <%0 extends java.lang.Object, %1 extends java.lang.Object> testing_lib.genericsClazzConstructorTypeDeleteSecond.GenericsClazzConstructorTypeDeleteSecond.<init>()
+    - Type parameters: [%1 extends java.lang.Object]
+
+Class testing_lib.genericsClazzMethodTypeAdd.GenericsClazzMethodTypeAdd
+  Changed
+    method public void testing_lib.genericsClazzMethodTypeAdd.GenericsClazzMethodTypeAdd.method1()
+    + Type parameters: [%0 extends java.lang.Object]
+
+Class testing_lib.genericsClazzMethodTypeAddSecond.GenericsClazzMethodTypeAddSecond
+  Changed
+    method public <%0 extends java.lang.Object> void testing_lib.genericsClazzMethodTypeAddSecond.GenericsClazzMethodTypeAddSecond.method1()
+    + Type parameters: [%1 extends java.lang.Object]
+
+Class testing_lib.genericsClazzMethodTypeBoundsAdd.GenericsClazzMethodTypeBoundsAdd
+  Changed
+    method public <%0 extends java.lang.Object> void testing_lib.genericsClazzMethodTypeBoundsAdd.GenericsClazzMethodTypeBoundsAdd.method1()
+    - Type parameters: [%0 extends java.lang.Object]
+    + Type parameters: [%0 extends java.lang.Number]
+
+Class testing_lib.genericsClazzMethodTypeBoundsAddSecond.GenericsClazzMethodTypeBoundsAddSecond
+  Changed
+    method public <%0 extends java.lang.Number> void testing_lib.genericsClazzMethodTypeBoundsAddSecond.GenericsClazzMethodTypeBoundsAddSecond.method1()
+    - Type parameters: [%0 extends java.lang.Number]
+    + Type parameters: [%0 extends java.lang.Number & java.lang.Comparable<{%%0}>]
+
+Class testing_lib.genericsClazzMethodTypeBoundsDelete.GenericsClazzMethodTypeBoundsDelete
+  Changed
+    method public <%0 extends java.lang.Number> void testing_lib.genericsClazzMethodTypeBoundsDelete.GenericsClazzMethodTypeBoundsDelete.method1()
+    - Type parameters: [%0 extends java.lang.Number]
+    + Type parameters: [%0 extends java.lang.Object]
+
+Class testing_lib.genericsClazzMethodTypeBoundsDeleteSecond.GenericsClazzMethodTypeBoundsDeleteSecond
+  Changed
+    method public <%0 extends java.lang.Number & java.lang.Comparable<{%%0}>> void testing_lib.genericsClazzMethodTypeBoundsDeleteSecond.GenericsClazzMethodTypeBoundsDeleteSecond.method1()
+    - Type parameters: [%0 extends java.lang.Number & java.lang.Comparable<{%%0}>]
+    + Type parameters: [%0 extends java.lang.Number]
+
+Class testing_lib.genericsClazzMethodTypeBoundsGeneralization.GenericsClazzMethodTypeBoundsGeneralization
+  Changed
+    method public <%0 extends java.lang.Integer> void testing_lib.genericsClazzMethodTypeBoundsGeneralization.GenericsClazzMethodTypeBoundsGeneralization.method1()
+    - Type parameters: [%0 extends java.lang.Integer]
+    + Type parameters: [%0 extends java.lang.Number]
+
+Class testing_lib.genericsClazzMethodTypeBoundsMutation.GenericsClazzMethodTypeBoundsMutation
+  Changed
+    method public <%0 extends java.lang.Integer> void testing_lib.genericsClazzMethodTypeBoundsMutation.GenericsClazzMethodTypeBoundsMutation.method1()
+    - Type parameters: [%0 extends java.lang.Integer]
+    + Type parameters: [%0 extends java.lang.String]
+
+Class testing_lib.genericsClazzMethodTypeBoundsSpecialization.GenericsClazzMethodTypeBoundsSpecialization
+  Changed
+    method public <%0 extends java.lang.Number> void testing_lib.genericsClazzMethodTypeBoundsSpecialization.GenericsClazzMethodTypeBoundsSpecialization.method1()
+    - Type parameters: [%0 extends java.lang.Number]
+    + Type parameters: [%0 extends java.lang.Integer]
+
+Class testing_lib.genericsClazzMethodTypeDelete.GenericsClazzMethodTypeDelete
+  Changed
+    method public <%0 extends java.lang.Object> void testing_lib.genericsClazzMethodTypeDelete.GenericsClazzMethodTypeDelete.method1()
+    - Type parameters: [%0 extends java.lang.Object]
+
+Class testing_lib.genericsClazzMethodTypeDeleteSecond.GenericsClazzMethodTypeDeleteSecond
+  Changed
+    method public <%0 extends java.lang.Object, %1 extends java.lang.Object> void testing_lib.genericsClazzMethodTypeDeleteSecond.GenericsClazzMethodTypeDeleteSecond.method1()
+    - Type parameters: [%1 extends java.lang.Object]
+
+Class testing_lib.genericsClazzTypeAdd.GenericsClazzTypeAdd
+  Changed
+    + Type parameters: [%0 extends java.lang.Object]
+
+Class testing_lib.genericsClazzTypeAddSecond.GenericsClazzTypeAddSecond
+  Changed
+    + Type parameters: [%1 extends java.lang.Object]
+
+Class testing_lib.genericsClazzTypeBoundsAdd.GenericsClazzTypeBoundsAdd
+  Changed
+    - Type parameters: [%0 extends java.lang.Object]
+    + Type parameters: [%0 extends java.lang.Number]
+
+Class testing_lib.genericsClazzTypeBoundsAddSecond.GenericsClazzTypeBoundsAddSecond
+  Changed
+    - Type parameters: [%0 extends java.lang.Number]
+    + Type parameters: [%0 extends java.lang.Number & java.lang.Comparable<{testing_lib.genericsClazzTypeBoundsAddSecond.GenericsClazzTypeBoundsAddSecond%0}>]
+
+Class testing_lib.genericsClazzTypeBoundsDelete.GenericsClazzTypeBoundsDelete
+  Changed
+    - Type parameters: [%0 extends java.lang.Number]
+    + Type parameters: [%0 extends java.lang.Object]
+
+Class testing_lib.genericsClazzTypeBoundsDeleteSecond.GenericsClazzTypeBoundsDeleteSecond
+  Changed
+    - Type parameters: [%0 extends java.lang.Number & java.lang.Comparable<{testing_lib.genericsClazzTypeBoundsDeleteSecond.GenericsClazzTypeBoundsDeleteSecond%0}>]
+    + Type parameters: [%0 extends java.lang.Number]
+
+Class testing_lib.genericsClazzTypeBoundsGeneralization.GenericsClazzTypeBoundsGeneralization
+  Changed
+    - Type parameters: [%0 extends java.lang.Integer]
+    + Type parameters: [%0 extends java.lang.Number]
+
+Class testing_lib.genericsClazzTypeBoundsMutation.GenericsClazzTypeBoundsMutation
+  Changed
+    - Type parameters: [%0 extends java.lang.Integer]
+    + Type parameters: [%0 extends java.lang.String]
+
+Class testing_lib.genericsClazzTypeBoundsSpecialization.GenericsClazzTypeBoundsSpecialization
+  Changed
+    - Type parameters: [%0 extends java.lang.Number]
+    + Type parameters: [%0 extends java.lang.Integer]
+
+Class testing_lib.genericsClazzTypeDelete.GenericsClazzTypeDelete
+  Changed
+    - Type parameters: [%0 extends java.lang.Object]
+
+Class testing_lib.genericsClazzTypeDeleteSecond.GenericsClazzTypeDeleteSecond
+  Changed
+    - Type parameters: [%1 extends java.lang.Object]
+
+Class testing_lib.genericsIfazeMethodTypeAdd.GenericsIfazeMethodTypeAdd
+  Changed
+    method public abstract void testing_lib.genericsIfazeMethodTypeAdd.GenericsIfazeMethodTypeAdd.method1()
+    + Type parameters: [%0 extends java.lang.Object]
+
+Class testing_lib.genericsIfazeMethodTypeAddSecond.GenericsIfazeMethodTypeAddSecond
+  Changed
+    method public abstract <%0 extends java.lang.Object> void testing_lib.genericsIfazeMethodTypeAddSecond.GenericsIfazeMethodTypeAddSecond.method1()
+    + Type parameters: [%1 extends java.lang.Object]
+
+Class testing_lib.genericsIfazeMethodTypeBoundsAdd.GenericsIfazeMethodTypeBoundsAdd
+  Changed
+    method public abstract <%0 extends java.lang.Object> void testing_lib.genericsIfazeMethodTypeBoundsAdd.GenericsIfazeMethodTypeBoundsAdd.method1()
+    - Type parameters: [%0 extends java.lang.Object]
+    + Type parameters: [%0 extends java.lang.Number]
+
+Class testing_lib.genericsIfazeMethodTypeBoundsAddSecond.GenericsIfazeMethodTypeBoundsAddSecond
+  Changed
+    method public abstract <%0 extends java.lang.Number> void testing_lib.genericsIfazeMethodTypeBoundsAddSecond.GenericsIfazeMethodTypeBoundsAddSecond.method1()
+    - Type parameters: [%0 extends java.lang.Number]
+    + Type parameters: [%0 extends java.lang.Number & java.lang.Comparable<{%%0}>]
+
+Class testing_lib.genericsIfazeMethodTypeBoundsDelete.GenericsIfazeMethodTypeBoundsDelete
+  Changed
+    method public abstract <%0 extends java.lang.Number> void testing_lib.genericsIfazeMethodTypeBoundsDelete.GenericsIfazeMethodTypeBoundsDelete.method1()
+    - Type parameters: [%0 extends java.lang.Number]
+    + Type parameters: [%0 extends java.lang.Object]
+
+Class testing_lib.genericsIfazeMethodTypeBoundsDeleteSecond.GenericsIfazeMethodTypeBoundsDeleteSecond
+  Changed
+    method public abstract <%0 extends java.lang.Number & java.lang.Comparable<{%%0}>> void testing_lib.genericsIfazeMethodTypeBoundsDeleteSecond.GenericsIfazeMethodTypeBoundsDeleteSecond.method1()
+    - Type parameters: [%0 extends java.lang.Number & java.lang.Comparable<{%%0}>]
+    + Type parameters: [%0 extends java.lang.Number]
+
+Class testing_lib.genericsIfazeMethodTypeBoundsGeneralization.GenericsIfazeMethodTypeBoundsGeneralization
+  Changed
+    method public abstract <%0 extends java.lang.Integer> void testing_lib.genericsIfazeMethodTypeBoundsGeneralization.GenericsIfazeMethodTypeBoundsGeneralization.method1()
+    - Type parameters: [%0 extends java.lang.Integer]
+    + Type parameters: [%0 extends java.lang.Number]
+
+Class testing_lib.genericsIfazeMethodTypeBoundsMutation.GenericsIfazeMethodTypeBoundsMutation
+  Changed
+    method public abstract <%0 extends java.lang.Integer> void testing_lib.genericsIfazeMethodTypeBoundsMutation.GenericsIfazeMethodTypeBoundsMutation.method1()
+    - Type parameters: [%0 extends java.lang.Integer]
+    + Type parameters: [%0 extends java.lang.String]
+
+Class testing_lib.genericsIfazeMethodTypeBoundsSpecialization.GenericsIfazeMethodTypeBoundsSpecialization
+  Changed
+    method public abstract <%0 extends java.lang.Number> void testing_lib.genericsIfazeMethodTypeBoundsSpecialization.GenericsIfazeMethodTypeBoundsSpecialization.method1()
+    - Type parameters: [%0 extends java.lang.Number]
+    + Type parameters: [%0 extends java.lang.Integer]
+
+Class testing_lib.genericsIfazeMethodTypeDelete.GenericsIfazeMethodTypeDelete
+  Changed
+    method public abstract <%0 extends java.lang.Object> void testing_lib.genericsIfazeMethodTypeDelete.GenericsIfazeMethodTypeDelete.method1()
+    - Type parameters: [%0 extends java.lang.Object]
+
+Class testing_lib.genericsIfazeMethodTypeDeleteSecond.GenericsIfazeMethodTypeDeleteSecond
+  Changed
+    method public abstract <%0 extends java.lang.Object, %1 extends java.lang.Object> void testing_lib.genericsIfazeMethodTypeDeleteSecond.GenericsIfazeMethodTypeDeleteSecond.method1()
+    - Type parameters: [%1 extends java.lang.Object]
+
+Class testing_lib.genericsIfazeTypeAdd.GenericsIfazeTypeAdd
+  Changed
+    + Type parameters: [%0 extends java.lang.Object]
+
+Class testing_lib.genericsIfazeTypeAddSecond.GenericsIfazeTypeAddSecond
+  Changed
+    + Type parameters: [%1 extends java.lang.Object]
+
+Class testing_lib.genericsIfazeTypeBoundsAdd.GenericsIfazeTypeBoundsAdd
+  Changed
+    - Type parameters: [%0 extends java.lang.Object]
+    + Type parameters: [%0 extends java.lang.Number]
+
+Class testing_lib.genericsIfazeTypeBoundsAddSecond.GenericsIfazeTypeBoundsAddSecond
+  Changed
+    - Type parameters: [%0 extends java.lang.Number]
+    + Type parameters: [%0 extends java.lang.Number & java.lang.Comparable<{testing_lib.genericsIfazeTypeBoundsAddSecond.GenericsIfazeTypeBoundsAddSecond%0}>]
+
+Class testing_lib.genericsIfazeTypeBoundsDelete.GenericsIfazeTypeBoundsDelete
+  Changed
+    - Type parameters: [%0 extends java.lang.Number]
+    + Type parameters: [%0 extends java.lang.Object]
+
+Class testing_lib.genericsIfazeTypeBoundsDeleteSecond.GenericsIfazeTypeBoundsDeleteSecond
+  Changed
+    - Type parameters: [%0 extends java.lang.Number & java.lang.Comparable<{testing_lib.genericsIfazeTypeBoundsDeleteSecond.GenericsIfazeTypeBoundsDeleteSecond%0}>]
+    + Type parameters: [%0 extends java.lang.Number]
+
+Class testing_lib.genericsIfazeTypeBoundsGeneralization.GenericsIfazeTypeBoundsGeneralization
+  Changed
+    - Type parameters: [%0 extends java.lang.Integer]
+    + Type parameters: [%0 extends java.lang.Number]
+
+Class testing_lib.genericsIfazeTypeBoundsMutation.GenericsIfazeTypeBoundsMutation
+  Changed
+    - Type parameters: [%0 extends java.lang.Integer]
+    + Type parameters: [%0 extends java.lang.String]
+
+Class testing_lib.genericsIfazeTypeBoundsSpecialization.GenericsIfazeTypeBoundsSpecialization
+  Changed
+    - Type parameters: [%0 extends java.lang.Number]
+    + Type parameters: [%0 extends java.lang.Integer]
+
+Class testing_lib.genericsIfazeTypeDelete.GenericsIfazeTypeDelete
+  Changed
+    - Type parameters: [%0 extends java.lang.Object]
+
+Class testing_lib.genericsIfazeTypeDeleteSecond.GenericsIfazeTypeDeleteSecond
+  Changed
+    - Type parameters: [%1 extends java.lang.Object]
+
+Class testing_lib.genericsWildcardsClazzConstructorParamAdd.GenericsWildcardsClazzConstructorParamAdd
+  Missing Constructors
+    constructor public testing_lib.genericsWildcardsClazzConstructorParamAdd.GenericsWildcardsClazzConstructorParamAdd.<init>(java.util.ArrayList<java.lang.Integer>)
+  Added Constructors
+    constructor public testing_lib.genericsWildcardsClazzConstructorParamAdd.GenericsWildcardsClazzConstructorParamAdd.<init>(java.util.ArrayList<?>)
+
+Class testing_lib.genericsWildcardsClazzConstructorParamDelete.GenericsWildcardsClazzConstructorParamDelete
+  Missing Constructors
+    constructor public testing_lib.genericsWildcardsClazzConstructorParamDelete.GenericsWildcardsClazzConstructorParamDelete.<init>(java.util.ArrayList<?>)
+  Added Constructors
+    constructor public testing_lib.genericsWildcardsClazzConstructorParamDelete.GenericsWildcardsClazzConstructorParamDelete.<init>(java.util.ArrayList<java.lang.Integer>)
+
+Class testing_lib.genericsWildcardsClazzConstructorParamLowerBoundsAdd.GenericsWildcardsClazzConstructorParamLowerBoundsAdd
+  Missing Constructors
+    constructor public testing_lib.genericsWildcardsClazzConstructorParamLowerBoundsAdd.GenericsWildcardsClazzConstructorParamLowerBoundsAdd.<init>(java.util.ArrayList<?>)
+  Added Constructors
+    constructor public testing_lib.genericsWildcardsClazzConstructorParamLowerBoundsAdd.GenericsWildcardsClazzConstructorParamLowerBoundsAdd.<init>(java.util.ArrayList<? super java.lang.Number>)
+
+Class testing_lib.genericsWildcardsClazzConstructorParamLowerBoundsDelete.GenericsWildcardsClazzConstructorParamLowerBoundsDelete
+  Missing Constructors
+    constructor public testing_lib.genericsWildcardsClazzConstructorParamLowerBoundsDelete.GenericsWildcardsClazzConstructorParamLowerBoundsDelete.<init>(java.util.ArrayList<? super java.lang.Number>)
+  Added Constructors
+    constructor public testing_lib.genericsWildcardsClazzConstructorParamLowerBoundsDelete.GenericsWildcardsClazzConstructorParamLowerBoundsDelete.<init>(java.util.ArrayList<?>)
+
+Class testing_lib.genericsWildcardsClazzConstructorParamLowerBoundsGeneralization.GenericsWildcardsClazzConstructorParamLowerBoundsGeneralization
+  Missing Constructors
+    constructor public testing_lib.genericsWildcardsClazzConstructorParamLowerBoundsGeneralization.GenericsWildcardsClazzConstructorParamLowerBoundsGeneralization.<init>(java.util.ArrayList<? super java.lang.Integer>)
+  Added Constructors
+    constructor public testing_lib.genericsWildcardsClazzConstructorParamLowerBoundsGeneralization.GenericsWildcardsClazzConstructorParamLowerBoundsGeneralization.<init>(java.util.ArrayList<? super java.lang.Number>)
+
+Class testing_lib.genericsWildcardsClazzConstructorParamLowerBoundsMutation.GenericsWildcardsClazzConstructorParamLowerBoundsMutation
+  Missing Constructors
+    constructor public testing_lib.genericsWildcardsClazzConstructorParamLowerBoundsMutation.GenericsWildcardsClazzConstructorParamLowerBoundsMutation.<init>(java.util.ArrayList<? super java.lang.Integer>)
+  Added Constructors
+    constructor public testing_lib.genericsWildcardsClazzConstructorParamLowerBoundsMutation.GenericsWildcardsClazzConstructorParamLowerBoundsMutation.<init>(java.util.ArrayList<? super java.lang.String>)
+
+Class testing_lib.genericsWildcardsClazzConstructorParamLowerBoundsSpecialization.GenericsWildcardsClazzConstructorParamLowerBoundsSpecializaion
+  Missing Constructors
+    constructor public testing_lib.genericsWildcardsClazzConstructorParamLowerBoundsSpecialization.GenericsWildcardsClazzConstructorParamLowerBoundsSpecializaion.<init>(java.util.ArrayList<? super java.lang.Number>)
+  Added Constructors
+    constructor public testing_lib.genericsWildcardsClazzConstructorParamLowerBoundsSpecialization.GenericsWildcardsClazzConstructorParamLowerBoundsSpecializaion.<init>(java.util.ArrayList<? super java.lang.Integer>)
+
+Class testing_lib.genericsWildcardsClazzConstructorParamLowerBoundsToUpperBounds.GenericsWildcardsClazzConstructorParamLowerBoundsToUpperBounds
+  Missing Constructors
+    constructor public testing_lib.genericsWildcardsClazzConstructorParamLowerBoundsToUpperBounds.GenericsWildcardsClazzConstructorParamLowerBoundsToUpperBounds.<init>(java.util.ArrayList<? super java.lang.Number>)
+  Added Constructors
+    constructor public testing_lib.genericsWildcardsClazzConstructorParamLowerBoundsToUpperBounds.GenericsWildcardsClazzConstructorParamLowerBoundsToUpperBounds.<init>(java.util.ArrayList<? extends java.lang.Number>)
+
+Class testing_lib.genericsWildcardsClazzConstructorParamUpperBoundsAdd.GenericsWildcardsClazzConstructorParamUpperBoundsAdd
+  Missing Constructors
+    constructor public testing_lib.genericsWildcardsClazzConstructorParamUpperBoundsAdd.GenericsWildcardsClazzConstructorParamUpperBoundsAdd.<init>(java.util.ArrayList<?>)
+  Added Constructors
+    constructor public testing_lib.genericsWildcardsClazzConstructorParamUpperBoundsAdd.GenericsWildcardsClazzConstructorParamUpperBoundsAdd.<init>(java.util.ArrayList<? extends java.lang.Number>)
+
+Class testing_lib.genericsWildcardsClazzConstructorParamUpperBoundsDelete.GenericsWildcardsClazzConstructorParamUpperBoundsDelete
+  Missing Constructors
+    constructor public testing_lib.genericsWildcardsClazzConstructorParamUpperBoundsDelete.GenericsWildcardsClazzConstructorParamUpperBoundsDelete.<init>(java.util.ArrayList<? extends java.lang.Number>)
+  Added Constructors
+    constructor public testing_lib.genericsWildcardsClazzConstructorParamUpperBoundsDelete.GenericsWildcardsClazzConstructorParamUpperBoundsDelete.<init>(java.util.ArrayList<?>)
+
+Class testing_lib.genericsWildcardsClazzConstructorParamUpperBoundsGeneralization.GenericsWildcardsClazzConstructorParamUpperBoundsGeneralization
+  Missing Constructors
+    constructor public testing_lib.genericsWildcardsClazzConstructorParamUpperBoundsGeneralization.GenericsWildcardsClazzConstructorParamUpperBoundsGeneralization.<init>(java.util.ArrayList<? extends java.lang.Integer>)
+  Added Constructors
+    constructor public testing_lib.genericsWildcardsClazzConstructorParamUpperBoundsGeneralization.GenericsWildcardsClazzConstructorParamUpperBoundsGeneralization.<init>(java.util.ArrayList<? extends java.lang.Number>)
+
+Class testing_lib.genericsWildcardsClazzConstructorParamUpperBoundsMutation.GenericsWildcardsClazzConstructorParamUpperBoundsMutation
+  Missing Constructors
+    constructor public testing_lib.genericsWildcardsClazzConstructorParamUpperBoundsMutation.GenericsWildcardsClazzConstructorParamUpperBoundsMutation.<init>(java.util.ArrayList<? extends java.lang.Integer>)
+  Added Constructors
+    constructor public testing_lib.genericsWildcardsClazzConstructorParamUpperBoundsMutation.GenericsWildcardsClazzConstructorParamUpperBoundsMutation.<init>(java.util.ArrayList<? extends java.lang.String>)
+
+Class testing_lib.genericsWildcardsClazzConstructorParamUpperBoundsSpecialization.GenericsWildcardsClazzConstructorParamUpperBoundsSpecialization
+  Missing Constructors
+    constructor public testing_lib.genericsWildcardsClazzConstructorParamUpperBoundsSpecialization.GenericsWildcardsClazzConstructorParamUpperBoundsSpecialization.<init>(java.util.ArrayList<? extends java.lang.Number>)
+  Added Constructors
+    constructor public testing_lib.genericsWildcardsClazzConstructorParamUpperBoundsSpecialization.GenericsWildcardsClazzConstructorParamUpperBoundsSpecialization.<init>(java.util.ArrayList<? extends java.lang.Integer>)
+
+Class testing_lib.genericsWildcardsClazzConstructorParamUpperBoundsToLowerBounds.GenericsWildcardsClazzConstructorParamUpperBoundsToLowerBounds
+  Missing Constructors
+    constructor public testing_lib.genericsWildcardsClazzConstructorParamUpperBoundsToLowerBounds.GenericsWildcardsClazzConstructorParamUpperBoundsToLowerBounds.<init>(java.util.ArrayList<? extends java.lang.Number>)
+  Added Constructors
+    constructor public testing_lib.genericsWildcardsClazzConstructorParamUpperBoundsToLowerBounds.GenericsWildcardsClazzConstructorParamUpperBoundsToLowerBounds.<init>(java.util.ArrayList<? super java.lang.Number>)
+
+Class testing_lib.genericsWildcardsClazzMethodParamAdd.GenericsWildcardsClazzMethodParamAdd
+  Missing Methods
+    method public void testing_lib.genericsWildcardsClazzMethodParamAdd.GenericsWildcardsClazzMethodParamAdd.method1(java.util.ArrayList<java.lang.String>)
+  Added Methods
+    method public void testing_lib.genericsWildcardsClazzMethodParamAdd.GenericsWildcardsClazzMethodParamAdd.method1(java.util.ArrayList<?>)
+
+Class testing_lib.genericsWildcardsClazzMethodParamDelete.GenericsWildcardsClazzMethodParamDelete
+  Missing Methods
+    method public void testing_lib.genericsWildcardsClazzMethodParamDelete.GenericsWildcardsClazzMethodParamDelete.method1(java.util.ArrayList<?>)
+  Added Methods
+    method public void testing_lib.genericsWildcardsClazzMethodParamDelete.GenericsWildcardsClazzMethodParamDelete.method1(java.util.ArrayList<java.lang.String>)
+
+Class testing_lib.genericsWildcardsClazzMethodParamLowerBoundsAdd.GenericsWildcardsClazzMethodParamLowerBoundsAdd
+  Missing Methods
+    method public void testing_lib.genericsWildcardsClazzMethodParamLowerBoundsAdd.GenericsWildcardsClazzMethodParamLowerBoundsAdd.method1(java.util.ArrayList<?>)
+  Added Methods
+    method public void testing_lib.genericsWildcardsClazzMethodParamLowerBoundsAdd.GenericsWildcardsClazzMethodParamLowerBoundsAdd.method1(java.util.ArrayList<? super java.lang.Number>)
+
+Class testing_lib.genericsWildcardsClazzMethodParamLowerBoundsDelete.GenericsWildcardsClazzMethodParamLowerBoundsDelete
+  Missing Methods
+    method public void testing_lib.genericsWildcardsClazzMethodParamLowerBoundsDelete.GenericsWildcardsClazzMethodParamLowerBoundsDelete.method1(java.util.ArrayList<? super java.lang.Number>)
+  Added Methods
+    method public void testing_lib.genericsWildcardsClazzMethodParamLowerBoundsDelete.GenericsWildcardsClazzMethodParamLowerBoundsDelete.method1(java.util.ArrayList<?>)
+
+Class testing_lib.genericsWildcardsClazzMethodParamLowerBoundsGeneralization.GenericsWildcardsClazzMethodParamLowerBoundsGeneralization
+  Missing Methods
+    method public void testing_lib.genericsWildcardsClazzMethodParamLowerBoundsGeneralization.GenericsWildcardsClazzMethodParamLowerBoundsGeneralization.method1(java.util.ArrayList<? super java.lang.Integer>)
+  Added Methods
+    method public void testing_lib.genericsWildcardsClazzMethodParamLowerBoundsGeneralization.GenericsWildcardsClazzMethodParamLowerBoundsGeneralization.method1(java.util.ArrayList<? super java.lang.Number>)
+
+Class testing_lib.genericsWildcardsClazzMethodParamLowerBoundsMutation.GenericsWildcardsClazzMethodParamLowerBoundsMutation
+  Missing Methods
+    method public void testing_lib.genericsWildcardsClazzMethodParamLowerBoundsMutation.GenericsWildcardsClazzMethodParamLowerBoundsMutation.method1(java.util.ArrayList<? super java.lang.Integer>)
+  Added Methods
+    method public void testing_lib.genericsWildcardsClazzMethodParamLowerBoundsMutation.GenericsWildcardsClazzMethodParamLowerBoundsMutation.method1(java.util.ArrayList<? super java.lang.String>)
+
+Class testing_lib.genericsWildcardsClazzMethodParamLowerBoundsSpecialization.GenericsWildcardsClazzMethodParamLowerBoundsSpecialization
+  Missing Methods
+    method public void testing_lib.genericsWildcardsClazzMethodParamLowerBoundsSpecialization.GenericsWildcardsClazzMethodParamLowerBoundsSpecialization.method1(java.util.ArrayList<? super java.lang.Number>)
+  Added Methods
+    method public void testing_lib.genericsWildcardsClazzMethodParamLowerBoundsSpecialization.GenericsWildcardsClazzMethodParamLowerBoundsSpecialization.method1(java.util.ArrayList<? super java.lang.Integer>)
+
+Class testing_lib.genericsWildcardsClazzMethodParamLowerBoundsToUpperBounds.GenericsWildcardsClazzMethodParamLowerBoundsToUpperBounds
+  Missing Methods
+    method public void testing_lib.genericsWildcardsClazzMethodParamLowerBoundsToUpperBounds.GenericsWildcardsClazzMethodParamLowerBoundsToUpperBounds.method1(java.util.ArrayList<? super java.lang.Number>)
+  Added Methods
+    method public void testing_lib.genericsWildcardsClazzMethodParamLowerBoundsToUpperBounds.GenericsWildcardsClazzMethodParamLowerBoundsToUpperBounds.method1(java.util.ArrayList<? extends java.lang.Number>)
+
+Class testing_lib.genericsWildcardsClazzMethodParamUpperBoundsAdd.GenericsWildcardsClazzMethodParamUpperBoundsAdd
+  Missing Methods
+    method public void testing_lib.genericsWildcardsClazzMethodParamUpperBoundsAdd.GenericsWildcardsClazzMethodParamUpperBoundsAdd.method1(java.util.ArrayList<?>)
+  Added Methods
+    method public void testing_lib.genericsWildcardsClazzMethodParamUpperBoundsAdd.GenericsWildcardsClazzMethodParamUpperBoundsAdd.method1(java.util.ArrayList<? extends java.lang.Number>)
+
+Class testing_lib.genericsWildcardsClazzMethodParamUpperBoundsDelete.GenericsWildcardsClazzMethodParamUpperBoundsDelete
+  Missing Methods
+    method public void testing_lib.genericsWildcardsClazzMethodParamUpperBoundsDelete.GenericsWildcardsClazzMethodParamUpperBoundsDelete.method1(java.util.ArrayList<? extends java.lang.Number>)
+  Added Methods
+    method public void testing_lib.genericsWildcardsClazzMethodParamUpperBoundsDelete.GenericsWildcardsClazzMethodParamUpperBoundsDelete.method1(java.util.ArrayList<?>)
+
+Class testing_lib.genericsWildcardsClazzMethodParamUpperBoundsGeneralization.GenericsWildcardsClazzMethodParamUpperBoundsGeneralization
+  Missing Methods
+    method public void testing_lib.genericsWildcardsClazzMethodParamUpperBoundsGeneralization.GenericsWildcardsClazzMethodParamUpperBoundsGeneralization.method1(java.util.ArrayList<? extends java.lang.Integer>)
+  Added Methods
+    method public void testing_lib.genericsWildcardsClazzMethodParamUpperBoundsGeneralization.GenericsWildcardsClazzMethodParamUpperBoundsGeneralization.method1(java.util.ArrayList<? extends java.lang.Number>)
+
+Class testing_lib.genericsWildcardsClazzMethodParamUpperBoundsMutation.GenericsWildcardsClazzMethodParamUpperBoundsMutation
+  Missing Methods
+    method public void testing_lib.genericsWildcardsClazzMethodParamUpperBoundsMutation.GenericsWildcardsClazzMethodParamUpperBoundsMutation.method1(java.util.ArrayList<? extends java.lang.Integer>)
+  Added Methods
+    method public void testing_lib.genericsWildcardsClazzMethodParamUpperBoundsMutation.GenericsWildcardsClazzMethodParamUpperBoundsMutation.method1(java.util.ArrayList<? extends java.lang.String>)
+
+Class testing_lib.genericsWildcardsClazzMethodParamUpperBoundsSpecialization.GenericsWildcardsClazzMethodParamUpperBoundsSpecialization
+  Missing Methods
+    method public void testing_lib.genericsWildcardsClazzMethodParamUpperBoundsSpecialization.GenericsWildcardsClazzMethodParamUpperBoundsSpecialization.method1(java.util.ArrayList<? extends java.lang.Number>)
+  Added Methods
+    method public void testing_lib.genericsWildcardsClazzMethodParamUpperBoundsSpecialization.GenericsWildcardsClazzMethodParamUpperBoundsSpecialization.method1(java.util.ArrayList<? extends java.lang.Integer>)
+
+Class testing_lib.genericsWildcardsClazzMethodParamUpperBoundsToLowerBounds.GenericsWildcardsClazzMethodParamUpperBoundsToLowerBounds
+  Missing Methods
+    method public void testing_lib.genericsWildcardsClazzMethodParamUpperBoundsToLowerBounds.GenericsWildcardsClazzMethodParamUpperBoundsToLowerBounds.method1(java.util.ArrayList<? extends java.lang.Number>)
+  Added Methods
+    method public void testing_lib.genericsWildcardsClazzMethodParamUpperBoundsToLowerBounds.GenericsWildcardsClazzMethodParamUpperBoundsToLowerBounds.method1(java.util.ArrayList<? super java.lang.Number>)
+
+- Class testing_lib.inheritanceClazzContractSuperClassSet.Clazz2
+
+Class testing_lib.inheritanceClazzContractSuperClassSet.InheritanceClazzContractSuperInterfaceSet
+  Missing Methods
+    method public void testing_lib.inheritanceClazzContractSuperClassSet.Clazz2.printClazz2()
+  Missing Superclasses or Superinterfaces
+    superclass testing_lib.inheritanceClazzContractSuperClassSet.Clazz2
+  Added Superclasses or Superinterfaces
+    superclass testing_lib.inheritanceClazzContractSuperClassSet.Clazz1
+
++ Class testing_lib.inheritanceClazzExpandSuperClassSet.Clazz2
+
+Class testing_lib.inheritanceClazzExpandSuperClassSet.InheritanceClazzExpandSuperClassSet
+  Added Methods
+    method public void testing_lib.inheritanceClazzExpandSuperClassSet.Clazz2.printClazz2()
+  Missing Superclasses or Superinterfaces
+    superclass testing_lib.inheritanceClazzExpandSuperClassSet.Clazz1
+  Added Superclasses or Superinterfaces
+    superclass testing_lib.inheritanceClazzExpandSuperClassSet.Clazz2
+
+Class testing_lib.inheritanceClazzMethodMovedFromSuperClass.Clazz1
+  Missing Methods
+    method public void testing_lib.inheritanceClazzMethodMovedFromSuperClass.Clazz1.method1()
+
+Class testing_lib.inheritanceClazzMethodMovedToSuperClass.Clazz1
+  Added Methods
+    method public void testing_lib.inheritanceClazzMethodMovedToSuperClass.Clazz1.method1()
+
+Class testing_lib.inheritanceClazzStartInherite.InheritanceClazzStartInherite
+  Added Methods
+    method public void testing_lib.inheritanceClazzStartInherite.Clazz1.methodClazz1()
+  Missing Superclasses or Superinterfaces
+    superclass java.lang.Object
+  Added Superclasses or Superinterfaces
+    superclass testing_lib.inheritanceClazzStartInherite.Clazz1
+
+Class testing_lib.inheritanceClazzStopInherite.InheritanceClazzStopInherite
+  Missing Methods
+    method public void testing_lib.inheritanceClazzStopInherite.Clazz1.methodClazz1()
+  Missing Superclasses or Superinterfaces
+    superclass testing_lib.inheritanceClazzStopInherite.Clazz1
+  Added Superclasses or Superinterfaces
+    superclass java.lang.Object
+
+Class testing_lib.inheritanceIfazeContractSuperinterfaceSet.InheritanceIfazeContractSuperinterfaceSet
+  Missing Superclasses or Superinterfaces
+    interface @ testing_lib.inheritanceIfazeContractSuperinterfaceSet.Interface2
+  Missing Methods
+    method public abstract void testing_lib.inheritanceIfazeContractSuperinterfaceSet.Interface2.ifaze2method1()
+
+- Class testing_lib.inheritanceIfazeContractSuperinterfaceSet.Interface2
+
+Class testing_lib.inheritanceIfazeExpandSuperinterfaceSet.InheritanceIfazeExpandSuperinterfaceSet
+  Added Superclasses or Superinterfaces
+    interface @ testing_lib.inheritanceIfazeExpandSuperinterfaceSet.Interface2
+  Added Methods
+    method public abstract void testing_lib.inheritanceIfazeExpandSuperinterfaceSet.Interface2.ifaze2method1()
+
++ Class testing_lib.inheritanceIfazeExpandSuperinterfaceSet.Interface2
+
+Class testing_lib.inheritanceIfazeMethodMovedFromSuperInterface.Interface1
+  Missing Methods
+    method public abstract void testing_lib.inheritanceIfazeMethodMovedFromSuperInterface.Interface1.method1()
+
+Class testing_lib.inheritanceIfazeMethodMovedToSuperInterface.Interface1
+  Added Methods
+    method public abstract void testing_lib.inheritanceIfazeMethodMovedToSuperInterface.Interface1.method1()
+
+Class testing_lib.inheritanceIfazeStartInherite.InheritanceIfazeStartInherite
+  Added Superclasses or Superinterfaces
+    interface @ testing_lib.inheritanceIfazeStartInherite.Interface1
+  Added Methods
+    method public abstract void testing_lib.inheritanceIfazeStartInherite.Interface1.method1()
+
+Class testing_lib.inheritanceIfazeStopInherite.InheritanceIfazeStopInherite
+  Missing Superclasses or Superinterfaces
+    interface @ testing_lib.inheritanceIfazeStopInherite.Interface1
+  Missing Methods
+    method public abstract void testing_lib.inheritanceIfazeStopInherite.Interface1.method1()
+
+Class testing_lib.membersClazzConstructorAdd.MembersClazzConstructorAdd
+  Added Constructors
+    constructor public testing_lib.membersClazzConstructorAdd.MembersClazzConstructorAdd.<init>(int)
+
+Class testing_lib.membersClazzConstructorDelete.MembersClazzConstructorDelete
+  Missing Constructors
+    constructor public testing_lib.membersClazzConstructorDelete.MembersClazzConstructorDelete.<init>(int)
+
+Class testing_lib.membersClazzConstructorParamAdd.MembersClazzConstructorParamAdd
+  Missing Constructors
+    constructor public testing_lib.membersClazzConstructorParamAdd.MembersClazzConstructorParamAdd.<init>(java.lang.Integer)
+  Added Constructors
+    constructor public testing_lib.membersClazzConstructorParamAdd.MembersClazzConstructorParamAdd.<init>(java.lang.Integer,java.lang.String)
+
+Class testing_lib.membersClazzConstructorParamDelete.MembersClazzConstructorParamDelete
+  Missing Constructors
+    constructor public testing_lib.membersClazzConstructorParamDelete.MembersClazzConstructorParamDelete.<init>(java.lang.Integer,java.lang.String)
+  Added Constructors
+    constructor public testing_lib.membersClazzConstructorParamDelete.MembersClazzConstructorParamDelete.<init>(java.lang.Integer)
+
+Class testing_lib.membersClazzFieldAdd.MembersClazzFieldAdd
+  Added Fields
+    field public int testing_lib.membersClazzFieldAdd.MembersClazzFieldAdd.field1
+
+Class testing_lib.membersClazzFieldConstantAdd.MembersClazzFieldConstantAdd
+  Added Fields
+    field public final static int testing_lib.membersClazzFieldConstantAdd.MembersClazzFieldConstantAdd.FIELD1 = 0
+
+Class testing_lib.membersClazzFieldConstantDelete.MembersClazzFieldConstantDelete
+  Missing Fields
+    field public final static int testing_lib.membersClazzFieldConstantDelete.MembersClazzFieldConstantDelete.FIELD1 = 5
+
+Class testing_lib.membersClazzFieldDelete.MembersClazzFieldDelete
+  Missing Fields
+    field public int testing_lib.membersClazzFieldDelete.MembersClazzFieldDelete.field1
+
+Class testing_lib.membersClazzMethodAbstractAdd.MembersClazzMethodAbstractAdd
+  Added Methods
+    method public abstract void testing_lib.membersClazzMethodAbstractAdd.MembersClazzMethodAbstractAdd.method1()
+
+Class testing_lib.membersClazzMethodAbstractDelete.MembersClazzMethodAbstractDelete
+  Changed
+    - [abstract]
+  Missing Methods
+    method public abstract void testing_lib.membersClazzMethodAbstractDelete.MembersClazzMethodAbstractDelete.method1()
+
+Class testing_lib.membersClazzMethodAdd.MembersClazzMethodAdd
+  Added Methods
+    method public void testing_lib.membersClazzMethodAdd.MembersClazzMethodAdd.method1()
+
+Class testing_lib.membersClazzMethodDelete.MembersClazzMethodDelete
+  Missing Methods
+    method public void testing_lib.membersClazzMethodDelete.MembersClazzMethodDelete.method1()
+
+Class testing_lib.membersClazzMethodParamAdd.MembersClazzMethodParamAdd
+  Missing Methods
+    method public void testing_lib.membersClazzMethodParamAdd.MembersClazzMethodParamAdd.method1()
+  Added Methods
+    method public void testing_lib.membersClazzMethodParamAdd.MembersClazzMethodParamAdd.method1(java.lang.Integer)
+
+Class testing_lib.membersClazzMethodParamDelete.MembersClazzMethodParamDelete
+  Missing Methods
+    method public void testing_lib.membersClazzMethodParamDelete.MembersClazzMethodParamDelete.method1(java.lang.Integer)
+  Added Methods
+    method public void testing_lib.membersClazzMethodParamDelete.MembersClazzMethodParamDelete.method1()
+
+Class testing_lib.membersClazzNestedClazzAdd.MembersClazzNestedClazzAdd$NestedClazz
+  Added Nested Classes
+    inner public testing_lib.membersClazzNestedClazzAdd.MembersClazzNestedClazzAdd$NestedClazz
+
++ Class testing_lib.membersClazzNestedClazzAdd.MembersClazzNestedClazzAdd$NestedClazz
+
+Class testing_lib.membersClazzNestedClazzDelete.MembersClazzNestedClazzDelete$NestedClazz
+  Missing Nested Classes
+    inner public testing_lib.membersClazzNestedClazzDelete.MembersClazzNestedClazzDelete$NestedClazz
+
+- Class testing_lib.membersClazzNestedClazzDelete.MembersClazzNestedClazzDelete$NestedClazz
+
+Class testing_lib.membersClazzNestedIfazeAdd.MembersClazzNestedIfazeAdd$NestedIfaze
+  Added Nested Classes
+    nested public abstract interface static testing_lib.membersClazzNestedIfazeAdd.MembersClazzNestedIfazeAdd$NestedIfaze
+
++ Class testing_lib.membersClazzNestedIfazeAdd.MembersClazzNestedIfazeAdd$NestedIfaze
+
+Class testing_lib.membersClazzNestedIfazeDelete.MembersClazzNestedIfazeDelete$NestedIfaze
+  Missing Nested Classes
+    nested public abstract interface static testing_lib.membersClazzNestedIfazeDelete.MembersClazzNestedIfazeDelete$NestedIfaze
+
+- Class testing_lib.membersClazzNestedIfazeDelete.MembersClazzNestedIfazeDelete$NestedIfaze
+
+Class testing_lib.membersIfazeConstantAdd.MembersIfazeConstantAdd
+  Added Fields
+    field public final static java.lang.Integer testing_lib.membersIfazeConstantAdd.MembersIfazeConstantAdd.FIELD1
+
+Class testing_lib.membersIfazeConstantDelete.MembersIfazeConstantDelete
+  Missing Fields
+    field public final static int testing_lib.membersIfazeConstantDelete.MembersIfazeConstantDelete.FIELD1 = 5
+
+Class testing_lib.membersIfazeMethodAdd.MembersIfazeMethodAdd
+  Added Methods
+    method public abstract void testing_lib.membersIfazeMethodAdd.MembersIfazeMethodAdd.method1()
+
+Class testing_lib.membersIfazeMethodDefaultAdd.MembersIfazeMethodDefaultAdd
+  Added Methods
+    method public void testing_lib.membersIfazeMethodDefaultAdd.MembersIfazeMethodDefaultAdd.method1()
+
+Class testing_lib.membersIfazeMethodDefaultDelete.MembersIfazeMethodDefaultDelete
+  Missing Methods
+    method public void testing_lib.membersIfazeMethodDefaultDelete.MembersIfazeMethodDefaultDelete.method1()
+
+Class testing_lib.membersIfazeMethodDelete.MembersIfazeMethodDelete
+  Missing Methods
+    method public abstract void testing_lib.membersIfazeMethodDelete.MembersIfazeMethodDelete.method1()
+
+Class testing_lib.membersIfazeMethodParamAdd.MembersIfazeMethodParamAdd
+  Missing Methods
+    method public abstract void testing_lib.membersIfazeMethodParamAdd.MembersIfazeMethodParamAdd.method1()
+  Added Methods
+    method public abstract void testing_lib.membersIfazeMethodParamAdd.MembersIfazeMethodParamAdd.method1(java.lang.Integer)
+
+Class testing_lib.membersIfazeMethodParamDelete.MembersIfazeMethodParamDelete
+  Missing Methods
+    method public abstract void testing_lib.membersIfazeMethodParamDelete.MembersIfazeMethodParamDelete.method1(java.lang.Integer)
+  Added Methods
+    method public abstract void testing_lib.membersIfazeMethodParamDelete.MembersIfazeMethodParamDelete.method1()
+
+Class testing_lib.membersIfazeNestedIfazeAdd.MembersIfazeNestedIfazeAdd$NestedIfaze
+  Added Nested Classes
+    nested public abstract interface static testing_lib.membersIfazeNestedIfazeAdd.MembersIfazeNestedIfazeAdd$NestedIfaze
+
++ Class testing_lib.membersIfazeNestedIfazeAdd.MembersIfazeNestedIfazeAdd$NestedIfaze
+
+Class testing_lib.membersIfazeNestedIfazeDelete.MembersIfazeNestedIfazeDelete$NestedIfaze
+  Missing Nested Classes
+    nested public abstract interface static testing_lib.membersIfazeNestedIfazeDelete.MembersIfazeNestedIfazeDelete$NestedIfaze
+
+- Class testing_lib.membersIfazeNestedIfazeDelete.MembersIfazeNestedIfazeDelete$NestedIfaze
+
+Class testing_lib.modifierClazzAbstractToNonAbstract.ModifierClazzAbstractToNonAbstract
+  Changed
+    - [abstract]
+
+Class testing_lib.modifierClazzEffectivelyFinalToFinal.ModifierClazzEffectivelyFinalToFinal
+  Changed
+    + [final]
+
+Class testing_lib.modifierClazzFinalToEffectivelyFinal.ModifierClazzFinalToEffectivelyFinal
+  Changed
+    - [final]
+
+Class testing_lib.modifierClazzFinalToNonFinal.ModifierClazzFinalToNonFinal
+  Changed
+    - [final]
+
+Class testing_lib.modifierClazzNonAbstractToAbstract.ModifierClazzNonAbstractToAbstract
+  Changed
+    + [abstract]
+
+Class testing_lib.modifierClazzNonFinalToFinal.ModifierClazzNonFinalToFinal
+  Changed
+    + [final]
+
+Class testing_lib.modifierFieldFinalToNonFinal.ModifierFieldFinalToNonFinal
+  Changed
+    field public final java.lang.Integer testing_lib.modifierFieldFinalToNonFinal.ModifierFieldFinalToNonFinal.field1
+    - [final]
+
+Class testing_lib.modifierFieldNonFinalToFinal.ModifierFieldNonFinalToFinal
+  Changed
+    field public java.lang.Integer testing_lib.modifierFieldNonFinalToFinal.ModifierFieldNonFinalToFinal.field1
+    + [final]
+
+Class testing_lib.modifierFieldNonStaticToStatic.ModifierFieldNonStaticToStatic
+  Changed
+    field public java.lang.Integer testing_lib.modifierFieldNonStaticToStatic.ModifierFieldNonStaticToStatic.field1
+    + [static]
+
+Class testing_lib.modifierFieldStaticToNonStatic.ModifierFieldStaticToNonStatic
+  Changed
+    field public static java.lang.Integer testing_lib.modifierFieldStaticToNonStatic.ModifierFieldStaticToNonStatic.field1
+    - [static]
+
+Class testing_lib.modifierMethodAbstractToNonAbstract.ModifierMethodAbstractToNonAbstract
+  Changed
+    method public abstract void testing_lib.modifierMethodAbstractToNonAbstract.ModifierMethodAbstractToNonAbstract.method1()
+    - [abstract]
+
+Class testing_lib.modifierMethodFinalToNonFinal.ModifierMethodFinalToNonFinal
+  Changed
+    method public final void testing_lib.modifierMethodFinalToNonFinal.ModifierMethodFinalToNonFinal.method1()
+    - [final]
+
+Class testing_lib.modifierMethodNonAbstractToAbstract.ModifierMethodNonAbstractToAbstract
+  Changed
+    method public void testing_lib.modifierMethodNonAbstractToAbstract.ModifierMethodNonAbstractToAbstract.method1()
+    + [abstract]
+
+Class testing_lib.modifierMethodNonFinalToFinal.ModifierMethodNonFinalToFinal
+  Changed
+    method public void testing_lib.modifierMethodNonFinalToFinal.ModifierMethodNonFinalToFinal.method1()
+    + [final]
+
+Class testing_lib.modifierMethodNonStaticToStatic.ModifierMethodNonStaticToStatic
+  Changed
+    method public void testing_lib.modifierMethodNonStaticToStatic.ModifierMethodNonStaticToStatic.method1()
+    + [static]
+
+Class testing_lib.modifierMethodStaticToNonStatic.ModifierMethodStaticToNonStatic
+  Changed
+    method public static void testing_lib.modifierMethodStaticToNonStatic.ModifierMethodStaticToNonStatic.method1()
+    - [static]
+
+Class testing_lib.modifierNestedClazzNonStaticToStatic.ModifierNestedClazzNonStaticToStatic$NestedClazz
+  Changed
+    inner public testing_lib.modifierNestedClazzNonStaticToStatic.ModifierNestedClazzNonStaticToStatic$NestedClazz
+    + [static]
+    + [static]
+  Missing Constructors
+    constructor public testing_lib.modifierNestedClazzNonStaticToStatic.ModifierNestedClazzNonStaticToStatic$NestedClazz.<init>(testing_lib.modifierNestedClazzNonStaticToStatic.ModifierNestedClazzNonStaticToStatic)
+  Added Constructors
+    constructor public testing_lib.modifierNestedClazzNonStaticToStatic.ModifierNestedClazzNonStaticToStatic$NestedClazz.<init>()
+
+Class testing_lib.modifierNestedClazzStaticToNonStatic.ModifierNestedClazzStaticToNonStatic$NestedClazz
+  Changed
+    nested public static testing_lib.modifierNestedClazzStaticToNonStatic.ModifierNestedClazzStaticToNonStatic$NestedClazz
+    - [static]
+    - [static]
+  Missing Constructors
+    constructor public testing_lib.modifierNestedClazzStaticToNonStatic.ModifierNestedClazzStaticToNonStatic$NestedClazz.<init>()
+  Added Constructors
+    constructor public testing_lib.modifierNestedClazzStaticToNonStatic.ModifierNestedClazzStaticToNonStatic$NestedClazz.<init>(testing_lib.modifierNestedClazzStaticToNonStatic.ModifierNestedClazzStaticToNonStatic)
+
++ Class testing_lib.otherClazzAdd.OtherClazzAdd
+
+- Class testing_lib.otherClazzDelete.OtherClazzDelete
+
+Class testing_lib.otherClazzToIfaze.ClazzToIfaze
+  Changed
+    + [abstract, interface]
+  Missing Constructors
+    constructor public testing_lib.otherClazzToIfaze.ClazzToIfaze.<init>()
+  Missing Methods
+    method protected java.lang.Object java.lang.Object.clone() throws java.lang.CloneNotSupportedException
+    method protected void java.lang.Object.finalize() throws java.lang.Throwable
+    method public boolean java.lang.Object.equals(java.lang.Object)
+    method public final java.lang.Class<?> java.lang.Object.getClass()
+    method public final void java.lang.Object.notify()
+    method public final void java.lang.Object.notifyAll()
+    method public final void java.lang.Object.wait() throws java.lang.InterruptedException
+    method public final void java.lang.Object.wait(long) throws java.lang.InterruptedException
+    method public final void java.lang.Object.wait(long,int) throws java.lang.InterruptedException
+    method public int java.lang.Object.hashCode()
+    method public java.lang.String java.lang.Object.toString()
+  Missing Superclasses or Superinterfaces
+    superclass java.lang.Object
+
++ Class testing_lib.otherIfazeAdd.OtherIfazeAdd
+
+- Class testing_lib.otherIfazeDelete.OtherIfazeDelete
+
+Class testing_lib.otherIfazeToClass.IfazeToClass
+  Changed
+    - [abstract, interface]
+  Added Constructors
+    constructor public testing_lib.otherIfazeToClass.IfazeToClass.<init>()
+  Added Methods
+    method protected java.lang.Object java.lang.Object.clone() throws java.lang.CloneNotSupportedException
+    method protected void java.lang.Object.finalize() throws java.lang.Throwable
+    method public boolean java.lang.Object.equals(java.lang.Object)
+    method public final java.lang.Class<?> java.lang.Object.getClass()
+    method public final void java.lang.Object.notify()
+    method public final void java.lang.Object.notifyAll()
+    method public final void java.lang.Object.wait() throws java.lang.InterruptedException
+    method public final void java.lang.Object.wait(long) throws java.lang.InterruptedException
+    method public final void java.lang.Object.wait(long,int) throws java.lang.InterruptedException
+    method public int java.lang.Object.hashCode()
+    method public java.lang.String java.lang.Object.toString()
+  Added Superclasses or Superinterfaces
+    superclass java.lang.Object
+
+
+STATUS:Failed.397 errors

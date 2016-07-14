@@ -1,0 +1,179 @@
+ERROR: 1001: testing_lib.accessModifierClazzAccessDecrease.AccessModifierClazzAccessDecrease: Decreased visibility of class from public to package
+INFO: 1000: testing_lib.accessModifierClazzAccessIncrease.AccessModifierClazzAccessIncrease: Increased visibility of class from package to public
+ERROR: 7009: testing_lib.accessModifierClazzConstructorAccessDecrease.AccessModifierClazzConstructorAccessDecrease: Accessibility of method 'public AccessModifierClazzConstructorAccessDecrease()' has been decreased from public to protected
+ERROR: 7009: testing_lib.accessModifierClazzConstructorAccessDecrease.AccessModifierClazzConstructorAccessDecrease: Accessibility of method 'public AccessModifierClazzConstructorAccessDecrease(int)' has been decreased from public to package
+ERROR: 7009: testing_lib.accessModifierClazzConstructorAccessDecrease.AccessModifierClazzConstructorAccessDecrease: Accessibility of method 'public AccessModifierClazzConstructorAccessDecrease(int, int)' has been decreased from public to private
+ERROR: 7009: testing_lib.accessModifierClazzConstructorAccessDecrease.AccessModifierClazzConstructorAccessDecrease: Accessibility of method 'protected AccessModifierClazzConstructorAccessDecrease(int, int, int)' has been decreased from protected to package
+ERROR: 7009: testing_lib.accessModifierClazzConstructorAccessDecrease.AccessModifierClazzConstructorAccessDecrease: Accessibility of method 'protected AccessModifierClazzConstructorAccessDecrease(int, int, int, int)' has been decreased from protected to private
+INFO: 7010: testing_lib.accessModifierClazzConstructorAccessIncrease.AccessModifierClazzConstructorAccessIncrease: Accessibility of method 'private AccessModifierClazzConstructorAccessIncrease(int)' has been increased from private to protected
+INFO: 7010: testing_lib.accessModifierClazzConstructorAccessIncrease.AccessModifierClazzConstructorAccessIncrease: Accessibility of method 'private AccessModifierClazzConstructorAccessIncrease(int, int)' has been increased from private to public
+INFO: 7010: testing_lib.accessModifierClazzConstructorAccessIncrease.AccessModifierClazzConstructorAccessIncrease: Accessibility of method 'AccessModifierClazzConstructorAccessIncrease(int, int, int)' has been increased from package to protected
+INFO: 7010: testing_lib.accessModifierClazzConstructorAccessIncrease.AccessModifierClazzConstructorAccessIncrease: Accessibility of method 'AccessModifierClazzConstructorAccessIncrease(int, int, int, int)' has been increased from package to public
+INFO: 7010: testing_lib.accessModifierClazzConstructorAccessIncrease.AccessModifierClazzConstructorAccessIncrease: Accessibility of method 'protected AccessModifierClazzConstructorAccessIncrease(int, int, int, int, int)' has been increased from protected to public
+ERROR: 6010: testing_lib.accessModifierClazzFieldAccessDecrease.AccessModifierClazzFieldAccessDecrease: Accessibility of field fieldProtectedToNon has been weakened from protected to package
+ERROR: 6010: testing_lib.accessModifierClazzFieldAccessDecrease.AccessModifierClazzFieldAccessDecrease: Accessibility of field fieldProtectedToPrivate has been weakened from protected to private
+ERROR: 6010: testing_lib.accessModifierClazzFieldAccessDecrease.AccessModifierClazzFieldAccessDecrease: Accessibility of field fieldPublicToNon has been weakened from public to package
+ERROR: 6010: testing_lib.accessModifierClazzFieldAccessDecrease.AccessModifierClazzFieldAccessDecrease: Accessibility of field fieldPublicToPrivate has been weakened from public to private
+ERROR: 6010: testing_lib.accessModifierClazzFieldAccessDecrease.AccessModifierClazzFieldAccessDecrease: Accessibility of field fieldPublicToProtected has been weakened from public to protected
+INFO: 6009: testing_lib.accessModifierClazzFieldAccessIncrease.AccessModifierClazzFieldAccessIncrease: Accessibility of field fieldNonToProtected has been increased from package to protected
+INFO: 6009: testing_lib.accessModifierClazzFieldAccessIncrease.AccessModifierClazzFieldAccessIncrease: Accessibility of field fieldNonToPublic has been increased from package to public
+INFO: 6009: testing_lib.accessModifierClazzFieldAccessIncrease.AccessModifierClazzFieldAccessIncrease: Accessibility of field fieldPrivateToProtected has been increased from private to protected
+INFO: 6009: testing_lib.accessModifierClazzFieldAccessIncrease.AccessModifierClazzFieldAccessIncrease: Accessibility of field fieldPrivateToPublic has been increased from private to public
+INFO: 6009: testing_lib.accessModifierClazzFieldAccessIncrease.AccessModifierClazzFieldAccessIncrease: Accessibility of field fieldProtectedToPublic has been increased from protected to public
+ERROR: 7009: testing_lib.accessModifierClazzMethodAccessDecrease.AccessModifierClazzMethodAccessDecrease: Accessibility of method 'protected void methodProtectedToNon()' has been decreased from protected to package
+ERROR: 7009: testing_lib.accessModifierClazzMethodAccessDecrease.AccessModifierClazzMethodAccessDecrease: Accessibility of method 'protected void methodProtectedToPrivate()' has been decreased from protected to private
+ERROR: 7009: testing_lib.accessModifierClazzMethodAccessDecrease.AccessModifierClazzMethodAccessDecrease: Accessibility of method 'public void methodPublicToNon()' has been decreased from public to package
+ERROR: 7009: testing_lib.accessModifierClazzMethodAccessDecrease.AccessModifierClazzMethodAccessDecrease: Accessibility of method 'public void methodPublicToPrivate()' has been decreased from public to private
+ERROR: 7009: testing_lib.accessModifierClazzMethodAccessDecrease.AccessModifierClazzMethodAccessDecrease: Accessibility of method 'public void methodPublicToProtected()' has been decreased from public to protected
+INFO: 7010: testing_lib.accessModifierClazzMethodAccessIncrease.AccessModifierClazzMethodAccessIncrease: Accessibility of method 'void methodNonToProtected()' has been increased from package to protected
+INFO: 7010: testing_lib.accessModifierClazzMethodAccessIncrease.AccessModifierClazzMethodAccessIncrease: Accessibility of method 'void methodNonToPublic()' has been increased from package to public
+INFO: 7010: testing_lib.accessModifierClazzMethodAccessIncrease.AccessModifierClazzMethodAccessIncrease: Accessibility of method 'private void methodPrivateToProtected()' has been increased from private to protected
+INFO: 7010: testing_lib.accessModifierClazzMethodAccessIncrease.AccessModifierClazzMethodAccessIncrease: Accessibility of method 'private void methodPrivateToPublic()' has been increased from private to public
+INFO: 7010: testing_lib.accessModifierClazzMethodAccessIncrease.AccessModifierClazzMethodAccessIncrease: Accessibility of method 'protected void methodProtectedToPublic()' has been increased from protected to public
+ERROR: 1001: testing_lib.accessModifierClazzNestedClazzAccessDecrease.AccessModifierClazzNestedClazzAccessDecrease$ClazzProtectedToNon: Decreased visibility of class from protected to package
+ERROR: 1001: testing_lib.accessModifierClazzNestedClazzAccessDecrease.AccessModifierClazzNestedClazzAccessDecrease$ClazzProtectedToPrivate: Decreased visibility of class from protected to private
+ERROR: 1001: testing_lib.accessModifierClazzNestedClazzAccessDecrease.AccessModifierClazzNestedClazzAccessDecrease$ClazzPublicToNon: Decreased visibility of class from public to package
+ERROR: 1001: testing_lib.accessModifierClazzNestedClazzAccessDecrease.AccessModifierClazzNestedClazzAccessDecrease$ClazzPublicToPrivate: Decreased visibility of class from public to private
+ERROR: 1001: testing_lib.accessModifierClazzNestedClazzAccessDecrease.AccessModifierClazzNestedClazzAccessDecrease$ClazzPublicToProtected: Decreased visibility of class from public to protected
+ERROR: 7009: testing_lib.accessModifierClazzNestedClazzAccessDecrease.AccessModifierClazzNestedClazzAccessDecrease$ClazzPublicToProtected: Accessibility of method 'public AccessModifierClazzNestedClazzAccessDecrease$ClazzPublicToProtected(testing_lib.accessModifierClazzNestedClazzAccessDecrease.AccessModifierClazzNestedClazzAccessDecrease)' has been decreased from public to protected
+INFO: 1000: testing_lib.accessModifierClazzNestedClazzAccessIncrease.AccessModifierClazzNestedClazzAccessIncrease$ClazzNonToProtected: Increased visibility of class from package to protected
+INFO: 1000: testing_lib.accessModifierClazzNestedClazzAccessIncrease.AccessModifierClazzNestedClazzAccessIncrease$ClazzNonToPublic: Increased visibility of class from package to public
+INFO: 1000: testing_lib.accessModifierClazzNestedClazzAccessIncrease.AccessModifierClazzNestedClazzAccessIncrease$ClazzPrivateToProtected: Increased visibility of class from private to protected
+INFO: 1000: testing_lib.accessModifierClazzNestedClazzAccessIncrease.AccessModifierClazzNestedClazzAccessIncrease$ClazzPrivateToPublic: Increased visibility of class from private to public
+INFO: 1000: testing_lib.accessModifierClazzNestedClazzAccessIncrease.AccessModifierClazzNestedClazzAccessIncrease$ClazzProtectedToPublic: Increased visibility of class from protected to public
+INFO: 7010: testing_lib.accessModifierClazzNestedClazzAccessIncrease.AccessModifierClazzNestedClazzAccessIncrease$ClazzProtectedToPublic: Accessibility of method 'protected AccessModifierClazzNestedClazzAccessIncrease$ClazzProtectedToPublic(testing_lib.accessModifierClazzNestedClazzAccessIncrease.AccessModifierClazzNestedClazzAccessIncrease)' has been increased from protected to public
+ERROR: 1001: testing_lib.accessModifierClazzNestedIfazeAccessDecrease.AccessModifierClazzNestedIfazeAccessDecrease$IfazeProtectedToNon: Decreased visibility of class from protected to package
+ERROR: 1001: testing_lib.accessModifierClazzNestedIfazeAccessDecrease.AccessModifierClazzNestedIfazeAccessDecrease$IfazeProtectedToPrivate: Decreased visibility of class from protected to private
+ERROR: 1001: testing_lib.accessModifierClazzNestedIfazeAccessDecrease.AccessModifierClazzNestedIfazeAccessDecrease$IfazePublicToNon: Decreased visibility of class from public to package
+ERROR: 1001: testing_lib.accessModifierClazzNestedIfazeAccessDecrease.AccessModifierClazzNestedIfazeAccessDecrease$IfazePublicToPrivate: Decreased visibility of class from public to private
+ERROR: 1001: testing_lib.accessModifierClazzNestedIfazeAccessDecrease.AccessModifierClazzNestedIfazeAccessDecrease$IfazePublicToProtected: Decreased visibility of class from public to protected
+INFO: 1000: testing_lib.accessModifierClazzNestedIfazeAccessIncrease.AccessModifierClazzNestedIfazeAccessIncrease$IfazeNonToProtected: Increased visibility of class from package to protected
+INFO: 1000: testing_lib.accessModifierClazzNestedIfazeAccessIncrease.AccessModifierClazzNestedIfazeAccessIncrease$IfazeNonToPublic: Increased visibility of class from package to public
+INFO: 1000: testing_lib.accessModifierClazzNestedIfazeAccessIncrease.AccessModifierClazzNestedIfazeAccessIncrease$IfazePrivateToProtected: Increased visibility of class from private to protected
+INFO: 1000: testing_lib.accessModifierClazzNestedIfazeAccessIncrease.AccessModifierClazzNestedIfazeAccessIncrease$IfazePrivateToPublic: Increased visibility of class from private to public
+INFO: 1000: testing_lib.accessModifierClazzNestedIfazeAccessIncrease.AccessModifierClazzNestedIfazeAccessIncrease$IfazeProtectedToPublic: Increased visibility of class from protected to public
+ERROR: 7005: testing_lib.dataTypeClazzConstructorParamBoxing.DataTypeClazzConstructorParamBoxing: Parameter 1 of 'public DataTypeClazzConstructorParamBoxing(int)' has changed its type to java.lang.Integer
+ERROR: 7005: testing_lib.dataTypeClazzConstructorParamGeneralization.DataTypeClazzConstructorParamGeneralization: Parameter 1 of 'public DataTypeClazzConstructorParamGeneralization(java.lang.Integer)' has changed its type to java.lang.Number
+ERROR: 7005: testing_lib.dataTypeClazzConstructorParamMutation.DataTypeClazzConstructorParamMutation: Parameter 1 of 'public DataTypeClazzConstructorParamMutation(java.lang.Integer)' has changed its type to java.lang.String
+ERROR: 7005: testing_lib.dataTypeClazzConstructorParamNarrowing.DataTypeClazzConstructorParamNarrowing: Parameter 1 of 'public DataTypeClazzConstructorParamNarrowing(double)' has changed its type to int
+ERROR: 7005: testing_lib.dataTypeClazzConstructorParamSpecialization.DataTypeClazzConstructorParamSpecialization: Parameter 1 of 'public DataTypeClazzConstructorParamSpecialization(java.lang.Number)' has changed its type to java.lang.Integer
+ERROR: 7005: testing_lib.dataTypeClazzConstructorParamUnboxing.DataTypeClazzConstructorParamUnboxing: Parameter 1 of 'public DataTypeClazzConstructorParamUnboxing(java.lang.Integer)' has changed its type to int
+ERROR: 7005: testing_lib.dataTypeClazzConstructorParamWidening.DataTypeClazzConstructorParamWidening: Parameter 1 of 'public DataTypeClazzConstructorParamWidening(int)' has changed its type to double
+ERROR: 6004: testing_lib.dataTypeClazzFieldBoxing.DataTypeClazzFieldBoxing: Changed type of field field1 from int to java.lang.Integer
+ERROR: 6004: testing_lib.dataTypeClazzFieldGeneralization.DataTypeClazzFieldGeneralization: Changed type of field field1 from java.lang.Integer to java.lang.Number
+ERROR: 6004: testing_lib.dataTypeClazzFieldMutation.DataTypeClazzFieldMutation: Changed type of field field1 from java.lang.Integer to java.lang.String
+ERROR: 6004: testing_lib.dataTypeClazzFieldNarrowing.DataTypeClazzFieldNarrowing: Changed type of field field1 from double to int
+ERROR: 6004: testing_lib.dataTypeClazzFieldSpecialization.DataTypeClazzFieldSpecialization: Changed type of field field1 from java.lang.Number to java.lang.Integer
+ERROR: 6004: testing_lib.dataTypeClazzFieldUnboxing.DataTypeClazzFieldUnboxing: Changed type of field field1 from java.lang.Integer to int
+ERROR: 6004: testing_lib.dataTypeClazzFieldWidening.DataTypeClazzFieldWidening: Changed type of field field1 from int to double
+ERROR: 7005: testing_lib.dataTypeClazzMethodParamBoxing.DataTypeClazzMethodParamBoxing: Parameter 1 of 'public void method1(int)' has changed its type to java.lang.Integer
+ERROR: 7005: testing_lib.dataTypeClazzMethodParamGeneralization.DataTypeClazzMethodParamGeneralization: Parameter 1 of 'public void method1(java.lang.Integer)' has changed its type to java.lang.Number
+ERROR: 7005: testing_lib.dataTypeClazzMethodParamMutation.DataTypeClazzMethodParamMutation: Parameter 1 of 'public void method1(java.lang.Integer)' has changed its type to java.lang.String
+ERROR: 7005: testing_lib.dataTypeClazzMethodParamNarrowing.DataTypeClazzMethodParamNarrowing: Parameter 1 of 'public void method1(double)' has changed its type to int
+ERROR: 7005: testing_lib.dataTypeClazzMethodParamSpecialization.DataTypeClazzMethodParamSpecialization: Parameter 1 of 'public void method1(java.lang.Number)' has changed its type to java.lang.Integer
+ERROR: 7005: testing_lib.dataTypeClazzMethodParamUnboxing.DataTypeClazzMethodParamUnboxing: Parameter 1 of 'public void method1(java.lang.Integer)' has changed its type to int
+ERROR: 7005: testing_lib.dataTypeClazzMethodParamWidening.DataTypeClazzMethodParamWidening: Parameter 1 of 'public void method1(int)' has changed its type to double
+ERROR: 7006: testing_lib.dataTypeClazzMethodReturnTypeBoxing.DataTypeClazzMethodReturnTypeBoxing: Return type of method 'public int method()' has been changed to java.lang.Integer
+ERROR: 7006: testing_lib.dataTypeClazzMethodReturnTypeGeneralization.DataTypeClazzMethodReturnTypeGeneralization: Return type of method 'public java.lang.Integer method()' has been changed to java.lang.Number
+ERROR: 7006: testing_lib.dataTypeClazzMethodReturnTypeMutation.DataTypeClazzMethodReturnTypeMutation: Return type of method 'public java.lang.Integer method()' has been changed to java.lang.String
+ERROR: 7006: testing_lib.dataTypeClazzMethodReturnTypeNarrowing.DataTypeClazzMethodReturnTypeNarrowing: Return type of method 'public double method()' has been changed to int
+ERROR: 7006: testing_lib.dataTypeClazzMethodReturnTypeSpecialization.DataTypeClazzMethodReturnTypeSpecialization: Return type of method 'public java.lang.Number method()' has been changed to java.lang.Integer
+ERROR: 7006: testing_lib.dataTypeClazzMethodReturnTypeUnboxing.DataTypeClazzMethodReturnTypeUnboxing: Return type of method 'public java.lang.Integer method()' has been changed to int
+ERROR: 7006: testing_lib.dataTypeClazzMethodReturnTypeWidening.DataTypeClazzMethodReturnTypeWidening: Return type of method 'public int method()' has been changed to double
+ERROR: 6004: testing_lib.dataTypeIfazeConstantGeneralization.DataTypeIfazeConstantGeneralization: Changed type of field FIELD1 from java.lang.Integer to java.lang.Number
+ERROR: 6004: testing_lib.dataTypeIfazeConstantMutation.DataTypeIfazeConstantMutation: Changed type of field FIELD1 from java.lang.Integer to java.lang.String
+ERROR: 6004: testing_lib.dataTypeIfazeConstantNarrowing.DataTypeIfazeConstantNarrowing: Changed type of field FIELD1 from double to int
+WARNING: 6003: testing_lib.dataTypeIfazeConstantNarrowing.DataTypeIfazeConstantNarrowing: Value of compile-time constant FIELD1 has been changed
+ERROR: 6004: testing_lib.dataTypeIfazeConstantSpecialization.DataTypeIfazeConstantSpecialization: Changed type of field FIELD1 from java.lang.Number to java.lang.Integer
+ERROR: 6004: testing_lib.dataTypeIfazeConstantUnboxing.DataTypeIfazeConstantUnboxing: Changed type of field FIELD1 from java.lang.Integer to int
+ERROR: 6004: testing_lib.dataTypeIfazeConstantWidening.DataTypeIfazeConstantWidening: Changed type of field FIELD1 from int to double
+WARNING: 6003: testing_lib.dataTypeIfazeConstantWidening.DataTypeIfazeConstantWidening: Value of compile-time constant FIELD1 has been changed
+ERROR: 7005: testing_lib.dataTypeIfazeMethodParamBoxing.DataTypeIfazeMethodParamBoxing: Parameter 1 of 'public void method1(int)' has changed its type to java.lang.Integer
+ERROR: 7005: testing_lib.dataTypeIfazeMethodParamGeneralization.DataTypeIfazeMethodParamGeneralization: Parameter 1 of 'public void method1(java.lang.Integer)' has changed its type to java.lang.Number
+ERROR: 7005: testing_lib.dataTypeIfazeMethodParamMutation.DataTypeIfazeMethodParamMutation: Parameter 1 of 'public void method1(java.lang.Integer)' has changed its type to java.lang.String
+ERROR: 7005: testing_lib.dataTypeIfazeMethodParamNarrowing.DataTypeIfazeMethodParamNarrowing: Parameter 1 of 'public void method1(double)' has changed its type to int
+ERROR: 7005: testing_lib.dataTypeIfazeMethodParamSpecialization.DataTypeIfazeMethodParamSpecialization: Parameter 1 of 'public void method1(java.lang.Number)' has changed its type to java.lang.Integer
+ERROR: 7005: testing_lib.dataTypeIfazeMethodParamUnboxing.DataTypeIfazeMethodParamUnboxing: Parameter 1 of 'public void method1(java.lang.Integer)' has changed its type to int
+ERROR: 7005: testing_lib.dataTypeIfazeMethodParamWidening.DataTypeIfazeMethodParamWidening: Parameter 1 of 'public void method1(int)' has changed its type to double
+ERROR: 7006: testing_lib.dataTypeIfazeMethodReturnTypeBoxing.DataTypeIfazeMethodReturnTypeBoxing: Return type of method 'public int method1()' has been changed to java.lang.Integer
+ERROR: 7006: testing_lib.dataTypeIfazeMethodReturnTypeGeneralization.DataTypeIfazeMethodReturnTypeGeneralization: Return type of method 'public java.lang.Integer method1()' has been changed to java.lang.Number
+ERROR: 7006: testing_lib.dataTypeIfazeMethodReturnTypeMutation.DataTypeIfazeMethodReturnTypeMutation: Return type of method 'public java.lang.Integer methodIntegerToString()' has been changed to java.lang.String
+ERROR: 7006: testing_lib.dataTypeIfazeMethodReturnTypeMutation.DataTypeIfazeMethodReturnTypeMutation: Return type of method 'public java.lang.Integer methodIntegerToVoid()' has been changed to void
+ERROR: 7006: testing_lib.dataTypeIfazeMethodReturnTypeMutation.DataTypeIfazeMethodReturnTypeMutation: Return type of method 'public void methodVoidToInteger()' has been changed to java.lang.Integer
+ERROR: 7006: testing_lib.dataTypeIfazeMethodReturnTypeNarrowing.DataTypeIfazeMethodReturnTypeNarrowing: Return type of method 'public double method1()' has been changed to int
+ERROR: 7006: testing_lib.dataTypeIfazeMethodReturnTypeSpecialization.DataTypeIfazeMethodReturnTypeSpecialization: Return type of method 'public java.lang.Number method1()' has been changed to java.lang.Integer
+ERROR: 7006: testing_lib.dataTypeIfazeMethodReturnTypeUnboxing.DataTypeIfazeMethodReturnTypeUnboxing: Return type of method 'public java.lang.Integer method1()' has been changed to int
+ERROR: 7006: testing_lib.dataTypeIfazeMethodReturnTypeWidening.DataTypeIfazeMethodReturnTypeWidening: Return type of method 'public int method1()' has been changed to double
+ERROR: 8001: testing_lib.inheritanceClazzContractSuperClassSet.Clazz2: Class testing_lib.inheritanceClazzContractSuperClassSet.Clazz2 removed
+ERROR: 5001: testing_lib.inheritanceClazzContractSuperClassSet.InheritanceClazzContractSuperInterfaceSet: Removed testing_lib.inheritanceClazzContractSuperClassSet.Clazz2 from the list of superclasses
+INFO: 8000: testing_lib.inheritanceClazzExpandSuperClassSet.Clazz2: Class testing_lib.inheritanceClazzExpandSuperClassSet.Clazz2 added
+INFO: 5000: testing_lib.inheritanceClazzExpandSuperClassSet.InheritanceClazzExpandSuperClassSet: Added testing_lib.inheritanceClazzExpandSuperClassSet.Clazz2 to the list of superclasses
+ERROR: 7002: testing_lib.inheritanceClazzMethodMovedFromSuperClass.Clazz1: Method 'public void method1()' has been removed
+INFO: 7011: testing_lib.inheritanceClazzMethodMovedFromSuperClass.InheritanceClazzMethodMovedFromSuperClass: Method 'public void method1()' has been added
+INFO: 7011: testing_lib.inheritanceClazzMethodMovedToSuperClass.Clazz1: Method 'public void method1()' has been added
+INFO: 7000: testing_lib.inheritanceClazzMethodMovedToSuperClass.InheritanceClazzMethodMovedToSuperClass: Method 'public void method1()' is now implemented in superclass testing_lib.inheritanceClazzMethodMovedToSuperClass.Clazz1
+INFO: 7011: testing_lib.inheritanceClazzMethodOverrideAdd.InheritanceClazzMethodOverrideAdd: Method 'public void method1()' has been added
+INFO: 7003: testing_lib.inheritanceClazzMethodOverrideDelete.InheritanceClazzMethodOverrideDelete: Method 'public void method1()' has been removed, but an inherited definition exists.
+INFO: 5000: testing_lib.inheritanceClazzStartInherite.InheritanceClazzStartInherite: Added testing_lib.inheritanceClazzStartInherite.Clazz1 to the list of superclasses
+ERROR: 5001: testing_lib.inheritanceClazzStopInherite.InheritanceClazzStopInherite: Removed testing_lib.inheritanceClazzStopInherite.Clazz1 from the list of superclasses
+ERROR: 4001: testing_lib.inheritanceIfazeContractSuperinterfaceSet.InheritanceIfazeContractSuperinterfaceSet: Removed testing_lib.inheritanceIfazeContractSuperinterfaceSet.Interface2 from the set of implemented interfaces
+ERROR: 8001: testing_lib.inheritanceIfazeContractSuperinterfaceSet.Interface2: Class testing_lib.inheritanceIfazeContractSuperinterfaceSet.Interface2 removed
+ERROR: 7012: testing_lib.inheritanceIfazeDefaultMethodOverrideAdd.InheritanceIfazeDefaultMethodOverrideAdd: Method 'public void method1()' has been added to an interface
+INFO: 7003: testing_lib.inheritanceIfazeDefaultMethodOverrideDelete.InheritanceIfazeDefaultMethodOverrideDelete: Method 'public void method1()' has been removed, but an inherited definition exists.
+INFO: 4000: testing_lib.inheritanceIfazeExpandSuperinterfaceSet.InheritanceIfazeExpandSuperinterfaceSet: Added testing_lib.inheritanceIfazeExpandSuperinterfaceSet.Interface2 to the set of implemented interfaces
+INFO: 8000: testing_lib.inheritanceIfazeExpandSuperinterfaceSet.Interface2: Class testing_lib.inheritanceIfazeExpandSuperinterfaceSet.Interface2 added
+ERROR: 7012: testing_lib.inheritanceIfazeMethodMovedFromSuperInterface.InheritanceIfazeMethodMovedFromSuperInterface: Method 'public void method1()' has been added to an interface
+ERROR: 7002: testing_lib.inheritanceIfazeMethodMovedFromSuperInterface.Interface1: Method 'public void method1()' has been removed
+INFO: 7003: testing_lib.inheritanceIfazeMethodMovedToSuperInterface.InheritanceIfazeMethodMovedToSuperInterface: Method 'public void method1()' has been removed, but an inherited definition exists.
+ERROR: 7012: testing_lib.inheritanceIfazeMethodMovedToSuperInterface.Interface1: Method 'public void method1()' has been added to an interface
+INFO: 4000: testing_lib.inheritanceIfazeStartInherite.InheritanceIfazeStartInherite: Added testing_lib.inheritanceIfazeStartInherite.Interface1 to the set of implemented interfaces
+ERROR: 4001: testing_lib.inheritanceIfazeStopInherite.InheritanceIfazeStopInherite: Removed testing_lib.inheritanceIfazeStopInherite.Interface1 from the set of implemented interfaces
+INFO: 7011: testing_lib.membersClazzConstructorAdd.MembersClazzConstructorAdd: Method 'public MembersClazzConstructorAdd(int)' has been added
+ERROR: 7002: testing_lib.membersClazzConstructorDelete.MembersClazzConstructorDelete: Method 'public MembersClazzConstructorDelete(int)' has been removed
+ERROR: 7004: testing_lib.membersClazzConstructorParamAdd.MembersClazzConstructorParamAdd: In method 'public MembersClazzConstructorParamAdd(java.lang.Integer)' the number of arguments has changed
+ERROR: 7004: testing_lib.membersClazzConstructorParamDelete.MembersClazzConstructorParamDelete: In method 'public MembersClazzConstructorParamDelete(java.lang.Integer, java.lang.String)' the number of arguments has changed
+INFO: 6000: testing_lib.membersClazzFieldAdd.MembersClazzFieldAdd: Added public field field1
+INFO: 6000: testing_lib.membersClazzFieldConstantAdd.MembersClazzFieldConstantAdd: Added public field FIELD1
+ERROR: 6011: testing_lib.membersClazzFieldConstantDelete.MembersClazzFieldConstantDelete: Field FIELD1 has been removed, but it was previously a constant
+ERROR: 6001: testing_lib.membersClazzFieldDelete.MembersClazzFieldDelete: Removed field field1
+ERROR: 7013: testing_lib.membersClazzMethodAbstractAdd.MembersClazzMethodAbstractAdd: Abstract method 'public void method1()' has been added
+INFO: 3004: testing_lib.membersClazzMethodAbstractDelete.MembersClazzMethodAbstractDelete: Removed abstract modifier from class
+ERROR: 7002: testing_lib.membersClazzMethodAbstractDelete.MembersClazzMethodAbstractDelete: Method 'public void method1()' has been removed
+INFO: 7011: testing_lib.membersClazzMethodAdd.MembersClazzMethodAdd: Method 'public void method1()' has been added
+ERROR: 7002: testing_lib.membersClazzMethodDelete.MembersClazzMethodDelete: Method 'public void method1()' has been removed
+ERROR: 7004: testing_lib.membersClazzMethodParamAdd.MembersClazzMethodParamAdd: In method 'public void method1()' the number of arguments has changed
+ERROR: 7004: testing_lib.membersClazzMethodParamDelete.MembersClazzMethodParamDelete: In method 'public void method1(java.lang.Integer)' the number of arguments has changed
+INFO: 8000: testing_lib.membersClazzNestedClazzAdd.MembersClazzNestedClazzAdd$NestedClazz: Class testing_lib.membersClazzNestedClazzAdd.MembersClazzNestedClazzAdd$NestedClazz added
+ERROR: 8001: testing_lib.membersClazzNestedClazzDelete.MembersClazzNestedClazzDelete$NestedClazz: Class testing_lib.membersClazzNestedClazzDelete.MembersClazzNestedClazzDelete$NestedClazz removed
+INFO: 8000: testing_lib.membersClazzNestedIfazeAdd.MembersClazzNestedIfazeAdd$NestedIfaze: Class testing_lib.membersClazzNestedIfazeAdd.MembersClazzNestedIfazeAdd$NestedIfaze added
+ERROR: 8001: testing_lib.membersClazzNestedIfazeDelete.MembersClazzNestedIfazeDelete$NestedIfaze: Class testing_lib.membersClazzNestedIfazeDelete.MembersClazzNestedIfazeDelete$NestedIfaze removed
+INFO: 6000: testing_lib.membersIfazeConstantAdd.MembersIfazeConstantAdd: Added public field FIELD1
+ERROR: 6011: testing_lib.membersIfazeConstantDelete.MembersIfazeConstantDelete: Field FIELD1 has been removed, but it was previously a constant
+ERROR: 7012: testing_lib.membersIfazeMethodAdd.MembersIfazeMethodAdd: Method 'public void method1()' has been added to an interface
+ERROR: 7012: testing_lib.membersIfazeMethodDefaultAdd.MembersIfazeMethodDefaultAdd: Method 'public void method1()' has been added to an interface
+ERROR: 7002: testing_lib.membersIfazeMethodDefaultDelete.MembersIfazeMethodDefaultDelete: Method 'public void method1()' has been removed
+ERROR: 7002: testing_lib.membersIfazeMethodDelete.MembersIfazeMethodDelete: Method 'public void method1()' has been removed
+ERROR: 7004: testing_lib.membersIfazeMethodParamAdd.MembersIfazeMethodParamAdd: In method 'public void method1()' the number of arguments has changed
+ERROR: 7004: testing_lib.membersIfazeMethodParamDelete.MembersIfazeMethodParamDelete: In method 'public void method1(java.lang.Integer)' the number of arguments has changed
+INFO: 8000: testing_lib.membersIfazeNestedIfazeAdd.MembersIfazeNestedIfazeAdd$NestedIfaze: Class testing_lib.membersIfazeNestedIfazeAdd.MembersIfazeNestedIfazeAdd$NestedIfaze added
+ERROR: 8001: testing_lib.membersIfazeNestedIfazeDelete.MembersIfazeNestedIfazeDelete$NestedIfaze: Class testing_lib.membersIfazeNestedIfazeDelete.MembersIfazeNestedIfazeDelete$NestedIfaze removed
+INFO: 3004: testing_lib.modifierClazzAbstractToNonAbstract.ModifierClazzAbstractToNonAbstract: Removed abstract modifier from class
+INFO: 3002: testing_lib.modifierClazzEffectivelyFinalToFinal.ModifierClazzEffectivelyFinalToFinal: Added final modifier to class, but class was effectively final anyway
+INFO: 3001: testing_lib.modifierClazzFinalToEffectivelyFinal.ModifierClazzFinalToEffectivelyFinal: Removed final modifier from class
+INFO: 3001: testing_lib.modifierClazzFinalToNonFinal.ModifierClazzFinalToNonFinal: Removed final modifier from class
+ERROR: 3005: testing_lib.modifierClazzNonAbstractToAbstract.ModifierClazzNonAbstractToAbstract: Added abstract modifier to class
+ERROR: 3003: testing_lib.modifierClazzNonFinalToFinal.ModifierClazzNonFinalToFinal: Added final modifier to class
+INFO: 6005: testing_lib.modifierFieldFinalToNonFinal.ModifierFieldFinalToNonFinal: Field field1 is now non-final
+ERROR: 6006: testing_lib.modifierFieldNonFinalToFinal.ModifierFieldNonFinalToFinal: Field field1 is now final
+ERROR: 6008: testing_lib.modifierFieldNonStaticToStatic.ModifierFieldNonStaticToStatic: Field field1 is now static
+ERROR: 6007: testing_lib.modifierFieldStaticToNonStatic.ModifierFieldStaticToNonStatic: Field field1 is now non-static
+INFO: 7015: testing_lib.modifierMethodFinalToNonFinal.ModifierMethodFinalToNonFinal: Method 'public void method1()' is no longer final
+ERROR: 7014: testing_lib.modifierMethodNonFinalToFinal.ModifierMethodNonFinalToFinal: Method 'public void method1()' is now final
+ERROR: 7004: testing_lib.modifierNestedClazzNonStaticToStatic.ModifierNestedClazzNonStaticToStatic$NestedClazz: In method 'public ModifierNestedClazzNonStaticToStatic$NestedClazz(testing_lib.modifierNestedClazzNonStaticToStatic.ModifierNestedClazzNonStaticToStatic)' the number of arguments has changed
+ERROR: 7004: testing_lib.modifierNestedClazzStaticToNonStatic.ModifierNestedClazzStaticToNonStatic$NestedClazz: In method 'public ModifierNestedClazzStaticToNonStatic$NestedClazz()' the number of arguments has changed
+INFO: 8000: testing_lib.otherClazzAdd.OtherClazzAdd: Class testing_lib.otherClazzAdd.OtherClazzAdd added
+ERROR: 8001: testing_lib.otherClazzDelete.OtherClazzDelete: Class testing_lib.otherClazzDelete.OtherClazzDelete removed
+ERROR: 2000: testing_lib.otherClazzToIfaze.ClazzToIfaze: Changed from class to interface
+INFO: 8000: testing_lib.otherIfazeAdd.OtherIfazeAdd: Class testing_lib.otherIfazeAdd.OtherIfazeAdd added
+ERROR: 8001: testing_lib.otherIfazeDelete.OtherIfazeDelete: Class testing_lib.otherIfazeDelete.OtherIfazeDelete removed
+ERROR: 2001: testing_lib.otherIfazeToClass.IfazeToClass: Changed from interface to class

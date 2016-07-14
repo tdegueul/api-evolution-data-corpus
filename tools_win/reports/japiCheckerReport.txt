@@ -1,0 +1,193 @@
+japi-checker-cli 0.2.1-SNAPSHOT - https://code.google.com/p/japi-checker/
+
+ERROR: testing_lib/exceptionIfazeMethodThrowCheckedAdd/ExceptionIfazeMethodThrowCheckedAdd.java(0): method method1(()V) is now throwing java/io/IOException.
+ERROR: testing_lib/accessModifierClazzNestedClazzAccessDecrease/AccessModifierClazzNestedClazzAccessDecrease.java: The visibility of the testing_lib/accessModifierClazzNestedClazzAccessDecrease/AccessModifierClazzNestedClazzAccessDecrease$ClazzProtectedToPrivate class has been changed from PUBLIC to NO_SCOPE
+ERROR: testing_lib/accessModifierClazzNestedClazzAccessDecrease/AccessModifierClazzNestedClazzAccessDecrease.java(22): The visibility of the <init> method has been changed from PROTECTED to PRIVATE
+ERROR: testing_lib/dataTypeIfazeConstantSpecialization/DataTypeIfazeConstantSpecialization.java: The field FIELD1 has been modified from Ljava/lang/Number; to Ljava/lang/Integer;
+ERROR: testing_lib/modifierFieldStaticToNonStatic/ModifierFieldStaticToNonStatic.java: The field field1(Ljava/lang/Integer;) is not static anymore.
+ERROR: testing_lib/dataTypeIfazeMethodReturnTypeBoxing/DataTypeIfazeMethodReturnTypeBoxing.java: Could not find method method1(()I) in newer version.
+ERROR: testing_lib/dataTypeClazzMethodParamWidening/DataTypeClazzMethodParamWidening.java: Could not find method method1((I)V) in newer version.
+ERROR: testing_lib/dataTypeClazzMethodParamSpecialization/DataTypeClazzMethodParamSpecialization.java: Could not find method method1((Ljava/lang/Number;)V) in newer version.
+ERROR: testing_lib/accessModifierClazzNestedIfazeAccessDecrease/AccessModifierClazzNestedIfazeAccessDecrease.java: The visibility of the testing_lib/accessModifierClazzNestedIfazeAccessDecrease/AccessModifierClazzNestedIfazeAccessDecrease$IfazePublicToNon interface has been changed from PUBLIC to NO_SCOPE
+ERROR: testing_lib/dataTypeIfazeMethodParamNarrowing/DataTypeIfazeMethodParamNarrowing.java: Could not find method method1((D)V) in newer version.
+ERROR: testing_lib/dataTypeClazzFieldNarrowing/DataTypeClazzFieldNarrowing.java: The field field1 has been modified from D to I
+ERROR: testing_lib/dataTypeIfazeMethodParamUnboxing/DataTypeIfazeMethodParamUnboxing.java: Could not find method method1((Ljava/lang/Integer;)V) in newer version.
+ERROR: testing_lib/dataTypeClazzFieldGeneralization/DataTypeClazzFieldGeneralization.java: The field field1 has been modified from Ljava/lang/Integer; to Ljava/lang/Number;
+WARNING: testing_lib/accessModifierClazzConstructorAccessIncrease/AccessModifierClazzConstructorAccessIncrease.java(7): The visibility of the <init> method has been changed from PRIVATE to NO_SCOPE
+WARNING: testing_lib/accessModifierClazzConstructorAccessIncrease/AccessModifierClazzConstructorAccessIncrease.java(11): The visibility of the <init> method has been changed from PRIVATE to PROTECTED
+WARNING: testing_lib/accessModifierClazzConstructorAccessIncrease/AccessModifierClazzConstructorAccessIncrease.java(15): The visibility of the <init> method has been changed from PRIVATE to PUBLIC
+WARNING: testing_lib/accessModifierClazzConstructorAccessIncrease/AccessModifierClazzConstructorAccessIncrease.java(19): The visibility of the <init> method has been changed from NO_SCOPE to PROTECTED
+WARNING: testing_lib/accessModifierClazzConstructorAccessIncrease/AccessModifierClazzConstructorAccessIncrease.java(23): The visibility of the <init> method has been changed from NO_SCOPE to PUBLIC
+WARNING: testing_lib/accessModifierClazzConstructorAccessIncrease/AccessModifierClazzConstructorAccessIncrease.java(27): The visibility of the <init> method has been changed from PROTECTED to PUBLIC
+ERROR: testing_lib/modifierClazzNonAbstractToAbstract/ModifierClazzNonAbstractToAbstract.java: The class testing_lib/modifierClazzNonAbstractToAbstract/ModifierClazzNonAbstractToAbstract has been made abstract.
+ERROR: testing_lib/exceptionIfazeMethodThrowCheckedMutation/ExceptionIfazeMethodThrowCheckedMutation.java(0): method method1(()V) is not throwing java/io/FileNotFoundException anymore.
+ERROR: testing_lib/exceptionIfazeMethodThrowCheckedMutation/ExceptionIfazeMethodThrowCheckedMutation.java(0): method method1(()V) is now throwing java/lang/NullPointerException.
+ERROR: testing_lib/exceptionIfazeMethodThrowUncheckedAdd/ExceptionIfazeMethodThrowUncheckedAdd.java(0): method method1(()V) is now throwing java/lang/NullPointerException.
+ERROR: testing_lib/otherIfazeDelete/OtherIfazeDelete.java: Public class testing_lib/otherIfazeDelete/OtherIfazeDelete has been removed.
+ERROR: testing_lib/dataTypeClazzMethodReturnTypeGeneralization/DataTypeClazzMethodReturnTypeGeneralization.java: Could not find method method(()Ljava/lang/Integer;) in newer version.
+ERROR: testing_lib/dataTypeClazzMethodParamUnboxing/DataTypeClazzMethodParamUnboxing.java: Could not find method method1((Ljava/lang/Integer;)V) in newer version.
+ERROR: testing_lib/exceptionClazzMethodThrowUncheckedGeneralization/ExceptionClazzMethodThrowUncheckedGeneralization.java(7): method method1(()V) is not throwing java/lang/NullPointerException anymore.
+ERROR: testing_lib/exceptionClazzMethodThrowUncheckedGeneralization/ExceptionClazzMethodThrowUncheckedGeneralization.java(7): method method1(()V) is now throwing java/lang/RuntimeException.
+ERROR: testing_lib/exceptionIfazeMethodThrowUncheckedGeneralization/ExceptionIfazeMethodThrowUncheckedGeneralization.java(0): method method1(()V) is not throwing java/lang/NullPointerException anymore.
+ERROR: testing_lib/exceptionIfazeMethodThrowUncheckedGeneralization/ExceptionIfazeMethodThrowUncheckedGeneralization.java(0): method method1(()V) is now throwing java/lang/RuntimeException.
+WARNING: testing_lib/accessModifierClazzNestedClazzAccessIncrease/AccessModifierClazzNestedClazzAccessIncrease.java: The visibility of the testing_lib/accessModifierClazzNestedClazzAccessIncrease/AccessModifierClazzNestedClazzAccessIncrease$ClazzNonToPublic class has been changed from NO_SCOPE to PUBLIC
+ERROR: testing_lib/accessModifierClazzNestedClazzAccessDecrease/AccessModifierClazzNestedClazzAccessDecrease.java: The visibility of the testing_lib/accessModifierClazzNestedClazzAccessDecrease/AccessModifierClazzNestedClazzAccessDecrease$ClazzPublicToPrivate class has been changed from PUBLIC to NO_SCOPE
+ERROR: testing_lib/accessModifierClazzNestedClazzAccessDecrease/AccessModifierClazzNestedClazzAccessDecrease.java(14): The visibility of the <init> method has been changed from PUBLIC to PRIVATE
+ERROR: testing_lib/membersClazzFieldConstantDelete/MembersClazzFieldConstantDelete.java: Could not find field FIELD1(I) in newer version.
+WARNING: testing_lib/accessModifierClazzAccessIncrease/AccessModifierClazzAccessIncrease.java: The visibility of the testing_lib/accessModifierClazzAccessIncrease/AccessModifierClazzAccessIncrease class has been changed from NO_SCOPE to PUBLIC
+ERROR: testing_lib/dataTypeClazzMethodParamGeneralization/DataTypeClazzMethodParamGeneralization.java: Could not find method method1((Ljava/lang/Integer;)V) in newer version.
+ERROR: testing_lib/inheritanceIfazeContractSuperinterfaceSet/Interface2.java: Public class testing_lib/inheritanceIfazeContractSuperinterfaceSet/Interface2 has been removed.
+ERROR: testing_lib/modifierNestedClazzNonStaticToStatic/ModifierNestedClazzNonStaticToStatic.java: Could not find method <init>((Ltesting_lib/modifierNestedClazzNonStaticToStatic/ModifierNestedClazzNonStaticToStatic;)V) in newer version.
+ERROR: testing_lib/dataTypeIfazeConstantUnboxing/DataTypeIfazeConstantUnboxing.java: The field FIELD1 has been modified from Ljava/lang/Integer; to I
+ERROR: testing_lib/exceptionClazzMethodThrowCheckedGeneralization/ExceptionClazzMethodThrowCheckedGeneralization.java(9): method method1(()V) is not throwing java/io/FileNotFoundException anymore.
+ERROR: testing_lib/exceptionClazzMethodThrowCheckedGeneralization/ExceptionClazzMethodThrowCheckedGeneralization.java(9): method method1(()V) is now throwing java/io/IOException.
+ERROR: testing_lib/exceptionClazzMethodThrowUncheckedMutation/ExceptionClazzMethodThrowUncheckedMutation.java(9): method method1(()V) is not throwing java/lang/NullPointerException anymore.
+ERROR: testing_lib/exceptionClazzMethodThrowUncheckedMutation/ExceptionClazzMethodThrowUncheckedMutation.java(9): method method1(()V) is now throwing java/io/IOException.
+ERROR: testing_lib/membersClazzConstructorParamAdd/MembersClazzConstructorParamAdd.java: Could not find method <init>((Ljava/lang/Integer;)V) in newer version.
+ERROR: testing_lib/modifierMethodNonFinalToFinal/ModifierMethodNonFinalToFinal.java(7): The method method1(()V) has been made final, this now prevents overriding.
+ERROR: testing_lib/membersIfazeMethodDefaultDelete/MembersIfazeMethodDefaultDelete.java: Could not find method method1(()V) in newer version.
+ERROR: testing_lib/dataTypeClazzFieldSpecialization/DataTypeClazzFieldSpecialization.java: The field field1 has been modified from Ljava/lang/Number; to Ljava/lang/Integer;
+ERROR: testing_lib/dataTypeClazzMethodReturnTypeBoxing/DataTypeClazzMethodReturnTypeBoxing.java: Could not find method method(()I) in newer version.
+ERROR: testing_lib/dataTypeClazzMethodReturnTypeNarrowing/DataTypeClazzMethodReturnTypeNarrowing.java: Could not find method method(()D) in newer version.
+ERROR: testing_lib/otherClazzToIfaze/ClazzToIfaze.java: Could not find method <init>(()V) in newer version.
+ERROR: testing_lib/otherClazzToIfaze/ClazzToIfaze.java: The class testing_lib/otherClazzToIfaze/ClazzToIfaze has been made abstract.
+ERROR: testing_lib/otherClazzToIfaze/ClazzToIfaze.java: The interface testing_lib/otherClazzToIfaze/ClazzToIfaze has been changed into an class.
+ERROR: testing_lib/dataTypeIfazeMethodReturnTypeGeneralization/DataTypeIfazeMethodReturnTypeGeneralization.java: Could not find method method1(()Ljava/lang/Integer;) in newer version.
+ERROR: testing_lib/membersIfazeMethodParamDelete/MembersIfazeMethodParamDelete.java: Could not find method method1((Ljava/lang/Integer;)V) in newer version.
+ERROR: testing_lib/dataTypeIfazeConstantWidening/DataTypeIfazeConstantWidening.java: The field FIELD1 has been modified from I to D
+WARNING: testing_lib/accessModifierClazzNestedIfazeAccessIncrease/AccessModifierClazzNestedIfazeAccessIncrease.java: The visibility of the testing_lib/accessModifierClazzNestedIfazeAccessIncrease/AccessModifierClazzNestedIfazeAccessIncrease$IfazePrivateToProtected interface has been changed from NO_SCOPE to PUBLIC
+ERROR: testing_lib/accessModifierClazzMethodAccessDecrease/AccessModifierClazzMethodAccessDecrease.java(7): The visibility of the methodPublicToProtected method has been changed from PUBLIC to PROTECTED
+ERROR: testing_lib/accessModifierClazzMethodAccessDecrease/AccessModifierClazzMethodAccessDecrease.java(11): The visibility of the methodPublicToNon method has been changed from PUBLIC to NO_SCOPE
+ERROR: testing_lib/accessModifierClazzMethodAccessDecrease/AccessModifierClazzMethodAccessDecrease.java(15): The visibility of the methodPublicToPrivate method has been changed from PUBLIC to PRIVATE
+ERROR: testing_lib/accessModifierClazzMethodAccessDecrease/AccessModifierClazzMethodAccessDecrease.java(19): The visibility of the methodProtectedToNon method has been changed from PROTECTED to NO_SCOPE
+ERROR: testing_lib/accessModifierClazzMethodAccessDecrease/AccessModifierClazzMethodAccessDecrease.java(23): The visibility of the methodProtectedToPrivate method has been changed from PROTECTED to PRIVATE
+ERROR: testing_lib/accessModifierClazzMethodAccessDecrease/AccessModifierClazzMethodAccessDecrease.java(27): The visibility of the methodNonToPrivate method has been changed from NO_SCOPE to PRIVATE
+WARNING: testing_lib/accessModifierClazzNestedIfazeAccessIncrease/AccessModifierClazzNestedIfazeAccessIncrease.java: The visibility of the testing_lib/accessModifierClazzNestedIfazeAccessIncrease/AccessModifierClazzNestedIfazeAccessIncrease$IfazeNonToPublic interface has been changed from NO_SCOPE to PUBLIC
+ERROR: testing_lib/exceptionClazzMethodTryCatchToThrowChecked/ExceptionClazzMethodTryCatchToThrowChecked.java(12): method method1((Ljava/io/File;)V) is now throwing java/io/IOException.
+ERROR: testing_lib/dataTypeClazzConstructorParamSpecialization/DataTypeClazzConstructorParamSpecialization.java: Could not find method <init>((Ljava/lang/Number;)V) in newer version.
+ERROR: testing_lib/dataTypeClazzMethodReturnTypeUnboxing/DataTypeClazzMethodReturnTypeUnboxing.java: Could not find method method(()Ljava/lang/Integer;) in newer version.
+ERROR: testing_lib/inheritanceIfazeContractSuperinterfaceSet/InheritanceIfazeContractSuperinterfaceSet.java: testing_lib/inheritanceIfazeContractSuperinterfaceSet/InheritanceIfazeContractSuperinterfaceSet is not implementing testing_lib/inheritanceIfazeContractSuperinterfaceSet/Interface2 anymore.
+ERROR: testing_lib/dataTypeIfazeMethodParamBoxing/DataTypeIfazeMethodParamBoxing.java: Could not find method method1((I)V) in newer version.
+ERROR: testing_lib/dataTypeClazzConstructorParamBoxing/DataTypeClazzConstructorParamBoxing.java: Could not find method <init>((I)V) in newer version.
+WARNING: testing_lib/accessModifierClazzNestedClazzAccessIncrease/AccessModifierClazzNestedClazzAccessIncrease.java: The visibility of the testing_lib/accessModifierClazzNestedClazzAccessIncrease/AccessModifierClazzNestedClazzAccessIncrease$ClazzPrivateToProtected class has been changed from NO_SCOPE to PUBLIC
+ERROR: testing_lib/inheritanceClazzContractSuperClassSet/Clazz2.java: Public class testing_lib/inheritanceClazzContractSuperClassSet/Clazz2 has been removed.
+ERROR: testing_lib/inheritanceIfazeStopInherite/InheritanceIfazeStopInherite.java: testing_lib/inheritanceIfazeStopInherite/InheritanceIfazeStopInherite is not implementing testing_lib/inheritanceIfazeStopInherite/Interface1 anymore.
+ERROR: testing_lib/membersClazzNestedClazzDelete/MembersClazzNestedClazzDelete.java: Public class testing_lib/membersClazzNestedClazzDelete/MembersClazzNestedClazzDelete$NestedClazz has been removed.
+ERROR: testing_lib/dataTypeClazzConstructorParamMutation/DataTypeClazzConstructorParamMutation.java: Could not find method <init>((Ljava/lang/Integer;)V) in newer version.
+ERROR: testing_lib/dataTypeIfazeConstantGeneralization/DataTypeIfazeConstantGeneralization.java: The field FIELD1 has been modified from Ljava/lang/Integer; to Ljava/lang/Number;
+ERROR: testing_lib/dataTypeIfazeMethodParamSpecialization/DataTypeIfazeMethodParamSpecialization.java: Could not find method method1((Ljava/lang/Number;)V) in newer version.
+ERROR: testing_lib/exceptionClazzMethodThrowCheckedSpecialization/ExceptionClazzMethodThrowCheckedSpecialization.java(9): method method1(()V) is not throwing java/io/IOException anymore.
+ERROR: testing_lib/exceptionClazzMethodThrowCheckedSpecialization/ExceptionClazzMethodThrowCheckedSpecialization.java(9): method method1(()V) is now throwing java/io/FileNotFoundException.
+ERROR: testing_lib/accessModifierClazzAccessDecrease/AccessModifierClazzAccessDecrease.java: The visibility of the testing_lib/accessModifierClazzAccessDecrease/AccessModifierClazzAccessDecrease class has been changed from PUBLIC to NO_SCOPE
+ERROR: testing_lib/accessModifierClazzAccessDecrease/AccessModifierClazzAccessDecrease.java(3): The visibility of the <init> method has been changed from PUBLIC to NO_SCOPE
+ERROR: testing_lib/membersClazzMethodParamAdd/MembersClazzMethodParamAdd.java: Could not find method method1(()V) in newer version.
+ERROR: testing_lib/dataTypeClazzMethodParamNarrowing/DataTypeClazzMethodParamNarrowing.java: Could not find method method1((D)V) in newer version.
+ERROR: testing_lib/exceptionClazzMethodThrowCheckedMutation/ExceptionClazzMethodThrowCheckedMutation.java(7): method method1(()V) is not throwing java/io/FileNotFoundException anymore.
+ERROR: testing_lib/exceptionClazzMethodThrowCheckedMutation/ExceptionClazzMethodThrowCheckedMutation.java(7): method method1(()V) is now throwing java/lang/NullPointerException.
+ERROR: testing_lib/membersClazzMethodParamDelete/MembersClazzMethodParamDelete.java: Could not find method method1((Ljava/lang/Integer;)V) in newer version.
+ERROR: testing_lib/accessModifierClazzFieldAccessDecrease/AccessModifierClazzFieldAccessDecrease.java: The visibility of the fieldPublicToProtected field has been changed from PUBLIC to PROTECTED
+ERROR: testing_lib/accessModifierClazzFieldAccessDecrease/AccessModifierClazzFieldAccessDecrease.java: The visibility of the fieldPublicToNon field has been changed from PUBLIC to NO_SCOPE
+ERROR: testing_lib/accessModifierClazzFieldAccessDecrease/AccessModifierClazzFieldAccessDecrease.java: The visibility of the fieldPublicToPrivate field has been changed from PUBLIC to PRIVATE
+ERROR: testing_lib/accessModifierClazzFieldAccessDecrease/AccessModifierClazzFieldAccessDecrease.java: The visibility of the fieldProtectedToNon field has been changed from PROTECTED to NO_SCOPE
+ERROR: testing_lib/accessModifierClazzFieldAccessDecrease/AccessModifierClazzFieldAccessDecrease.java: The visibility of the fieldProtectedToPrivate field has been changed from PROTECTED to PRIVATE
+ERROR: testing_lib/accessModifierClazzFieldAccessDecrease/AccessModifierClazzFieldAccessDecrease.java: The visibility of the fieldNonToPrivate field has been changed from NO_SCOPE to PRIVATE
+WARNING: testing_lib/accessModifierClazzNestedIfazeAccessIncrease/AccessModifierClazzNestedIfazeAccessIncrease.java: The visibility of the testing_lib/accessModifierClazzNestedIfazeAccessIncrease/AccessModifierClazzNestedIfazeAccessIncrease$IfazeNonToProtected interface has been changed from NO_SCOPE to PUBLIC
+ERROR: testing_lib/inheritanceClazzMethodMovedFromSuperClass/Clazz1.java: Could not find method method1(()V) in newer version.
+WARNING: testing_lib/accessModifierClazzFieldAccessIncrease/AccessModifierClazzFieldAccessIncrease.java: The visibility of the fieldPrivateToNon field has been changed from PRIVATE to NO_SCOPE
+WARNING: testing_lib/accessModifierClazzFieldAccessIncrease/AccessModifierClazzFieldAccessIncrease.java: The visibility of the fieldPrivateToProtected field has been changed from PRIVATE to PROTECTED
+WARNING: testing_lib/accessModifierClazzFieldAccessIncrease/AccessModifierClazzFieldAccessIncrease.java: The visibility of the fieldPrivateToPublic field has been changed from PRIVATE to PUBLIC
+WARNING: testing_lib/accessModifierClazzFieldAccessIncrease/AccessModifierClazzFieldAccessIncrease.java: The visibility of the fieldNonToProtected field has been changed from NO_SCOPE to PROTECTED
+WARNING: testing_lib/accessModifierClazzFieldAccessIncrease/AccessModifierClazzFieldAccessIncrease.java: The visibility of the fieldNonToPublic field has been changed from NO_SCOPE to PUBLIC
+WARNING: testing_lib/accessModifierClazzFieldAccessIncrease/AccessModifierClazzFieldAccessIncrease.java: The visibility of the fieldProtectedToPublic field has been changed from PROTECTED to PUBLIC
+ERROR: testing_lib/inheritanceClazzStopInherite/InheritanceClazzStopInherite.java: testing_lib/inheritanceClazzStopInherite/InheritanceClazzStopInherite extends java/lang/Object and not testing_lib/inheritanceClazzStopInherite/Clazz1 anymore.
+ERROR: testing_lib/inheritanceClazzStopInherite/InheritanceClazzStopInherite.java: The class testing_lib/inheritanceClazzStopInherite/InheritanceClazzStopInherite does not inherit from testing_lib/inheritanceClazzStopInherite/Clazz1 anymore.
+WARNING: testing_lib/accessModifierClazzNestedIfazeAccessIncrease/AccessModifierClazzNestedIfazeAccessIncrease.java: The visibility of the testing_lib/accessModifierClazzNestedIfazeAccessIncrease/AccessModifierClazzNestedIfazeAccessIncrease$IfazePrivateToPublic interface has been changed from NO_SCOPE to PUBLIC
+ERROR: testing_lib/dataTypeIfazeConstantNarrowing/DataTypeIfazeConstantNarrowing.java: The field FIELD1 has been modified from D to I
+ERROR: testing_lib/exceptionClazzMethodThrowCheckedAdd/ExceptionClazzMethodThrowCheckedAdd.java(9): method method1(()V) is now throwing java/io/IOException.
+ERROR: testing_lib/dataTypeIfazeConstantMutation/DataTypeIfazeConstantMutation.java: The field FIELD1 has been modified from Ljava/lang/Integer; to Ljava/lang/String;
+ERROR: testing_lib/dataTypeClazzFieldBoxing/DataTypeClazzFieldBoxing.java: The field field1 has been modified from I to Ljava/lang/Integer;
+ERROR: testing_lib/accessModifierClazzNestedIfazeAccessDecrease/AccessModifierClazzNestedIfazeAccessDecrease.java: The visibility of the testing_lib/accessModifierClazzNestedIfazeAccessDecrease/AccessModifierClazzNestedIfazeAccessDecrease$IfazeProtectedToNon interface has been changed from PUBLIC to NO_SCOPE
+ERROR: testing_lib/accessModifierClazzConstructorAccessDecrease/AccessModifierClazzConstructorAccessDecrease.java(7): The visibility of the <init> method has been changed from PUBLIC to PROTECTED
+ERROR: testing_lib/accessModifierClazzConstructorAccessDecrease/AccessModifierClazzConstructorAccessDecrease.java(11): The visibility of the <init> method has been changed from PUBLIC to NO_SCOPE
+ERROR: testing_lib/accessModifierClazzConstructorAccessDecrease/AccessModifierClazzConstructorAccessDecrease.java(15): The visibility of the <init> method has been changed from PUBLIC to PRIVATE
+ERROR: testing_lib/accessModifierClazzConstructorAccessDecrease/AccessModifierClazzConstructorAccessDecrease.java(19): The visibility of the <init> method has been changed from PROTECTED to NO_SCOPE
+ERROR: testing_lib/accessModifierClazzConstructorAccessDecrease/AccessModifierClazzConstructorAccessDecrease.java(23): The visibility of the <init> method has been changed from PROTECTED to PRIVATE
+ERROR: testing_lib/accessModifierClazzConstructorAccessDecrease/AccessModifierClazzConstructorAccessDecrease.java(27): The visibility of the <init> method has been changed from NO_SCOPE to PRIVATE
+ERROR: testing_lib/dataTypeClazzConstructorParamNarrowing/DataTypeClazzConstructorParamNarrowing.java: Could not find method <init>((D)V) in newer version.
+ERROR: testing_lib/dataTypeClazzFieldUnboxing/DataTypeClazzFieldUnboxing.java: The field field1 has been modified from Ljava/lang/Integer; to I
+ERROR: testing_lib/dataTypeIfazeMethodReturnTypeWidening/DataTypeIfazeMethodReturnTypeWidening.java: Could not find method method1(()I) in newer version.
+ERROR: testing_lib/exceptionClazzMethodThrowCheckedToTryCatch/ExceptionClazzMethodThrowCheckedToTryCatch.java(18): method method1((Ljava/io/File;)V) is not throwing java/io/IOException anymore.
+ERROR: testing_lib/exceptionIfazeMethodThrowCheckedGeneralization/ExceptionIfazeMethodThrowCheckedGeneralization.java(0): method method1(()V) is not throwing java/io/FileNotFoundException anymore.
+ERROR: testing_lib/exceptionIfazeMethodThrowCheckedGeneralization/ExceptionIfazeMethodThrowCheckedGeneralization.java(0): method method1(()V) is now throwing java/io/IOException.
+ERROR: testing_lib/dataTypeIfazeMethodParamMutation/DataTypeIfazeMethodParamMutation.java: Could not find method method1((Ljava/lang/Integer;)V) in newer version.
+ERROR: testing_lib/exceptionIfazeMethodThrowCheckedDelete/ExceptionIfazeMethodThrowCheckedDelete.java(0): method method1(()V) is not throwing java/io/IOException anymore.
+ERROR: testing_lib/dataTypeIfazeMethodReturnTypeNarrowing/DataTypeIfazeMethodReturnTypeNarrowing.java: Could not find method method1(()D) in newer version.
+ERROR: testing_lib/dataTypeIfazeMethodReturnTypeMutation/DataTypeIfazeMethodReturnTypeMutation.java: Could not find method methodVoidToInteger(()V) in newer version.
+ERROR: testing_lib/dataTypeIfazeMethodReturnTypeMutation/DataTypeIfazeMethodReturnTypeMutation.java: Could not find method methodIntegerToVoid(()Ljava/lang/Integer;) in newer version.
+ERROR: testing_lib/dataTypeIfazeMethodReturnTypeMutation/DataTypeIfazeMethodReturnTypeMutation.java: Could not find method methodIntegerToString(()Ljava/lang/Integer;) in newer version.
+ERROR: testing_lib/modifierClazzEffectivelyFinalToFinal/ModifierClazzEffectivelyFinalToFinal.java: The class testing_lib/modifierClazzEffectivelyFinalToFinal/ModifierClazzEffectivelyFinalToFinal has been made final, this breaks inheritance.
+ERROR: testing_lib/exceptionClazzMethodThrowUncheckedSpecialization/ExceptionClazzMethodThrowUncheckedSpecialization.java(7): method method1(()V) is not throwing java/lang/RuntimeException anymore.
+ERROR: testing_lib/exceptionClazzMethodThrowUncheckedSpecialization/ExceptionClazzMethodThrowUncheckedSpecialization.java(7): method method1(()V) is now throwing java/lang/NullPointerException.
+ERROR: testing_lib/exceptionIfazeMethodThrowUncheckedSpecialization/ExceptionIfazeMethodThrowUncheckedSpecialization.java(0): method method1(()V) is not throwing java/lang/RuntimeException anymore.
+ERROR: testing_lib/exceptionIfazeMethodThrowUncheckedSpecialization/ExceptionIfazeMethodThrowUncheckedSpecialization.java(0): method method1(()V) is now throwing java/lang/NullPointerException.
+ERROR: testing_lib/dataTypeClazzConstructorParamWidening/DataTypeClazzConstructorParamWidening.java: Could not find method <init>((I)V) in newer version.
+ERROR: testing_lib/membersIfazeNestedIfazeDelete/MembersIfazeNestedIfazeDelete.java: Public class testing_lib/membersIfazeNestedIfazeDelete/MembersIfazeNestedIfazeDelete$NestedIfaze has been removed.
+ERROR: testing_lib/accessModifierClazzNestedClazzAccessDecrease/AccessModifierClazzNestedClazzAccessDecrease.java(6): The visibility of the <init> method has been changed from PUBLIC to PROTECTED
+WARNING: testing_lib/accessModifierClazzNestedClazzAccessIncrease/AccessModifierClazzNestedClazzAccessIncrease.java: The visibility of the testing_lib/accessModifierClazzNestedClazzAccessIncrease/AccessModifierClazzNestedClazzAccessIncrease$ClazzNonToProtected class has been changed from NO_SCOPE to PUBLIC
+ERROR: testing_lib/exceptionIfazeMethodThrowUncheckedMutation/ExceptionIfazeMethodThrowUncheckedMutation.java(0): method method1(()V) is not throwing java/lang/NullPointerException anymore.
+ERROR: testing_lib/exceptionIfazeMethodThrowUncheckedMutation/ExceptionIfazeMethodThrowUncheckedMutation.java(0): method method1(()V) is now throwing java/io/IOException.
+ERROR: testing_lib/exceptionClazzMethodThrowCheckedDelete/ExceptionClazzMethodThrowCheckedDelete.java(7): method method1(()V) is not throwing java/io/IOException anymore.
+ERROR: testing_lib/otherClazzDelete/OtherClazzDelete.java: Public class testing_lib/otherClazzDelete/OtherClazzDelete has been removed.
+ERROR: testing_lib/otherIfazeToClass/IfazeToClass.java: The class testing_lib/otherIfazeToClass/IfazeToClass has been change into an interface.
+ERROR: testing_lib/membersClazzMethodDelete/MembersClazzMethodDelete.java: Could not find method method1(()V) in newer version.
+ERROR: testing_lib/dataTypeIfazeMethodParamWidening/DataTypeIfazeMethodParamWidening.java: Could not find method method1((I)V) in newer version.
+ERROR: testing_lib/membersIfazeConstantDelete/MembersIfazeConstantDelete.java: Could not find field FIELD1(I) in newer version.
+ERROR: testing_lib/inheritanceClazzStartInherite/InheritanceClazzStartInherite.java: testing_lib/inheritanceClazzStartInherite/InheritanceClazzStartInherite extends testing_lib/inheritanceClazzStartInherite/Clazz1 and not java/lang/Object anymore.
+ERROR: testing_lib/accessModifierClazzNestedClazzAccessDecrease/AccessModifierClazzNestedClazzAccessDecrease.java: The visibility of the testing_lib/accessModifierClazzNestedClazzAccessDecrease/AccessModifierClazzNestedClazzAccessDecrease$ClazzProtectedToNon class has been changed from PUBLIC to NO_SCOPE
+ERROR: testing_lib/accessModifierClazzNestedClazzAccessDecrease/AccessModifierClazzNestedClazzAccessDecrease.java(18): The visibility of the <init> method has been changed from PROTECTED to NO_SCOPE
+ERROR: testing_lib/exceptionClazzMethodThrowUncheckedAdd/ExceptionClazzMethodThrowUncheckedAdd.java(7): method method1(()V) is now throwing java/lang/NullPointerException.
+ERROR: testing_lib/modifierFieldNonStaticToStatic/ModifierFieldNonStaticToStatic.java: The field field1(Ljava/lang/Integer;) is now static.
+ERROR: testing_lib/dataTypeClazzFieldWidening/DataTypeClazzFieldWidening.java: The field field1 has been modified from I to D
+ERROR: testing_lib/exceptionIfazeMethodThrowCheckedSpecialization/ExceptionIfazeMethodThrowCheckedSpecialization.java(0): method method1(()V) is not throwing java/io/IOException anymore.
+ERROR: testing_lib/exceptionIfazeMethodThrowCheckedSpecialization/ExceptionIfazeMethodThrowCheckedSpecialization.java(0): method method1(()V) is now throwing java/io/FileNotFoundException.
+ERROR: testing_lib/dataTypeIfazeMethodParamGeneralization/DataTypeIfazeMethodParamGeneralization.java: Could not find method method1((Ljava/lang/Integer;)V) in newer version.
+ERROR: testing_lib/dataTypeClazzMethodReturnTypeSpecialization/DataTypeClazzMethodReturnTypeSpecialization.java: Could not find method method(()Ljava/lang/Number;) in newer version.
+WARNING: testing_lib/accessModifierClazzNestedClazzAccessIncrease/AccessModifierClazzNestedClazzAccessIncrease.java(25): The visibility of the <init> method has been changed from PROTECTED to PUBLIC
+ERROR: testing_lib/dataTypeClazzFieldMutation/DataTypeClazzFieldMutation.java: The field field1 has been modified from Ljava/lang/Integer; to Ljava/lang/String;
+ERROR: testing_lib/modifierClazzNonFinalToFinal/ModifierClazzNonFinalToFinal.java: The class testing_lib/modifierClazzNonFinalToFinal/ModifierClazzNonFinalToFinal has been made final, this breaks inheritance.
+ERROR: testing_lib/modifierNestedClazzStaticToNonStatic/ModifierNestedClazzStaticToNonStatic.java: Could not find method <init>(()V) in newer version.
+ERROR: testing_lib/membersClazzFieldDelete/MembersClazzFieldDelete.java: Could not find field field1(I) in newer version.
+ERROR: testing_lib/inheritanceClazzContractSuperClassSet/InheritanceClazzContractSuperInterfaceSet.java: testing_lib/inheritanceClazzContractSuperClassSet/InheritanceClazzContractSuperInterfaceSet extends testing_lib/inheritanceClazzContractSuperClassSet/Clazz1 and not testing_lib/inheritanceClazzContractSuperClassSet/Clazz2 anymore.
+ERROR: testing_lib/inheritanceClazzContractSuperClassSet/InheritanceClazzContractSuperInterfaceSet.java: The class testing_lib/inheritanceClazzContractSuperClassSet/InheritanceClazzContractSuperInterfaceSet does not inherit from testing_lib/inheritanceClazzContractSuperClassSet/Clazz2 anymore.
+WARNING: testing_lib/accessModifierClazzNestedClazzAccessIncrease/AccessModifierClazzNestedClazzAccessIncrease.java: The visibility of the testing_lib/accessModifierClazzNestedClazzAccessIncrease/AccessModifierClazzNestedClazzAccessIncrease$ClazzPrivateToPublic class has been changed from NO_SCOPE to PUBLIC
+ERROR: testing_lib/exceptionIfazeMethodThrowUncheckedDelete/ExceptionIfazeMethodThrowUncheckedDelete.java(0): method method1(()V) is not throwing java/lang/NullPointerException anymore.
+ERROR: testing_lib/membersIfazeMethodDelete/MembersIfazeMethodDelete.java: Could not find method method1(()V) in newer version.
+ERROR: testing_lib/dataTypeIfazeMethodReturnTypeUnboxing/DataTypeIfazeMethodReturnTypeUnboxing.java: Could not find method method1(()Ljava/lang/Integer;) in newer version.
+ERROR: testing_lib/accessModifierClazzNestedClazzAccessDecrease/AccessModifierClazzNestedClazzAccessDecrease.java: The visibility of the testing_lib/accessModifierClazzNestedClazzAccessDecrease/AccessModifierClazzNestedClazzAccessDecrease$ClazzPublicToNon class has been changed from PUBLIC to NO_SCOPE
+ERROR: testing_lib/accessModifierClazzNestedClazzAccessDecrease/AccessModifierClazzNestedClazzAccessDecrease.java(10): The visibility of the <init> method has been changed from PUBLIC to NO_SCOPE
+ERROR: testing_lib/exceptionClazzMethodThrowUncheckedDelete/ExceptionClazzMethodThrowUncheckedDelete.java(7): method method1(()V) is not throwing java/lang/NullPointerException anymore.
+ERROR: testing_lib/dataTypeClazzMethodParamMutation/DataTypeClazzMethodParamMutation.java: Could not find method method1((Ljava/lang/Integer;)V) in newer version.
+ERROR: testing_lib/dataTypeClazzConstructorParamGeneralization/DataTypeClazzConstructorParamGeneralization.java: Could not find method <init>((Ljava/lang/Integer;)V) in newer version.
+ERROR: testing_lib/inheritanceIfazeExpandSuperinterfaceSet/InheritanceIfazeExpandSuperinterfaceSet.java: testing_lib/inheritanceIfazeExpandSuperinterfaceSet/InheritanceIfazeExpandSuperinterfaceSet is not implementing testing_lib/inheritanceIfazeExpandSuperinterfaceSet/Interface1 anymore.
+ERROR: testing_lib/inheritanceIfazeMethodMovedFromSuperInterface/Interface1.java: Could not find method method1(()V) in newer version.
+ERROR: testing_lib/membersIfazeMethodParamAdd/MembersIfazeMethodParamAdd.java: Could not find method method1(()V) in newer version.
+ERROR: testing_lib/membersClazzConstructorParamDelete/MembersClazzConstructorParamDelete.java: Could not find method <init>((Ljava/lang/Integer;Ljava/lang/String;)V) in newer version.
+ERROR: testing_lib/membersClazzNestedIfazeDelete/MembersClazzNestedIfazeDelete.java: Public class testing_lib/membersClazzNestedIfazeDelete/MembersClazzNestedIfazeDelete$NestedIfaze has been removed.
+ERROR: testing_lib/dataTypeClazzMethodReturnTypeWidening/DataTypeClazzMethodReturnTypeWidening.java: Could not find method method(()I) in newer version.
+ERROR: testing_lib/dataTypeIfazeMethodReturnTypeSpecialization/DataTypeIfazeMethodReturnTypeSpecialization.java: Could not find method method1(()Ljava/lang/Number;) in newer version.
+ERROR: testing_lib/membersClazzMethodAbstractDelete/MembersClazzMethodAbstractDelete.java: Could not find method method1(()V) in newer version.
+WARNING: testing_lib/accessModifierClazzMethodAccessIncrease/AccessModifierClazzMethodAccessIncrease.java(7): The visibility of the methodPrivateToNon method has been changed from PRIVATE to NO_SCOPE
+WARNING: testing_lib/accessModifierClazzMethodAccessIncrease/AccessModifierClazzMethodAccessIncrease.java(11): The visibility of the methodPrivateToProtected method has been changed from PRIVATE to PROTECTED
+WARNING: testing_lib/accessModifierClazzMethodAccessIncrease/AccessModifierClazzMethodAccessIncrease.java(15): The visibility of the methodPrivateToPublic method has been changed from PRIVATE to PUBLIC
+WARNING: testing_lib/accessModifierClazzMethodAccessIncrease/AccessModifierClazzMethodAccessIncrease.java(19): The visibility of the methodNonToProtected method has been changed from NO_SCOPE to PROTECTED
+WARNING: testing_lib/accessModifierClazzMethodAccessIncrease/AccessModifierClazzMethodAccessIncrease.java(23): The visibility of the methodNonToPublic method has been changed from NO_SCOPE to PUBLIC
+WARNING: testing_lib/accessModifierClazzMethodAccessIncrease/AccessModifierClazzMethodAccessIncrease.java(27): The visibility of the methodProtectedToPublic method has been changed from PROTECTED to PUBLIC
+ERROR: testing_lib/membersClazzConstructorDelete/MembersClazzConstructorDelete.java: Could not find method <init>((I)V) in newer version.
+ERROR: testing_lib/dataTypeClazzConstructorParamUnboxing/DataTypeClazzConstructorParamUnboxing.java: Could not find method <init>((Ljava/lang/Integer;)V) in newer version.
+ERROR: testing_lib/dataTypeClazzMethodReturnTypeMutation/DataTypeClazzMethodReturnTypeMutation.java: Could not find method method(()Ljava/lang/Integer;) in newer version.
+ERROR: testing_lib/accessModifierClazzNestedIfazeAccessDecrease/AccessModifierClazzNestedIfazeAccessDecrease.java: The visibility of the testing_lib/accessModifierClazzNestedIfazeAccessDecrease/AccessModifierClazzNestedIfazeAccessDecrease$IfazeProtectedToPrivate interface has been changed from PUBLIC to NO_SCOPE
+ERROR: testing_lib/inheritanceClazzExpandSuperClassSet/InheritanceClazzExpandSuperClassSet.java: testing_lib/inheritanceClazzExpandSuperClassSet/InheritanceClazzExpandSuperClassSet extends testing_lib/inheritanceClazzExpandSuperClassSet/Clazz2 and not testing_lib/inheritanceClazzExpandSuperClassSet/Clazz1 anymore.
+ERROR: testing_lib/dataTypeClazzMethodParamBoxing/DataTypeClazzMethodParamBoxing.java: Could not find method method1((I)V) in newer version.
+ERROR: testing_lib/accessModifierClazzNestedIfazeAccessDecrease/AccessModifierClazzNestedIfazeAccessDecrease.java: The visibility of the testing_lib/accessModifierClazzNestedIfazeAccessDecrease/AccessModifierClazzNestedIfazeAccessDecrease$IfazePublicToPrivate interface has been changed from PUBLIC to NO_SCOPE
+Error count: 161
+Warning count: 28
