@@ -22,13 +22,10 @@ It produces three JAR files: `lib-v1.jar`, `lib-v2.jar` and  `client.jar` contai
 
 The data  may be used as such for instance to benchmark third-party tools. 
 
-# Suplementary Materials
-
-A set of other materials is provided to help with using the corpus. 
-
 ## Compatibility types
 
-A table with API incompatibility results may be generated. It is performed simply by typing:
+A set of other materials is provided to help with using the corpus. First, 
+a table with API incompatibility results may be generated. It is performed simply by typing:
 
 ```
 ./compatibility.sh
