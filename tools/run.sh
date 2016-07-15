@@ -31,3 +31,8 @@ java -cp jour/jour-instrument-2.0.3.jar:jour/javassist.jar net.sf.jour.Signature
 
 echo "********* japicc *********"
 perl japi-compliance-checker-1.5/japi-compliance-checker ../lib-v1.jar ../lib-v2.jar -report-path .reports/japicc.html
+
+
+###########################
+## Add your tools bellow ##
+###########################
