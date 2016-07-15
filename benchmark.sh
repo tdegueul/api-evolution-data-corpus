@@ -16,11 +16,11 @@ function incompatibilityDetected() {
 
 
 # make sure the compatibility table is generated
-# ./compatibility.sh
+./compatibility.sh
 
 cd tools
 # make sure the reports are generated
-# ./run.sh
+./run.sh
 
 # All tools.
 TOOL_REPORTS=()
