@@ -36,7 +36,16 @@ done
 cd ..
 
 
-cp $CSV_FILE $CSV_BENCHMARK_FILE
+#####
+# Caution: we grep only incompatible results
+# The reason is: a test scenario could actually pass source/binary compatibility check
+####
+
+# cp $CSV_FILE $CSV_BENCHMARK_FILE
+# header
+echo "change,source,binary" > $CSV_BENCHMARK_FILE
+# compatible results (it has at least one "0" in the row
+grep "0" $CSV_FILE >> $CSV_BENCHMARK_FILE
 
 # iterate tools
 for filename in "${TOOL_REPORTS[@]}" ; do
