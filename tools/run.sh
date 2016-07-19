@@ -48,7 +48,7 @@ grep  -v '===  UNCHANGED' "$REPORTS"/japicmp.txt > japicmp.txt.tmp
 mv japicmp.txt.tmp "$REPORTS"/japicmp.txt
 
 grep -v ".*100\% good" "$REPORTS"/japitool.txt > japitool.txt.tmp
-mv japitool.txt.tmp > "$REPORTS"/japitool.txt
+mv japitool.txt.tmp "$REPORTS"/japitool.txt
 
 # sigtest probably contains only incompatibilities
 # JaCC contains only incompatibilities
