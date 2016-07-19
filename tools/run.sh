@@ -24,7 +24,7 @@ echo "********* japicmp *********"
 java -jar japicmp/japicmp-0.7.2-jar-with-dependencies.jar -o ../lib-v1.jar -n ../lib-v2.jar -a private > "$REPORTS"/japicmp.txt
 
 echo "********* sigtest *********"
-java -jar sigtest/sigtestdev.jar SetupAndTest -reference ../lib-v1.jar:"$RT_JAR" -test ../lib-v2.jar:"$RT_JAR" -package testing_lib -H -out "$REPORTS"/sigtest.txt
+java -jar sigtest/sigtestdev.jar SetupAndTest -Backward  -reference ../lib-v1.jar:"$RT_JAR" -test ../lib-v2.jar:"$RT_JAR" -package testing_lib -H -Out "$REPORTS"/sigtest.txt
 
 echo "********* Jour *********"
 java -cp jour/jour-instrument-2.0.3.jar:jour/javassist.jar net.sf.jour.SignatureGenerator --src ../lib-v1.jar -jars "$RT_JAR" --packages testing_lib --dst jour/sigTestLib1ApiSignature.xml --level private
@@ -34,23 +34,24 @@ echo "********* japicc *********"
 perl japi-compliance-checker-1.5/japi-compliance-checker ../lib-v1.jar ../lib-v2.jar -report-path "$REPORTS"/japicc.html
 
 
-# TODO
 ## attempts to filter only incompatible
 #  Caution: not all the tools show if a change is incompatible at all!
 #  for this reason it is not straightforward to see what to filter ou.
-#grep -Pzo  'new:.*\n.*BREAKING' "$REPORTS"/revapi.txt > revapi.txt.tmp
-#mv revapi.txt.tmp "$REPORTS"/revapi.txt
 
-#grep  -v 'INFO.*' "$REPORTS"/clirr.txt > clirr.txt.tmp
-#mv clirr.txt.tmp "$REPORTS"/clirr.txt
+grep -Pzo  'new:.*\n.*: BREAKING' "$REPORTS"/revapi.txt > revapi.txt.tmp
+mv revapi.txt.tmp "$REPORTS"/revapi.txt
 
-#grep  '!.*' "$REPORTS"/japicmp.txt > japicmp.txt.tmp
-#mv japicmp.txt.tmp "$REPORTS"/japicmp.txt
+grep  -v 'INFO.*' "$REPORTS"/clirr.txt > clirr.txt.tmp
+mv clirr.txt.tmp "$REPORTS"/clirr.txt
 
-# sigtest does nto have explicit information about compatibility of a change
-#grep  -v '+ Class' sigtest.txt > sigtest.txt.tmp
-#mv sigtest.txt.tmp > sigtest.txt
-# edn TOD
+grep  -v '===  UNCHANGED' "$REPORTS"/japicmp.txt > japicmp.txt.tmp
+mv japicmp.txt.tmp "$REPORTS"/japicmp.txt
+
+grep -v ".*100\% good" "$REPORTS"/japitool.txt > japitool.txt.tmp
+mv japitool.txt.tmp > "$REPORTS"/japitool.txt
+
+# sigtest probably contains only incompatibilities
+# JaCC contains only incompatibilities
 
 
 ###########################
