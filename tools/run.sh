@@ -36,7 +36,7 @@ perl japi-compliance-checker-1.5/japi-compliance-checker ../lib-v1.jar ../lib-v2
 
 ## attempts to filter only incompatible
 #  Caution: not all the tools show if a change is incompatible at all!
-#  for this reason it is not straightforward to see what to filter ou.
+#  for this reason it is not straightforward to see what to filter out.
 
 grep -Pzo  'new:.*\n.*: BREAKING' "$REPORTS"/revapi.txt > revapi.txt.tmp
 mv revapi.txt.tmp "$REPORTS"/revapi.txt
@@ -52,6 +52,9 @@ mv japitool.txt.tmp > "$REPORTS"/japitool.txt
 
 # sigtest probably contains only incompatibilities
 # JaCC contains only incompatibilities
+# Japicc contains only incompatibilities
+# Japichecker contains only incompatibilities
+
 
 
 ###########################
