@@ -65,8 +65,8 @@ Tools included in th benchmark:
 - Jour (http://jour.sourceforge.net/usage.html)
 - Revapi (http://revapi.org/)
 - Sigtest (https://wiki.openjdk.java.net/display/CodeTools/SigTest)
-- 
-# Results
+ 
+## Results
 
 |	 | 	clirr	 | 	jacc	 | 	japicc	 | 	japiChecker	 | 	japicmp	 | 	japitool	 | 	jour	 | 	revapi	 | 	sigtest	|
 |--------|---------------|---------------|---------------|-----------------------|---------------|------------------------|--------------|---------------|--------------|
