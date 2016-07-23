@@ -320,28 +320,30 @@
 % not capitalized unless they are the first or last word of the title.
 % Linebreaks \\ can be used within to get better formatting as desired.
 % Do not put math or special symbols in the title.
-\title{Bare Demo of IEEEtran.cls\\ for IEEE Conferences}
+\title{API Evolution Data Corpus and Tools Challenge}
 
 
 % author names and affiliations
 % use a multiple column layout for up to three different
 % affiliations
-\author{\IEEEauthorblockN{Michael Shell}
-\IEEEauthorblockA{School of Electrical and\\Computer Engineering\\
-Georgia Institute of Technology\\
-Atlanta, Georgia 30332--0250\\
-Email: http://www.michaelshell.org/contact.html}
+\author{
+	\IEEEauthorblockN{Kamil Jezek}
+	\IEEEauthorblockA{
+Department of Computer Science and Engineering \\
+NTIS -- New Technologies for the Information Society \\
+Faculty of Applied Sciences,
+University of West Bohemia \\
+Pilsen, Czech Republic \\
+	kjezek@kiv.zcu.cz}
+
 \and
-\IEEEauthorblockN{Homer Simpson}
-\IEEEauthorblockA{Twentieth Century Fox\\
-Springfield, USA\\
-Email: homer@thesimpsons.com}
-\and
-\IEEEauthorblockN{James Kirk\\ and Montgomery Scott}
-\IEEEauthorblockA{Starfleet Academy\\
-San Francisco, California 96678--2391\\
-Telephone: (800) 555--1212\\
-Fax: (888) 555--1212}}
+	\IEEEauthorblockN{Jens Dietrich}
+	\IEEEauthorblockA{School of Engineering and Advanced Technology\\
+	Massey University\\
+	Palmerston North, New Zealand\\
+	J.B.Dietrich@massey.ac.nz} \\
+
+}
 
 % conference papers do not typically use \thanks and this command
 % is locked out in conference mode. If really needed, such as for
@@ -380,7 +382,12 @@ Fax: (888) 555--1212}}
 % As a general rule, do not put math, special symbols or citations
 % in the abstract
 \begin{abstract}
-The abstract goes here.
+Development of independently released software components is nowadays widely supported by tools.
+Among other benefits, the tools help guarantee backward compatibility of new versions of components. 
+In other words, non-breaking changes in components depend on ability of the tools to detect breaking changes.
+But how the tools cope? In this work, we have selected tools that analyse syntactic compatibility of API changes
+and tested how they perform. We provide results together with the test data used for the test. The data itself
+are also valuable contribution of this work as they may be used for testing future tools.
 \end{abstract}
 
 % no keywords
@@ -398,125 +405,82 @@ The abstract goes here.
 % creates the second title. It will be ignored for other modes.
 \IEEEpeerreviewmaketitle
 
-
-
 \section{Introduction}
-% no \IEEEPARstart
-This demo file is intended to serve as a ``starter file''
-for IEEE conference papers produced under \LaTeX\ using
-IEEEtran.cls version 1.8b and later.
-% You must have at least 2 lines in the paragraph with the drop letter
-% (should never be an issue)
-I wish you the best of success.
 
-\hfill mds
- 
-\hfill August 26, 2015
+\section{Background: About Compatibility}
 
-\subsection{Subsection Heading Here}
-Subsection text here.
+\section{Test Data}
 
+Test data composes a corpus of possible syntactic API changes. They were designed to contain all changes as much as possible. To prevent possible missing cases, the data are separated into eight categories, in which it is easier to handle complexity. The categories are: access modifiers, data types, exceptions, generics, inheritance, class members, other (non-access) modifiers and borderline (uncategorised) cases. 
 
-\subsubsection{Subsubsection Heading Here}
-Subsubsection text here.
+However, the data does not have to be complete as some cases did not have to be know in the time of building the corpus, or new cases may appear as the language evolve. For this reason, the corpus is designed to be easily extended by simply adding new examples to respective directories.
 
+The corpus is split into three directories: \texttt{lib-v1}, \texttt{lib-v2} and \texttt{client}. As the names suggest, the directories respectively contain a first (original) version of an API, a second (evolved) version of an API and a client application, which invokes the API. The name also corresponds with nowadays practise where a client uses libraries, thought the libraries in the corpus are simplistic only representing API with primitive implementations. They simplify situations where a more complex back-end logic would be invoked behind the API in the real world. The client application is provided to show possible invocation of a library, thought more cases can actually exist.
 
-% An example of a floating figure using the graphicx package.
-% Note that \label must occur AFTER (or within) \caption.
-% For figures, \caption should occur after the \includegraphics.
-% Note that IEEEtran v1.7 and later has special internal code that
-% is designed to preserve the operation of \label within \caption
-% even when the captionsoff option is in effect. However, because
-% of issues like this, it may be the safest practice to put all your
-% \label just after \caption rather than within \caption{}.
-%
-% Reminder: the "draftcls" or "draftclsnofoot", not "draft", class
-% option should be used if it is desired that the figures are to be
-% displayed while in draft mode.
-%
-%\begin{figure}[!t]
-%\centering
-%\includegraphics[width=2.5in]{myfigure}
-% where an .eps filename suffix will be assumed under latex, 
-% and a .pdf suffix will be assumed for pdflatex; or what has been declared
-% via \DeclareGraphicsExtensions.
-%\caption{Simulation results for the network.}
-%\label{fig_sim}
-%\end{figure}
+Each library as well as the client hold a set of sub-directories representing concrete API evaluation examples. They are in fact Java packages. The names are constructed following way:
+\begin{verbatim}
+<category><element><change>
+\end{verbatim} 
 
-% Note that the IEEE typically puts floats only at the top, even when this
-% results in a large percentage of a column being occupied by floats.
+Where \texttt{category} is one of the eight categories, \texttt{element} is a representation of changed element and \texttt{change} describes content of the change. For instance, a case named \texttt{dataTypeClassFieldBoxing} means that a class field changed its data types and the concrete change was boxing.
+
+The naming convention allows for extensibility of the corpus by simply adding new cases following the convention. In fact, the convention is not enforced, but recommended to keep order in the relatively big number of data.
+
+The corpus contains in its root directory an \texttt{ant} script to build the source data into JAR files. It may be invoked simply by typing \texttt{ant} from the command-line.  The script output are three JAR files named the same way as the original source directories.
+
+Although the corpus described so far may be used as such, we provide additional meta-data describing the corpus to provide convenient information for third-party usage. The meta-data is a simple CSV file with three columns. First column lists the name of a change as described above. Second two columns inform respectively about source and binary compatibility of the change. In detail, ``$1$'' is printed for a compatible change, ``$0$'' otherwise. The meta-data may be generated by invoking a script \texttt{./compatibility.sh} from the command-line.
+
+First, the script automatically reads all changes stored in the three directories. As it does not rely on particular number of test-cases, new ones may be added and meta-data regenerated. Then, the script tries to compile the client against the original library and the updated library. Then it tries to invoke the client compiled against the old library with the updated library. The data are constructed so that the compilation and invocation should always succeed with the original library. On the other hand, it does not have to succeed with the updated library, effectively checking backward compatibility of the update. The result of compilation and invocation is reflected in the CSV file, building this way the meta-data.
 
 
-% An example of a double column floating figure using two subfigures.
-% (The subfig.sty package must be loaded for this to work.)
-% The subfigure \label commands are set within each subfloat command,
-% and the \label for the overall figure must come after \caption.
-% \hfil is used as a separator to get equal spacing.
-% Watch out that the combined width of all the subfigures on a 
-% line do not exceed the text width or a line break will occur.
-%
-%\begin{figure*}[!t]
-%\centering
-%\subfloat[Case I]{\includegraphics[width=2.5in]{box}%
-%\label{fig_first_case}}
-%\hfil
-%\subfloat[Case II]{\includegraphics[width=2.5in]{box}%
-%\label{fig_second_case}}
-%\caption{Simulation results for the network.}
-%\label{fig_sim}
-%\end{figure*}
-%
-% Note that often IEEE papers with subfigures do not employ subfigure
-% captions (using the optional argument to \subfloat[]), but instead will
-% reference/describe all of them (a), (b), etc., within the main caption.
-% Be aware that for subfig.sty to generate the (a), (b), etc., subfigure
-% labels, the optional argument to \subfloat must be present. If a
-% subcaption is not desired, just leave its contents blank,
-% e.g., \subfloat[].
+We make the corpus available as a GitHub project hosted at: 
+\begin{verbatim}
+TODO: url to the project ... gihub/kjezek/api-corpus ..
+\end{verbatim}
 
 
-% An example of a floating table. Note that, for IEEE style tables, the
-% \caption command should come BEFORE the table and, given that table
-% captions serve much like titles, are usually capitalized except for words
-% such as a, an, and, as, at, but, by, for, in, nor, of, on, or, the, to
-% and up, which are usually not capitalized unless they are the first or
-% last word of the caption. Table text will default to \footnotesize as
-% the IEEE normally uses this smaller font for tables.
-% The \label must come after \caption as always.
-%
-%\begin{table}[!t]
-%% increase table row spacing, adjust to taste
-%\renewcommand{\arraystretch}{1.3}
-% if using array.sty, it might be a good idea to tweak the value of
-% \extrarowheight as needed to properly center the text within the cells
-%\caption{An Example of a Table}
-%\label{table_example}
-%\centering
-%% Some packages, such as MDW tools, offer better commands for making tables
-%% than the plain LaTeX2e tabular which is used here.
-%\begin{tabular}{|c||c|}
-%\hline
-%One & Two\\
-%\hline
-%Three & Four\\
-%\hline
-%\end{tabular}
-%\end{table}
+\subsection{Access Modifiers}
+- here and in following sections - nice examples of incompatibilities.
+\subsection{Data Types}
+\subsection{Exceptions}
+\subsection{Generics}
+\subsection{Inheritance}
+\subsection{Members}
+\subsection{Other Modifiers}
+\subsection{Borderline Cases}
 
 
-% Note that the IEEE does not put floats in the very first column
-% - or typically anywhere on the first page for that matter. Also,
-% in-text middle ("here") positioning is typically not used, but it
-% is allowed and encouraged for Computer Society conferences (but
-% not Computer Society journals). Most IEEE journals/conferences use
-% top floats exclusively. 
-% Note that, LaTeX2e, unlike IEEE journals/conferences, places
-% footnotes above bottom floats. This can be corrected via the
-% \fnbelowfloat command of the stfloats package.
+\section{Challenge}
 
+\subsection{Tools}
 
+\subsection{Methodology}
 
+\subsection{Results}
+
+\begin{table*}[t]
+  \centering
+  \begin{tabular}{l | r r r r r r r r r }
+Category   &  clirr   &  jacc   &  japicc   &  japiChecker   &  japicmp   &  japitool   &  jour   &  revapi   &  sigtest  \\
+\hline
+Access Modifiers   &  100.00\%   &  100.00\%   &  83.33\%   &  100.00\%   &  100.00\%   &  100.00\%   &  83.33\%   &  83.33\%   &  100.00\% \\
+Data Types   &  100.00\%   &  100.00\%   &  89.36\%   &  100.00\%   &  100.00\%   &  100.00\%   &  100.00\%   &  95.74\%   &  100.00\%  \\
+Exceptions   &  0.00\%   &  0.00\%   &  100.00\%   &  100.00\%   &  100.00\%   &  100.00\%   &  100.00\%   &  71.43\%   &  100.00\%  \\
+Generics   &  0.00\%   &  33.33\%   &  5.88\%   &  0.00\%   &  0.00\%   &  100.00\%   &  17.65\%   &  100.00\%   &  100.00\%  \\
+Inheritance   &  71.43\%   &  100.00\%   &  71.43\%   &  85.71\%   &  100.00\%   &  100.00\%   &  100.00\%   &  42.86\%   &  100.00\%  \\
+Members   &  100.00\%   &  100.00\%   &  84.21\%   &  89.47\%   &  100.00\%   &  100.00\%   &  84.21\%   &  42.11\%   &  100.00\%  \\
+Other Modifiers   &  61.54\%   &  84.62\%   &  84.62\%   &  53.85\%   &  84.62\%   &  69.23\%   &  76.92\%   &  61.54\%   &  84.62\%  \\
+Others   &  100.00\%   &  100.00\%   &  75.00\%   &  100.00\%   &  100.00\%   &  100.00\%   &  100.00\%   &  50.00\%   &  100.00\%  \\
+\hline
+Total  &  57.79\%   &  72.08\%   &  59.74\%   &  61.04\%   &  65.58\%   &  97.40\%   &  68.18\%   &  82.47\%   &  98.70\%  \\  \end{tabular}
+  \caption{Correctly Detected Errors}
+  \label{tab:result}
+\end{table*}
+
+\subsection{Threats to Validity}
+
+- data completeness
+- bugs in data analysis
 
 \section{Conclusion}
 The conclusion goes here.
@@ -534,43 +498,9 @@ The conclusion goes here.
 The authors would like to thank...
 
 
+\bibliographystyle{plain}
+\bibliography{references}
 
-
-
-% trigger a \newpage just before the given reference
-% number - used to balance the columns on the last page
-% adjust value as needed - may need to be readjusted if
-% the document is modified later
-%\IEEEtriggeratref{8}
-% The "triggered" command can be changed if desired:
-%\IEEEtriggercmd{\enlargethispage{-5in}}
-
-% references section
-
-% can use a bibliography generated by BibTeX as a .bbl file
-% BibTeX documentation can be easily obtained at:
-% http://mirror.ctan.org/biblio/bibtex/contrib/doc/
-% The IEEEtran BibTeX style support page is at:
-% http://www.michaelshell.org/tex/ieeetran/bibtex/
-%\bibliographystyle{IEEEtran}
-% argument is your BibTeX string definitions and bibliography database(s)
-%\bibliography{IEEEabrv,../bib/paper}
-%
-% <OR> manually copy in the resultant .bbl file
-% set second argument of \begin to the number of references
-% (used to reserve space for the reference number labels box)
-\begin{thebibliography}{1}
-
-\bibitem{IEEEhowto:kopka}
-H.~Kopka and P.~W. Daly, \emph{A Guide to \LaTeX}, 3rd~ed.\hskip 1em plus
-  0.5em minus 0.4em\relax Harlow, England: Addison-Wesley, 1999.
-
-\end{thebibliography}
-
-
-
-
-% that's all folks
 \end{document}
 
 
