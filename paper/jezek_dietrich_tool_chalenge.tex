@@ -411,11 +411,10 @@ are also valuable contribution of this work as they may be used for testing futu
 
 \section{Test Data}
 
-Test data composes a corpus of possible syntactic API changes. They were designed to contain all changes as much as possible. To prevent possible missing cases, the data are separated into eight categories, in which it is easier to handle complexity. The categories are: access modifiers, data types, exceptions, generics, inheritance, class members, other (non-access) modifiers and borderline (uncategorised) cases. 
+Test data composes a corpus of possible syntactic API changes, which model evolution and releases of consequent versions of a library. 
+The data are separated into eight categories to handle complexity. The categories are: access modifiers, data types, exceptions, generics, inheritance, class members, other (non-access) modifiers and borderline (uncategorised) cases. Each category is filled with examples of API change with the desire to cover all possible changes. However, the data does not have to be complete as some cases did not have to be know in the time of building the corpus, or new cases may appear as the language evolve. For this reason, the corpus is designed to be easily extended by simply adding new examples to respective directories.
 
-However, the data does not have to be complete as some cases did not have to be know in the time of building the corpus, or new cases may appear as the language evolve. For this reason, the corpus is designed to be easily extended by simply adding new examples to respective directories.
-
-The corpus is split into three directories: \texttt{lib-v1}, \texttt{lib-v2} and \texttt{client}. As the names suggest, the directories respectively contain a first (original) version of an API, a second (evolved) version of an API and a client application, which invokes the API. The name also corresponds with nowadays practise where a client uses libraries, thought the libraries in the corpus are simplistic only representing API with primitive implementations. They simplify situations where a more complex back-end logic would be invoked behind the API in the real world. The client application is provided to show possible invocation of a library, thought more cases can actually exist.
+The corpus is split into three directories: \texttt{lib-v1}, \texttt{lib-v2} and \texttt{client}. As the names suggest, the directories respectively contain a first (original) version of an API, a second (evolved) version of an API and a client application, which invokes the API. The directories model nowadays practise where applications are constructed so that a client uses libraries. However, the libraries in the corpus are simplistic and represent only API with very primitive implementations. They simplify real-word cases where a more complex back-end logic would be invoked behind the API. The client application is provided to show possible invocation of a library, thought it does not have to be exhaustive and more cases may actually exist.
 
 Each library as well as the client hold a set of sub-directories representing concrete API evaluation examples. They are in fact Java packages. The names are constructed following way:
 \begin{verbatim}
@@ -424,18 +423,19 @@ Each library as well as the client hold a set of sub-directories representing co
 
 Where \texttt{category} is one of the eight categories, \texttt{element} is a representation of changed element and \texttt{change} describes content of the change. For instance, a case named \texttt{dataTypeClassFieldBoxing} means that a class field changed its data types and the concrete change was boxing.
 
-The naming convention allows for extensibility of the corpus by simply adding new cases following the convention. In fact, the convention is not enforced, but recommended to keep order in the relatively big number of data.
+The design based on the naming convention allows for extensibility of the corpus by simply adding new cases following the convention. In fact, the convention is not enforced, but recommended to keep order in the relatively big number of data.
 
-The corpus contains in its root directory an \texttt{ant} script to build the source data into JAR files. It may be invoked simply by typing \texttt{ant} from the command-line.  The script output are three JAR files named the same way as the original source directories.
+The corpus contains an \texttt{ant} script in its root directory to build the source data into JAR files. It may be invoked simply by typing \texttt{ant} from the command-line.  The script output are three JAR files named the same way as the original source directories.
 
-Although the corpus described so far may be used as such, we provide additional meta-data describing the corpus to provide convenient information for third-party usage. The meta-data is a simple CSV file with three columns. First column lists the name of a change as described above. Second two columns inform respectively about source and binary compatibility of the change. In detail, ``$1$'' is printed for a compatible change, ``$0$'' otherwise. The meta-data may be generated by invoking a script \texttt{./compatibility.sh} from the command-line.
+Although the corpus described so far may be used as such, we provide additional meta-data with convenient information for third-party usage in a form of a simple CSV file. The file has three columns: first one lists the name of a change as described above and second two columns inform respectively about source and binary compatibility of the change. Value ``$1$'' is printed for a compatible change, ``$0$'' otherwise. To have up-to date meta-data in the case the corpus is extended, the meta-data are generated by a script provided within the corpus and may be re-generated when the corpus changes. The script may be invoked by typing \texttt{./compatibility.sh} from the command-line.
 
-First, the script automatically reads all changes stored in the three directories. As it does not rely on particular number of test-cases, new ones may be added and meta-data regenerated. Then, the script tries to compile the client against the original library and the updated library. Then it tries to invoke the client compiled against the old library with the updated library. The data are constructed so that the compilation and invocation should always succeed with the original library. On the other hand, it does not have to succeed with the updated library, effectively checking backward compatibility of the update. The result of compilation and invocation is reflected in the CSV file, building this way the meta-data.
+The script works as follows: first, it automatically reads all changes stored in the three directories. Secondly, the script tries to compile the client against the original library and then against the updated library. After that, it tries to invoke the client compiled against the old library with the updated library. This process should always succeed with the original library as it represents a compatibility. On the other hand, it does not have to succeed with the updated library as it represents a potential incompatibility. The result is reflected in the CSV file showing information about backward compatibility of each update.
 
 
 We make the corpus available as a GitHub project hosted at: 
 \begin{verbatim}
-TODO: url to the project ... gihub/kjezek/api-corpus ..
+https://github.com/kjezek/
+api-evolution-data-corpus/
 \end{verbatim}
 
 
