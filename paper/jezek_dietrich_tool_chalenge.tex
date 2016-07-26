@@ -416,7 +416,7 @@ The data are separated into eight categories to handle complexity. The categorie
 
 The corpus is split into three directories: \texttt{lib-v1}, \texttt{lib-v2} and \texttt{client}. As the names suggest, the directories respectively contain a first (original) version of an API, a second (evolved) version of an API and a client application, which invokes the API. The directories model nowadays practise where applications are constructed so that a client uses libraries. However, the libraries in the corpus are simplistic and represent only API with very primitive implementations. They simplify real-word cases where a more complex back-end logic would be invoked behind the API. The client application is provided to show possible invocation of a library, thought it does not have to be exhaustive and more cases may actually exist.
 
-Each library as well as the client hold a set of sub-directories representing concrete API evaluation examples. They are in fact Java packages. The names are constructed following way:
+Each library as well as the client hold a set of sub-directories, Java packages, representing concrete API evaluation examples. The names are constructed following way:
 \begin{verbatim}
 <category><element><change>
 \end{verbatim} 
@@ -450,11 +450,54 @@ api-evolution-data-corpus/
 \subsection{Borderline Cases}
 
 
-\section{Challenge}
+\section{Tools Challenge}
 
-\subsection{Tools}
+We searched for tools that are capable of discovering API syntactic backward compatibility. They are listed in Table \ref{tab:tools} together with basic information about their authors, current versions, licensing and basic usages. All these tools were benchmarked to discover how they cope with searching for incompatibilities. Results are provided in this section.
+
+\begin{table*}[t]
+  \centering
+  \begin{tabular}{l | p{1cm} p{1cm} p{1cm} p{1cm} p{1cm} p{1cm} p{1cm} p{1cm} p{1cm} }
+Tool  &  Clirr  &  Japicmp  &  japiChecker  &  JAPICC  &  Revapi  &  Sigtest  &  Japitools  &  Jour  &  JaCC	\\
+\hline
+\multicolumn{10}{|c|}{Basin info} \\
+\hline
+Author  &  Lars Kühne  &  Martin Mois  &  William Bernardet  &  Andrey Ponomarenko  &  Lukas Krejci  &  Oracle  &  Stuart Ballard  &  Vlad Skarzhevskyy  &  UWB	\\
+License  &  LGPL  &  A2.0  &  A2.0  &  LGPL  &  A2.0  &  GPLv2   &  GPL   &  LGPL  &  ask	\\
+Version  &  0.6.0  &  0.7.2  &  0.2.1  &  1.5  &  0.4.2  &  3.1  &  0.9.7  &  2.0.3  &  1.0.9	\\
+Release  &  9/27/2005  &  3/20/2016  &  10/3/2015  &  4/8/2016  &  3/30/2016  &  4/8/2016  &  11/13/2007  &  12/12/2008  &  	\\
+\hline
+\multicolumn{10}{|c|}{Output} \\
+\hline
+TXT  &  yes  &  yes  &  yes  &    &  yes  &  yes  &  yes  &  yes  &  yes	\\
+XML  &  yes  &  yes  &    &    &    &    &    &    &  	\\
+HTML  &  yes  &  yes  &    &  yes  &    &    &    &    &  	\\
+\hline
+\multicolumn{10}{|c|}{Usage} \\
+\hline
+CLI  &  yes  &  yes  &  yes  &  yes  &  yes  &  yes  &  yes  &  yes  &  	\\
+Maven  &  yes  &  yes  &  yes  &    &  yes  &  yes  &    &  yes  &  yes	\\
+Ant  &  yes  &    &  yes  &    &  yes  &  yes  &    &    &  		\\
+libray  &    &  yes  &    &    &    &    &    &    &  yes	\\
+eclipse plugin  &    &    &    &    &    &    &    &    &  yes	\\  
+\end{tabular}
+
+\caption{Tested Tools (GPL//LGPL = GNU GPL/LGPL, A2.0 = Apache 2.0)}
+  \label{tab:tools}
+\end{table*}
 
 \subsection{Methodology}
+
+The tools were tested using following approach: we generated the meta-data with incompatibility classification first, then we extracted only the lines that represent incompatibility. We also invoked all the tools and redirected their output to text files. In certain cases we removed outputs representing a compatible change. Finally, we iterated the meta-data with incompatibilities and used string matching to find successfully detected incompatible changes in the tools output. We collected the results in a CSV file with ``$1$'' meaning a correctly detected incompatibility and ``$0$'' meaning that a tool did not find the incompatibility.
+
+The lines with compatible changes were removed from the meta-data because they represent only compatibility in the context of current \texttt{client.jar}. In opposite, an incompatible usage not handled by the client may exist and could be consequently detected by a tool. For this reason, we analysed only provably incompatible changes to prevent false negatives. 
+
+The lines with compatible changes were removed from the output tools to match only with incompatible meta-data and prevent false positives when a tool lists a change, but actually did not detected that the change is incompatible. This step depends on each tool. Some of the tools output only incompatibilities and do not have to be corrected (japichecker, japicc) while some have to. Usually such lines can be easily caught by a simple regular expression as they contain representative strings such as \texttt{UNCHANGED} (japicmp), \texttt{100\% Compatible} (japitool), \texttt{NON\_BREAKING} (revapi), \texttt{INFO} (clirr) etc.  
+
+The whole process is automated and may be invoked by a script \texttt{./benchmark.sh}. The script prepares the meta-data, invokes the tools and analyse results. It delegates invocation of the tools to the script \texttt{tools/run.sh}, which executes all tools one-by-one.
+
+The new tools may be added to the benchmark simply by adding invocable lines to the \texttt{run.sh} script. 
+The script can contain any bash invocable lines that lead to execution of a tool. 
+The only limitation is that the tool must be able to produce a textual output, which is stored in the \texttt{tools/.reports} directory and filtered to reveal only incompatibilities as described above.
 
 \subsection{Results}
 
@@ -472,10 +515,25 @@ Members   &  100.00\%   &  100.00\%   &  84.21\%   &  89.47\%   &  100.00\%   & 
 Other Modifiers   &  61.54\%   &  84.62\%   &  84.62\%   &  53.85\%   &  84.62\%   &  69.23\%   &  76.92\%   &  61.54\%   &  84.62\%  \\
 Others   &  100.00\%   &  100.00\%   &  75.00\%   &  100.00\%   &  100.00\%   &  100.00\%   &  100.00\%   &  50.00\%   &  100.00\%  \\
 \hline
-Total  &  57.79\%   &  72.08\%   &  59.74\%   &  61.04\%   &  65.58\%   &  97.40\%   &  68.18\%   &  82.47\%   &  98.70\%  \\  \end{tabular}
-  \caption{Correctly Detected Errors}
-  \label{tab:result}
+Total  &  57.79\%   &  72.08\%   &  59.74\%   &  61.04\%   &  65.58\%   &  97.40\%   &  68.18\%   &  82.47\%   &  98.70\%  \\  
+\end{tabular}
+  \caption{Correctly Detected Incompatibilities}
+  \label{tab:result-categories}
 \end{table*}
+
+\begin{table*}[t]
+  \centering
+  \begin{tabular}{l | r r r r r r r r r }
+Type   &  clirr   &  jacc   &  japicc   &  japiChecker   &  japicmp   &  japitool   &  jour   &  revapi   &  sigtest  \\
+\hline
+Source 	& 13.24\%	&	41.18\%	&	25.00\%	&	20.59\%		&	25.00\%		&	100.00\%	&	38.24\%	&	88.24\%	&	100.00\%  \\
+Binary	& 86.36\%	&	90.91\%	&	81.82\%	&	86.36\%		&	90.91\%		&	90.91\%		&	90.91\%	&	86.36\%	&	90.91\%		\\
+Both  	&  57.79\%   &  72.08\%   &  59.74\%   &  61.04\%   &  65.58\%   &  97.40\%   &  68.18\%   &  82.47\%   &  98.70\%  \\  
+\end{tabular}
+  \caption{Source vs Binary Incompatibilities}
+  \label{tab:result-types}
+\end{table*}
+
 
 \subsection{Threats to Validity}
 
