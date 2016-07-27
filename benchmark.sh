@@ -46,10 +46,10 @@ cd ..
 echo "change,source,binary" > $CSV_BENCHMARK_FILE
 # compatible results (it has at least one "0" in the row
 grep "0" $CSV_FILE >> $CSV_BENCHMARK_FILE
-# binary compatible only
+# source incompatible only
 #grep "0,1" $CSV_FILE >> $CSV_BENCHMARK_FILE
-# source compatible only
-#grep "1,0" $CSV_FILE >> $CSV_BENCHMARK_FILE
+# binary incompatible + any source 
+#grep '.*,0$' $CSV_FILE >> $CSV_BENCHMARK_FILE
 
 # iterate tools
 for filename in "${TOOL_REPORTS[@]}" ; do
