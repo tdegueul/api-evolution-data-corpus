@@ -520,13 +520,52 @@ api-evolution-data-corpus/
 
 Following sub-sections detail API changes separated into categories. Short discussions is provided to overview why a category is signification.
 
-\subsection{Access Modifiers}
-- here and in following sections - nice examples of incompatibilities.
 \subsection{Data Types}
+
+Data types represent fundamental changes as they are used in the corpus for method and constructor signatures and field types. Changes of data types are also used in, generics, inheritance and exceptions and for this reason impacts other categories. 
+ 
+We covered changes respecting general features of object-oriented paradigm, i.e. polymorphisms as well as changes particular to Java. The basic changes are:
+\begin{itemize}
+\item Del -- a type is removed.
+\item Inst -- a type is added. 
+\item Gen -- a type is generalised, i.e. moved up in an inheritance hierarchy. For instance, a \texttt{java.lang.Number} is generalisation of \texttt{java.lang.Integer}.
+\item Spe -- a type is specialised, which is the opposite to the previous case.
+\item Mut -- a type is changed to an incompatible one, i.e. not coming from the same inheritance tree.
+\end{itemize}
+Explicit cases to cover primitive types were modelled as well:
+\begin{itemize}
+\item Narrow -- a ``specialising'' conversion for primitive types. E.g. \texttt{long} changed to \texttt{int}.
+\item Widen --  the opposite to the previous case.
+\end{itemize}
+Finally, Java allows for two more conversion due to simplifying work with primitive and wrapper types:
+\begin{itemize}
+\item Box -- a primitive type is converted to its wrapper type, e.g. \texttt{int} to \texttt{java.lang.Integer}.
+\item Unbox -- a wrapper type converted to a primitive type.
+\end{itemize}
+
+Changes in this category play a different role for source and binary compatibility. In particular, \texttt{Gen}, \texttt{Spe}, \texttt{Narrow}, \texttt{Widen}, \texttt{Box} and \texttt{Unbox} are conversions performed only by the Java compiler, not the linker. It means, that they are always binary incompatible, but may be source compatible depending on usage. For instance, \texttt{Gen} is a source compatible conversion for a method parameter type, while \texttt{Spe} is compatible for a method return type. Example is a method that used to accept \texttt{java.lang.Integer} as a parameter type. It will remain compatible when it is changed to \texttt{java.lang.Number}. The opposite case holds for return types where the return type may be only specialised. Once the linker decides correct conversions, it is compiled into the byte-code and no more conversions are performed by the linker.
+
+Changes \texttt{Del} and \texttt{Mut} are neither source nor binary compatible as no fall-back mechanism for non-existing or incompatible types is provided in Java.
+
 \subsection{Exceptions}
+
+Exceptions are from the API evolution point of view interesting as they are all compile-time checked. Java distinguishes between so called checked and unchecked exceptions. The checked ones must be handled by a client code, either be propagated to upper levels or managed by the \texttt{try-catch} block. The unchecked exceptions are propagated automatically, but may be optionally caught as well. 
+
+It is less known that the handling of exceptions in the client code is checked only by the compiler, not the linker. In other words, when a library method is updated so that it adds a new checked exception, the original client code cannot be compiled and it must be refactored to accommodate proper exception handling. On the other hand, if the library is used in conjunction with an already compiled client, they will link smoothly together. 
+
+As the exception is a data type, a Java class, the corpus contains examples combining their possible changes for checked and unchecked variants. All combinations are binary compatible and their differ only in their impact on source compatibility.
+
 \subsection{Generics}
+
+Generics were added to Java relatively late in version 1.5 with strong regard to compatibility with previous Java version. Their employment had required several simplifications, most noticeably so called \textit{erasures}. Simply said, generics are erased during the compilation from the caller site and their persist only on the target side. 
+
+Whereas a client code is verified by the compiler to correctly use generic types, a binary code that uses generics may be combined with the code not using generics. The impact to compatibility is evident. A lot of changes that are binary compatible do not have to be source compatible. 
+
+A typical example are bounds of a parametrized type: for instance, if a list is defined as \texttt{java.util.List<String>} only \texttt{String} values may be added and the compiler checks it. However, when the definition is changed to \texttt{java.util.List<Number>} and binaries updated, the system will successfully link. Let us note, that such as system will likely fail later on a \texttt{ClassCastException}, but strictly from the compatibility point of view, such a change is compatible. 
+
 \subsection{Inheritance}
 \subsection{Members}
+\subsection{Access Modifiers}
 \subsection{Other Modifiers}
 \subsection{Borderline Cases}
 
