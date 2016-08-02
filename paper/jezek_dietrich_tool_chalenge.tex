@@ -548,22 +548,30 @@ Changes in this category play a different role for source and binary compatibili
 Changes \texttt{Del} and \texttt{Mut} are neither source nor binary compatible as no fall-back mechanism for non-existing or incompatible types is provided in Java.
 
 \subsection{Exceptions}
+Java distinguishes between so called checked and unchecked exceptions. The checked ones must be handled by a client code, either by propagation to upper levels or managed by the \texttt{try-catch} block. The unchecked exceptions are propagated automatically and may be optionally caught as well. 
 
-Exceptions are from the API evolution point of view interesting as they are all compile-time checked. Java distinguishes between so called checked and unchecked exceptions. The checked ones must be handled by a client code, either be propagated to upper levels or managed by the \texttt{try-catch} block. The unchecked exceptions are propagated automatically, but may be optionally caught as well. 
+It is less known that the handling of exceptions in the client code is checked only by the compiler, not the linker. 
+As a consequence, changes in exceptions impact only source compatibility.
+In other words, when a library method is updated so that it adds a new checked exception, the original client code cannot be compiled and it must be refactored to accommodate proper exception handling. On the other hand, if the library is used in conjunction with an already compiled client, they will link smoothly together. 
 
-It is less known that the handling of exceptions in the client code is checked only by the compiler, not the linker. In other words, when a library method is updated so that it adds a new checked exception, the original client code cannot be compiled and it must be refactored to accommodate proper exception handling. On the other hand, if the library is used in conjunction with an already compiled client, they will link smoothly together. 
-
-As the exception is a data type, a Java class, the corpus contains examples combining their possible changes for checked and unchecked variants. All combinations are binary compatible and their differ only in their impact on source compatibility.
+The corpus combines examples of specialised, generalised or mutated types exceptions in variants for checked and unchecked ones. 
 
 \subsection{Generics}
 
-Generics were added to Java relatively late in version 1.5 with strong regard to compatibility with previous Java version. Their employment had required several simplifications, most noticeably so called \textit{erasures}. Simply said, generics are erased during the compilation from the caller site and their persist only on the target side. 
+Generics were added to Java relatively late in version 1.5 with strong regard to compatibility with previous Java version. Their employment had required several simplifications, most noticeably so called \textit{erasures}. Generics are erased during the compilation from the caller site and their persist only on the target side. When the linker searches for types, it works as if only raw types without generics were used. 
 
-Whereas a client code is verified by the compiler to correctly use generic types, a binary code that uses generics may be combined with the code not using generics. The impact to compatibility is evident. A lot of changes that are binary compatible do not have to be source compatible. 
+Whereas a client code is checked by the compiler to correctly use generic types, a binary code that uses generics may be combined with the code not using generics thanks to erasures. The impact to compatibility is evident. A lot of changes that are binary compatible do not have to be source compatible. 
 
-A typical example are bounds of a parametrized type: for instance, if a list is defined as \texttt{java.util.List<String>} only \texttt{String} values may be added and the compiler checks it. However, when the definition is changed to \texttt{java.util.List<Number>} and binaries updated, the system will successfully link. Let us note, that such as system will likely fail later on a \texttt{ClassCastException}, but strictly from the compatibility point of view, such a change is compatible. 
+A typical example are bounds of a parametrized type: for instance, if a list is defined as \texttt{java.util.List<String>} only \texttt{String} values may be added and the compiler checks it. However, when the definition is changed to \texttt{java.util.List<Number>} and  only binaries updated, the system will successfully link. Let us note, that such a program will likely fail later on a \texttt{ClassCastException}, but strictly from the compatibility point of view, such a change is compatible. 
 
 \subsection{Inheritance}
+
+Inheritance is sometimes not considered at all in respect to compatibility and some best practices discourage implementations/extensions of API classes. The reason is that API must be almost frozen to be backward compatible also for inheritance. 
+
+Some changes such as removed methods clearly break compatibility, but some breaking changes are less evident. Addition of an method to interface is an obvious example, which breaks compilation of clients implementing this interface. Another less obvious example is making a method more visible. In detail, changing visibility e.g. from \texttt{private} to \texttt{public} may seem harmless, but the new public method may overlap with the same method in a sub-class. When the sub-class method has a stricter access, the compilation also fails as the access cannot be weakened through inheritance.
+
+Since the changes possibly impacting inheritance are partly covered by other categories (method, modifier, types etc. changes), this category adds several examples to the corpus, where class/interface definitions are modified in a sub-class. 
+
 \subsection{Members}
 \subsection{Access Modifiers}
 \subsection{Other Modifiers}
