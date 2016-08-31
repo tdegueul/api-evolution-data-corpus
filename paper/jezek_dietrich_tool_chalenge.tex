@@ -292,6 +292,7 @@
 % *** PDF, URL AND HYPERLINK PACKAGES ***
 %
 \usepackage{url}
+\usepackage{todonotes}
 % url.sty was written by Donald Arseneau. It provides better support for
 % handling and breaking URLs. url.sty is already installed on most LaTeX
 % systems. The latest version and documentation can be obtained at:
@@ -384,10 +385,10 @@ Pilsen, Czech Republic \\
 \begin{abstract}
 Development of independently released software components is nowadays widely supported by tools.
 Among other benefits, the tools help guarantee backward compatibility of new versions of components. 
-In other words, non-breaking changes in components depend on ability of the tools to detect these changes.
-But how the tools cope? In this work, we have selected tools that analyse syntactic compatibility of API changes
-and tested how they perform. We provide results together with the synthetic data used for the test. The data set is itself
-a valuable contribution of this work as it may be used for testing future tools.
+In other words, absence of non-breaking changes depends on ability of the tools to detect them.
+But do the tools really cope well? This work aims at answering this question.  In brief, we have selected tools that analyse syntactic API changes
+and benchmarked them. We provide results together with the synthetic data used for the test. The data set should be itself
+a valuable contribution as it may test future tools.
 \end{abstract}
 
 % no keywords
@@ -407,23 +408,43 @@ a valuable contribution of this work as it may be used for testing future tools.
 
 \section{Introduction}
 
-...
+Quality assurance has been long understood as integral part of software development. While exercising programs either manually or by automated tests is still  common, more effective approaches come to light. The main rationale is to statically inspect the code and detect possible problems without costly invoking a program. Back in the beginning of millennia Jacobs however pointed at challenges of static verification \cite{Jacobs2003formal} and claimed: 
+\begin{quote}
+"While abstract formalisms were useful at the time for explaining the main ideas in this field, they are not very helpful today when it comes to actual program verification for modern programming."
+\end{quote}
+Despite obstacles, both source and byte-code analysis started to be popular for Java program verifications. Over the last two decades a lot of approaches to byte-code verification have followed up. Let us name Leroy \cite{Leroy2003javabytecode} who reviews byte-code verification techniques which mainly concentrates on security and byte-code consistency issues. He was followed by others Male \cite{Male2008}, Klein \cite{Klein2003verified} or Burdy \cite{Burdy2006javabytecode} providing various byte-code based verifications. Noticeably, quite a few works \cite{Jezek2015detecting}, \cite{jezek2014ontheuse}, \cite{Raemaekers2011exploring}, \cite{Raemaekers2012measuring}, \cite{ebad2015measuring} target API evolution in standard Java, but also in Android \cite{Linares-Vasquez2013apichange}.
 
-In this work, we propose a dataset simulating vertical compatibility (library updates) as well as horizontal compatibility (a client provider role) first.
-Then we check how successfully is incompatibility detected by existing tools with concert to both source and binary compatibility.
+Approximately at the same time, static verification implemented in open source tools started to appear. Notoriously known are source-code style checkers such as \texttt{PMD}\footnote{https://github.com/pmd}, \texttt{Checkstyle}\footnote{http://checkstyle.sourceforge.net/}, or \texttt{Findbugs}\footnote{http://findbugs.sourceforge.net/} that are widely used and integrated into development tools or continuous integrations such us \texttt{Jenkins}\footnote{https://jenkins.io/} or \texttt{SonarQube}\footnote{http://www.sonarqube.org/}. 
+
+Another set of tools are checkers of API evolution. They are generally useful for assessing compatibility of independently evolved libraries. They help developers assure smooth process of upgrading systems or releasing new versions of components. In contrast to the previous group, they work usually with byte-code and thus ideally fit for inspection of third-party binary libraries.  
+All tools we are aware of are included in this work and listed in Table \ref{tab:tools}. They were collected putting together our knowledge, cross-refrences and search through developer forums, mostly \url{stackoverflow.com}. 
+
+\todo[inline]{missing JDiff}
+To our best knowledge, these tools are less popular and also seem to be  surrounded by smaller communities in comparison to the tools that check source-code style\footnote{One of the tool, \texttt{Clirr}, has three members, one contributor and finally is not developed since 2005. Still active is \texttt{Revapi} but with only four contributors. Bigger seems to be \texttt{japicmp} with 11 contributors. But they cannot match with \texttt{checkstyle} wiht 92 contributors or  \texttt{PMD} with 58}. It is interesting observation as API compatibility is not less important then code-style violations, or at least should not be. This work does not aim at answering if and why the tools are less popular, but it should provide insight into their quality and ability to detect API defects.
+
+\todo[inline]{extend why we need a new dataset}
+In this work, we additionally propose a dataset simulating syntactic changes of API, which has been used to benchmark nine tools. 
+
+The contribution of this work is twofold. First, it provides an extensible dataset with possibly wide applications such as mock-testing, replication studies, or benchmark of new tools, etc. Secondly, we benchamrk how successfully nowadays tools deal detect incompatibilities.  
+
+\todo[inline]{finish}
+Remainder of this paper is structured as follows ...
 
 
 \section{Related Work}
 In the technical domain, the term compatibility denotes\footnote{Source: the Merriam-Webster dictionary.} the ``ability to be used together'' and  ``designed to work with another device or system without modification''. Various definitions of compatibility related to software components exist, both in research \cite{canal2001compatibility,Belguidoum08formalization,taylor2009software,brada2011enhanced} % possibly stuckenholz06compatible, 
 and technical \cite{forman1995release,osgi2010semvers,oracle2015compatibility} literature,
 mostly dealing with the issue of either correct replacement or interoperability.
+...
+TODO sophisticated compatibility handling aka: non-functional properties, behaviour, models, etc. 
 
 ...
 
 Overview of possible API breaking changes is collected in  \cite{EvolvingJavaAPIs:2007}.
 ...
 
-Belguidoum \cite{Belguidoum08formalization} distinguishes between \textit{vertical} and \textit{horizontal} compatibility which may be respectively paraphrased as backward and client-provider compatibility. Vertical compatibility is important for library vendors if they desire to produce new versions that are backward compatible with older ones and thus library update in a system will be smooth. On the other hand, horizontal compatibility is important for a system developer who checks if a system works with a selected set of libraries.
+Belguidoum \cite{Belguidoum08formalization} distinguishes between \textit{vertical} and \textit{horizontal} compatibility which may be respectively paraphrased as backward and client-provider compatibility. Vertical compatibility plays role when vendors desire to produce backward compatible libraries, which allows for smooth system updates. On the other hand, horizontal compatibility plays role in checking system composition. 
+Both  directions should be taken into account to successfully adapt ``TODO.precise.cit: composition of a system from trhid-partly independently evolved components'' defined in last decade by Szyperski \cite{szyperski02component}. 
 
 ...
 
@@ -432,59 +453,71 @@ Belguidoum \cite{Belguidoum08formalization} distinguishes between \textit{vertic
 Consequence of a wrongly selected library is potential incompatibility with
 its client. The notion of compatibility is complex
 as every modification of a library may influence the way other libraries can use, interact, extend, observe or substitute it, in various ways.
+However, practical applications usually rely on syntactic changes expressed via API. In other words, a syntactic change in API that does snot prevent client from linking or compiling is expected as compatible, even if it can have impact on behaviour. For instance, while a change from \texttt{List} to \texttt{Set} 
+is acceptable for assignment to a field typed to \texttt{Collection}, the same change may impact clients that rely on particular elements order.
 
-The Java Language Specification formally defines a notion of binary compatibility
-\cite[ch. 13]{Java7Spec} that is strictly defined with respect to the static analysis performed during linking. 
-It significantly differs from the notion of source compatibility which 
-is checked by the compiler as the consistency between a program and a library.
+The Java Language Specification formally defines acceptable changes in respect to binary compatibility
+\cite[ch. 13]{Java7Spec} as:
+\begin{quotation}
+"a set of changes that developers are
+permitted to make to a package or to a class or interface type while preserving (not
+breaking) compatibility with pre-existing binaries."
+\end{quotation} 
+The rules are strictly defined with respect to the static analysis performed during linking, which
+significantly differs from the notion of source compatibility, which is checked by the compiler as the consistency between a program and a library.
+For this reason, the specification explicitly recommends: 
+\begin{quotation}
+"tools for the Java programming language should support automatic recompilation."
+\end{quotation}
+In the same chapter it, however, admits that 
+\begin{quotation}
+"it is often impractical or impossible to automatically recompile
+the pre-existing binaries that directly or indirectly depend on a type that is to be
+changed."
+\end{quotation}
 
-What is more, binary compatibility does not implies 
-source compatibility nor vice versa. For instance, specialising the return type 
-of a method is source compatible as the compiler converts types, but not binary 
-compatible as the linker expects exact types. On the other hand, changing generic type parameters is 
-often binary compatible due to erasures, but not source compatible as the compiler checks generic parameter bounds. 
 
-Generally speaking, the reason for this discrepancy is in different rules enforced by the linker and the compiler. 
-The discrepancy increases in time as a consequence of new features included into Java. 
-Whereas the compiler is enriched with new type conversions, the linker still requires exact type matching. 
-For instance, boxing and unboxing has been added in Java 1.5 to make working with primitive and wrapper types transparent for programmers, but the same conversion is not part of the linker. Hence, a primitive type is something different from its wrapper type for the linker.
+
+% Kamil: removed as it is repreated in corpus discusion
+%What is more, binary compatibility does not implies 
+%source compatibility nor vice versa. For instance, specialising the return type 
+%of a method is source compatible as the compiler converts types, but not binary 
+%compatible as the linker expects exact types. On the other hand, changing generic type parameters is 
+%often binary compatible due to erasures\footnote{But likely behaviour breaking, causing \texttt{ClassCastException} and similar as the erasures are replaced by the \texttt{checkcast} byte-code instruction.}, 
+%but not source compatible as the compiler checks generic parameter bounds. 
+%
+%The discrepancy increases in time as new language features are differently projected into compiler and linker. Often, only the compiler is updated to handle new features, while the linker remains unchanged\footnote{Interesting counter-example are Lambdas that required modification of JVM while they could be implemented as syntactic constructs compiled to anonymous classes like byte-code compiled languages such as Scala.}.
+%For instance, boxing and unboxing has been added in Java 1.5 to make working with primitive and wrapper types transparent for programmers, but the same conversion is not part of the linker. 
 
 When a program is built and deployed, a mixed notion of compatibility is used. As the program is compiled, the source compatibility with the libraries 
-is checked by the compiler. In contrary, binary compatibility among the 
-libraries is checked when the program is invoked.  It may result in situations where a system may be compiled but cannot run or vice-versa.
+is checked by the compiler. The binary compatibility is checked instead when the program is invoked. When not all directions of compatibility are satisfied, situations where a system may be compiled but cannot run or vice-versa may appear.
 
 Compatibility also depends on how a library is used, 
-i.e. if a library is used (invoked) only or also implemented (used for extension in sense of the object-oriented paradigm) by the client 
-program. For instance, in Java, a method added to an interface is acceptable for the client invoking this interface, but represent an 
-incompatible change for someone implementing that interface as all methods must be implemented.
+i.e. if a library is used (invoked) only or also implemented (used for extension in sense of the object-oriented paradigm). For instance, a method added to an interface is acceptable for the client invoking this interface, but breaks compilation for someone implementing that interface as all methods must be implemented\footnote{Exceptions are Java 8 \texttt{default} methods}.
  
-Compatibility also includes the semantics of programs. Simply said, a program is compatible with its libraries if they behave as expected, consequently causing the whole system behaving as expected. 
+%Although API may be enriched with sophisticated behaviour-related annotations such as pre/post conditions \cite{liskov87data}, practical applications still rely on syntactic API expressing type system, i.e. method signatures. It allows for automation and easy verification by tools. The only question, to be answered in this work, is how current tools cope with finding API breaking changes. 
 
-As handling the full compatibility from all directions is hard, simplified approaches are taken in practise. Most commonly, compatibility is checked on libraries API where a library is understood as compatible if the API is compatible with clients. In other words, it is expected that a library does not change (worsen) its behaviour as long as API is not incompatibly changed. 
-
-Although API may be enriched with sophisticated behaviour-related annotations such as pre/post conditions \cite{liskov87data}, practical applications still rely on syntactic API expressing type system, i.e. method signatures. It allows for automation and easy verification by tools. The only question, to be answered in this work, is how current tools cope with finding API breaking changes. 
-
-
-
+There were already works to catalogue API changes \cite{EvolvingJavaAPIs:2007} and a wide set of empirical studies \cite{jezek2014howjava}, \cite{dietrich14broken} or two works by Raemakers \cite{Raemaekers2011exploring}, \cite{Raemaekers2012measuring} to measure extend of the problem. Recently, we proposed even an approach to mitigate big part of the problem by employing run-time adaptation into Java \cite{jezek2016dynamo}. However, current tools have not bee obsoleted yet, as this research prototype is still waiting for its adoption by industry.
 
 
 \section{API Changes Data Corpus}
+\label{sec:corpus}
 
 Test data proposed in this work composes a corpus of possible syntactic API changes, which model evolution and releases of consequent versions of a library. 
-The data are separated into eight categories to handle complexity. The categories are: access modifiers, data types, exceptions, generics, inheritance, class members, other (non-access) modifiers and borderline (uncategorised) cases. Each category is filled with examples of API change with the desire to cover all possible changes. However, the data does not have to be complete as some cases did not have to be know in the time of building the corpus, or new cases may appear as the language evolve. To cope with this, the corpus is extendable and new examples may be added.
+The data are separated into eight top level categories: access modifiers, data types, exceptions, generics, inheritance, class members, other (non-access) modifiers and borderline (uncategorised) category. Each category is filled with examples of API changes, which were basically constructed following subsection is section 13 in the Java Language Specification, a catalogue created by Rivieres \cite{EvolvingJavaAPIs:2007} and a few more sources\footnote{Several developer forums such as stackoverflow.com}. The data does not have to be complete as some cases did not have to be know in the time, or new cases may appear as the language evolve. For this reason, the corpus is extendable and new examples may be added.
 
-The corpus is split into three directories: \texttt{lib-v1}, \texttt{lib-v2} and \texttt{client}. As the names suggest, the directories contain a first (original) version a library, a second (evolved) version of a library and a client application, which invokes the library. The directories model real-life scenario where a client uses libraries, but the libraries in the corpus are simplistic and contain only API with dummy implementation. In real-word a more complex back-end would be invoked behind the API instead. The client application shows possible invocation of a library, thought it does not have to be exhaustive and more cases will actually exist.
+The corpus is split into three directories: \texttt{lib-v1}, \texttt{lib-v2} and \texttt{client}. As the names suggest, the directories contain a first (original) version a library, a second (evolved) version of a library and a client application, which invokes the library. The directories model real-life scenarios where a client uses libraries, but the libraries in the corpus are simplistic and contain only API with dummy implementations. The client application shows possible invocation of a library, thought it does not have to be exhaustive and more cases will actually exist.
 
 Each library as well as the client hold a set of sub-directories, Java packages, representing concrete API evaluation example. The package names are constructed following way:
 \begin{verbatim}
 <category><element><change>
 \end{verbatim} 
 
-Where \texttt{category} is one of the eight categories, \texttt{element} is a representation of changed element and \texttt{change} describes content of the change. For instance, a case named \texttt{dataTypeClassFieldBoxing} means that a class field changed its data types and the concrete change was boxing.
+Where \texttt{category} is one of the eight categories, \texttt{element} is a representation of a changed element (class, method, field, ...) and \texttt{change} describes content of the change. For instance, a case named \texttt{dataTypeClassFieldBoxing} means that a class field changed its data types and the concrete change was boxing.
 
-The design based on the naming convention allows for extensibility of the corpus by simply adding new cases to sub-directories (packages) following the convention. In fact, the convention is not enforced, but recommended to keep order in the relatively big number of data.
+The design based on the naming convention allows for extensibility of the corpus by simply adding new cases to sub-directories (packages) following the convention. In fact, the convention is not enforced, but recommended to keep order in the relatively big number of data -- the corpus currently contains 251 examples.
 
-The corpus is provided in the form of source-codes with an \texttt{ant} script to build binaries. It may be invoked simply by typing \texttt{ant} from the command-line.  The script output are three JAR files named the same way as the original source directories.
+The corpus is provided in the form of source-code with an \texttt{ant} script to build binaries. It may be invoked simply by typing \texttt{ant} from the command-line.  The script output are three JAR files named the same way as the original source directories.
 
 The whole structure of the corpus looks as follows (\texttt{<>} is shortcut for the \texttt{<category><element><change>} triplet described above):
 \begin{verbatim}
@@ -493,57 +526,59 @@ The whole structure of the corpus looks as follows (\texttt{<>} is shortcut for 
   +- lib-v1/src/lib/<>/<>.java
   +- lib-v2/src/lib/<>/<>.java
   build.xml
+  compatibility.sh
 \end{verbatim}
 
 
 Although the corpus described so far may be used as such, we provide additional meta-data.
-To stay up-to date when the corpus is extended, the meta-data must be generated before first usage.
-A linux bash script named \texttt{compatibility.sh} and stored in the corpus root is provided to do this.
-The script generates a simple CSV file with three columns: first one lists the name of a change as described above and second two columns inform respectively about source and binary compatibility. Value ``$1$'' is printed for a compatible change, ``$0$'' otherwise. 
+They must be generated before first usage to remain up-to date when the corpus is extended.
+A linux bash script named \texttt{compatibility.sh} stored in the corpus root is provided to do this.
+It generates a simple CSV file with three columns respectively listing: the name of a change as described above, and two columns informing about source and binary compatibility. Value ``$1$'' is printed for a compatible change, ``$0$'' otherwise. 
 
-The script generate metadata by following steps, it:
+The script generates metadata by following steps, it:
 \begin{enumerate}
-\item read all changes stored in the \texttt{client}, \texttt{lib-v1}, \texttt{lib-v2} directories,
-\item compile the client against the original library -- it should succeed, 
-\item compile the client against the updated library -- it may fail,
-\item invoke the client compiled against the old library with the updated library -- it may fail,
-\item write result (``1/0'') to the CSV file.
+\item reads all changes stored in the \texttt{client} directory
+\item compiles \texttt{lib-v1} and \texttt{lib-v2} directories,
+\item compiles the client against \texttt{lib-v1.jar} -- it should succeed, 
+\item compiles the client against \texttt{lib-v2.jar} to check source compatibility-- it may fail,
+\item invokes the client originally compiled against \texttt{lib-v1.jar} with \texttt{lib-v2.jar}  to check binary compatibility -- it may fail,
+\item writes result (``1/0'') to the CSV file.
 \end{enumerate}
-Step 3 and 4 fail when a respective change is source or binary incompatible. The scrip reads output of these steps and generates ``1'' or ``0'' to the CSV file depending of the success status of the steps.
+Steps 4 and 5 fail when a respective change is source or binary incompatible, which is in the last step written into the CSV file.
 
 
-To sum up, we make the corpus publicly available as a GitHub project hosted at: 
+We make the corpus publicly available as a GitHub project for replication studies, benchmark of new tools or similar: 
 \begin{verbatim}
 https://github.com/kjezek/
 api-evolution-data-corpus/
 \end{verbatim}
 
-Following sub-sections detail API changes separated into categories. Short discussions is provided to overview why a category is signification.
+Following sub-sections detail the corpus separated into categories. Short discussions is provided in each sub-section to overview why the category is signification.
 
 \subsection{Data Types}
 
-Data types represent fundamental changes as they are used in the corpus for method and constructor signatures and field types. Changes of data types are also used in, generics, inheritance and exceptions and for this reason impacts other categories. 
+Data types represent fundamental changes used for method and constructor signatures, field types, generics, inheritance and exceptions.
  
-We covered changes respecting general features of object-oriented paradigm, i.e. polymorphisms as well as changes particular to Java. The basic changes are:
+We cover changes respecting general features of object-oriented paradigm, i.e. polymorphisms as well as changes particular to Java. The basic changes are:
 \begin{itemize}
 \item Del -- a type is removed.
 \item Inst -- a type is added. 
-\item Gen -- a type is generalised, i.e. moved up in an inheritance hierarchy. For instance, a \texttt{java.lang.Number} is generalisation of \texttt{java.lang.Integer}.
-\item Spe -- a type is specialised, which is the opposite to the previous case.
-\item Mut -- a type is changed to an incompatible one, i.e. not coming from the same inheritance tree.
+\item Gen -- generalised, i.e. type is moved up in an inheritance hierarchy. For instance, a \texttt{java.lang.Number} is generalisation of \texttt{java.lang.Integer}.
+\item Spe -- specialised, which is opposite of the previous case.
+\item Mut -- mutated, a type is changed to an incompatible one, i.e. not coming from the same inheritance tree.
 \end{itemize}
-Explicit cases to cover primitive types were modelled as well:
+Explicit cases to cover primitive types are modelled as well:
 \begin{itemize}
 \item Narrow -- a ``specialising'' conversion for primitive types. E.g. \texttt{long} changed to \texttt{int}.
 \item Widen --  the opposite to the previous case.
 \end{itemize}
-Finally, Java allows for two more conversion due to simplifying work with primitive and wrapper types:
+Finally, Java allows for two more conversion to simplify work with primitive and wrapper types:
 \begin{itemize}
 \item Box -- a primitive type is converted to its wrapper type, e.g. \texttt{int} to \texttt{java.lang.Integer}.
 \item Unbox -- a wrapper type converted to a primitive type.
 \end{itemize}
 
-Changes in this category play a different role for source and binary compatibility. In particular, \texttt{Gen}, \texttt{Spe}, \texttt{Narrow}, \texttt{Widen}, \texttt{Box} and \texttt{Unbox} are conversions performed only by the Java compiler, not the linker. It means, that they are always binary incompatible, but may be source compatible depending on usage. For instance, \texttt{Gen} is a source compatible conversion for a method parameter type, while \texttt{Spe} is compatible for a method return type. Example is a method that used to accept \texttt{java.lang.Integer} as a parameter type. It will remain compatible when it is changed to \texttt{java.lang.Number}. The opposite case holds for return types where the return type may be only specialised. Once the linker decides correct conversions, it is compiled into the byte-code and no more conversions are performed by the linker.
+Changes in this category play a different role for source and binary compatibility. In particular, \texttt{Gen}, \texttt{Spe}, \texttt{Narrow}, \texttt{Widen}, \texttt{Box} and \texttt{Unbox} are conversions performed only by the Java compiler, not the linker. It means, that they are always binary incompatible, but may be source compatible depending on usage. For instance, \texttt{Gen} is a source compatible conversion for a method parameter type, while \texttt{Spe} is compatible for a method return type. Example is a method that used to accept \texttt{java.lang.Integer} as a parameter type. It will remain compatible when it is changed to \texttt{java.lang.Number}. The opposite case holds for return types where the return type may be only specialised. However, the compiler decides correct conversions that s compiled into the byte-code and no more conversions are performed by the linker.
 
 Changes \texttt{Del} and \texttt{Mut} are neither source nor binary compatible as no fall-back mechanism for non-existing or incompatible types is provided in Java.
 
@@ -552,9 +587,9 @@ Java distinguishes between so called checked and unchecked exceptions. The check
 
 It is less known that the handling of exceptions in the client code is checked only by the compiler, not the linker. 
 As a consequence, changes in exceptions impact only source compatibility.
-In other words, when a library method is updated so that it adds a new checked exception, the original client code cannot be compiled and it must be refactored to accommodate proper exception handling. On the other hand, if the library is used in conjunction with an already compiled client, they will link smoothly together. 
+When a library method is updated so that it adds a new checked exception, the original client code cannot be compiled and it must be refactored to accommodate proper exception handling. On the other hand, if the same library is used in conjunction with an already compiled client, they will link smoothly together. 
 
-The corpus combines examples of specialised, generalised or mutated types exceptions in variants for checked and unchecked ones. 
+The corpus combines examples of specialised, generalised or mutated exception types in variants for checked and unchecked ones. 
 
 \subsection{Generics}
 
@@ -562,51 +597,54 @@ Generics were added to Java relatively late in version 1.5 with strong regard to
 
 Whereas a client code is checked by the compiler to correctly use generic types, a binary code that uses generics may be combined with the code not using generics thanks to erasures. The impact to compatibility is evident. A lot of changes that are binary compatible do not have to be source compatible. 
 
-A typical example are bounds of a parametrized type: for instance, if a list is defined as \texttt{java.util.List<String>} only \texttt{String} values may be added and the compiler checks it. However, when the definition is changed to \texttt{java.util.List<Number>} and  only binaries updated, the system will successfully link. Let us note, that such a program will likely fail later on a \texttt{ClassCastException}, but strictly from the compatibility point of view, such a change is compatible. 
+A typical example are bounds of a parametrized type: for instance, if a list is defined as \texttt{java.util.List<String>} only \texttt{String} values may be added and the compiler checks it. However, when the definition is changed to \texttt{java.util.List<Number>} and  only binaries updated, the system will successfully link. Let us note, that such a program will likely later rise \texttt{ClassCastException} or similar as erasures are effectively replaced by the \texttt{checkast} byte-code instruction.
 
 \subsection{Inheritance}
 
-Inheritance is sometimes not considered at all in respect to compatibility and some best practices discourage implementations/extensions of API classes. The reason is that API must be almost frozen to be backward compatible also for inheritance. 
+\todo[inline]{Add citations - Tulach?}
+Inheritance is sometimes not considered at all in respect to compatibility and some best practices discourage implementations/extensions of API classes \cite{todo.tulach?}. The reason is that API must be almost frozen to be backward compatible also for inheritance. 
 
-Some changes such as removed methods clearly break compatibility, but some breaking changes are less evident. Addition of an method to an interface is a still quite known example, which breaks compilation of clients implementing this interface. A possible compatibility issue of making a method more visible is, however, less obvious. In detail, changing visibility e.g. from \texttt{private} to \texttt{public} may seem harmless, but the new public method may overlap with the same method in a sub-class. When the sub-class method has a stricter access, the compilation also fails as the access cannot be weakened through inheritance. As a result, more accessible method may break compatibility when inheritance is used while it is always compatible for only invoked API.
+Some changes such as removed methods clearly break compatibility, but some breaking changes are less evident. Addition of an method to an interface is still a quite known example, but a possible compatibility issue of making a method more visible is, however, less obvious. In detail, changing visibility e.g. from \texttt{private} to \texttt{public} may seem harmless as only more is provided, but the new public method may overlap with the same method in a sub-class. When the sub-class method has a stricter access, the compilation also fails as the access cannot be weakened through inheritance. As a result, adding a public method to a class may break compatibility for inheritance.
 
 Since the changes possibly impacting inheritance are partly covered by other categories (method, modifier, types etc. changes), this category contributes to the corpus with several more examples with class/interface definitions modified in a sub-class. Several examples with methods moved up and down in the hierarchy tree are provided as well.
 
 \subsection{Members}
 
-Members are elements defined in a Java class including fields, methods and constructors. This category contains examples of removed or added members that have expected impact on compatibility: removed elements are always incompatible, added elements may be incompatible for inheritance of abstract methods as discussed above. 
+Members are elements defined in a Java class including fields, methods and constructors. This category contains examples of removed or added members that have expected impact on compatibility: removed elements are always incompatible, added elements may be incompatible for inheritance as discussed above. 
 
-The problem of added abstract/interface methods is addressed in Java 1.8 by providing default methods with the new \texttt{default} keyword. We include such methods in the data set.
+The problem of added abstract/interface methods addressed in Java 1.8 by \texttt{default} methods is modelled in the data set as well.
 
 \subsection{Access Modifiers}
 
 Access modifiers may be either weakened or strengthened and may be applied to a constructor, a method, a field, a class and an interface. These combinations are reflected in the corpus. 
 
-A change making an element more accessible is usually a compatible change while restricting the access is incompatible. It does not differ for source and binary compatibility. The only known exception is inheritance of a method with a weaker access as already discussed. However, such cases are likely very rare.
+A change making an element more accessible is usually a compatible change while restricting the access is incompatible. It does not differ for source and binary compatibility. The only known exception is inheritance of a method with a weaker access as already discussed. 
 
 \subsection{Other Modifiers}
 
-Other, non-access, modifiers have various purposes in Java and for this reason have different impact to compatibility. Some of the modifier such as \texttt{volatile}, \texttt{transient}, \texttt{native} or \texttt{strictfp} are denoted to specific treatment of respective elements, \texttt{final} or \texttt{abstract} are used in conjunction with inheritance, and \texttt{static} deals with access context. Sometimes one modifier is used for multiple purposes, e.g. constants are implemented as \texttt{final} fields, while \texttt{final} also denotes classes that cannot be inherited. 
+Other, non-access, modifiers have various purposes in Java and for this reason have different impact to compatibility. Modifier \texttt{volatile}, \texttt{transient}, \texttt{native} or \texttt{strictfp} are denoted to specific treatment of respective elements, \texttt{final} or \texttt{abstract} are used in conjunction with inheritance, and \texttt{static} deals with access context. Sometimes one modifier is used for multiple purposes, e.g. constants are implemented as \texttt{final} fields, while \texttt{final} also denotes classes that cannot be inherited. 
 
-There is no pattern how these modifiers impact compatibility. For instance, a tagging modifier \texttt{transient} does not break compatibility while \texttt{native} does. It is because \texttt{native} requires a special treatment by JVM while \texttt{transient} is only a meta-information. Modifiers \texttt{final} and \texttt{abstract} have obvious effect as their adding or removing may negatively break inheriting classes. Interesting is the \texttt{static} modifier that may be in certain cases source compatible and binary incompatible. In particular, static elements, fields and methods, may be invoked from non-static context (via a reference) and pass the compilation. However, this combination is forbidden at runtime as different byte-code instructions are generated for static and non-static access and thus it fails when the byte-code is updated without recompilation.
+There is no pattern how these modifiers impact compatibility. For instance, a tagging modifier \texttt{transient} does not break compatibility while \texttt{native} does. It is because \texttt{native} requires a special treatment by JVM while \texttt{transient} is only a meta-information. Modifiers \texttt{final} and \texttt{abstract} have obvious effect as their adding or removing may break inheriting classes. 
+
+Interesting is the \texttt{static} modifier that may be in certain cases source compatible and binary incompatible. It is more discussed in \cite[Section 4]{jezek2014howjava}: static elements, fields and methods, may be invoked from non-static context (via a reference) and pass the compilation. However, this combination is forbidden at runtime as different byte-code instructions are generated for static and non-static access and thus it fails when the byte-code is updated without recompilation.
 
 \subsection{Borderline Cases}
 
 Java contains several specific features that are grouped here. Notoriously know is implicit inheritance of \texttt{Object}  by any classes.  Maybe less known is that any Java array by default implements \texttt{Cloneable} and \texttt{Serialisable}. Consequence is that possible specialisation between user classes and these classes must be taken into account when deciding compatibility.
 
-Another example in this category is a change from class to interface or vice-versa. It is interesting because invocation of methods does not differ between class and interface methods in the source-code. However, different byte-code instructions are generated leading to another discrepancy between source and binary compatibility. In other words, when a library class is changed to an interface or vice-versa, the client invoking methods from this interface/class may be recompiled, but cannot be linked without recompilation.
+Another example in this category is a change from class to interface or vice-versa also detailed in \cite[Section 4]{jezek2014howjava}. It is interesting because invocation of methods does not differ between class and interface methods in the source-code. However, different byte-code instructions are generated leading to another discrepancy between source and binary compatibility. In other words, when a library class is changed to an interface or vice-versa, the client invoking methods from this interface/class may be recompiled, but cannot be linked without recompilation.
 
 
 \section{Tools Challenge}
 
-We searched for tools that are capable of discovering API syntactic backward compatibility and included them into this work. They are listed in Table \ref{tab:tools} together with basic information about their authors, current versions, licensing and basic usages. All these tools were benchmarked to find out how they cope with finding incompatibilities, results are provided below.
+We searched for tools that are capable of discovering API syntactic backward compatibility and included them into benchmarkk. They are listed in Table \ref{tab:tools} together with basic information about their authors, current versions, licensing and basic usages. All these tools were benchmarked to find out how they cope with finding incompatibilities, results are provided below.
 
 \begin{table*}[t]
   \centering
   \begin{tabular}{l | p{1cm} p{1cm} p{1cm} p{1cm} p{1cm} p{1cm} p{1cm} p{1cm} p{1cm} }
 Tool  &  Clirr  &  Japicmp  &  japiChecker  &  JAPICC  &  Revapi  &  Sigtest  &  Japitools  &  Jour  &  JaCC	\\
 \hline
-\multicolumn{10}{|c|}{Basin info} \\
+\multicolumn{10}{|c|}{Basic info} \\
 \hline
 Author  &  Lars Kühne  &  Martin Mois  &  William Bernardet  &  Andrey Ponomarenko  &  Lukas Krejci  &  Oracle  &  Stuart Ballard  &  Vlad Skarzhevskyy  &  UWB	\\
 License  &  LGPL  &  A2.0  &  A2.0  &  LGPL  &  A2.0  &  GPLv2   &  GPL   &  LGPL  &  ask	\\
@@ -619,7 +657,7 @@ TXT  &  yes  &  yes  &  yes  &    &  yes  &  yes  &  yes  &  yes  &  yes	\\
 XML  &  yes  &  yes  &    &    &    &    &    &    &  	\\
 HTML  &  yes  &  yes  &    &  yes  &    &    &    &    &  	\\
 \hline
-\multicolumn{10}{|c|}{Usage} \\
+\multicolumn{10}{|c|}{Integration} \\
 \hline
 CLI  &  yes  &  yes  &  yes  &  yes  &  yes  &  yes  &  yes  &  yes  &  	\\
 Maven  &  yes  &  yes  &  yes  &    &  yes  &  yes  &    &  yes  &  yes	\\
@@ -633,18 +671,19 @@ libray  &    &  yes  &    &    &    &    &    &    &  yes	\\
 
 \subsection{Methodology}
 
-The tools were tested using following approach: we generated the meta-data with incompatibility classification first, then we extracted only meta-data that represent incompatibility. After that, we invoked all the tools and redirected their output to text files. In certain cases we removed lines from outputs representing a compatible change. Finally, we iterated the meta-data with incompatibilities and used string matching to detected changes in tools outputs. We collected the results in a CSV file with ``$1$'' meaning a correctly detected incompatibility and ``$0$'' meaning that a tool did not find the incompatibility.
+The tools were tested using following approach: 
+we generated the meta-data CSV file as described in Section \ref{sec:corpus}, then we removed lines representing only compatibilities. After that, we invoked all the tools and redirected their output to text files. In certain cases we removed lines from outputs representing a compatible change. Finally, we iterated the meta-data CSV file and used string matching to find changes in tools outputs. We collected the results in another CSV file, which lists changes in lines and tools in columns. The columns contain ``$1$'' for a correctly detected incompatibility and ``$0$'' meaning that a tool did not find the incompatibility.
 
-The lines with compatible changes were removed from the meta-data to prevent false negatives.
-We had to analyse only provably incompatible changes because the current client does not handle all possible cases. An incompatible usage not expressed in the client may exist and if detected by a tool, it would not match with the expected compatibility leading to a wrong result. 
+The lines with compatible changes were removed from the original CSV meta-data to prevent false negatives.
+We had to analyse only provably incompatible changes because the current client does not have to handle all possible invocations. An incompatible usage not modelled in the client may exist and if detected by a tool, it would not match with the expected compatibility leading to a wrong result. 
 
-The lines with compatible changes were removed from the tools outputs to prevent false positives. 
-Some of the tools list all API they crawled with additional compatibility classification. It could cause an incorrect string matching if a change not recognised as incompatible were listed in the output. This step differs for each tool. Some of the tools output only incompatibilities and do not have to be corrected (japichecker, japicc) while some have to. Usually such lines can be easily caught by a simple regular expression as they contain representative strings such as \texttt{!} (japicmp), \texttt{100\% Compatible} (japitool), \texttt{NON\_BREAKING} (revapi), \texttt{INFO} (clirr) etc.  
+Compatible changes were removed from the tools outputs to prevent false positives. 
+Some of the tools list all API they crawled with additional compatibility classification. It could cause an incorrect string matching if a change not recognised as incompatible were listed in the output. This step differs for each tool. Some of the tools output only incompatibilities and do not have to be corrected (\texttt{japichecker}, \texttt{japicc}) while some have to. Usually such lines can be easily caught by a simple regular expression as they contain representative strings such as char \texttt{!} (\texttt{japicmp}), text \texttt{100\% Compatible} (\texttt{japitool}), \texttt{NON\_BREAKING} (\texttt{revapi}), \texttt{INFO} (\texttt{clirr}) etc.  
 
 \subsection{Extendability}
 The whole process is automated and may be invoked by a bash script \texttt{./benchmark.sh}. The script prepares the meta-data, invokes the tools, corrects outputs and analyse results. It delegates invocation of the tools to the script \texttt{tools/run.sh}, which executes all tools one-by-one.
 
-For instance, the \texttt{run.sh} script contains following lines to invoke japicmp:
+For instance, the \texttt{run.sh} script contains following lines to invoke \texttt{japicmp}:
 \begin{verbatim}
 REPORTS=".reports"
 java -jar japicmp/japicmp-0.7.2.jar \
@@ -657,8 +696,7 @@ grep -v '===  UNCHANGED' \
 mv japicmp.txt.tmp "$REPORTS"/japicmp.txt   
 \end{verbatim}
 
-The new tools may be added to the benchmark simply by adding invocable lines to this script. 
-The script can contain any bash invocable lines that lead to execution of a tool and must be able to produce a textual output stored in the \texttt{tools/.reports}.
+New tools may be added to the benchmark simply by adding invocable lines to this script so that they produce a textual output stored in the \texttt{tools/.reports}.
 
 The structure of the corpus including the tools benchmark looks like:
 \begin{verbatim}
@@ -676,13 +714,13 @@ The structure of the corpus including the tools benchmark looks like:
 
 \subsection{Results}
 
-The benchamrk has shown that the tools widely differ in their ability to find compatibility breaking changes. Results are provided in Table \ref{tab:result-categories}
+The result of described experiment has shown that the tools widely differ in their ability to find compatibility breaking changes. Results are provided in Table \ref{tab:result-categories}
 as percentages of successfully detected compatibility breaking changes. They are separated to categories with a summary in the last row. 
 
-While the results show clearly that the worst tool is \texttt{clirr} and the best is \texttt{sigtest}, detailed analysis reveal that \texttt{clirr} may be a better choice in certain use-cases than other better performing tools.
+While the results show clearly that the worst tool is \texttt{clirr} and the best is \texttt{sigtest}, detailed analysis reveals that \texttt{clirr} may be a better choice than some of the better performing tools in certain use-cases.
 
-\texttt{Clirr} is the worst performing tool, which is however not actively developed since 2005, and evidently does not recognize generics and exceptions. However, it works well in other categories and may be still useful for detecting only binary incompatible changes as generics and exceptions impacts only srouce compatibility.
-Similar situation appears for \texttt{japicmp} overall showing a poor result, which is however caused by unsporting generics and a few bugs in detecting modifiers. Otherwise, the tool works well.
+\texttt{Clirr} is not actively developed since 2005, and evidently does not recognize generics and exceptions. However, it works well in other categories and may be still useful for detecting only binary incompatible changes as generics and exceptions impacts only srouce compatibility.
+Similar situation appears for \texttt{japicmp} with overall a poor result, which is however caused by unsporting generics and a few bugs in detecting modifiers. Otherwise, the tool works well.
 
 The second place is occupied by \texttt{japitool} which also seems to be no more developed since 2006, thought still available as part of Linux distributions (Debian/Linux in particular).
 
@@ -692,14 +730,14 @@ Tools  such as \texttt{japicc} or \texttt{revapi} showed overall better score, b
 \texttt{Sigtest} wins the benchmark as it is able to detect almost all problems. It fails only in two changes, detection of the removed \texttt{strictfp} modifier and addition of the \texttt{native} modifier, which are both binary incompatible. As they are very specific modifiers, we do not expect their frequent changes among library versions. For this reason, \texttt{sigtest} may serve as the most reliable tool from this benchmark.
   
 Table \ref{tab:result-types} provides insight into results separated for source and binary incompatibilities. First line shows changes that are only source incompatible and binary compatible. The second line in contrast lists changes that are binary incompatible, but may be either source compatible or incompatible. 
-We separated the data this way to test the tools specifically for source compatibility and for the rest as we wanted to detect how the tools deal with source compatibility. 
+We separated the data this way to test the tools specifically for source compatibility and for the rest.
 
-The table provides interesting results, the tools perform much better in detecting binary incompatibilities.  Worst in this category is \texttt{revapi} while most of the tools detected more than $90\%$ of issues. On the other hand, the tools lack ability to detect source incompatibility. The only actually reliable tools are \texttt{sigtest} and \texttt{japitool} that correctly recognised all source incompatibilities. Partly useful is \texttt{revapi} with about 88\% of successful results.  Other tools detected only a small number of problems and cannot be recommended for industry level usage.
+The table provides interesting results, the tools perform much better in detecting binary incompatibilities.  Worst in this category is \texttt{revapi} while most of the tools detected more than $90\%$ of issues. On the other hand, the tools lack ability to detect source incompatibility. The only actually reliable tools are \texttt{sigtest} and \texttt{japitool} that correctly recognised all source incompatibilities. Partly useful is \texttt{revapi} with about 88\% of successful results.  Other tools detected only a small number of problems and cannot be recommended.
 
-Non-functional properties such as easiness of usage is nonetheless important in recommending the tools. A tool with a few bugs may be a better choice if it provides a better user comfort. While we did not measured it systematically in this work, we observer usage and output of the tools. It must be said that the tools are very similar in this aspect. All provide CLI with a few options to input JAR files and print out a human readable formatted TXT output. We see non of the formats particularly better then another one. One exception is \texttt{japicc} which provides a HTML output classifying severity of changes, which may be a better readable by humans and especially by non-programmers. 
+Non-functional properties such as easiness of usage is nonetheless important in recommending the tools. A tool with a few bugs may be a better choice if it provides a better user comfort. While we did not measured it systematically in this work, we did some observation about tools usage and output. It must be said that the tools are very similar in this aspect. All provide CLI with a few options to input JAR files and print out a human readable formatted TXT output. We see non of the formats particularly better then another one. One exception is \texttt{japicc} which provides a HTML output classifying severity of changes, which may be a better readable by humans and especially by non-programmers. 
 
-To summarize, the experiment shows that the most usable tool is \texttt{sigtest}, which is distributed as open-source and may be easily integrated into development process via CLI, Maven or Ant plugin. A small drawback may be that it produces only a TXT output, which makes it less convenient for third-party integrations. Furthermore, it was detected that other tools are in reality usable only for checking binary compatibility. Nonetheless, it may be sufficient in many scenarios as library updates are usually distributed in binary forms.  Hence, binary compatibility checking may help find the most unpredictable runtime failures caused by opaque third-party libraries. 
-Although a source incompatible change may break a system as well, it is detectable by project build early in the development phase and thus less harmful.
+To summarize, the experiment shows that the most usable tool is \texttt{sigtest}, which is distributed as open-source and may be easily integrated into development process via CLI, Maven or Ant plugin. Furthermore, it was detected that other tools are in reality usable only for checking binary compatibility. Nonetheless, it may be sufficient in many scenarios as library updates are usually distributed in binary forms.  Hence, binary compatibility checking may help find the most unpredictable runtime failures caused by opaque third-party libraries. 
+Although a source incompatible change may break a system as well, it is detectable by project build early in the development phase and thus it is less harmful.
 
 
 \begin{table*}[t]
