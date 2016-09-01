@@ -420,12 +420,11 @@ Another set of tools are checkers of API evolution. They are generally useful fo
 All tools we are aware of are included in this work and listed in Table \ref{tab:tools}. They were collected putting together our knowledge, cross-refrences and search through developer forums, mostly \url{stackoverflow.com}. 
 
 \todo[inline]{missing JDiff}
-To our best knowledge, these tools are less popular and also seem to be  surrounded by smaller communities in comparison to the tools that check source-code style\footnote{One of the tool, \texttt{Clirr}, has three members, one contributor and finally is not developed since 2005. Still active is \texttt{Revapi} but with only four contributors. Bigger seems to be \texttt{japicmp} with 11 contributors. But they cannot match with \texttt{checkstyle} wiht 92 contributors or  \texttt{PMD} with 58}. It is interesting observation as API compatibility is not less important then code-style violations, or at least should not be. This work does not aim at answering if and why the tools are less popular, but it should provide insight into their quality and ability to detect API defects.
+To our best knowledge, these tools are less popular and also seem to be  surrounded by smaller communities in comparison to the tools that check source-code style\footnote{One of the tool, \texttt{Clirr}, has three members, one contributor and finally is not developed since 2005. Still active is \texttt{Revapi} but with only four contributors. Bigger seems to be \texttt{japicmp} with 11 contributors. But they cannot match  \texttt{checkstyle} with 92 contributors or  \texttt{PMD} with 58}. It is interesting observation as API compatibility is not less important then code-style violations, or at least should not be. This work does not aim at answering if and why the tools are less popular, but it provides insight into their quality and ability to detect API defects.
 
-\todo[inline]{extend why we need a new dataset}
-In this work, we additionally propose a dataset simulating syntactic changes of API, which has been used to benchmark nine tools. 
+The variety of API changes is wide and the tools should ideally discover all of them. It is impractical to test the tools on real software as even a large system with a lot of versions does not have to contain all obscure API changes. Moreover, there are no meta-data about the changes that we could compare with tools results. For this reason, we created an artificial dataset in canonical form simulating syntactic changes of API. It is enriched with meta-data describing each change and its impact on compatibility. Using it, we easily benchmarked the nine tools. 
 
-The contribution of this work is twofold. First, it provides an extensible dataset with possibly wide applications such as mock-testing, replication studies, or benchmark of new tools, etc. Secondly, we benchamrk how successfully nowadays tools deal detect incompatibilities.  
+From the above mentioned, the contribution of this work is twofold. First, it provides an extensible dataset with possibly wide applications such as mock-testing, replication studies, or benchmark of new tools, etc. Secondly, we benchamrked how nowadays tools deal with detecting incompatibilities.  
 
 \todo[inline]{finish}
 Remainder of this paper is structured as follows ...
@@ -435,14 +434,16 @@ Remainder of this paper is structured as follows ...
 In the technical domain, the term compatibility denotes\footnote{Source: the Merriam-Webster dictionary.} the ``ability to be used together'' and  ``designed to work with another device or system without modification''. Various definitions of compatibility related to software components exist, both in research \cite{canal2001compatibility,Belguidoum08formalization,taylor2009software,brada2011enhanced} % possibly stuckenholz06compatible, 
 and technical \cite{forman1995release,osgi2010semvers,oracle2015compatibility} literature,
 mostly dealing with the issue of either correct replacement or interoperability.
-...
-TODO sophisticated compatibility handling aka: non-functional properties, behaviour, models, etc. 
 
-...
+Compatibility may be expressed via sophisticated means such as non-functional properties \cite{Chung09OnNFRInSoftEn}, \cite{jezek13formalisation} and practically implemented in OSGi \cite{jezek2012tools-osgi}, Fractal \cite{bruneton2006fractal}, Sofa \cite{plasil2002behavior} or Treaty \cite{dietrich2009components}. It may be also expressed via contracts in the form of \textit{pre-} and \textit{post-conditions} introduced long time ago \cite{hoare1969axiomatic,Floyd67,Nau66} and implemented in languages such as famous Eiffel \cite{Meyer88}, research oriented Whiley Whiley~\cite{Pea13c,Pea15c} but also Java~\cite{DLNS98,FLLNSS02}.
+There is also attempt to produce correct software right from the beginning, employing models that may be checked and guarantee a bug free product \todo{Procom, saveCCM, ...}. 
 
-Overview of possible API breaking changes is collected in  \cite{EvolvingJavaAPIs:2007}.
-...
 
+\todo[inline]{Better connect this para}
+Overview of possible API breaking changes is collected in  \cite{EvolvingJavaAPIs:2007}, which is a catalogue we also used to design our data set. 
+Sawant studied how API is used \cite{Sawant2015dataset}, developed a meta-model of API usage, provided a parser to collect data from open-source systems and made the data publicly available. We also share our results and scripts to stimulate follow-up research. 
+
+\todo[inline]{Better connect this para}
 Belguidoum \cite{Belguidoum08formalization} distinguishes between \textit{vertical} and \textit{horizontal} compatibility which may be respectively paraphrased as backward and client-provider compatibility. Vertical compatibility plays role when vendors desire to produce backward compatible libraries, which allows for smooth system updates. On the other hand, horizontal compatibility plays role in checking system composition. 
 Both  directions should be taken into account to successfully adapt ``TODO.precise.cit: composition of a system from trhid-partly independently evolved components'' defined in last decade by Szyperski \cite{szyperski02component}. 
 
@@ -502,6 +503,8 @@ There were already works to catalogue API changes \cite{EvolvingJavaAPIs:2007} a
 
 \section{API Changes Data Corpus}
 \label{sec:corpus}
+
+A few corpora with Java programs already exists. Well known is either Qualitas Corpus \cite{tempero2010qualitas} or DaCapo \cite{blackburn2006dacapo}. Both of them are impractical for usage in this work. Qualitas Corpus contain a lot of programs with evolving versions, but it has no meta-information about API changes and for this reason results of the tools could be hardly validated. DaCapo is much smaller and contain programs only in one version, preventing us from analysing API changes. We are not aware of another corpus fitting our needs and thus we created a new one.
 
 Test data proposed in this work composes a corpus of possible syntactic API changes, which model evolution and releases of consequent versions of a library. 
 The data are separated into eight top level categories: access modifiers, data types, exceptions, generics, inheritance, class members, other (non-access) modifiers and borderline (uncategorised) category. Each category is filled with examples of API changes, which were basically constructed following subsection is section 13 in the Java Language Specification, a catalogue created by Rivieres \cite{EvolvingJavaAPIs:2007} and a few more sources\footnote{Several developer forums such as stackoverflow.com}. The data does not have to be complete as some cases did not have to be know in the time, or new cases may appear as the language evolve. For this reason, the corpus is extendable and new examples may be added.
