@@ -408,7 +408,7 @@ a valuable contribution as it may test future tools.
 
 \section{Introduction}
 
-Quality assurance has been long understood as integral part of software development. While exercising programs either manually or by automated tests is still  common, more effective approaches come to light. The main rationale is to statically inspect the code and detect possible problems without costly invoking a program. Back in the beginning of millennia Jacobs however pointed at challenges of static verification \cite{Jacobs2003formal} and claimed: 
+Quality assurance has been long understood as integral part of software development. While exercising programs either manually or by automated tests is still  common, more effective approaches come to light. The main rationale is to statically inspect the code and detect possible problems without costly invoking a program. Back in the beginning of millennia Jacobs pointed at challenges of static verification \cite{Jacobs2003formal} and claimed: 
 \begin{quote}
 "While abstract formalisms were useful at the time for explaining the main ideas in this field, they are not very helpful today when it comes to actual program verification for modern programming."
 \end{quote}
@@ -420,9 +420,9 @@ Another set of tools are checkers of API evolution. They are generally useful fo
 All tools we are aware of are included in this work and listed in Table \ref{tab:tools}. They were collected putting together our knowledge, cross-refrences and search through developer forums, mostly \url{stackoverflow.com}. 
 
 \todo[inline]{missing JDiff}
-To our best knowledge, these tools are less popular and also seem to be  surrounded by smaller communities in comparison to the tools that check source-code style\footnote{One of the tool, \texttt{Clirr}, has three members, one contributor and finally is not developed since 2005. Still active is \texttt{Revapi} but with only four contributors. Bigger seems to be \texttt{japicmp} with 11 contributors. But they cannot match  \texttt{checkstyle} with 92 contributors or  \texttt{PMD} with 58}. It is interesting observation as API compatibility is not less important then code-style violations, or at least should not be. This work does not aim at answering if and why the tools are less popular, but it provides insight into their quality and ability to detect API defects.
+To our best knowledge, these tools are less popular and also seem to be  surrounded by smaller communities in comparison to the tools that check source-code style\footnote{One of the tool, \texttt{Clirr}, has three members, one contributor and finally is not developed since 2005. Still active is \texttt{Revapi} but with only four contributors. Bigger seems to be \texttt{japicmp} with 11 contributors. But they cannot match  \texttt{checkstyle} with 92 contributors or  \texttt{PMD} with 58}. It is interesting observation as API compatibility is not less important then code-style violations, or at least should not be. This work does not aim at answering if and why the tools are less popular, but it provides insight how they find API defects.
 
-The variety of API changes is wide and the tools should ideally discover all of them. It is impractical to test the tools on real software as even a large system with a lot of versions does not have to contain all obscure API changes. Moreover, there are no meta-data about the changes that we could compare with tools results. For this reason, we created an artificial dataset in canonical form simulating syntactic changes of API. It is enriched with meta-data describing each change and its impact on compatibility. Using it, we easily benchmarked the nine tools. 
+The variety of API changes is wide and the tools should ideally discover all of them. It is impractical to test the tools on real software as even a large system with a lot of versions does not have to contain all obscure API changes. Moreover, there are no meta-data about the changes that we could compare with tools results. For this reason, we created an artificial dataset in canonical form simulating syntactic changes of API. It is enriched with meta-data describing each change and its impact on compatibility. 
 
 From the above mentioned, the contribution of this work is twofold. First, it provides an extensible dataset with possibly wide applications such as mock-testing, replication studies, or benchmark of new tools, etc. Secondly, we benchamrked how nowadays tools deal with detecting incompatibilities.  
 
@@ -435,19 +435,25 @@ In the technical domain, the term compatibility denotes\footnote{Source: the Mer
 and technical \cite{forman1995release,osgi2010semvers,oracle2015compatibility} literature,
 mostly dealing with the issue of either correct replacement or interoperability.
 
-Compatibility may be expressed via sophisticated means such as non-functional properties \cite{Chung09OnNFRInSoftEn}, \cite{jezek13formalisation} and practically implemented in OSGi \cite{jezek2012tools-osgi}, Fractal \cite{bruneton2006fractal}, Sofa \cite{plasil2002behavior} or Treaty \cite{dietrich2009components}. It may be also expressed via contracts in the form of \textit{pre-} and \textit{post-conditions} introduced long time ago \cite{hoare1969axiomatic,Floyd67,Nau66} and implemented in languages such as famous Eiffel \cite{Meyer88}, research oriented Whiley Whiley~\cite{Pea13c,Pea15c} but also Java~\cite{DLNS98,FLLNSS02}.
-There is also attempt to produce correct software right from the beginning, employing models that may be checked and guarantee a bug free product \todo{Procom, saveCCM, ...}. 
+Belguidoum \cite{Belguidoum08formalization} distinguishes between \textit{vertical} and \textit{horizontal} compatibility which may be respectively paraphrased as backward and client-provider compatibility. Vertical compatibility plays role when vendors desire to produce backward compatible libraries, which allows for smooth system updates. On the other hand, horizontal compatibility plays role in checking system composition. 
+Both these directions should be taken into account to successfully adopt ``units of  independent deployment and third-party composition'' defined in last decade by Szyperski \cite[4.1.1, p.36]{szyperski02component}. 
 
 
-\todo[inline]{Better connect this para}
-Overview of possible API breaking changes is collected in  \cite{EvolvingJavaAPIs:2007}, which is a catalogue we also used to design our data set. 
+Compatibility may be expressed via sophisticated means such as non-functional properties \cite{Chung09OnNFRInSoftEn}, \cite{jezek13formalisation} and practically implemented in OSGi \cite{jezek2012tools-osgi}, Fractal \cite{bruneton2006fractal}, Sofa \cite{plasil2002behavior} or Treaty \cite{dietrich2009components}. It may be also expressed via contracts in the form of \textit{pre-} and \textit{post-conditions} introduced long time ago \cite{hoare1969axiomatic,Floyd67,Nau66} and implemented in languages such as famous Eiffel \cite{Meyer88}, research oriented Whiley~\cite{Pea13c,Pea15c} but also Java~\cite{DLNS98,FLLNSS02}.
+
+There is also attempt to produce correct software right from the beginning, employing models that may be checked and guarantee a bug free product.
+Let us name ProCom \cite{Sentilles_2009} which allows for modelling a system that is then generated into the code,
+or SaveCCM \cite{Hanson2004SaveCCM} developed within the same cohort, enriched with visual means for easy system design.
+
+Although these complex approach exist, API analysis to guarantee compatibility is still a popular means. Let us name Rama \cite{Rama2015structural} who claims:
+``In this age of collaborative software development, the importance of usable APIs is well recognized'' and continues: ``ideally, the users of a module need to look no further than its API''. He proposes metrics that help either design or recognise a ``good'' API. 
+API usability and design is moreover popularised by Myers and Stylos in \cite{Myers2016improving}.
+Another work by Scheller \cite{Scheller2015automated} automatically measures usability of API in terms of interface complexity -- complexity of methods, constructors, fields, etc. He believes that this metric is the most important and still insufficiently handled. 
 Sawant studied how API is used \cite{Sawant2015dataset}, developed a meta-model of API usage, provided a parser to collect data from open-source systems and made the data publicly available. We also share our results and scripts to stimulate follow-up research. 
 
-\todo[inline]{Better connect this para}
-Belguidoum \cite{Belguidoum08formalization} distinguishes between \textit{vertical} and \textit{horizontal} compatibility which may be respectively paraphrased as backward and client-provider compatibility. Vertical compatibility plays role when vendors desire to produce backward compatible libraries, which allows for smooth system updates. On the other hand, horizontal compatibility plays role in checking system composition. 
-Both  directions should be taken into account to successfully adapt ``TODO.precise.cit: composition of a system from trhid-partly independently evolved components'' defined in last decade by Szyperski \cite{szyperski02component}. 
-
-...
+To cope with API evolution, it is important to understand which changes are breaking. 
+Overview of possible API breaking changes for Java is collected in  \cite{EvolvingJavaAPIs:2007}, which is a catalogue we also used to design our data set. 
+Another work proposed by Cossette \cite{Cossette2012seeking} discusses available techniques to refactor clients for new API and checks how successfully these techniques actually adapt the client in practise. Another direction taken by Raemaekers \cite{Raemaekers2013testing} tries to correlate API breaking changes with several properties such us number of modifications. Taneja \cite{Taneja2007automated} tries to automatically find changed methods replacements by employing metrics such as name similarity, method size and closeness of method arguments. Nonetheless, research into API is huge, counting Eclipse platform, web and many more empirical studies \cite{Grechanik2010empirical,Dig2006howevolve,Kagdi2007survey,Businge2015eclipse,Espinha2014web,Espinha2015web}.
 
 \section{Background: About Compatibility}
 
@@ -458,7 +464,7 @@ However, practical applications usually rely on syntactic changes expressed via 
 is acceptable for assignment to a field typed to \texttt{Collection}, the same change may impact clients that rely on particular elements order.
 
 The Java Language Specification formally defines acceptable changes in respect to binary compatibility
-\cite[ch. 13]{Java7Spec} as:
+\cite[ch. 13]{Java7Spec}:
 \begin{quotation}
 "a set of changes that developers are
 permitted to make to a package or to a class or interface type while preserving (not
@@ -467,9 +473,7 @@ breaking) compatibility with pre-existing binaries."
 The rules are strictly defined with respect to the static analysis performed during linking, which
 significantly differs from the notion of source compatibility, which is checked by the compiler as the consistency between a program and a library.
 For this reason, the specification explicitly recommends: 
-\begin{quotation}
 "tools for the Java programming language should support automatic recompilation."
-\end{quotation}
 In the same chapter it, however, admits that 
 \begin{quotation}
 "it is often impractical or impossible to automatically recompile
@@ -509,9 +513,9 @@ A few corpora with Java programs already exists. Well known is either Qualitas C
 Test data proposed in this work composes a corpus of possible syntactic API changes, which model evolution and releases of consequent versions of a library. 
 The data are separated into eight top level categories: access modifiers, data types, exceptions, generics, inheritance, class members, other (non-access) modifiers and borderline (uncategorised) category. Each category is filled with examples of API changes, which were basically constructed following subsection is section 13 in the Java Language Specification, a catalogue created by Rivieres \cite{EvolvingJavaAPIs:2007} and a few more sources\footnote{Several developer forums such as stackoverflow.com}. The data does not have to be complete as some cases did not have to be know in the time, or new cases may appear as the language evolve. For this reason, the corpus is extendable and new examples may be added.
 
-The corpus is split into three directories: \texttt{lib-v1}, \texttt{lib-v2} and \texttt{client}. As the names suggest, the directories contain a first (original) version a library, a second (evolved) version of a library and a client application, which invokes the library. The directories model real-life scenarios where a client uses libraries, but the libraries in the corpus are simplistic and contain only API with dummy implementations. The client application shows possible invocation of a library, thought it does not have to be exhaustive and more cases will actually exist.
+The corpus is split into three directories: \texttt{lib-v1}, \texttt{lib-v2} and \texttt{client}. As the names suggest, the directories contain a first (original) version a library, a second (evolved) version of a library and a client application, which invokes the library. The directories model real-life scenarios where a client uses libraries, but the libraries in the corpus are simplistic and contain only API with dummy implementations. The client application shows invocation of a library, thought it does not have to be exhaustive and more cases will actually exist.
 
-Each library as well as the client hold a set of sub-directories, Java packages, representing concrete API evaluation example. The package names are constructed following way:
+Each library as well as the client hold a set of sub-directories, Java packages, representing concrete API evaluation. The package names are constructed following way:
 \begin{verbatim}
 <category><element><change>
 \end{verbatim} 
@@ -547,7 +551,7 @@ The script generates metadata by following steps, it:
 \item invokes the client originally compiled against \texttt{lib-v1.jar} with \texttt{lib-v2.jar}  to check binary compatibility -- it may fail,
 \item writes result (``1/0'') to the CSV file.
 \end{enumerate}
-Steps 4 and 5 fail when a respective change is source or binary incompatible, which is in the last step written into the CSV file.
+Steps 4 and 5 fail when a respective change is source or binary incompatible, written in the last step into the CSV file.
 
 
 We make the corpus publicly available as a GitHub project for replication studies, benchmark of new tools or similar: 
@@ -604,8 +608,7 @@ A typical example are bounds of a parametrized type: for instance, if a list is 
 
 \subsection{Inheritance}
 
-\todo[inline]{Add citations - Tulach?}
-Inheritance is sometimes not considered at all in respect to compatibility and some best practices discourage implementations/extensions of API classes \cite{todo.tulach?}. The reason is that API must be almost frozen to be backward compatible also for inheritance. 
+Inheritance is sometimes not considered at all in respect to compatibility and some best practices discourage implementations/extensions of API classes \cite[p. 55]{Grand2002patterns}: ``if a class is declared as a subclass, there is risk that these classes not under your control will change in an incompatible way''. In other words, the API must be almost frozen to be backward compatible also for inheritance. 
 
 Some changes such as removed methods clearly break compatibility, but some breaking changes are less evident. Addition of an method to an interface is still a quite known example, but a possible compatibility issue of making a method more visible is, however, less obvious. In detail, changing visibility e.g. from \texttt{private} to \texttt{public} may seem harmless as only more is provided, but the new public method may overlap with the same method in a sub-class. When the sub-class method has a stricter access, the compilation also fails as the access cannot be weakened through inheritance. As a result, adding a public method to a class may break compatibility for inheritance.
 
@@ -681,7 +684,7 @@ The lines with compatible changes were removed from the original CSV meta-data t
 We had to analyse only provably incompatible changes because the current client does not have to handle all possible invocations. An incompatible usage not modelled in the client may exist and if detected by a tool, it would not match with the expected compatibility leading to a wrong result. 
 
 Compatible changes were removed from the tools outputs to prevent false positives. 
-Some of the tools list all API they crawled with additional compatibility classification. It could cause an incorrect string matching if a change not recognised as incompatible were listed in the output. This step differs for each tool. Some of the tools output only incompatibilities and do not have to be corrected (\texttt{japichecker}, \texttt{japicc}) while some have to. Usually such lines can be easily caught by a simple regular expression as they contain representative strings such as char \texttt{!} (\texttt{japicmp}), text \texttt{100\% Compatible} (\texttt{japitool}), \texttt{NON\_BREAKING} (\texttt{revapi}), \texttt{INFO} (\texttt{clirr}) etc.  
+Some of the tools list all API they crawled with additional compatibility classification. It could cause an incorrect string matching if a change not recognised as incompatible were listed in the output. This step differs for each tool. Some of the tools output only incompatibilities and do not have to be corrected (\texttt{japichecker}, \texttt{japicc}) while some have to. Usually such lines can be easily caught by a simple regular expression as they contain representative strings such as char \texttt{!} (\texttt{japicmp}), text \texttt{100\% Compatible} (\texttt{japitool}), \texttt{NON\_BREAKING} (\texttt{revapi}), \texttt{INFO} (\texttt{clirr}).  
 
 \subsection{Extendability}
 The whole process is automated and may be invoked by a bash script \texttt{./benchmark.sh}. The script prepares the meta-data, invokes the tools, corrects outputs and analyse results. It delegates invocation of the tools to the script \texttt{tools/run.sh}, which executes all tools one-by-one.
@@ -779,13 +782,17 @@ Binary	& 93.02\%	&	96.51\%	&	87.21\%	&	93.02\%		&	97.67\%		&	95.35\%		&	91.86\%	
 
 \subsection{Threats to Validity}
 
+\todo[inline]{do we need threats? What is in reality threat here?}
 - data completeness
 - bugs in data analysis
 
 \section{Conclusion}
-The conclusion goes here.
 
+This work has investigated how available open-source tools cope with detecting API incompatible changes. We found that the tools vary, but it is not a problem to find a reliable one. The best available is \texttt{Sigtest} which successfully detected all source incompatible changes and missed only two binary incompatibilities. Other tools vary in how successfully their find binary and source compatibility and for this reason they may be recommended only depending on their usage. 
 
+We have also created and made publicly available a data corpus, which may be used for other studies. Discussion accompanying the data moreover provides a valuable insight into compatibility obstacles in Java. 
+
+In the future, we would like to extend the data of more examples with inheritance, which is only partly covered. We would also like to concentrate on tools that checks the client-library relation. Although we see this direction nonetheless important, our preliminary research shows that the amount of existing tools is very smaller. 
 
 
 % conference papers do not normally have an appendix
