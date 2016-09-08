@@ -410,7 +410,7 @@ a valuable contribution as it may test future tools.
 
 Quality assurance has been long understood as integral part of software development. While exercising programs either manually or by automated tests is still  common, more effective approaches come to light. The main rationale is to statically inspect the code and detect possible problems without costly invoking a program. Back in the beginning of millennia Jacobs pointed at challenges of static verification \cite{Jacobs2003formal} and claimed: 
 \begin{quote}
-"While abstract formalisms were useful at the time for explaining the main ideas in this field, they are not very helpful today when it comes to actual program verification for modern programming."
+\textit{"While abstract formalisms were useful at the time for explaining the main ideas in this field, they are not very helpful today when it comes to actual program verification for modern programming."}
 \end{quote}
 Despite obstacles, both source and byte-code analysis started to be popular for Java program verifications. Over the last two decades a lot of approaches to byte-code verification have followed up. Let us name Leroy \cite{Leroy2003javabytecode} who reviews byte-code verification techniques which mainly concentrates on security and byte-code consistency issues. He was followed by others Male \cite{Male2008}, Klein \cite{Klein2003verified} or Burdy \cite{Burdy2006javabytecode} providing various byte-code based verifications. Noticeably, quite a few works \cite{Jezek2015detecting}, \cite{jezek2014ontheuse}, \cite{Raemaekers2011exploring}, \cite{Raemaekers2012measuring}, \cite{ebad2015measuring} target API evolution in standard Java, but also in Android \cite{Linares-Vasquez2013apichange}.
 
@@ -426,17 +426,18 @@ The variety of API changes is wide and the tools should ideally discover all of 
 
 From the above mentioned, the contribution of this work is twofold. First, it provides an extensible dataset with possibly wide applications such as mock-testing, replication studies, or benchmark of new tools, etc. Secondly, we benchamrked how nowadays tools deal with detecting incompatibilities.  
 
-\todo[inline]{finish}
-Remainder of this paper is structured as follows ...
+
+Remainder of this paper is structured as follows: Sections \ref{sec:related} and \ref{sec:background} discuss related work and overview fundamental concepts of compatibility. Section \ref{sec:corpus} details dataset developed in this work, followed by tools benchmark in Section \ref{sec:tools}. Conclusion is provided in in Section \ref{sec:conclusion}.
 
 
 \section{Related Work}
-In the technical domain, the term compatibility denotes\footnote{Source: the Merriam-Webster dictionary.} the ``ability to be used together'' and  ``designed to work with another device or system without modification''. Various definitions of compatibility related to software components exist, both in research \cite{canal2001compatibility,Belguidoum08formalization,taylor2009software,brada2011enhanced} % possibly stuckenholz06compatible, 
+\label{sec:related}
+In the technical domain, the term compatibility denotes\footnote{Source: the Merriam-Webster dictionary.} the \textit{``ability to be used together''} and  \textit{``designed to work with another device or system without modification''}. Various definitions of compatibility related to software components exist, both in research \cite{canal2001compatibility,Belguidoum08formalization,taylor2009software,brada2011enhanced} % possibly stuckenholz06compatible, 
 and technical \cite{forman1995release,osgi2010semvers,oracle2015compatibility} literature,
 mostly dealing with the issue of either correct replacement or interoperability.
 
 Belguidoum \cite{Belguidoum08formalization} distinguishes between \textit{vertical} and \textit{horizontal} compatibility which may be respectively paraphrased as backward and client-provider compatibility. Vertical compatibility plays role when vendors desire to produce backward compatible libraries, which allows for smooth system updates. On the other hand, horizontal compatibility plays role in checking system composition. 
-Both these directions should be taken into account to successfully adopt ``units of  independent deployment and third-party composition'' defined in last decade by Szyperski \cite[4.1.1, p.36]{szyperski02component}. 
+Both these directions should be taken into account to successfully adopt \textit{``units of  independent deployment and third-party composition''} defined in last decade by Szyperski \cite[4.1.1, p.36]{szyperski02component}. 
 
 
 Compatibility may be expressed via sophisticated means such as non-functional properties \cite{Chung09OnNFRInSoftEn}, \cite{jezek13formalisation} and practically implemented in OSGi \cite{jezek2012tools-osgi}, Fractal \cite{bruneton2006fractal}, Sofa \cite{plasil2002behavior} or Treaty \cite{dietrich2009components}. It may be also expressed via contracts in the form of \textit{pre-} and \textit{post-conditions} introduced long time ago \cite{hoare1969axiomatic,Floyd67,Nau66} and implemented in languages such as famous Eiffel \cite{Meyer88}, research oriented Whiley~\cite{Pea13c,Pea15c} but also Java~\cite{DLNS98,FLLNSS02}.
@@ -446,7 +447,7 @@ Let us name ProCom \cite{Sentilles_2009} which allows for modelling a system tha
 or SaveCCM \cite{Hanson2004SaveCCM} developed within the same cohort, enriched with visual means for easy system design.
 
 Although these complex approach exist, API analysis to guarantee compatibility is still a popular means. Let us name Rama \cite{Rama2015structural} who claims:
-``In this age of collaborative software development, the importance of usable APIs is well recognized'' and continues: ``ideally, the users of a module need to look no further than its API''. He proposes metrics that help either design or recognise a ``good'' API. 
+\textit{``In this age of collaborative software development, the importance of usable APIs is well recognized''} and continues: \textit{``ideally, the users of a module need to look no further than its API''}. He proposes metrics that help either design or recognise a ``good'' API. 
 API usability and design is moreover popularised by Myers and Stylos in \cite{Myers2016improving}.
 Another work by Scheller \cite{Scheller2015automated} automatically measures usability of API in terms of interface complexity -- complexity of methods, constructors, fields, etc. He believes that this metric is the most important and still insufficiently handled. 
 Sawant studied how API is used \cite{Sawant2015dataset}, developed a meta-model of API usage, provided a parser to collect data from open-source systems and made the data publicly available. We also share our results and scripts to stimulate follow-up research. 
@@ -456,6 +457,7 @@ Overview of possible API breaking changes for Java is collected in  \cite{Evolvi
 Another work proposed by Cossette \cite{Cossette2012seeking} discusses available techniques to refactor clients for new API and checks how successfully these techniques actually adapt the client in practise. Another direction taken by Raemaekers \cite{Raemaekers2013testing} tries to correlate API breaking changes with several properties such us number of modifications. Taneja \cite{Taneja2007automated} tries to automatically find changed methods replacements by employing metrics such as name similarity, method size and closeness of method arguments. Nonetheless, research into API is huge, counting Eclipse platform, web and many more empirical studies \cite{Grechanik2010empirical,Dig2006howevolve,Kagdi2007survey,Businge2015eclipse,Espinha2014web,Espinha2015web}.
 
 \section{Background: About Compatibility}
+\label{sec:background}
 
 Consequence of a wrongly selected library is potential incompatibility with
 its client. The notion of compatibility is complex
@@ -466,19 +468,19 @@ is acceptable for assignment to a field typed to \texttt{Collection}, the same c
 The Java Language Specification formally defines acceptable changes in respect to binary compatibility
 \cite[ch. 13]{Java7Spec}:
 \begin{quotation}
-"a set of changes that developers are
+\textit{"a set of changes that developers are
 permitted to make to a package or to a class or interface type while preserving (not
-breaking) compatibility with pre-existing binaries."
+breaking) compatibility with pre-existing binaries."}
 \end{quotation} 
 The rules are strictly defined with respect to the static analysis performed during linking, which
 significantly differs from the notion of source compatibility, which is checked by the compiler as the consistency between a program and a library.
 For this reason, the specification explicitly recommends: 
-"tools for the Java programming language should support automatic recompilation."
+\textit{"tools for the Java programming language should support automatic recompilation."}
 In the same chapter it, however, admits that 
 \begin{quotation}
-"it is often impractical or impossible to automatically recompile
+\textit{"it is often impractical or impossible to automatically recompile
 the pre-existing binaries that directly or indirectly depend on a type that is to be
-changed."
+changed."}
 \end{quotation}
 
 
@@ -608,7 +610,7 @@ A typical example are bounds of a parametrized type: for instance, if a list is 
 
 \subsection{Inheritance}
 
-Inheritance is sometimes not considered at all in respect to compatibility and some best practices discourage implementations/extensions of API classes \cite[p. 55]{Grand2002patterns}: ``if a class is declared as a subclass, there is risk that these classes not under your control will change in an incompatible way''. In other words, the API must be almost frozen to be backward compatible also for inheritance. 
+Inheritance is sometimes not considered at all in respect to compatibility and some best practices discourage implementations/extensions of API classes \cite[p. 55]{Grand2002patterns}:\textit{``if a class is declared as a subclass, there is risk that these classes not under your control will change in an incompatible way''}. In other words, the API must be almost frozen to be backward compatible also for inheritance. 
 
 Some changes such as removed methods clearly break compatibility, but some breaking changes are less evident. Addition of an method to an interface is still a quite known example, but a possible compatibility issue of making a method more visible is, however, less obvious. In detail, changing visibility e.g. from \texttt{private} to \texttt{public} may seem harmless as only more is provided, but the new public method may overlap with the same method in a sub-class. When the sub-class method has a stricter access, the compilation also fails as the access cannot be weakened through inheritance. As a result, adding a public method to a class may break compatibility for inheritance.
 
@@ -642,6 +644,7 @@ Another example in this category is a change from class to interface or vice-ver
 
 
 \section{Tools Challenge}
+\label{sec:tools}
 
 We searched for tools that are capable of discovering API syntactic backward compatibility and included them into benchmarkk. They are listed in Table \ref{tab:tools} together with basic information about their authors, current versions, licensing and basic usages. All these tools were benchmarked to find out how they cope with finding incompatibilities, results are provided below.
 
@@ -782,17 +785,19 @@ Binary	& 93.02\%	&	96.51\%	&	87.21\%	&	93.02\%		&	97.67\%		&	95.35\%		&	91.86\%	
 
 \subsection{Threats to Validity}
 
-\todo[inline]{do we need threats? What is in reality threat here?}
-- data completeness
-- bugs in data analysis
+The main possible threat of this paper is data completeness. If there were more API changes not covered here, where the tools perform differently, it could change the overall result. We tried to mitigate this by composing data by several sources: our experience, Java specifications and the catalogue by Rivieres. Moreover, the dataset is extensible and the experiment can be repeated with new data. 
+
+We are aware of limited number of examples for inheritance provided in this paper. The tools may behave differently for changes in the inheritance, but we assume that none of the tools is particularly oriented to discover such problems. For this reason, we assume it would not change the overall result dramatically. 
+
 
 \section{Conclusion}
+\label{sec:conclusion}
 
-This work has investigated how available open-source tools cope with detecting API incompatible changes. We found that the tools vary, but it is not a problem to find a reliable one. The best available is \texttt{Sigtest} which successfully detected all source incompatible changes and missed only two binary incompatibilities. Other tools vary in how successfully their find binary and source compatibility and for this reason they may be recommended only depending on their usage. 
+This work has investigated how available open-source tools cope with detecting API incompatibilities. We found that the tools vary, but reliable ones do exist. The best performing was \texttt{Sigtest} while other tools varied. For this reason other tools may be recommended only for certain scenarios.
 
-We have also created and made publicly available a data corpus, which may be used for other studies. Discussion accompanying the data moreover provides a valuable insight into compatibility obstacles in Java. 
+We have also created and made publicly available the data corpus, which may be used for other studies. Discussion accompanying the corpus moreover provides a valuable insight into compatibility obstacles in Java. 
 
-In the future, we would like to extend the data of more examples with inheritance, which is only partly covered. We would also like to concentrate on tools that checks the client-library relation. Although we see this direction nonetheless important, our preliminary research shows that the amount of existing tools is very smaller. 
+In the future, we would add data simulating changes in inheritance, which is currently only partly covered. We would also like to concentrate on tools that checks the vertical relation, i.e. compatibility of a client with its libraries. Although we see this direction nonetheless important, our preliminary research shows that the amount of existing tools is much smaller. 
 
 
 % conference papers do not normally have an appendix
