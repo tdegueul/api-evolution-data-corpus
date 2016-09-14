@@ -383,12 +383,8 @@ Pilsen, Czech Republic \\
 % As a general rule, do not put math, special symbols or citations
 % in the abstract
 \begin{abstract}
-Development of independently released software components is nowadays widely supported by tools.
-Among other benefits, the tools help guarantee backward compatibility of new versions of components. 
-In other words, absence of non-breaking changes depends on ability of the tools to detect them.
-But do the tools really cope well? This work aims at answering this question.  In brief, we have selected tools that analyse syntactic API changes
-and benchmarked them. We provide results together with the synthetic data used for the test. The data set should be itself
-a valuable contribution as it may test future tools.
+The development of software components with independent release cycles is nowadays widely supported by multiple platforms. A critical feature of any such platform is to safeguard late composition by ensuring backward compatibility of the components. In recent years, tooling has been developed to help developers and DevOp engineers to establish whether components are backward compatible. 
+We investigate the state of the art in this space by benchmarking such tools for Java. We also present a benchmark data set that can be used to test future tools.
 \end{abstract}
 
 % no keywords
@@ -408,23 +404,27 @@ a valuable contribution as it may test future tools.
 
 \section{Introduction}
 
-Quality assurance has been long understood as integral part of software development. While exercising programs either manually or by automated tests is still  common, more effective approaches come to light. The main rationale is to statically inspect the code and detect possible problems without costly invoking a program. Back in the beginning of millennia Jacobs pointed at challenges of static verification \cite{Jacobs2003formal} and claimed: 
-\begin{quote}
-\textit{"While abstract formalisms were useful at the time for explaining the main ideas in this field, they are not very helpful today when it comes to actual program verification for modern programming."}
-\end{quote}
-Despite obstacles, both source and byte-code analysis started to be popular for Java program verifications. Over the last two decades a lot of approaches to byte-code verification have followed up. Let us name Leroy \cite{Leroy2003javabytecode} who reviews byte-code verification techniques which mainly concentrates on security and byte-code consistency issues. He was followed by others Male \cite{Male2008}, Klein \cite{Klein2003verified} or Burdy \cite{Burdy2006javabytecode} providing various byte-code based verifications. Noticeably, quite a few works \cite{Jezek2015detecting}, \cite{jezek2014ontheuse}, \cite{Raemaekers2011exploring}, \cite{Raemaekers2012measuring}, \cite{ebad2015measuring} target API evolution in standard Java, but also in Android \cite{Linares-Vasquez2013apichange}.
+Quality assurance has been long understood as integral part of software development. While quality was traditionally oriented into verification of correct output of a program, it has moved further in the last decade. In particular, component-based development brought modules with independent development cycles into light. It caused that verification of correct composition started to be as important as functionality of each modules. Sometimes it becomes even more important as re-used modules are already verified by repeated usage in multiple projects and thus their correct functionality is more matter of correct usage, i.e. right integration in a particular project.
+
+Approaches to assure correct compositions are wide. There is attempt to produce correct software right from the beginning, employing models that may be checked and guarantee a bug free product. This direction was pioneered by ProCom \cite{Sentilles_2009}, Sofa \cite{BuresHP06Sofa}, or X-man \cite{Lau12Xman}. It also comes together with innovative development models such as the W-model \cite{Lau11wmodel} that is extension of a standard V-model.
+
+However, practical applications still rely only on API. Rama \cite{Rama2015structural} claims that \textit{``ideally, the users of a module need to look no further than its API''} and it is wildly used industry level tools such as OSGi \cite{osgi43spec} or Maven. OSGi's components expose packages and services (Java interfaces) and binding is allowed once the API matches. No deeper analysis is performed as it is assumed that two components are compatible if their API matches. Even more coarse grained checks are performed by Maven. It composes the whole components (JAR files) based on their symbolic versions. Once a referenced component exists in a repository, composition is allowed. 
+
+Obviously, the API-based compatibility simplifies current problem. While actually incompatible library may look as compatible via its API, it is trade-off made between complexness and practical usage. The main rationale is that API may be statically inspected to detect possible problems without costly invoking a program. 
+
+%Back in the beginning of millennia Jacobs pointed at challenges of static verification \cite{Jacobs2003formal} and claimed: 
+%\begin{quote}
+%\textit{"While abstract formalisms were useful at the time for explaining the main ideas in this field, they are not very helpful today when it comes to actual program verification for modern programming."}
+%\end{quote}
 
 Approximately at the same time, static verification implemented in open source tools started to appear. Notoriously known are source-code style checkers such as \texttt{PMD}\footnote{https://github.com/pmd}, \texttt{Checkstyle}\footnote{http://checkstyle.sourceforge.net/}, or \texttt{Findbugs}\footnote{http://findbugs.sourceforge.net/} that are widely used and integrated into development tools or continuous integrations such us \texttt{Jenkins}\footnote{https://jenkins.io/} or \texttt{SonarQube}\footnote{http://www.sonarqube.org/}. 
 
-Another set of tools are checkers of API evolution. They are generally useful for assessing compatibility of independently evolved libraries. They help developers assure smooth process of upgrading systems or releasing new versions of components. In contrast to the previous group, they work usually with byte-code and thus ideally fit for inspection of third-party binary libraries.  
-All tools we are aware of are included in this work and listed in Table \ref{tab:tools}. They were collected putting together our knowledge, cross-refrences and search through developer forums, mostly \url{stackoverflow.com}. 
-
 \todo[inline]{missing JDiff}
-To our best knowledge, these tools are less popular and also seem to be  surrounded by smaller communities in comparison to the tools that check source-code style\footnote{One of the tool, \texttt{Clirr}, has three members, one contributor and finally is not developed since 2005. Still active is \texttt{Revapi} but with only four contributors. Bigger seems to be \texttt{japicmp} with 11 contributors. But they cannot match  \texttt{checkstyle} with 92 contributors or  \texttt{PMD} with 58}. It is interesting observation as API compatibility is not less important then code-style violations, or at least should not be. This work does not aim at answering if and why the tools are less popular, but it provides insight how they find API defects.
+Tools checking API backward compatibility we are aware of lists Table \ref{tab:tools}\footnote{They were collected putting together our knowledge, cross-refrences and search through developer forums, mostly \url{stackoverflow.com}}. 
+While they should help developers assure smooth process of upgrading a system, or releasing a new version, they are surprisingly less popular\footnote{One of the tool, \texttt{Clirr}, has three members, one contributor and finally is not developed since 2005. Still active is \texttt{Revapi} but with only four contributors. Bigger seems to be \texttt{japicmp} with 11 contributors. But they cannot match  \texttt{checkstyle} with 92 contributors or  \texttt{PMD} with 58}.
+The reason may be that developers are not aware of possible API breaking changes \cite{dietrich2014whatjava} and thus do not see benefits.
 
-The variety of API changes is wide and the tools should ideally discover all of them. It is impractical to test the tools on real software as even a large system with a lot of versions does not have to contain all obscure API changes. Moreover, there are no meta-data about the changes that we could compare with tools results. For this reason, we created an artificial dataset in canonical form simulating syntactic changes of API. It is enriched with meta-data describing each change and its impact on compatibility. 
-
-From the above mentioned, the contribution of this work is twofold. First, it provides an extensible dataset with possibly wide applications such as mock-testing, replication studies, or benchmark of new tools, etc. Secondly, we benchamrked how nowadays tools deal with detecting incompatibilities.  
+We believe that sufficient discussion and examples of API breaking changes are missing and it is not clear how current tools cope with finding the incompatibility. For this reason, the contribution of this work is twofold. First, it provides an extensible dataset with possibly wide applications such as mock-testing, replication studies, or benchmark of new tools, etc. Secondly, we benchamrked how nowadays tools deal with detecting incompatibilities.  
 
 
 Remainder of this paper is structured as follows: Sections \ref{sec:related} and \ref{sec:background} discuss related work and overview fundamental concepts of compatibility. Section \ref{sec:corpus} details dataset developed in this work, followed by tools benchmark in Section \ref{sec:tools}. Conclusion is provided in in Section \ref{sec:conclusion}.
@@ -446,8 +446,10 @@ There is also attempt to produce correct software right from the beginning, empl
 Let us name ProCom \cite{Sentilles_2009} which allows for modelling a system that is then generated into the code,
 or SaveCCM \cite{Hanson2004SaveCCM} developed within the same cohort, enriched with visual means for easy system design.
 
+Both source and byte-code analysis started to be popular for Java program verifications. Over the last two decades a lot of approaches to byte-code verification have followed up. Let us name Leroy \cite{Leroy2003javabytecode} who reviews byte-code verification techniques which mainly concentrates on security and byte-code consistency issues. He was followed by others Male \cite{Male2008}, Klein \cite{Klein2003verified} or Burdy \cite{Burdy2006javabytecode} providing various byte-code based verifications. Noticeably, quite a few works \cite{Jezek2015detecting}, \cite{jezek2014ontheuse}, \cite{Raemaekers2011exploring}, \cite{Raemaekers2012measuring}, \cite{ebad2015measuring} target API evolution in standard Java, but also in Android \cite{Linares-Vasquez2013apichange}.
+
 Although these complex approach exist, API analysis to guarantee compatibility is still a popular means. Let us name Rama \cite{Rama2015structural} who claims:
-\textit{``In this age of collaborative software development, the importance of usable APIs is well recognized''} and continues: \textit{``ideally, the users of a module need to look no further than its API''}. He proposes metrics that help either design or recognise a ``good'' API. 
+\textit{``In this age of collaborative software development, the importance of usable APIs is well recognized''}. He proposes metrics that help either design or recognise a ``good'' API. 
 API usability and design is moreover popularised by Myers and Stylos in \cite{Myers2016improving}.
 Another work by Scheller \cite{Scheller2015automated} automatically measures usability of API in terms of interface complexity -- complexity of methods, constructors, fields, etc. He believes that this metric is the most important and still insufficiently handled. 
 Sawant studied how API is used \cite{Sawant2015dataset}, developed a meta-model of API usage, provided a parser to collect data from open-source systems and made the data publicly available. We also share our results and scripts to stimulate follow-up research. 
@@ -510,7 +512,8 @@ There were already works to catalogue API changes \cite{EvolvingJavaAPIs:2007} a
 \section{API Changes Data Corpus}
 \label{sec:corpus}
 
-A few corpora with Java programs already exists. Well known is either Qualitas Corpus \cite{tempero2010qualitas} or DaCapo \cite{blackburn2006dacapo}. Both of them are impractical for usage in this work. Qualitas Corpus contain a lot of programs with evolving versions, but it has no meta-information about API changes and for this reason results of the tools could be hardly validated. DaCapo is much smaller and contain programs only in one version, preventing us from analysing API changes. We are not aware of another corpus fitting our needs and thus we created a new one.
+A few corpora with Java programs already exists. Well known is either Qualitas Corpus \cite{tempero2010qualitas} or DaCapo \cite{blackburn2006dacapo}. Both of them are impractical for usage in this work. Qualitas Corpus contain a lot of programs with evolving versions, but it has no meta-information about API changes and for this reason results of the tools could be hardly validated. DaCapo is much smaller and contain programs only in one version, preventing us from analysing API changes.
+It is impractical to use real software as even a large system with a lot of versions does not have to contain all obscure API changes. Moreover, there are no meta-data about the changes that we could compare with tools results. We are not aware of another corpus fitting our needs and thus we created a new one.
 
 Test data proposed in this work composes a corpus of possible syntactic API changes, which model evolution and releases of consequent versions of a library. 
 The data are separated into eight top level categories: access modifiers, data types, exceptions, generics, inheritance, class members, other (non-access) modifiers and borderline (uncategorised) category. Each category is filled with examples of API changes, which were basically constructed following subsection is section 13 in the Java Language Specification, a catalogue created by Rivieres \cite{EvolvingJavaAPIs:2007} and a few more sources\footnote{Several developer forums such as stackoverflow.com}. The data does not have to be complete as some cases did not have to be know in the time, or new cases may appear as the language evolve. For this reason, the corpus is extendable and new examples may be added.
