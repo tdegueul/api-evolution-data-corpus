@@ -486,26 +486,12 @@ changed."}
 \end{quotation}
 
 
-
-% Kamil: removed as it is repreated in corpus discusion
-%What is more, binary compatibility does not implies 
-%source compatibility nor vice versa. For instance, specialising the return type 
-%of a method is source compatible as the compiler converts types, but not binary 
-%compatible as the linker expects exact types. On the other hand, changing generic type parameters is 
-%often binary compatible due to erasures\footnote{But likely behaviour breaking, causing \texttt{ClassCastException} and similar as the erasures are replaced by the \texttt{checkcast} byte-code instruction.}, 
-%but not source compatible as the compiler checks generic parameter bounds. 
-%
-%The discrepancy increases in time as new language features are differently projected into compiler and linker. Often, only the compiler is updated to handle new features, while the linker remains unchanged\footnote{Interesting counter-example are Lambdas that required modification of JVM while they could be implemented as syntactic constructs compiled to anonymous classes like byte-code compiled languages such as Scala.}.
-%For instance, boxing and unboxing has been added in Java 1.5 to make working with primitive and wrapper types transparent for programmers, but the same conversion is not part of the linker. 
-
 When a program is built and deployed, a mixed notion of compatibility is used. As the program is compiled, the source compatibility with the libraries 
 is checked by the compiler. The binary compatibility is checked instead when the program is invoked. When not all directions of compatibility are satisfied, situations where a system may be compiled but cannot run or vice-versa may appear.
 
 Compatibility also depends on how a library is used, 
 i.e. if a library is used (invoked) only or also implemented (used for extension in sense of the object-oriented paradigm). For instance, a method added to an interface is acceptable for the client invoking this interface, but breaks compilation for someone implementing that interface as all methods must be implemented\footnote{Exceptions are Java 8 \texttt{default} methods}.
  
-%Although API may be enriched with sophisticated behaviour-related annotations such as pre/post conditions \cite{liskov87data}, practical applications still rely on syntactic API expressing type system, i.e. method signatures. It allows for automation and easy verification by tools. The only question, to be answered in this work, is how current tools cope with finding API breaking changes. 
-
 There were already works to catalogue API changes \cite{EvolvingJavaAPIs:2007} and a wide set of empirical studies \cite{jezek2014howjava}, \cite{dietrich14broken} or two works by Raemakers \cite{Raemaekers2011exploring}, \cite{Raemaekers2012measuring} to measure extend of the problem. Recently, we proposed even an approach to mitigate big part of the problem by employing run-time adaptation into Java \cite{jezek2016dynamo}. However, current tools have not bee obsoleted yet, as this research prototype is still waiting for its adoption by industry.
 
 
@@ -565,7 +551,27 @@ https://github.com/kjezek/
 api-evolution-data-corpus/
 \end{verbatim}
 
-Following sub-sections detail the corpus separated into categories. Short discussions is provided in each sub-section to overview why the category is signification.
+Following sub-sections detail the corpus separated into categories. Short discussions is provided in each sub-section to overview why the category is signification. While the information provided bellow may be aggregated from other sources, mainly Java specifications, they are scattered on several places and do not have to be that obvious. For this reason we put them together here. 
+
+\begin{table}[h]
+\centering
+\begin{tabular}{l | r  c l}
+Category         & Tests & Incomp. & Note                                   \\
+\hline 
+Data Types       & 49    & s/b     & s -- gen/spe                          \\
+Exception        & 26    & s       & checked by compiler                   \\
+Generics         & 88    & s       & compiler erasures, linker raw types   \\
+Inheritance      & 16    & s/b     & most changes incompatible             \\
+Members          & 28    & s/b     &                                       \\
+Access Modifiers & 18    & s/b     & break inheritance, otherwise feasible \\
+Other Modifiers  & 30    & s/b     & differences by usage                  \\
+Borderline Cases & 4     & b       & implicit parents, interface/class    
+\end{tabular}
+\caption{Data overview}
+\label{tab:data-overview}
+\end{table}
+
+Table \ref{tab:data-overview} overviews all categories. It summarises number of tests, their typical impact on compatibility (source/binary) and provides a note showing why each category is significant.
 
 \subsection{Data Types}
 
