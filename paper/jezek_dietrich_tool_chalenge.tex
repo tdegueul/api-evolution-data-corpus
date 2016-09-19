@@ -404,30 +404,49 @@ We investigate the state of the art in this space by benchmarking such tools for
 
 \section{Introduction}
 
-Quality assurance has been long understood as integral part of software development. While quality was traditionally oriented into verification of correct output of a program, it has moved further in the last decade. In particular, component-based development brought modules with independent development cycles into light. It caused that verification of correct composition started to be as important as functionality of each modules. Sometimes it becomes even more important as re-used modules are already verified by repeated usage in multiple projects and thus their correct functionality is more matter of correct usage, i.e. right integration in a particular project.
+The popularity of platforms such as OSGi \cite{osgi43spec} and Maven has created  new challenges for software developers. In particular, components deployed as libraries (in Java, jar files) are pulled from repositories and applications are composed without compiling code against the libraries used at runtime. 
 
-Approaches to assure correct compositions are wide. There is attempt to produce correct software right from the beginning, employing models that may be checked and guarantee a bug free product. This direction was pioneered by ProCom \cite{Sentilles_2009}, Sofa \cite{BuresHP06Sofa}, or X-man \cite{Lau12Xman}. It also comes together with innovative development models such as the W-model \cite{Lau11wmodel} that is extension of a standard V-model.
+When the OSGi dynamic wiring mechanism is used, a bundle requiring a service is resolved against another bundle providing such a service, but the bundle is not necessarily the same that was used for compilation. There are two abstractions that enable this: the use of version ranges in dependency declarations, and the use of the OSGi service layer (such as OSGi declarative services). 
 
-However, practical applications still rely only on API. Rama \cite{Rama2015structural} claims that \textit{``ideally, the users of a module need to look no further than its API''} and it is wildly used industry level tools such as OSGi \cite{osgi43spec} or Maven. OSGi's components expose packages and services (Java interfaces) and binding is allowed once the API matches. No deeper analysis is performed as it is assumed that two components are compatible if their API matches. Even more coarse grained checks are performed by Maven. It composes the whole components (JAR files) based on their symbolic versions. Once a referenced component exists in a repository, composition is allowed. 
+In Maven, a similar situation is caused by the automated transitive dependency resolution. Here, an application is compiled against the very libraries it is deployed with. However, if those libraries recursively depend on other libraries, it is still possible that other library versions are used than the ones used at compile time. Again, the use of version ranges in dependency declarations makes this possible. 
 
-Obviously, the API-based compatibility simplifies current problem. While actually incompatible library may look as compatible via its API, it is trade-off made between complexness and practical usage. The main rationale is that API may be statically inspected to detect possible problems without costly invoking a program. 
+The problem is that this bypasses some of the crucial quality assurance steps built into standard build and deployment processes, such as regression testing. A common argument made to solve (or often, to ignore) this problem is to reason about compatibility: if the correctness of an application was established (e.g., by means of regression testing) with respect to component1, then we infer correctness with respect to component2 as we assume compatibility between both components. There are different reasons to make such assumptions. For instance, one might assume that all libraries providing a standardised service such as a JDBC connection to interact with a relational data are compatible. The most common case however is that the two components are different versions of the same component, and in particular that component2 is a later version. 
+
+% Quality assurance has been long understood as integral part of software development. While quality was traditionally oriented into verification of correct output of a program, it has moved further in the last decade. In particular, component-based development brought modules with independent development cycles into light. It caused that verification of correct composition started to be as important as functionality of each modules. Sometimes it becomes even more important as re-used modules are already verified by repeated usage in multiple projects and thus their correct functionality is more matter of correct usage, i.e. right integration in a particular project.
+
+The question arises what compatibility means in this context. In general, compatibility is about preserving i between collaborating components and ensuring safe substitution. There is a vast amount of existing work on safe and correct composition, including ProCom \cite{Sentilles_2009}, Sofa \cite{BuresHP06Sofa}, or X-man \cite{Lau12Xman}. 
+
+% Jens: the is a bit of a misfit, move this to related work?
+%It also comes together with innovative development models such as the W-model \cite{Lau11wmodel} that is extension of a standard V-model.
+
+The underling notion of contract has many facets \cite{beugnard99making}, including classical API compatibility that can be expressed through the type system of the underlying programming language, but also aspects like semantics, quality of service and licensing. 
+
+However, existing practical applications available to software engineers only cover the API aspect of the contract. Rama \cite{Rama2015structural} defends this practice and claims that \textit{``ideally, the users of a module need to look no further than its API''}. For instance, OSGi's components expose packages and services (Java interfaces) and binding is allowed if APIs match. No deeper analysis is performed as it is assumed that two components are compatible if their API matches. The checks performed by Maven are even coarser. Maven composes components (JAR files) based on their symbolic versions. Once a referenced component exists in a repository, composition is allowed. 
+
+API-based compatibility checks simplify the issue from the developers point of view at the price of unsoundness: certain incompatibilities will be missed. This is a classical trade-off made between complexity and usability. The main rationale is that API compatibility can be investigated by means if static analysis that can be easily integrated into standard build processes. This is particular beneficial as there are several static analysis tools that have now been widely adapted and are part of the standard toolbox of many developers, such as \texttt{PMD}\footnote{https://github.com/pmd}, \texttt{Checkstyle}\footnote{http://checkstyle.sourceforge.net/}, and \texttt{Findbugs}\footnote{http://findbugs.sourceforge.net/}. 
+
+Recent studies have clearly demonstrated the need for such tools: many developers are not aware of the rules that specify when component evolution is compatible \cite{dietrich2014whatjava}, and empirical studies have demonstrated that this causes issues in real-world systems \cite{dietrich14broken,raemaekers2014semantic}.
+
+
 
 %Back in the beginning of millennia Jacobs pointed at challenges of static verification \cite{Jacobs2003formal} and claimed: 
 %\begin{quote}
 %\textit{"While abstract formalisms were useful at the time for explaining the main ideas in this field, they are not very helpful today when it comes to actual program verification for modern programming."}
 %\end{quote}
 
-Approximately at the same time, static verification implemented in open source tools started to appear. Notoriously known are source-code style checkers such as \texttt{PMD}\footnote{https://github.com/pmd}, \texttt{Checkstyle}\footnote{http://checkstyle.sourceforge.net/}, or \texttt{Findbugs}\footnote{http://findbugs.sourceforge.net/} that are widely used and integrated into development tools or continuous integrations such us \texttt{Jenkins}\footnote{https://jenkins.io/} or \texttt{SonarQube}\footnote{http://www.sonarqube.org/}. 
+
+% Jens: see above
+%Approximately at the same time, static verification implemented in open source tools started to appear. Notoriously known are source-code style checkers such as \texttt{PMD}\footnote{https://github.com/pmd}, \texttt{Checkstyle}\footnote{http://checkstyle.sourceforge.net/}, or \texttt{Findbugs}\footnote{http://findbugs.sourceforge.net/} that are widely used and integrated into development tools or continuous integrations such us \texttt{Jenkins}\footnote{https://jenkins.io/} or \texttt{SonarQube}\footnote{http://www.sonarqube.org/}. 
 
 \todo[inline]{missing JDiff}
-Tools checking API backward compatibility we are aware of lists Table \ref{tab:tools}\footnote{They were collected putting together our knowledge, cross-refrences and search through developer forums, mostly \url{stackoverflow.com}}. 
-While they should help developers assure smooth process of upgrading a system, or releasing a new version, they seem to be less popular.
-The reason may be that developers are not aware of possible API breaking changes \cite{dietrich2014whatjava} and thus do not see benefits.
 
-We believe that sufficient discussion and examples of API breaking changes are missing and it is not clear how current tools cope with finding the incompatibility. For this reason, the contribution of this work is twofold. First, it provides an extensible dataset with possibly wide applications such as mock-testing, replication studies, or benchmark of new tools, etc. Secondly, we benchamrked how nowadays tools deal with detecting incompatibilities.  
+The aim of this paper is to review these tools as a starting point for future development and research.
+For this purpose, we collected several existing tools that can be used to check API compatibility, the complete list is shown in Table \ref{tab:tools}. The methodology used as to start with tools we were aware of, added tools references on the respective web sites, and then added further tools references on developer forums. 
 
 
-Remainder of this paper is structured as follows: Sections \ref{sec:related} and \ref{sec:background} discuss related work and overview fundamental concepts of compatibility. Section \ref{sec:corpus} details dataset developed in this work, followed by tools benchmark in Section \ref{sec:tools}. Conclusion is provided in in Section \ref{sec:conclusion}.
+The contribution of this paper is twofold. Firstly, we catalogue existing API compatibility checking tools and investigate their capabilities. Secondly, we provide an extensible dataset used for benchmarking such (existing and future) tools. 
+
+The remainder of this paper is organised as follows: Sections \ref{sec:related} and \ref{sec:background} discuss related work and summarise some fundamental concepts of compatibility. In Section \ref{sec:corpus}, we discuss the dataset developed, followed by the evaluation of the various tools in Section \ref{sec:tools}. A brief conclusion is provided in Section \ref{sec:conclusion}.
 
 
 \section{Related Work}
