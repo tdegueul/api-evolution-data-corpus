@@ -667,17 +667,17 @@ There is no pattern how these modifiers impact compatibility. For instance, a ta
 
 An interesting case is the \texttt{static} modifier. It is more discussed in \cite[Section 4]{jezek2014howjava}: static elements, fields and methods, may be invoked from non-static context (via a reference) and pass compilation (most compilers emit a warning). However, this combination is forbidden at runtime as different byte-code instructions are generated for static and non-static access and thus it fails when the byte-code is updated without recompilation.
 
-\subsection{Borderline Cases}
+\subsection{Miscellaneous}
 
-Java contains several specific features that are grouped in this category. It contains scenarios resulting from the implicit inheritance from \texttt{Object}  by any classes, and the fact that any Java array implicitly implements \texttt{Cloneable} and \texttt{Serialisable}. 
+Java contains several specific features that are grouped in this category. It contains scenarios resulting from the implicit inheritance from \texttt{Object}  by any classes, and the fact that any Java array implicitly implements \texttt{Cloneable} and \texttt{Serializable}. 
 
-Another example in this category is a change from a class to interface or vice-versa \cite[Section 4]{jezek2014howjava}. This is interesting because there is no differ between the invocation of class and interface methods in source-code. However, different byte-code instructions are used, leading to binary compatibility problems that require recompilation of client code. 
+Another example in this category is a change from a class to interface or vice-versa \cite[Section 4]{jezek2014howjava}. This is interesting because there is no difference between the invocation of class and interface methods in source-code. However, different byte-code instructions are used, leading to binary compatibility problems that require recompilation of client code. 
 
 
-\section{Tools Challenge}
+\section{Tool Evaluation}
 \label{sec:tools}
 
-We searched for tools that are capable of discovering API syntactic backward compatibility and included them into benchmarkk. They are listed in Table \ref{tab:tools} together with basic information about their authors, current versions, licensing and basic usages. All these tools were benchmarked to find out how they cope with finding incompatibilities, results are provided below.
+We evaluated several tools that are available to developers to check syntactic compatibility of API changes. The tools included are listed in Table \ref{tab:tools} together with information about the authors, current versions, licensing and platform integration. All tools are basically static analysis tools that try to assess the compatibility of different versions of a program by creating models from (byte) code, and analysing those models. 
 
 \begin{table*}[t]
   \centering
@@ -686,7 +686,7 @@ Tool  &  Clirr  &  Japicmp  &  japiChecker  &  JAPICC  &  Revapi  &  Sigtest  & 
 \hline
 \multicolumn{10}{|c|}{Basic info} \\
 \hline
-Author  &  Lars Kühne  &  Martin Mois  &  William Bernardet  &  Andrey Ponomarenko  &  Lukas Krejci  &  Oracle  &  Stuart Ballard  &  Vlad Skarzhevskyy  &  UWB	\\
+Author  &  Lars K{\"u}hne  &  Martin Mois  &  William Bernardet  &  Andrey Ponomarenko  &  Lukas Krejci  &  Oracle  &  Stuart Ballard  &  Vlad Skarzhevskyy  &  UWB	\\
 License  &  LGPL  &  A2.0  &  A2.0  &  LGPL  &  A2.0  &  GPLv2   &  GPL   &  LGPL  &  ask	\\
 Version  &  0.6.0  &  0.7.2  &  0.2.1  &  1.5  &  0.4.2  &  3.1  &  0.9.7  &  2.0.3  &  1.0.9	\\
 Release  &  9/27/2005  &  3/20/2016  &  10/3/2015  &  4/8/2016  &  3/30/2016  &  4/8/2016  &  11/13/2007  &  12/12/2008  &  	\\
@@ -711,19 +711,20 @@ libray  &    &  yes  &    &    &    &    &    &    &  yes	\\
 
 \subsection{Methodology}
 
-The tools were tested using following approach: 
-we generated the meta-data CSV file as described in Section \ref{sec:corpus}, then we removed lines representing only compatibilities. After that, we invoked all the tools and redirected their output to text files. In certain cases we removed lines from outputs representing a compatible change. Finally, we iterated the meta-data CSV file and used string matching to find changes in tools outputs. We collected the results in another CSV file, which lists changes in lines and tools in columns. The columns contain ``$1$'' for a correctly detected incompatibility and ``$0$'' meaning that a tool did not find the incompatibility.
+The tools were evaluated using following approach: 
 
-The lines with compatible changes were removed from the original CSV meta-data to prevent false negatives.
-We had to analyse only provably incompatible changes because the current client does not have to handle all possible invocations. An incompatible usage not modelled in the client may exist and if detected by a tool, it would not match with the expected compatibility leading to a wrong result. 
+We first created an oracle of true incompatibility issues by means of dynamic analysis, using the scripts described in Section \ref{sec:corpus}. These scripts exercise (compile, link and run) the respective scenarios, and record the results. In particular, compiler and linker errors encountered indicate incompatibilities. These scripts also report compatible changes, this information is removed from teh Oracle in order to ensure that there are no false negatives. The oracle is stored in a CSV file. 
 
-Compatible changes were removed from the tools outputs to prevent false positives. 
-Some of the tools list all API they crawled with additional compatibility classification. It could cause an incorrect string matching if a change not recognised as incompatible were listed in the output. This step differs for each tool. Some of the tools output only incompatibilities and do not have to be corrected (\texttt{japichecker}, \texttt{japicc}) while some have to. Usually such lines can be easily caught by a simple regular expression as they contain representative strings such as char \texttt{!} (\texttt{japicmp}), text \texttt{100\% Compatible} (\texttt{japitool}), \texttt{NON\_BREAKING} (\texttt{revapi}), \texttt{INFO} (\texttt{clirr}).  
+We then used the tools for static analysis and captured the tool output in text files. Some tools also report compatibilities, we filtered this out in order to avoid false positives. We used regular expressions for this purpose, tools flag positive output with text patterns that are easy to recognise, for instance  \texttt{!} (\texttt{japicmp}), \texttt{100\% Compatible} (\texttt{japitool}), \texttt{NON\_BREAKING} (\texttt{revapi}) or \texttt{INFO} (\texttt{clirr}). 
 
-\subsection{Extendability}
-The whole process is automated and may be invoked by a bash script \texttt{./benchmark.sh}. The script prepares the meta-data, invokes the tools, corrects outputs and analyse results. It delegates invocation of the tools to the script \texttt{tools/run.sh}, which executes all tools one-by-one.
+Finally, we compared the  tool output with the Oracke in order to establish which incompatibility issues were correctly reported by the tool.  
 
-For instance, the \texttt{run.sh} script contains following lines to invoke \texttt{japicmp}:
+
+\subsection{Extendibility}
+
+The whole process is automated and may be invoked by a bash script \texttt{./benchmark.sh}. This script prepares the meta-data, invokes the tools, filters and formats the outputs and analyses results. The actual invocation tools is delegated to script \texttt{tools/run.sh}, which executes all tools one-by-one.
+
+For instance, \texttt{run.sh} contains following lines to invoke \texttt{japicmp}:
 \begin{verbatim}
 REPORTS=".reports"
 java -jar japicmp/japicmp-0.7.2.jar \
@@ -736,9 +737,9 @@ grep -v '===  UNCHANGED' \
 mv japicmp.txt.tmp "$REPORTS"/japicmp.txt   
 \end{verbatim}
 
-New tools may be added to the benchmark simply by adding invocable lines to this script so that they produce a textual output stored in the \texttt{tools/.reports}.
+Additional tools can be easily added to the benchmark by adding code to invoke the respective tool to this script. This script must ensure that the output of the tools is captured, formatted and stored in \texttt{tools/.reports}.
 
-The structure of the corpus including the tools benchmark looks like:
+The structure of the corpus including the tools benchmark looks as follows:
 \begin{verbatim}
 <root>
   +- client/src/<>/Main.java
@@ -754,22 +755,26 @@ The structure of the corpus including the tools benchmark looks like:
 
 \subsection{Results}
 
-The result of described experiment has shown that the tools widely differ in their ability to find compatibility breaking changes. Results are provided in Table \ref{tab:result-categories}
-as percentages of successfully detected compatibility breaking changes. They are separated to categories with a summary in the last row. 
+The result of he experiment conducted indicate that the tools differ widely in their ability to detect compatibility-breaking changes. A result summary is  provided in Table \ref{tab:result-categories}, 
+in this table we report the percentages of successfully detected compatibility-breaking changes, classified by category.
 
 While the results show clearly that the worst tool is \texttt{clirr} and the best is \texttt{sigtest}, detailed analysis reveals that \texttt{clirr} may be a better choice than some of the better performing tools in certain use-cases.
 
-\texttt{Clirr} is not actively developed since 2005, and evidently does not recognize generics and exceptions. However, it works well in other categories and may be still useful for detecting only binary incompatible changes as generics and exceptions impacts only srouce compatibility.
-Similar situation appears for \texttt{japicmp} with overall a poor result, which is however caused by unsporting generics and a few bugs in detecting modifiers. Otherwise, the tool works well.
+Active development of \texttt{Clirr} stopped in 2005, and it is therefore not surprising that it does not recognize issues caused by the use of generics. Its focus is to check binary compatibility as defined in the Java Language Specification, and therefore it missies issues related to source compatibility, for instance is the Exceptions category. However, it works well in other categories and may be still useful for detecting only binary incompatible changes as.
 
-The second place is occupied by \texttt{japitool} which also seems to be no more developed since 2006, thought still available as part of Linux distributions (Debian/Linux in particular).
+The situation is similar for \texttt{japicmp} -- we obtain rather poor results, however this is caused by a lack of support for generics and a few bugs in detecting modifiers. In all other categories, the tool performs well.
 
-Tools  such as \texttt{japicc} or \texttt{revapi} showed overall better score, but they have several issues scattered among categories. They may be less reliable in production as they can miss important issues in both categories of source and binary compatibility, while worse performing tools like \texttt{clirr} or \texttt{japicmp} may be a better choice when source compatibility is out of interest. Nonetheless, both tools are still developed and may be thus improved in the future. 
+Another tool that performs well is \texttt{japitool}. Active development ceased in 2006, but the tool is still available as part of certain Linux distributions, including Debian.
+
+Newer tools like \texttt{japicc} and \texttt{revapi} have better overall score, but both have several issues scattered amongst several categories. They may be less reliable in production as they can miss some important source and binary compatibility issues. Nonetheless, both tools are still actively being developed and may be therefore improved in the future. 
 
 
-\texttt{Sigtest} wins the benchmark as it is able to detect almost all problems. It fails only in two changes, detection of the removed \texttt{strictfp} modifier and addition of the \texttt{native} modifier, which are both binary incompatible. As they are very specific modifiers, we do not expect their frequent changes among library versions. For this reason, \texttt{sigtest} may serve as the most reliable tool from this benchmark.
+\texttt{Sigtest} wins the benchmark as it is able to detect almost all problems. It fails only to detect two issues: (1) the detection of the removed \texttt{strictfp} modifier and (2) addition of the \texttt{native} modifier, both cause binary incompatibility. We do not expect that those changes are very common in real-world programs. For this reason, \texttt{sigtest} is the best performer according to our evaluation.
   
-Table \ref{tab:result-types} provides insight into results separated for source and binary incompatibilities. First line shows changes that are only source incompatible and binary compatible. The second line in contrast lists changes that are binary incompatible, but may be either source compatible or incompatible. 
+Table \ref{tab:result-types} provides a more detailed analysis of results classified by whether the issue is source or binary incompatible. First line shows changes that are only source incompatible and binary compatible. The second line in contrast lists changes that are binary incompatible, but may be either source compatible or incompatible. 
+
+% =========  restart from here =============
+
 We separated the data this way to test the tools specifically for source compatibility and for the rest.
 
 The table provides interesting results, the tools perform much better in detecting binary incompatibilities.  Worst in this category is \texttt{revapi} while most of the tools detected more than $90\%$ of issues. On the other hand, the tools lack ability to detect source incompatibility. The only actually reliable tools are \texttt{sigtest} and \texttt{japitool} that correctly recognised all source incompatibilities. Partly useful is \texttt{revapi} with about 88\% of successful results.  Other tools detected only a small number of problems and cannot be recommended.
@@ -792,7 +797,7 @@ Generics   &  0.00\%   &  33.33\%   &  5.88\%   &  0.00\%   &  0.00\%   &  100.0
 Inheritance   &  71.43\%   &  100.00\%   &  71.43\%   &  85.71\%   &  100.00\%   &  100.00\%   &  100.00\%   &  42.86\%   &  100.00\%  \\
 Members   &  100.00\%   &  100.00\%   &  84.21\%   &  89.47\%   &  100.00\%   &  100.00\%   &  84.21\%   &  42.11\%   &  100.00\%  \\
 Other Modifiers   &  61.54\%   &  84.62\%   &  84.62\%   &  53.85\%   &  84.62\%   &  69.23\%   &  76.92\%   &  61.54\%   &  84.62\%  \\
-Others   &  100.00\%   &  100.00\%   &  75.00\%   &  100.00\%   &  100.00\%   &  100.00\%   &  100.00\%   &  50.00\%   &  100.00\%  \\
+Miscellaneous   &  100.00\%   &  100.00\%   &  75.00\%   &  100.00\%   &  100.00\%   &  100.00\%   &  100.00\%   &  50.00\%   &  100.00\%  \\
 \hline
 Total  &  57.79\%   &  72.08\%   &  59.74\%   &  61.04\%   &  65.58\%   &  97.40\%   &  68.18\%   &  82.47\%   &  98.70\%  \\  
 \end{tabular}
