@@ -188,8 +188,8 @@ For this purpose, we collected several existing tools that can be used to check 
 Before starting this work, we had asked research questions:
 \todo[inline]{Do we need RQ for datacorpus?}
 \begin{enumerate}
-\item[RQ1] Does a tool reliably checking API syntactical compatibility exist? 
-\item[RQ2] Does a tool correctly distinguish between source and binary compatibility exist?
+\item[RQ1] Does any of the tools reliably check API syntactical compatibility? 
+\item[RQ2] Does any of the tools correctly distinguish between source and binary compatibility?
 \end{enumerate}
 
 
@@ -540,10 +540,10 @@ The table provides some interesting insights, most tools perform much better in 
 Other aspects like usability are also important properties to consider when selecting tools. A tool with a few bugs may be a better choice if it provides a better user experience. While we did not evaluate these aspects systematically in this work, we did make some observations. All tools provide a similar integration features and interfaces. For instance, all tools provide a command line interface (CLI) with options to input JAR files and produce a human readable formatted test output. None of the formats used stands out. Only \texttt{japicc} provides a HTML output which is useful to highlight the detected severity of changes,  this could be a better readable by humans and especially by non-programmers. 
 
 To answer research questions laid in this work, we investigated that:
-\paragraph{RQ1 -- Does a tool reliably checking API syntactical compatibility exist}
+\paragraph{RQ1 -- Does any of the tools reliably check API syntactical compatibility}
 The answer is yes, the tools do exist but their ability varies. The recommended tool according to our evaluation is \texttt{sigtest}, which is distributed as open-source and may be easily integrated into development process via CLI, Maven or Ant plugins. Another option is \texttt{japitool} also performing well, missing only a few incompatible modifiers, but the main issue is that the tool is no more maintained. Other tools did not detect about $20\%$ and more incompatibilities and thus they cannot be generally called reliable. 
 
-\paragraph{RQ2 -- Does a tool correctly distinguish between source and binary compatibility exist}
+\paragraph{RQ2 -- Does any of the tools correctly distinguish between source and binary compatibility}
 The answer is yes and the most suitable tool is again \texttt{sigtest} but also \texttt{japitool}.
 Many alternative tools are recommended if only checking of binary compatibility is required. But this may be sufficient in many scenarios as library updates are usually distributed in binary form.  Hence, binary compatibility checking may help to find issues that would otherwise result in runtime failures caused by opaque third-party libraries. Although a source incompatible change may break a system as well, it is detectable during builds early in the process in the development process and therefore less harmful.
 
