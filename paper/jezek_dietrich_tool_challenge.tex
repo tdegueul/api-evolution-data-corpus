@@ -288,11 +288,11 @@ It sums up to about 224 possible combinations (7 elements $\times$ 8 categories 
 
 Java also contains a set of constructs that were introduced rather as technical shortcuts and cannot be systematically included into the dataset construction. Example may be implicit inheritance of \texttt{java.lang.Object}. We used mentioned datasets by Rivieres and Dietrich and our experience to add these examples out of order in the corpus. Let us note that we did not include Java annotations in the corpus. The reason is that possible changes in annotation definitions are the same as changes in the class. Interesting might be changes in annotations application, but annotations serve as meta information that do not directly play role in syntactic compatibility and thus we considered them as out-of-scope. 
 
-The methodology is centred around Java elements that can build an API, parts of the elements that can be changed and  finally it investigates all changes in each category. Thanks to this design, the produced corpus should be nearly complete and currently contains 251 scenarios. However, some evolution changes may be missing mainly due to ad-hoc features of Java mentioned above, or non intuitive change combinations that are unknown in the time of writing this paper. It makes the design of complete corpus hard, but the corpus may be extended when new evolution changes are discovered. The extension is as simple as adding new source files into the pre-defined directory structure. The detail structure is described in the next section.
+The methodology is centred around Java elements that can build an API, parts of the elements that can be changed and  finally it investigates all changes in each category. Thanks to this design, the produced corpus should be nearly complete and currently contains 251 examples of API changes. However, some evolution changes may be missing mainly due to ad-hoc features of Java mentioned above, or non intuitive change combinations that are unknown in the time of writing this paper. It makes the design of complete corpus hard, but the corpus may be extended when new evolution changes are discovered. The extension is as simple as adding new source files into the pre-defined directory structure. The detail structure is described in the next section.
 
 \subsection{Structure}
 
-The corpus is split into three directories: \texttt{lib-v1}, \texttt{lib-v2} and \texttt{client}. As the names suggest, the directories contain a first (original base-line) version of a library, a second (evolved) version of a library and an executable (main) client application which uses the library. The directories model real-life scenarios where a client uses libraries. The respective libraries in the corpus are minimalistic on purpose. We refer to a triple consisting of the two versions of a library and a client program as a \textit{scenario}.
+The corpus is split into three directories: \texttt{lib-v1}, \texttt{lib-v2} and \texttt{client}. As the names suggest, the directories contain a first (original base-line) version of a library, a second (evolved) version of a library and an executable (main) client application which uses the library. The directories model real-life scenarios where a client uses libraries. The respective libraries in the corpus are minimalistic on purpose. A triple consisting of the two versions of a library and a client program represents one API change and we call it a \textit{scenario}.
 
 Each library as well as the client have sub-directories representing Java packages. The package names are constructed as follows:
 \begin{verbatim}
@@ -300,8 +300,6 @@ Each library as well as the client have sub-directories representing Java packag
 \end{verbatim} 
 
 In this representation,  \texttt{category} is one of the eight categories, \texttt{element} is one of the seven applicable types and \texttt{change} describes the actual change as it was described in methodology. For instance, a case named \texttt{dataTypeClassFieldBoxing} means that a class field changed its data type, and the kind of change was boxing.
-
-The design based on a naming convention facilitates extensibility of the corpus by simply adding new cases to sub-directories (packages) following this convention. In fact, the convention is not enforced, but recommended to keep order in the relatively big number of data. 
 
 The corpus is provided in the form of source-code with an \texttt{ant} script to build binaries. The script output is a set of three JAR files named the same way as the original source directories.
 
@@ -314,6 +312,9 @@ The whole structure of the corpus looks as follows (\texttt{<>} is shortcut for 
   build.xml
   compatibility.sh
 \end{verbatim}
+
+The design based on a naming convention facilitates extensibility of the corpus by simply adding new cases to sub-directories (packages) following this convention. In detail, a user is expected to provide three Java source files to extend the corpus. One file is stored in the \texttt{lib-v1} directory to represent a library version, one file is stored in \texttt{lib-v2} to represent an update and finally one file represents a client code in the folder \texttt{client}. All the files should be in the same Java package (subdirectory) following the naming pattern \texttt{<category><element><change>}.
+In fact, the naming convention is not enforced, but recommended to keep order in the relatively big number of data. 
 
 
 The corpus also contains a simple script \texttt{compatibility.sh}  to produce an oracle for tool evaluation. The scripts will compile and execute all scenarios, and will monitor them for compilation error indicating source incompatibility, and linkage errors indicating binary compatibility. The script generates a  CSV file with three columns respectively listing: the name of the scenario as described above, and two columns indicating source and binary compatibility -- using ``$1$'' to indicate compatibility and ``$0$'' otherwise. 
