@@ -157,7 +157,7 @@ kjezek@kiv.zcu.cz \\
 % in the abstract
 \begin{abstract}
 The development of software components with independent release cycles is nowadays widely supported by multiple languages and frameworks. A critical feature of any such platform is to safeguard composition by ensuring backward compatibility of substituted components. In recent years, tooling has been developed to help developers and DevOp engineers to establish whether components are backward compatible. 
-We investigate the state of the art in this space by benchmarking such tools for Java. For this purpose, we have developed a benchmark data set that can be used to test future tools.
+We investigate the state of the art in this space by benchmarking such tools for Java. For this purpose, we have developed a benchmark data set that can be used to test future tools. We systematically investigate possible changes in API of Java libraries and fabricate synthetic data set. The data set is unique as it demonstrate all possible API breaking changes in a small corpus (less than 200KB). We found that only a small number of tools exists, sparsely maintained by small communities. However, even in this small group, our findings discovered a few reliable tools. 
 \end{abstract}
 
 \section{Introduction}
@@ -663,7 +663,7 @@ The main possible threat of this paper is data completeness. If there were more 
 
 In this paper, we have investigated how existing open-source tools cope with detecting API incompatibilities. We found that while the tools vary in performance and have only small and in some cases none supporting community, there are some highly usable and accurate tools available. The best performing tool was \texttt{Sigtest}.
 
-We have also created and made public a benchmark data set for compatibility issues that occur during program evolution which can be used for other studies. 
+We have also created and made public a benchmark data set for compatibility issues that occur during program evolution which can be used for other studies. This corpus is unique as it contains oracle of nearly all API breaking changes. Since others tend to compile corpora from real-life existing software, they produce huge datasets (e.g. Qualitas Corpus has about 80GB) with their size not proportional to amount of API change examples. 
 
 Possible future work is on extending the benchmark to cover more aspects of inheritance, and to add scenarios that describe other aspects of compatibility such as subtle behavioural changes. 
 
