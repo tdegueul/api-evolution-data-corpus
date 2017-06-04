@@ -475,9 +475,10 @@ libray  &    &  yes  &    &    &    &    &    &    &  yes	\\
 
 \subsection{Methodology}
 
-The tools were evaluated using following approach: 
+To put together tools for the benchmark, we followed only one use-case. The user inputs two files -- a version of a library and its update -- and the tool produces a report of API compatibility breaking changes. Any tools supporting this use-case fit into this study. To find suitable tools we manually searched the Internet. We started with a few tools we knew about and searched for keywords such as ``alternatives'', ``replacement'' etc. Some of the tools we found also refer alternatives on their web-pages. Finally, we searched developer forums, most noticeably \url{stackoverflow.com}. The overall finding revealed that the number of existing tools is small and for this reason we did not do any more filtering and included all of them.
 
-We first created an oracle of true incompatibility issues by means of dynamic analysis, using the scripts described in Section \ref{sec:corpus}. These scripts exercise (compile, link and run) the respective scenarios, and record the results. In particular, compiler and linker errors encountered indicate incompatibilities. These scripts also report compatible changes, this information is removed from the oracle in order to ensure that there are no false negatives. The oracle is stored in a CSV file. 
+The tools were evaluated using following approach: 
+we first created an oracle of true incompatibility issues by means of dynamic analysis, using the scripts described in Section \ref{sec:corpus}. These scripts exercise (compile, link and run) the respective scenarios, and record the results. In particular, compiler and linker errors encountered indicate incompatibilities. These scripts also report compatible changes, this information is removed from the oracle in order to ensure that there are no false negatives. The oracle is stored in a CSV file. 
 
 We then used the tools for static analysis and captured the tool output in text files. Some tools also report compatibilities, we filtered this out in order to avoid false positives. We used regular expressions for this purpose, tools flag positive output with text patterns that are easy to recognise, for instance  \texttt{!} (\texttt{japicmp}), \texttt{100\% Compatible} (\texttt{japitool}), \texttt{NON\_BREAKING} (\texttt{revapi}) or \texttt{INFO} (\texttt{clirr}). 
 
