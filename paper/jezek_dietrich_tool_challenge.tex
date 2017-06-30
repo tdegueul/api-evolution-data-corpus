@@ -607,7 +607,7 @@ Examples:
 \section{Tool Evaluation}
 \label{sec:tools}
 
-We evaluated several tools that are available to developers to check syntactic compatibility of API changes. The tools included are listed in Table \ref{tab:tools} together with information about the authors, current versions, licensing and platform integration. All tools are basically static analysis tools that try to assess the compatibility of different versions of a program by creating models from (byte) code, and analysing those models. 
+We have evaluated several tools that are available to developers in order to check the compatibility of API changes. The tools included are listed in Table \ref{tab:tools} together with information about the authors, current versions, licensing and platform integration. All tools are basically static analysis tools that try to assess the compatibility of different versions of a program by creating models from (byte) code, and analysing those models. 
 
 \begin{table*}[t]
   \centering
@@ -641,12 +641,15 @@ libray  &    &  yes  &    &    &    &    &    &    &  yes	\\
 
 \subsection{Methodology}
 
-To put together tools for the benchmark, we followed only one use-case. The user inputs two files -- a version of a library and its update -- and the tool produces a report of API compatibility breaking changes. Any tools supporting this use-case fit into this study. To find suitable tools we manually searched the Internet. We started with a few tools we knew about and searched for keywords such as ``alternatives'', ``replacement'' etc. Some of the tools we found also refer alternatives on their web-pages. Finally, we searched developer forums, most noticeably \url{stackoverflow.com}. The overall finding revealed that the number of existing tools is small and for this reason we did not do any more filtering and included all of them.
+The selection of tools for the benchmark is driven by a single use-case. The user inputs two files -- a version of a library and its update -- and the tool produces a report listing API compatibility-breaking changes. Any tool supporting this use-case fits into this study. To find suitable tools we manually searched the Internet. We started with a few tools we knew about and searched for keywords such as ``alternatives'', ``replacement'' etc. Some of the tools we found also refer to alternatives on their web-pages. Finally, we searched developer forums, most noticeably \url{stackoverflow.com}. The overall finding revealed that the number of existing tools is small and for this reason we included all of them.
 
-The tools were evaluated using following approach: 
-we first used Java compiler and linker to create an oracle of incompatibility issues, using the scripts described in Section \ref{sec:corpus}. These scripts exercise (compile, link and run) the respective scenarios, and record the results. In particular, compiler and linker errors encountered indicate incompatibilities. These scripts also report compatible changes, this information is removed from the oracle in order to ensure that there are no false negatives. The oracle is stored in a CSV file. 
+The tools found were then evaluated using following approach: 
+we first used the Java compiler and linker to create an oracle of incompatibility issues as described above in Section \ref{sec:corpus}. 
 
-We then used the tools for static analysis and captured the tool output in text files. Some tools also report compatibilities, we filtered this out in order to avoid false positives. We used regular expressions for this purpose, tools flag positive output with text patterns that are easy to recognise, for instance  \texttt{!} (\texttt{japicmp}), \texttt{100\% Compatible} (\texttt{japitool}), \texttt{NON\_BREAKING} (\texttt{revapi}) or \texttt{INFO} (\texttt{clirr}). 
+% Jens: I removed this, this is very repetative
+%These scripts exercise (compile, link and run) the respective scenarios, and record the results. In particular, compiler and linker errors encountered indicate incompatibilities. These scripts also report compatible changes, this information is removed from the oracle in order to ensure that there are no false negatives. The oracle is stored in a CSV file. 
+
+We then used the tools to be evaluated and captured the tool output in text files. Some tools also report compatibilities, we filtered this information out in order to avoid false positives. We used regular expressions for this purpose, tools flag positive output with text patterns that are easy to recognise, for instance  \texttt{!} (\texttt{japicmp}), \texttt{100\% Compatible} (\texttt{japitool}), \texttt{NON\_BREAKING} (\texttt{revapi}) or \texttt{INFO} (\texttt{clirr}). 
 
 Finally, we compared the  tool output with the oracle in order to establish which incompatibility issues were correctly reported by the tool.  
 
@@ -668,7 +671,7 @@ grep -v '===  UNCHANGED' \
 mv japicmp.txt.tmp "$REPORTS"/japicmp.txt   
 \end{verbatim}
 
-Additional tools can be easily added to the benchmark by adding code to invoke the respective tool to this script. This script must ensure that the output of the tools is captured, formatted and stored in \texttt{tools/.reports}.
+Additional tools can be easily added to the benchmark by adding code to invoke the respective tool to this script. This script must ensure that the output of the respective tool is captured, formatted and stored in \texttt{tools/.reports}.
 
 The structure of the corpus including the tools benchmark looks as follows:
 \begin{verbatim}
@@ -689,32 +692,35 @@ The structure of the corpus including the tools benchmark looks as follows:
 The result of the experiment conducted indicate that the tools differ widely in their ability to detect compatibility-breaking changes. A result summary is  provided in Table \ref{tab:result-categories}, 
 in this table we report the percentages of successfully detected compatibility-breaking changes, classified by category.
 
-While the results show clearly that the tool with weakest performance is \texttt{clirr} and the best is \texttt{sigtest}, detailed analysis reveals that \texttt{clirr} may be a better choice than some of the better performing tools in certain use cases.
+While the results show clearly that the tool with weakest performance is \texttt{clirr} and the best is \texttt{sigtest}, detailed analysis reveals that \texttt{clirr} may still be a better choice than some of the better performing tools in certain circumstances.
 
 Active development of \texttt{Clirr} stopped in 2005, and it is therefore not surprising that it does not recognize issues caused by the use of generics. Its focus is to check binary compatibility as defined in the Java Language Specification, and therefore it misses issues related to source compatibility, example is the Exceptions category. However, it works well in other categories and may be still useful for detecting only binary incompatible changes.
 
-The situation is similar for \texttt{japicmp} -- we obtain rather poor results, however this is caused by a lack of support for generics and a few bugs in detecting modifiers. In all other categories, the tool performs well.
+The situation is similar for \texttt{japicmp}. The results obtained are rather poor, however this is caused by a lack of support for generics and a few bugs in detecting modifiers. In all other categories, the tool performs well.
 
 Another tool that generally performs well is \texttt{japitool}. Active development ceased in 2006, but the tool is still available as part of certain Linux distributions, including Debian.
 
 Newer tools like \texttt{japicc} and \texttt{revapi} have a better overall score, but both have several issues scattered amongst several categories. They may be less reliable in production as they can miss some important source and binary compatibility issues. Nonetheless, both tools are still actively developed and may be therefore improved in the future. 
 
 
-\texttt{Sigtest} wins the benchmark as it is able to detect almost all problems. It fails only to detect two issues: (1) the detection of the removed \texttt{strictfp} modifier and (2) addition of the \texttt{native} modifier, both cause binary incompatibility. We do not expect that those changes are very common in real-world programs. 
+\texttt{Sigtest} wins the benchmark as it is able to detect almost all problems. It fails to detect only two issues: (1) the removal of the \texttt{strictfp} modifier and (2) the addition of the \texttt{native} modifier, both causing incompatibility. We do not expect that those changes are very common in real-world programs. 
   
 Table \ref{tab:result-types} provides a more detailed analysis of results classified by whether the issue is source or binary incompatible. The first row shows changes that are  source incompatible but binary compatible. The second row lists changes that are binary incompatible, but may be either source compatible or incompatible. 
 
-The table provides some interesting insights, most tools perform much better in detecting binary incompatibilities.  The exception is  \texttt{revapi} which performs relatively poorly. On the other hand, most tools fall short in detecting source incompatibilities. The only tools that do so reliably are \texttt{sigtest} and \texttt{japitool}. 
+The table provides some interesting insights. In general, most tools perform much better in detecting binary incompatibilities.  The exception is  \texttt{revapi} which performs relatively poor here. On the other hand, most tools fall short in detecting source incompatibilities. The only tools that do so reliably are \texttt{sigtest} and \texttt{japitool}. 
 
-Other aspects like usability are also important properties to consider when selecting tools. A tool with a few bugs may be a better choice if it provides a better user experience. While we did not evaluate these aspects systematically in this work, we did make some observations. All tools provide a similar integration features and interfaces. For instance, all tools provide a command line interface (CLI) with options to input JAR files and produce a human readable formatted test output. None of the formats used stands out. Only \texttt{japicc} provides a HTML output which is useful to highlight the detected severity of changes,  this could be better readable by humans and especially by non-programmers. 
+Other aspects like usability are also important properties to consider when selecting tools. A tool with a few bugs may be a better choice if it provides a better user experience. While we did not evaluate these aspects systematically in this work, we did make some observations. All tools provide a similar integration features and interfaces. For instance, all tools provide a command line interface (CLI) with options to input JAR files and produce a human readable formatted output. None of the formats used stands out. Only \texttt{japicc} provides HTML output which is useful to highlight the detected severity of changes,  this could be better readable by users. 
 
-To answer research questions laid in this work, we investigated that:
+
+To summarise our findings, we answer the research questions as follows:
+
 \paragraph{RQ1 -- Does any of the tools reliably check API syntactical compatibility}
-The answer is yes, the tools do exist but their ability varies. The recommended tool according to our evaluation is \texttt{sigtest}, which is distributed as open-source and may be easily integrated into the development process via CLI, Maven or Ant plugins. Another option is \texttt{japitool} also performing well, missing only a few incompatible modifiers, but the main issue is that the tool is no more maintained. Other tools did not detect about $20\%$ and more incompatibilities and thus they cannot be generally called reliable. 
+
+The answer is yes, the tools do exist but their ability varies. The recommended tool according to our evaluation is \texttt{sigtest}, which is distributed as open-source and may be easily integrated into the development process via CLI, Maven or Ant plugins. Another well-performing option is \texttt{japitool}, missing only a few incompatible modifiers, but the main issue is that the tool is not maintained. Other tools miss $17\%$ or more of the incompatibility patterns identified and should therefore be used with caution 
 
 \paragraph{RQ2 -- Does any of the tools correctly distinguish between source and binary compatibility}
 The answer is yes and the most suitable tool is again \texttt{sigtest} but also \texttt{japitool}.
-Many alternative tools are recommended if only checking of binary compatibility is required. But this may be sufficient in many scenarios as library updates are usually distributed in binary form.  Hence, binary compatibility checking may help to find issues that would otherwise result in runtime failures caused by opaque third-party libraries. Although a source incompatible change may break a system as well, it is detectable during builds early in the development process and therefore less harmful.
+Many alternative tools are still suitable if only binary compatibility checks are required. But this may be sufficient in many scenarios as library updates are usually distributed in binary form.  Hence, binary compatibility checks may help to find issues that would otherwise result in runtime failures caused by opaque third-party libraries. Although a source incompatible change may break a system as well, it is easier to detect during builds of client programs early in the development process and therefore less harmful.
 
 
 \begin{table*}[t]
@@ -782,7 +788,7 @@ An important aspect to evaluate the ``business-readiness'' of tools are the comm
 %Success of a software is impacted by a lot of criteria. There is a big body o research investigating success impact \cite{Subramaniam2009determinants,Sen2012opensource,Lee2009measuring}, but they widely agree that a key factor is user satisfaction. They figure out satisfaction either by user-studies or by collecting ratings or number of downloads from various websites. However, it is out-of-scope of this paper to collect such a data and it is even more difficult than it used to be. Websites such as \url{sourceforge.net} are loosing popularity and people download projects from primary sources such as GitHub or Maven Central Repository, which do not provide such metrics. We tried to find download statistics on \url{sourceforge.net} but it does not contain a lot of tools and the rest was outdated.
 
 
-Existing work on the usability and impact of open source software has also considered other aspects such as project activity level, development team/community size \cite{Crowston2006Information}, amount of development activity, input from the development community and user interest \cite{Stewart2006impact} as measures of success. We have followed their approach and also measured the size of projects in terms of number of commits, lines of code, developers (contributors) and frequency of commits. The numbers were obtained from  \url{https://www.openhub.net/} on September 16/2016. \texttt{openhub} collects project statistics from the respective source control systems. Not all of the tools investigated were tracked. In particular, we were not able to get data for \texttt{sigtest} as its subversion repository can not be parsed by \texttt{openhub} and we did not find an alternative source for comparable data. 
+Existing work on the usability and impact of open source software has also considered other aspects such as project activity level, development team/community size \cite{Crowston2006Information}, amount of development activity, input from the development community and user interest \cite{Stewart2006impact} as measures of success. We have followed their approach and also measured the size of projects in terms of number of commits, lines of code, developers (contributors) and frequency of commits. The numbers were obtained from  \url{https://www.openhub.net/} on 16 September 2016. \texttt{openhub} collects project statistics from the respective source control systems. Not all of the tools investigated were tracked. In particular, we were not able to get data for \texttt{sigtest} as its subversion repository can not be parsed by \texttt{openhub} and we did not find an alternative source for comparable data. 
 
 We also searched the popular  Q\&A website \url{stackoverflow.com} to see how the respective projects were discussed. We tried to search by tag first, but this produced no results for most tools. For this reason we did a plain text search with tool names. We manually checked that the respective queries produced relevant results. We do not expect a lot of false positives here as the tool names such as "revapi" are unlikely to have homonyms used in this context. One exception was "jour" colliding with a French expression and we did not find any relevant questions for the \texttt{jour} tool.
 
@@ -818,7 +824,7 @@ The results are shown in Table \ref{tab:style-vs-api}. It is evident that the st
 
 \subsection{Threats to Validity}
 
-The main possible threat of this paper is data completeness. If there were more API changes not covered here, where the tools perform differently, it could change the overall result. We tried to mitigate this by composing data from several sources: our own experience, existing academic research, the Java specification and the catalogue by des Rivi\`{e}res. Moreover, the dataset is extensible and the experiment can be repeated with new data. 
+The main possible threat of this paper is data completeness. If there were more API changes not covered here, where the tools perform differently, this could change the overall result. We have tried to mitigate this by composing data from several sources: our own experience, existing academic research, the Java specification and the catalogue by des Rivi\`{e}res. Moreover, the dataset is extensible and the experiment can be repeated with new data. 
 
 % Jens: this is a bit vague, I suggest to leave this out
 %We are aware of the limited number of examples for inheritance provided in the benchmark. The tools may behave differently for changes in inheritance, but we assume that none of the tools is particularly oriented to discover such problems. For this reason, we assume it would not change the overall result dramatically. 
@@ -827,9 +833,12 @@ The main possible threat of this paper is data completeness. If there were more 
 \section{Conclusion}
 \label{sec:conclusion}
 
-In this paper, we have investigated how existing open-source tools cope with detecting API incompatibilities. We found that while the tools vary in performance and have only small and in some cases none supporting community, there are some highly usable and accurate tools available. The best performing tool was \texttt{Sigtest}.
+In this paper, we have investigated how existing open-source tools cope with detecting incompatibilities in evolving APIs. We found that while the tools vary in performance and have only small and in some cases none supporting community, there are some highly usable and accurate tools available. The best performing tool was \texttt{Sigtest}.
 
-We have also created and made public a benchmark data set for compatibility issues that occur during program evolution which can be used for other studies. This corpus is unique as it contains oracle of nearly all API breaking changes. Since others tend to compile corpora from real-life existing software, they produce huge datasets (e.g. Qualitas Corpus has about 80GB) with their size not proportional to amount of API change examples. 
+
+%Jens: I added something: "a script to produce this oracle that can also be used to assess future and alternative compilers and Java runtimes"
+We have also created and made public a benchmark data set for compatibility issues that occur during program evolution which can be used for other studies. This corpus is unique as it contains a oracle of all API-breaking changes we are aware of, and a script to produce this oracle that can also be used to assess future and alternative compilers and Java runtimes. The synthetic corpus we have created for this purpose is compact and minimalistic by design. 
+%Since others tend to compile corpora from real-life existing software, they produce huge datasets (e.g. Qualitas Corpus has about 80GB) with their size not proportional to amount of API change examples. 
 
 Possible future work is on extending the benchmark to cover more aspects of inheritance, and to add scenarios that describe other aspects of compatibility such as subtle behavioural changes. 
 
