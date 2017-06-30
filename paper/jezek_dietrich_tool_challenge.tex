@@ -171,25 +171,25 @@ kjezek@kiv.zcu.cz \\
 % As a general rule, do not put math, special symbols or citations
 % in the abstract
 \begin{abstract}
-The development of software components with independent release cycles is nowadays widely supported by multiple languages and frameworks. A critical feature of any such platform is to safeguard composition by ensuring backward compatibility of substituted components. In recent years, tooling has been developed to help developers and DevOp engineers to establish whether components are backward compatible. 
-We investigate the state of the art in this space by benchmarking such tools for Java. For this purpose, we have developed a benchmark data set that can be used to test future tools. We systematically investigate possible changes in API of Java libraries and fabricate synthetic data set. The data set is unique as it demonstrate all possible API breaking changes in a small corpus (less than 200KB). We found that only a small number of tools exists, sparsely maintained by small communities. However, even in this small group, our findings discovered a few reliable tools. 
+The development of software components with independent release cycles is nowadays widely supported by multiple languages and frameworks. A critical feature of any such platform is to safeguard composition by ensuring backward compatibility of substituted components. In recent years, some tooling has been developed to help developers and DevOps engineers to establish whether components are backward compatible. 
+We investigate the state of the art in this space by benchmarking such tools for Java. For this purpose, we have developed a compact benchmark data set of less than 200KB. Using this dataset, we study possible API changes of Java libraries, and whether the tools investigates can detect them. We find that only a small number of tools suitable to analyse API evolution exist. Those tools are only infrequently maintained by small communities. All tools investigated have shortcomings in that they fail to detect certain API incompatibilities.
 \end{abstract}
 
 \section{Introduction}
 
-The popularity of platforms such as OSGi \cite{osgi43spec} and Maven \cite{maven} has created  new challenges for software developers. In particular, components deployed as libraries (in Java, jar files) are pulled from repositories and applications are composed without compiling code against the libraries used at runtime. 
+The popularity of platforms such as OSGi \cite{osgi43spec} and Maven \cite{maven} has created  new challenges for software developers. In particular, components deployed as libraries (in Java, jar files) are pulled from repositories and applications are composed without compiling code against the very libraries used at runtime. 
 
-When the OSGi dynamic wiring mechanism is used, a bundle requiring a service is resolved against another bundle providing such a service, but the bundle is not necessarily the same that was used for compilation. There are two abstractions that enable this: the use of version ranges in dependency declarations enables the use of a different version of a service, and the use of the OSGi service layer (such as OSGi declarative services) enables the use of another implementation of a service defined by a Java interface. 
+For instance, when the OSGi dynamic wiring mechanism is used, a bundle requiring a service is resolved against another bundle providing such a service, but the bundle is not necessarily the same that was used for compilation. There are two abstractions that enable this: the use of version ranges in dependency declarations enables the use of a different version of a service, and the use of the OSGi service layer (such as OSGi declarative services) enables the use of another implementation of a service defined by a Java interface. 
 
 In Maven, a similar situation can arise due to the automation of transitive dependency resolution. Here, an application is compiled against the very libraries it is deployed with. However, if those libraries recursively depend on other libraries, it is still possible that other library versions are used than the ones used at compile time. Again, the use of version ranges in dependency declarations makes this possible. 
 
-The problem is that this bypasses some of the crucial quality assurance steps built into standard build and deployment processes, such as automated regression testing. A common argument made to solve (or often, to ignore) this problem is to reason about compatibility: if the correctness of an application was established (e.g., by means of regression testing) with respect to one component, then we infer correctness with respect to another component as we assume compatibility between both components. There are different reasons to make such assumptions. For instance, one might assume that all libraries providing a standardised service such as a JDBC connection used to interact with a relational database are compatible. The most common case however is that the two components are different versions of the same component, and in particular that a component is replaced by a later version, and in this case a developer might assume that the respective versions are compatible.
+The problem is that this bypasses some of the crucial quality assurance steps built into standard build and deployment processes, such as automated regression testing. A common argument made to solve (or often, to ignore) this problem is to reason about compatibility: if the correctness of an application was established (e.g., by means of regression testing) with respect to one component, then we infer correctness with respect to another component as we assume compatibility between both components. There are different reasons to make such assumptions. For instance, one might assume that all libraries providing a standardised service such as a JDBC connection used to interact with a relational database are compatible. The more common case however is that the two components are different versions of the same component, and in particular that a component is replaced by a later version, and in this case a developer might assume that the respective versions are compatible.
 
 The question arises what compatibility means in this context. In general, compatibility is about preserving contracts between collaborating components and ensuring safe substitution. There is a vast amount of existing work on safe and correct composition of components, including ProCom \cite{Sentilles_2009}, Sofa \cite{BuresHP06Sofa}, or X-man \cite{Lau12Xman}. 
 
 The underling notion of contract has many facets \cite{beugnard99making}, including classical API compatibility that can be expressed through the type system of the underlying programming language, but it also includes aspects like semantics, quality of service and licensing. 
 
-However, existing practical applications available to software engineers only cover the API aspect of the contract. Rama \cite{Rama2015structural} defends this practice and claims that \textit{``ideally, the users of a module need to look no further than its API''}. For instance, OSGi's components expose packages and services (Java interfaces) and binding is allowed if APIs match. No deeper analysis is performed as it is assumed that two components are compatible if their APIs match. The checks performed by Maven are even coarser. Maven composes components (JAR files) based on their symbolic versions. Once a referenced component exists in a repository, composition is allowed. 
+However, existing practical applications available to software engineers only cover the API aspect of the contract. Rama \cite{Rama2015structural} defends this practice and claims that \textit{``ideally, the users of a module need to look no further than its API''}. For instance, OSGi's components expose packages and services (Java interfaces) and binding is allowed if APIs match. No deeper \textit{semantic} analysis is performed. The checks performed by Maven are even coarser. Maven composes components (JAR files) based on their symbolic versions. Once a referenced component exists in a repository, composition is allowed. 
 
 API-based compatibility checks simplify the issue from the developers point of view at the price of unsoundness: certain incompatibilities will be missed. This is a classical trade-off made between complexity and usability. The main rationale is that API compatibility can be investigated by means of static analysis that can be easily integrated into standard build and deployment processes. This is particularly beneficial as there are several static analysis tools that have now been widely adapted and are part of the standard toolbox used by many developers, such as \texttt{PMD}\footnote{https://github.com/pmd}, \texttt{Checkstyle}\footnote{http://checkstyle.sourceforge.net/}, and \texttt{Findbugs}\footnote{http://findbugs.sourceforge.net/}. 
 
@@ -200,17 +200,17 @@ Recent empirical studies have clearly demonstrated the need for better tools: ma
 The aim of this paper is to review existing tools to check the compatibility of Java components as a starting point for future development and research.
 For this purpose, we collected several existing tools that can be used to check API compatibility, the complete list is shown in Table \ref{tab:tools}. The methodology used was to start with the analysis of some tools we were aware of, then adding tools referenced on the respective web sites, and finally considering further tools references on developer forums. 
 
-Before starting this work, we had asked research questions:
+Our work addressed the following two research questions:
+
 % \todo[inline]{Do we need RQ for datacorpus?}
 \begin{enumerate}
 \item[RQ1] Does any of the tools reliably check API syntactical compatibility? 
 \item[RQ2] Does any of the tools correctly distinguish between source and binary compatibility?
 \end{enumerate}
 
+This paper makes two contributions. Firstly, we catalogue existing API compatibility checking tools and investigate their capabilities. Secondly, we provide an extensible dataset used for benchmarking such (existing and future) tools. 
 
-The contribution of this paper is twofold. Firstly, we catalogue existing API compatibility checking tools and investigate their capabilities. Secondly, we provide an extensible dataset used for benchmarking such (existing and future) tools. 
-
-The remainder of this paper is organised as follows: Sections \ref{sec:related} and \ref{sec:background} discuss related work and summarise some fundamental concepts of compatibility. In Section \ref{sec:corpus}, we discuss the dataset developed, followed by the evaluation of the various tools in Section \ref{sec:tools}. A brief conclusion is provided in Section \ref{sec:conclusion}.
+The remainder of this paper is organised as follows: Sections \ref{sec:related} and \ref{sec:background} discuss related work and summarise some fundamental concepts related to compatibility. In Section \ref{sec:corpus}, we discuss the dataset developed, followed by the evaluation of the various tools in Section \ref{sec:tools}. A brief conclusion is provided in Section \ref{sec:conclusion}.
 
 
 \section{Related Work}
@@ -220,16 +220,20 @@ and the technical \cite{forman1995release,osgi2010semvers,oracle2015compatibilit
 mostly dealing with the issue of correct replacement and interoperability.
 
 \subsection{API Evolution}
-Belguidoum and Dagnat \cite{Belguidoum08formalization} distinguish between \textit{vertical} and \textit{horizontal} compatibility. This can  be paraphrased as backward vs client-provider compatibility. Vertical compatibility plays a role when vendors want to produce backward compatible libraries, which allow for smooth system updates. On the other hand, the purpose of horizontal compatibility is to aid the checking system composition. Using this terminology, our work targets vertical compatibility as we propose a data set simulating evolution of libraries and then benchmark tools checking API breaking evolution. However, we also worked with horizontal compatibility to build oracle of compatible and incompatible changes. In brief, to detect if an API change is compatible, we had to develop a client code that invokes the API and then we could check if the new API remains compatible with the client code. This gave as information about compatibility breaking change for every evolution. 
+Belguidoum and Dagnat \cite{Belguidoum08formalization} distinguish between \textit{vertical} and \textit{horizontal} compatibility. This can  be paraphrased as backward vs client-provider compatibility. Vertical compatibility plays a role when vendors want to produce backward compatible libraries, which allow for smooth system updates. On the other hand, the purpose of horizontal compatibility is to aid the checking system composition. 
+Using this terminology, our  work targets vertical compatibility as we propose a data set simulating evolution of  libraries and then use this to assess tools for checking API compatibility. However, we also study horizontal compatibility in order to build an oracle of compatible and incompatible changes. In particular, we have developed clients that invoke the API so that we could then check if an evolved API remains compatible with this client code. This provided us with the information about compatibility breaking change for every evolution.
+
+Using this terminology, our work targets vertical compatibility as we propose a data set simulating evolution of libraries and then benchmark tools checking API breaking evolution. However, we also worked with horizontal compatibility to build oracle of compatible and incompatible changes. In brief, to detect if an API change is compatible, we had to develop a client code that invokes the API and then we could check if the new API remains compatible with the client code. This gave as information about compatibility breaking change for every evolution. 
 
 Both concepts should be taken into account in order to successfully produce and use components that are \textit{``units of  independent deployment and third-party composition''} \cite[4.1.1,]{szyperski02component}. 
 
-Compatibility can be inferred from the verification of contracts between collaborating components. Beugnard et al \cite{beugnard99making} have pointed out that there are different types of contracts, including contracts that can be expressed via syntax-oriented APIs, semantics and quality of service. Even component meta data may be part of contracts that determines compatibility, consider for instance issues around the compatibility of open sources licenses \cite{michaelson2004there}. While most component systems used in industry focus on the API aspect of compatibility, non-functional aspects have been investigated and considered by several authors \cite{Chung09OnNFRInSoftEn}, and led to several (often OSGi-based) implementations, including, Fractal \cite{bruneton2006fractal}, Sofa \cite{plasil2002behavior} and Treaty \cite{dietrich2009components}. Semantic contracts can be expressed by using \textit{pre-} and \textit{post-conditions} in the tradition of Hoare's Logic and design by contract \cite{hoare1969axiomatic,Meyer88}.
+Compatibility can be inferred from the verification of contracts between collaborating components. Beugnard et al \cite{beugnard99making} have pointed out that there are different types of contracts, including contracts that can be expressed via syntax-oriented APIs, semantics and quality of service. Even component meta data may be part of contracts that determines compatibility, consider for instance issues around the compatibility of open sources licenses \cite{michaelson2004there}. While most component systems used in industry focus on the API aspect of compatibility, non-functional aspects have been investigated and considered by several authors \cite{Chung09OnNFRInSoftEn}, and led to several (often OSGi-based) implementations, including, Fractal \cite{bruneton2006fractal}, Sofa \cite{plasil2002behavior} and Treaty \cite{dietrich2009components}. Semantic contracts can be expressed by using \textit{pre-} and \textit{post-conditions} in the tradition of Hoare Logic~\cite{hoare1969axiomatic} and design by contract \cite{Meyer88}.
 
 \subsection{API Analysis}
-Both source and byte-code analysis started to be popular for Java program verifications. Over the last two decades a lot of approaches to byte-code verification have followed up. Let us name Leroy \cite{Leroy2003javabytecode} who reviews byte-code verification techniques which mainly concentrates on security and byte-code consistency issues. He was followed by others Male \cite{Male2008}, Klein \cite{Klein2003verified} or Burdy \cite{Burdy2006javabytecode} providing various byte-code based verifications. 
+% Jens: thats a bit odd, I removed this
+%Both source and byte-code analysis started to be popular for Java program verifications. Over the last two decades a lot of approaches to byte-code verification have followed up. Let us name Leroy \cite{Leroy2003javabytecode} who reviews byte-code verification techniques which mainly concentrates on security and byte-code consistency issues. He was followed by others Male \cite{Male2008}, Klein \cite{Klein2003verified} or Burdy \cite{Burdy2006javabytecode} providing various byte-code based verifications. 
 
-Several authors investigated the evolution of Java APIs by means of static analysis, in many cases detecting cases of (horizontal and vertical) incompatibilities. This includes the work of  Jezek et al \cite{Jezek2015detecting,jezek2014ontheuse}, Raemaekers et al \cite{Raemaekers2011exploring, Raemaekers2012measuring} and Ebad and Ahmed \cite{ebad2015measuring} on standard Java, and the work of Linares-Vasquez et al \cite{Linares-Vasquez2013apichange} on Android.
+Several authors have investigated the evolution of Java APIs by means of static analysis, in many cases detecting cases of (horizontal and vertical) incompatibilities. This includes the work of  Jezek et al \cite{Jezek2015detecting,jezek2014ontheuse}, Raemaekers et al \cite{Raemaekers2011exploring, Raemaekers2012measuring} and Ebad and Ahmed \cite{ebad2015measuring} on standard Java, and the work of Linares-Vasquez et al \cite{Linares-Vasquez2013apichange} on Android.
 
 Rama and Kak  \cite{Rama2015structural} defend the focus on API compatibility checks and state that 
 \textit{``In this age of collaborative software development, the importance of usable APIs is well recognized''}. They propose several metrics that help to either design or recognise  ``good'' APIs. API usability and design is also discussed by Myers and Stylos in \cite{Myers2016improving}.
@@ -242,14 +246,16 @@ To analyse API evolution, it is important to understand which changes are contra
 API-breaking changes for Java have been catalogued by des Rivi\`{e}res \cite{EvolvingJavaAPIs:2007}, this catalogue has directly influenced the design of the benchmark we have developed in order to assess and compare tools. The end user survey conducted by Dietrich et al \cite{dietrich2014whatjava} uses a similar catalogue. 
 
 \subsection{Incompatibility Resolution}
-Cossette and Walker \cite{Cossette2012seeking} have discussed several available techniques to refactor clients to adapt to changed APIs. They also express the need for a data corpus saying: ``we need a collection of all points of breaking change between a set of API versions'' and put together a set of five open-source libraries (Struts, Log4j, jDOM, DBCP and SLF4J). Finally they reported results only for three of them. Benefit of their work is usage of real-life software. In contrast, we wanted to test ability of tools to detect potentially all possible API incompatibilities that may appear in the software and for this reason needed a corpus facilitating all possible changes, even if some of them may be very sparse in real-life software. For this reason, the only viable approach was to fabricate synthetic data instead of compiling the corpus from existing software.   
+
+Cossette and Walker \cite{Cossette2012seeking} have discussed several available techniques to refactor clients to adapt to changed APIs. They have also expressed the need for a data corpus to study API changes: ``we need a collection of all points of breaking change between a set of API versions'' and put together a set of five open-source libraries (Struts, Log4j, jDOM, DBCP and SLF4J) to address this need. While using real-word programs has some obvious benefits, it remains incomplete as in particularly such a small set does not exhibit a complete set of possible changes, and is therefore unsuitable to benchmark tools. For this reason, we decided to create a synthetic dataset that exhibits a full set of compatibility issues while still being manageable in terms of size and complexity. 
 
 Raemaekers et al \cite{Raemaekers2013testing} have investigated the correlation between API breaking changes with several other properties such us number of modifications. Taneja et al \cite{Taneja2007automated} tried to automatically find changed methods replacements by employing metrics such as name similarity, method size and closeness of method arguments. 
 
-\subsection{Incompatibility Mitigation}
-In our previous work we have demonstrated how changes to the Java compiler can mitigate certain binary compatibility problems that have been observed \cite{jezek2016dynamo}. It is a step further aiming at omitting incompatibility at all. However, practitioners still remain with standard Java compiler and linker and may not wish to replace it in production by a research prototype. For this reason, tools detecting incompatibilities partly caused by technical shortcomings of Java may better be more valuable for this audience. 
+\subsection{Mitigation Techniques}
 
-There is also attempt to produce correct software right from the beginning, employing models that may be checked and guarantee a bug free product.Let us name ProCom \cite{Sentilles_2009} which allows for modelling a system that is then generated into the code, or SaveCCM \cite{Hanson2004SaveCCM} developed within the same cohort, enriched with visual means for easy system design.
+In our previous work we have demonstrated how changes to the Java compiler can mitigate certain binary compatibility problems that have been observed \cite{jezek2016dynamo}. The solution proposed aims to simplify the situation by at least narrowing the gap between source and binary compatibility in Java. However, this requires some rather invasive changes to the Java compiler, and is therefore unlikely to be deployed into standard Java. 
+
+There are also proposals to address this problem on the model level, where checks performed on those models can guarantee compatibility. Such approaches include ProCom~\cite{Sentilles_2009} and SaveCCM~\cite{Hanson2004SaveCCM}.
 
 % Jens: to vague
 %Nonetheless, research into API is huge, counting Eclipse platform, web and many more empirical studies \cite{Grechanik2010empirical,Dig2006howevolve,Kagdi2007survey,Businge2015eclipse,Espinha2014web,Espinha2015web}.
@@ -258,7 +264,7 @@ There is also attempt to produce correct software right from the beginning, empl
 \label{sec:background}
 
 
-A senior JDK engineer once noticed that "every change is an incompatible change" (quote from \cite{KindsOfCompatibility}). I.e., every modification of a library may influence the way other libraries can use, interact, extend, observe or substitute it. Tools like compilers, linkers and static analysis tools define compatibility as API stability. That means that if a change is in a library that does not prevent clients from linking and/or compiling, the change is expected to be compatible, even if it results in changed behaviour or performance. For instance, while a change from \texttt{List} to \texttt{Set} is acceptable for assignment to a field typed to \texttt{Collection}, the change may have an impact on clients that rely on a particular order of elements in the collection.
+A senior JDK engineer once noticed that "every change is an incompatible change" (quote from \cite{KindsOfCompatibility}). I.e., every modification of a library may influence the way other libraries can use, interact, extend, observe or substitute it. Tools like compilers, linkers and static analysis tools define compatibility as API stability. That means that if a change in a library  does not prevent clients from linking and/or compiling, the change is expected to be compatible, even if it results in changed behaviour or performance. For instance, while a change from \texttt{List} to \texttt{Set} is acceptable for assignment to a field typed to \texttt{Collection}, the change may have an impact on clients that rely on a particular order of elements in the collection.
 
 The Java Language Specification formally defines acceptable API changes in terms of binary compatibility
 \cite[ch. 13]{Java7Spec}:
@@ -268,7 +274,7 @@ permitted to make to a package or to a class or interface type while preserving 
 breaking) compatibility with pre-existing binaries."}
 %\end{quotation} 
 The rules are strictly defined with respect to the static analysis performed during linking, which
-significantly differs from the notion of source compatibility, which is checked by the compiler as the consistency between a program and a library.
+significantly differs from the notion of source compatibility, which is checked by the compiler in order to establish the consistency between a program and a library.
 For this reason, the specification explicitly recommends: 
 \textit{"tools for the Java programming language should support automatic recompilation."}
 In the same chapter, however, it is stated that 
@@ -280,11 +286,10 @@ changed."}
 
 
 When a program is built and deployed, a mixed notion of compatibility is used. As the program is compiled, the source compatibility with the libraries 
-is checked by the compiler. The binary compatibility is checked instead when the program is invoked. Since both notions are not entirely consistent \cite{EvolvingJavaAPIs:2007}, situations where a system may be compiled but cannot run or vice-versa may appear \cite{dietrich14broken}. While binary and source compatibility are both used to describe types of compatibility that can be checked by means of static analysis at different times, behavioural compatibility \cite{KindsOfCompatibility} cannot be checked as easily, and it is therefore often only observed when programs are executed. Unit testing tools are often used in practice. The obvious limitation of testing is that (1) it cannot prove compatibility, only approximate it to some extent and (2) it is not available for checks in the context of runtime composition.  
+is checked by the compiler. The binary compatibility is checked instead when the program is invoked. Since both notions are not entirely consistent \cite{EvolvingJavaAPIs:2007}, situations where a system may be compiled but cannot run or vice-versa may occur \cite{dietrich14broken}. While binary and source compatibility are both used to describe types of compatibility that can be checked by means of static analysis at different times, behavioural compatibility \cite{KindsOfCompatibility} cannot be checked as easily, and it is therefore often only observed when programs are executed. Unit testing tools are often used in practice. The obvious limitation of testing is that (1) it is unsound, i.e. it cannot prove compatibility, only approximate it to some extent and (2) it is not available for checks in the context of runtime composition.  
 
-Compatibility also depends on how a library is used, for instance, whether a library is only used (i.e., its methods being invoked) or whether some of its types are being subtyped (used for extension in the sense of the object-oriented inheritance). For instance, a method added to an interface is acceptable for the client invoking this interface, but breaks source compatibility for existing clients.
+Compatibility also depends on how a library is used, for instance, whether a library is only used (i.e., its methods being invoked) or whether some of its types are being subtyped (used for extension in the sense of the object-oriented inheritance). For instance, a method added to an interface is acceptable for the clients invoking methods in this interface, but breaks source compatibility for existing subtypes.
  
-
 
 \section{A Data Corpus to Study API Changes}
 \label{sec:corpus}
@@ -293,32 +298,40 @@ In order to conduct an evaluation of existing compatibility checkers, we needed 
 
 \subsection{Methodology}
 
-We followed three directions to organize the data and make sure the corpus is as much complete as possible. The directions are three axes of \textit{what} can be changed, \textit{where} it applies and \textit{how} it is changed.
-We used ideas from section 13 of the Java Language Specification, the catalogue by Rivieres \cite{EvolvingJavaAPIs:2007}, work by Dietrich \cite{dietrich14broken} and information found on developer forums.  
-First, we defined what can be changed and organised the corpus in eight top level \textit{categories}: access modifiers, data types, exceptions, generics, inheritance, class members, other (non-access) modifiers and miscellaneous.  
-Secondly, we searched where a change can appear and  defined a set of seven Java \textit{elements}: class, inner class, interface, method, constructor, field, generic type. Finally, we investigated how an element can be changed and defined a few possible \textit{changes}. Basically, changes to an element may be: a removed element, an added element and a modified element. 
-While the amount of changes for each element differ, most commonly four cases are possible: one for addition, one for removal and two more modifications, one for strengthening and one for weakening. 
+We organised the synthetic programs along three dimensions in order to ensure that the corpus is as complete as possible. Those dimensions are (1) \textit{what} is changing, (2) \textit{where} the change is applied and (3) \textit{how} the respective code is changed.
 
-It sums up to about 224 possible combinations (7 elements $\times$ 8 categories  $\times$ 4 changes). However, the number of final test-cases differ due to following reasons: some combinations are not possible (e.g. interface methods may be only public, so no test for modified access modification is possible). We detected these situations simply by trying all combination for passing Java compilation.  In contrast, certain combinations of an element and a category may contain more changes. It particularly holds for a method where two cases must be tested: a data-type can be applied either as a parameter or a return type. Furthermore, the data-type may have more then four modifications (boxing, unboxing, primitive/wrapper types etc., detailed later in Section \ref{sec:datatypes}). This complexity to our best knowledge holds only for data types and we captured all known combinations. Finally, generics are divided into two more sub-categories containing generic wild-cards and generic parametrised types, producing another dimension. Although generics are relatively complex, capturing possible combinations for evolving API is relatively straightforward.  Both wild-card and parametrised types may be parametrised by other types repeating the same modification patter such as addition, removal, etc.
+We used ideas from section 13 of the Java Language Specification, the catalogue by Rivieres \cite{EvolvingJavaAPIs:2007}, work by Dietrich et al. \cite{dietrich14broken} and information found on developer forums to guide the design of the dataset.  
 
-Java also contains a set of constructs that were introduced rather as technical shortcuts and cannot be systematically included into the dataset construction. Example may be implicit inheritance of \texttt{java.lang.Object}. We used mentioned datasets by Rivieres and Dietrich and our experience to add these examples out of order in the corpus. Let us note that we did not include Java annotations in the corpus. The reason is that possible changes in annotation definitions are the same as changes in the class. Interesting might be changes in annotations application, but annotations serve as meta information that do not directly play role in syntactic compatibility and thus we considered them as out-of-scope. 
+Firstly, we have defined eight categories to address the what dimension: access modifiers, data types, exceptions, generics, inheritance, class members, other (non-access) modifiers and miscellaneous. 
+ 
+Secondly, we have searched where those changes can appear and  defined a set of seven Java language elements: class, inner class, interface, method, constructor, field, generic type. 
+ 
+Finally, we have investigated how a language element can be changed and defined a few possible change. Basically, a change could may be a removed element, an added element or a modified element. 
+While the number of possible changes between elements differs, in most case we encounter four possible changes: one for addition, one for removal and two modifications: strengthening and weakening. 
 
-The methodology is centred around Java elements that can build an API, parts of the elements that can be changed and  finally it investigates all changes in each category. Thanks to this design, the produced corpus should be nearly complete and currently contains 251 examples of API changes. However, some evolution changes may be missing mainly due to ad-hoc features of Java mentioned above, or non intuitive change combinations that are unknown in the time of writing this paper. It makes the design of complete corpus hard, but the corpus may be extended when new evolution changes are discovered. The extension is as simple as adding new source files into the pre-defined directory structure. The detail structure is described in the next section.
+This results in 224 possible combinations (7 elements $\times$ 8 categories  $\times$ 4 changes). However, the number of final test-cases differ due to following reasons: some combinations are not possible (e.g. interface methods may be only public, so no test for modified access modification is possible). We detected these situations simply by trying all combination for passing Java compilation.  On the other hand, certain combinations of an element and a category may contain more changes. This is the case for methods where two cases must be tested: a data type can be used either as a parameter or as a return type. Furthermore, the data type may have more then four modifications (for instance, also including boxing and unboxing for primitive / wrapper types), detailed later in Section \ref{sec:datatypes}).  Finally, generics are divided into two more sub-categories containing generic wild-cards and generic parametrised types, producing another dimension. Although generics are relatively complex, capturing possible combinations for evolving API is fairly straightforward.  Both wild-card and parametrised types may be parametrised by other types repeating the same modification patter such as addition, removal, etc.
+
+% Jens: I commented out one sentence that did not make much sense to me
+% Java also contains a set of constructs that were introduced rather as technical shortcuts and cannot be systematically included into the dataset construction. Example may be implicit inheritance of \texttt{java.lang.Object}. We used mentioned datasets by Rivieres and Dietrich and our experience to add these examples out of order in the corpus. 
+
+We did not consider annotations as they serve as meta data that do not directly affect API compatibility and therefore we considered them as out-of-scope. We note however that annotations can be used to expose program semantics in APIs, for instance, when they are used to represent method pre- or postconditions~\cite{dietrich2017contracts}.
+
+The methodology we used focuses on the \textit{complete coverage} of API evolution scenarios that can potentially break clients either during compile or run time. It contains 251 scenarios of API changes. The corpus is easy to extend due to its canonical structure, as described in the next section.
 
 \subsection{Structure}
 
-The corpus is split into three directories: \texttt{lib-v1}, \texttt{lib-v2} and \texttt{client}. As the names suggest, the directories contain a first (original base-line) version of a library, a second (evolved) version of a library and an executable (main) client application which uses the library. The directories model real-life scenarios where a client uses libraries. The respective libraries in the corpus are minimalistic on purpose. A triple consisting of the two versions of a library and a client program represents one API change and we call it a \textit{scenario}.
+The corpus is split into three directories: \texttt{lib-v1}, \texttt{lib-v2} and \texttt{client}. As the names suggest, the directories contain a first (original base-line) version of a library, a second (evolved) version of this library and an executable (main) client application which uses the library. The directories model real-life scenarios. The respective libraries in the corpus are minimalistic on purpose. A triple consisting of the two versions of a library and a client program represents one API change and we refer to it as a \textit{scenario}.
 
 Each library as well as the client have sub-directories representing Java packages. The package names are constructed as follows:
 \begin{verbatim}
 <category><element><change>
 \end{verbatim} 
 
-In this representation,  \texttt{category} is one of the eight categories, \texttt{element} is one of the seven applicable types and \texttt{change} describes the actual change as it was described in methodology. For instance, a case named \texttt{dataTypeClassFieldBoxing} means that a class field changed its data type, and the kind of change was boxing.
+In this representation,  \texttt{category} is one of the eight categories, \texttt{element} is one of the seven applicable language elements and \texttt{change} describes the actual change as it was described above. For instance, a case named \texttt{dataTypeClassFieldBoxing} means that the type of a field defined in a class is changed from a primitive type to the respective wrapper type.
 
-The corpus is provided in the form of source-code with an \texttt{ant} script to build binaries. The script output is a set of three JAR files named the same way as the original source directories.
+The corpus is provided in the form of source-code with an \texttt{ant} script to build the binaries. The script output is a set of three JAR files named the same way as the original source directories.
 
-The whole structure of the corpus looks as follows (\texttt{<>} is shortcut for the \texttt{<category> <element> <change>} triplet described above):
+The whole structure of the corpus looks as follows (\texttt{<>} is shortcut for the \texttt{<category> <element> <change>} triple described above):
 \begin{verbatim}
 <root>
   +- client/src/<>/Main.java
@@ -329,10 +342,10 @@ The whole structure of the corpus looks as follows (\texttt{<>} is shortcut for 
 \end{verbatim}
 
 The design based on a naming convention facilitates extensibility of the corpus by simply adding new cases to sub-directories (packages) following this convention. In detail, a user is expected to provide three Java source files to extend the corpus. One file is stored in the \texttt{lib-v1} directory to represent a library version, one file is stored in \texttt{lib-v2} to represent an update and finally one file represents a client code in the folder \texttt{client}. All the files should be in the same Java package (subdirectory) following the naming pattern \texttt{<category><element><change>}.
-In fact, the naming convention is not enforced, but recommended to keep order in the relatively big number of data. 
+In fact, the naming convention is not enforced, but recommended in order to facilitate work with the relatively large corpus. 
 
-
-The corpus also contains a simple script \texttt{compatibility.sh}  to produce an oracle for tool evaluation. The scripts will compile and execute all scenarios, and will monitor them for compilation error indicating source incompatibility, and linkage errors indicating binary compatibility. The script generates a  CSV file with three columns respectively listing: the name of the scenario as described above, and two columns indicating source and binary compatibility -- using ``$1$'' to indicate compatibility and ``$0$'' otherwise. 
+The corpus also contains a simple script \texttt{compatibility.sh}  to produce an oracle for tool evaluation. 
+The scripts will compile and execute all scenarios, and will report compilation errors indicating source incompatibility, and linkage errors indicating binary incompatibility. The script generates a CSV file with three columns: the name of the scenario as described above, and two columns indicating source and binary compatibility -- using ``$1$'' to indicate compatibility and ``$0$'' otherwise. 
 
 The script performs the following steps:
 
@@ -341,10 +354,10 @@ The script performs the following steps:
 \item compile the client against \texttt{lib-v1.jar} -- this is baseline and must succeed
 \item compile the client against \texttt{lib-v2.jar} to check source compatibility -- if this step fails with compilation error, a source incompatible change is detected
 \item invokes the client originally compiled against \texttt{lib-v1.jar} with \texttt{lib-v2.jar}  to check binary compatibility -- if this step fails with linkage error, a binary incompatible change is detected
-\item based on results from steps 3 and 4 write result (``1/0'') to the oracle -- it means print value $1$ to the CSV file to indicate compatibility or print $0$ to indicate incompatibility. 
+\item based on results from steps 3 and 4 append either $1$ or $0$ to the CSV file to indicate (in)compatibility 
 \end{enumerate}
 
-At the end of these step a CSV file with information about source and binary compatibility for each scenario is provided. Benefit of CSV format is that it can be further analysed by table processor or other tools. We use this CSV to benchmark the tools where we can easily compare output of each tool with values in CSV. When a tested tool finds an incompatibility for a scenario, a respective row in the CSV file must contain value ``0'' for either source or binary incompatibility. If it does not much, the respective tool worked wrongly. 
+At the end of these steps a CSV file with information about source and binary compatibility for each scenario is generated. We use this file as an oracle to benchmark the tools. The oracle is basically produced by means of dynamic analysis (execution), and used to assess the tools that perform static analysis. 
 
 We make the corpus publicly available as a GitHub project for replication studies, or for use to benchmark of new tools: 
 
@@ -352,9 +365,9 @@ We make the corpus publicly available as a GitHub project for replication studie
 https://github.com/kjezek/api-evolution-data-corpus/
 \end{verbatim}
 
-The repository also contains a pre-generated oracle that has been checked manually for consistency with the Java language specification \cite{Java7Spec}. This is to address the situation that the oracle can be generated by an implementation or version of Java not compatible with the specification. 
+The repository also contains a pre-generated oracle that has been checked manually for consistency with the Java language specification \cite{Java7Spec}. This is to address the situation that the oracle can be generated by an implementation or version of Java not compatible with the specification.  
 
-The following sub-sections contain a more detailed discussion of the corpus by category.
+The following sub sections contain a more detailed discussion of the corpus by category.
 
 \begin{table}[h]
 \centering
@@ -376,15 +389,13 @@ Miscellaneous	 & 4     & b    	\\ \hline
 \end{table}
 
 
-Table \ref{tab:data-overview} shows the number of scenarios in each category and its typical impact on compatibility (source/binary).
-
-Following sections will detail changes in each category, followed with examples to show a typical change in a category.
+Table \ref{tab:data-overview} shows the number of scenarios in each category and their typical impact on compatibility (source/binary). The following sections will discuss changes in each category in more detail, followed with examples to show a typical change in a category.
 
 \subsection{Data Types}
 \label{sec:datatypes}
 
 Many incompatibility problems are caused by changes to data types in the context of method, constructor and field signatures (descriptors), generics, inheritance and exceptions.
-We cover changes which occur in most object-oriented languages (e.g., polymorphisms) as well as changes specific to Java. The basic changes considered are:
+We cover changes which occur in most object-oriented languages as well as changes specific to Java. The basic changes considered are:
 
 \begin{itemize}
 \item Del -- a type is removed
@@ -398,40 +409,40 @@ To take some of the Java language-specific features, in particular the distincti
 
 \begin{itemize}
 \item Narrow -- a ``specialising'' conversion for primitive types, e.g. a change from \texttt{long} to \texttt{int}.
-\item Widen --  the opposite of narrowing
+\item Widen --  the opposite of narrowing - a ``generalising'' conversion
 \end{itemize}
 
 Finally, Java allows for two more conversions to simplify work with primitive and wrapper types:
 \begin{itemize}
 \item Box -- a primitive type is converted to its wrapper type, for instance, \texttt{int} to \texttt{java.lang.Integer}
-\item Unbox -- a wrapper type converted to the matching primitive type
+\item Unbox -- a wrapper type is converted to the matching primitive type
 \end{itemize}
 
-Changes in this category often result in subtle differences between source and binary compatibility. In particular, \texttt{Gen}, \texttt{Spe}, \texttt{Narrow}, \texttt{Widen}, \texttt{Box} and \texttt{Unbox} are conversions performed only by the Java compiler, not the linker. Therefore, these changes are always binary incompatible, but can be source compatible depending on usage. \texttt{Gen} is usually source compatible conversion for a method parameter type \footnote{There are some exceptions to this rule that occur if the compiler cannot resolve ambiguity between overloaded methods \cite[sect. 15.12]{Java7Spec}}, while \texttt{Spe} is compatible for a method return type. 
+Changes in this category often result in subtle differences between source and binary compatibility. In particular, \texttt{Gen}, \texttt{Spe}, \texttt{Narrow}, \texttt{Widen}, \texttt{Box} and \texttt{Unbox} are conversions performed only by the Java compiler, not the linker. Therefore, these changes are always binary incompatible, but can be source compatible depending on usage. \texttt{Gen} is a usually source compatible conversion for a method parameter type \footnote{There are some exceptions to this rule that occur if the compiler cannot resolve ambiguity between overloaded methods \cite[sect. 15.12]{Java7Spec}}, while \texttt{Spe} is source compatible for a method return type due to Java's support for co-variant return types. 
 
 Changes in the categories \texttt{Del} and \texttt{Mut} are generally neither source nor binary compatible.
 
 Examples of possible changes in method parameters follow: 
 
 \begin{verbatim}
-# method parameters: source compatible, binary incompatible 
+# method parameter types: source compatible, binary incompatible 
  Gen:    void method1(Integer param1) -> void method1(Number param1) 
  Box:    void method1(int param1)     -> void method1(Integer param1) 
  Unbox:  void method1(Integer param1) -> void method1(int param1) 
  Widden: void method1(int param1)     -> void method1(double param1) 
 
-# method parameters: source and binary incompatible
+# method parameter types: source and binary incompatible
  Spe:    void method1(Number param1)  -> void method1(Integer param1) 
  Mut:    void method1(Integer param1  -> void method1(String param1) 
  Narrow: void method1(double param1)  -> void method1(int param1) 
  
-# method returns: source compatible, binary incompatible 
+# method return types: source compatible, binary incompatible 
  Narrow: double method1()  -> int method1() 
  Box:    int method1()     -> Integer method1() 
  Unbox:  Integer method1() -> int method1() 
 
-# method returns, source and binary incompatble 
- Widden: int method1()     -> double method1(double param1) 
+# method return types, source and binary incompatble 
+ Widen:  int method1()     -> double method1(double param1) 
  Mut:    Integer method1() -> String method1(double param1)  
 \end{verbatim}
 
@@ -446,7 +457,8 @@ When a library method is updated by adding a new checked exception, the original
 
 The corpus combines examples where exceptions in method signatures are added, removed, specialised, generalised or mutated, with variants for both checked and unchecked exceptions. 
 
-There is no binary incompatible example related to exceptions. Examples of source incompatible, but binary compatible changes are:
+There is no binary incompatible example related to exceptions. Examples of source incompatible, but binary compatible changes include:
+
 \begin{verbatim}
 # Checked exceptions: Source incompatible, binary compatible
  Add: void method1()  ->  void method1() throws IOException  
@@ -468,7 +480,7 @@ There is no binary incompatible example related to exceptions. Examples of sourc
 
 Generics were added to Java relatively late in version 1.5 with strong consideration for compatibility with previous Java version. In order to achieve this, language designers opted for a design based on \textit{erasures}. With erasure, type parameters are erased during the compilation from the call site. This means that during linking, only raw types without generics are checked. This is achieved by using descriptors (a non-generic version of the full generic signature) to describe method references at the call sites.
 
-While client code is checked by the compiler for correct usage of generic types, binary code that uses generics may be combined with the code not using generics due to erasures. The impact to compatibility is evident. A lot of changes that are binary compatible are not necessarily source compatible. 
+While client code is checked by the compiler for correct usage of generic types, binary code that uses generics may be combined with the code not using generics due to erasures. The impact on compatibility is evident. Changes that are binary compatible are not necessarily source compatible. 
 
 For instance, if a list is declared as \texttt{java.util.List<String>} only instances of \texttt{String}  may be added to the list, and this is enforced by the compiler. However, when the definition is changed to \texttt{java.util.List<Number>} and only the binaries of the respective library are replaced, the program will successfully link. This is another case where (binary) compatibility is deceptive and issues are ``shifted'' into behavioural (in-)compatibility -- the program is likely to fail at runtime with a \texttt{ClassCastException} as the compiler introduces \texttt{checkast} instructions that fail when the client program attempts to add strings to the list.
 
@@ -504,11 +516,10 @@ Gen: void method1(List<? extends Integer> param1)
 
 Some authors actively discourage implementations/extensions of types from APIs provided by libraries. For instance, Grand \cite[p. 55]{Grand2002patterns} advises that:\textit{``if a class is declared as a subclass, there is risk that these classes not under your control will change in an incompatible way''}. 
 
-Some changes to super types such as removed methods clearly break compatibility, but some breaking changes are less evident, such as the addition of an method to an interface or making a method more visible. For instance, changing the visibility of a method from \texttt{private} to \texttt{public} may seem harmless, but the new public method may overlap with the same method in some subtype. When the subtype method enforced stricter access, compilation fails as access cannot be weakened in overridden methods. 
+Some changes to super types such as removed methods clearly break compatibility, but some breaking changes are less evident, such as the addition of an method to an interface or increasing the visibility of a method. For instance, changing the visibility of a method from \texttt{private} to \texttt{public} may seem harmless, but the new public method may overlap with the same method in some subtype. When the subtype method enforced stricter access, compilation fails as access cannot be weakened in overridden methods. 
 
-Since the changes possibly impacting inheritance are partly covered by other categories (method, modifier, types etc. changes), this category contributes with several more examples with class/interface definitions modified in a subtypes. Several examples where methods are moved up and down the hierarchy tree are included as well.
+Some of those changes are covered by other categories (method, modifier, types etc. changes). This category contributes with several more examples with class/interface definitions modified in a subtypes. Several examples where methods are moved up and down the hierarchy tree are included as well. Examples in this category include:
 
-Examples of source compatible, but binary incompatible changes:
 \begin{verbatim}
 # Access modifiers: source incompatible
 Super class:  protected void method() -> public void method()
@@ -544,7 +555,7 @@ Example:
 
 \subsection{Other Modifiers}
 
-Other (non-access) modifiers have various purposes in Java and for this reason have different impacts to compatibility. The modifiers \texttt{volatile}, \texttt{transient}, \texttt{native} or \texttt{strictfp} signal special behaviour of the respective members, \texttt{final} or \texttt{abstract} are used in conjunction with inheritance, and \texttt{static} deals with access context. Sometimes one modifier is used for multiple purposes, e.g. constants are implemented as \texttt{final} fields, while \texttt{final} is also used to denote classes that cannot be subclasses, and methods that cannot be overridden. 
+Other (non-access) modifiers have various purposes in Java and for this reason have different impacts to compatibility. The modifiers \texttt{volatile}, \texttt{transient}, \texttt{native} or \texttt{strictfp} signal special behaviour of the respective members, \texttt{final} or \texttt{abstract} are used in conjunction with inheritance, and \texttt{static} deals with access context. Sometimes one modifier is used for multiple purposes, e.g. constants are implemented as \texttt{final} fields, while \texttt{final} is also used to denote classes that cannot be sub-classed, and methods that cannot be overridden. 
 
 There is no pattern how these modifiers impact compatibility. For instance, an added modifier \texttt{transient} does not break compatibility while adding \texttt{native} does. This is because \texttt{native} requires a special treatment by the JVM while \texttt{transient} is only meta-information. The modifiers \texttt{final} and \texttt{abstract} have the obvious effect that adding or removing them breaks the compatibility of inheriting classes. 
 
