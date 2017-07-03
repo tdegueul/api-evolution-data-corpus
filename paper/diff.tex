@@ -1,7 +1,7 @@
 
 %DIF LATEXDIFF DIFFERENCE FILE
 %DIF DEL jezek_dietrich_tool_challenge.JOT.submission.tex   Wed Jun 21 17:35:56 2017
-%DIF ADD jezek_dietrich_tool_challenge.tex                  Sun Jul  2 17:34:16 2017
+%DIF ADD jezek_dietrich_tool_challenge.tex                  Mon Jul  3 19:49:02 2017
 %% bare_conf.tex
 %% V1.4b
 %% 2015/08/26
@@ -197,8 +197,8 @@ kjezek@kiv.zcu.cz \\
 % As a general rule, do not put math, special symbols or citations
 % in the abstract
 \begin{abstract}
-The development of software components with independent release cycles is nowadays widely supported by multiple languages and frameworks. A critical feature of any such platform is to safeguard composition by ensuring backward compatibility of substituted components. In recent years, \DIFaddbegin \DIFadd{some }\DIFaddend tooling has been developed to help developers and \DIFdelbegin \DIFdel{DevOp }\DIFdelend \DIFaddbegin \DIFadd{DevOps }\DIFaddend engineers to establish whether components are backward compatible. 
-We investigate the state of the art in this space by benchmarking such tools for Java. For this purpose, we have developed a \DIFaddbegin \DIFadd{compact }\DIFaddend benchmark data set \DIFdelbegin \DIFdel{that can be used to test future tools }\DIFdelend \DIFaddbegin \DIFadd{of less than 200KB. Using this dataset, we study possible API changes of Java libraries, and whether the tools investigated can detect them. We find that only a small number of tools suitable to analyse API evolution exist. Those tools are only infrequently maintained by small communities. All tools investigated have shortcomings in that they fail to detect certain API incompatibilities}\DIFaddend .
+The development of software components with independent release cycles is nowadays widely supported by multiple languages and frameworks. A critical feature of any such platform is to safeguard composition by ensuring backward compatibility of substituted components. In recent years, \DIFaddbegin \DIFadd{some }\DIFaddend tooling has been developed to help developers and \DIFdelbegin \DIFdel{DevOp }\DIFdelend \DIFaddbegin \DIFadd{DevOps }\DIFaddend engineers to establish whether components are backward compatible \DIFaddbegin \DIFadd{by means of static analysis}\DIFaddend . 
+We investigate the state of the art in this space by benchmarking such tools for Java. For this purpose, we have developed a \DIFaddbegin \DIFadd{compact }\DIFaddend benchmark data set \DIFdelbegin \DIFdel{that can be used to test future tools }\DIFdelend \DIFaddbegin \DIFadd{of less than 200KB. Using this dataset, we study possible API changes of Java libraries, and whether the tools investigated can detect them. We find that only a small number of tools suitable to analyse API evolution exist. Those tools are only infrequently maintained by small communities. All tools investigated have some shortcomings in that they fail to detect certain API incompatibilities}\DIFaddend .
 \end{abstract}
 
 \section{Introduction}
@@ -209,24 +209,26 @@ The popularity of platforms such as OSGi \cite{osgi43spec} and Maven \cite{maven
 
 In Maven, a similar situation can arise due to the automation of transitive dependency resolution. Here, an application is compiled against the very libraries it is deployed with. However, if those libraries recursively depend on other libraries, it is still possible that other library versions are used than the ones used at compile time. Again, the use of version ranges in dependency declarations makes this possible. 
 
-The problem is that this bypasses some of the crucial quality assurance steps built into standard build and deployment processes, such as automated regression testing. A common argument made to solve (or often, to ignore) this problem is to reason about compatibility: if the correctness of an application was established (e.g., by means of regression testing) with respect to one component, \DIFdelbegin \DIFdel{then we infer }\DIFdelend correctness with respect to another component \DIFdelbegin \DIFdel{as we assume }\DIFdelend \DIFaddbegin \DIFadd{is inferred based on the }\DIFaddend compatibility between both components. There are different reasons to make such assumptions. For instance, one might assume that all libraries providing a standardised service such as a JDBC connection used to interact with a relational database are compatible. \DIFdelbegin \DIFdel{The most common case however }\DIFdelend \DIFaddbegin \DIFadd{Another case }\DIFaddend is that the two components are different versions of the same component, and in particular that a component is replaced by a later version \DIFdelbegin \DIFdel{, and in this case a developer might assume that the respective versions are compatible}\DIFdelend \DIFaddbegin \DIFadd{with improvements not breaking compatibility}\DIFaddend .
+The problem is that this bypasses some of the crucial quality assurance steps built into standard build and deployment processes, such as automated regression testing. A common argument made to solve (or often, to ignore) this problem is to reason about compatibility: if the correctness of an application was established (e.g., by means of regression testing) with respect to one component, \DIFdelbegin \DIFdel{then we infer }\DIFdelend correctness with respect to another component \DIFdelbegin \DIFdel{as we assume }\DIFdelend \DIFaddbegin \DIFadd{is inferred based on the }\DIFaddend compatibility between both components. There are different reasons to make such assumptions. For instance, one might assume that all libraries providing a standardised service such as a JDBC connection used to interact with a relational database are compatible. \DIFdelbegin \DIFdel{The most common case however }\DIFdelend \DIFaddbegin \DIFadd{Another case }\DIFaddend is that the two components are different versions of the same component, and in particular that a component is replaced by a later version \DIFdelbegin \DIFdel{, and in this case a developer might assume that the respective versions are compatible}\DIFdelend \DIFaddbegin \DIFadd{with improvements (such as bug fixes or better performance) not breaking compatibility}\DIFaddend .
 
 %DIF <  Quality assurance has been long understood as integral part of software development. While quality was traditionally oriented into verification of correct output of a program, it has moved further in the last decade. In particular, component-based development brought modules with independent development cycles into light. It caused that verification of correct composition started to be as important as functionality of each modules. Sometimes it becomes even more important as re-used modules are already verified by repeated usage in multiple projects and thus their correct functionality is more matter of correct usage, i.e. right integration in a particular project.
 \DIFdelbegin %DIFDELCMD < 
 
 %DIFDELCMD < %%%
-\DIFdelend The question arises what compatibility means in this context. In general, compatibility is about preserving contracts between collaborating components and ensuring safe substitution. There is a vast amount of existing work on safe and correct composition of components, including ProCom \cite{Sentilles_2009}, Sofa \cite{BuresHP06Sofa}, or X-man \cite{Lau12Xman}. 
+\DIFdelend The question arises what compatibility means in this context. In general, compatibility is about preserving \DIFdelbegin \DIFdel{contracts }\DIFdelend \DIFaddbegin \textit{\DIFadd{contracts}} \DIFaddend between collaborating components and ensuring safe substitution. There is a vast amount of existing work on safe and correct composition of components, including ProCom \cite{Sentilles_2009}, Sofa \cite{BuresHP06Sofa}, or X-man \cite{Lau12Xman}. 
+\DIFdelbegin %DIFDELCMD < 
 
+%DIFDELCMD < %%%
 %DIF <  Jens: the is a bit of a misfit, move this to related work?
 %DIF < It also comes together with innovative development models such as the W-model \cite{Lau11wmodel} that is extension of a standard V-model.
-\DIFdelbegin %DIFDELCMD < 
+%DIFDELCMD < 
 
 %DIFDELCMD < %%%
 \DIFdel{The underling }\DIFdelend \DIFaddbegin \DIFadd{The underlying }\DIFaddend notion of contract has many facets \cite{beugnard99making}, including classical API compatibility that can be expressed through the type system of the underlying programming language, but \DIFdelbegin \DIFdel{it also includes aspects like }\DIFdelend \DIFaddbegin \DIFadd{also including other aspects such as }\DIFaddend semantics, quality of service and licensing. 
 
 \DIFdelbegin \DIFdel{However, existing practical applications }\DIFdelend \DIFaddbegin \DIFadd{Existing tools }\DIFaddend available to software engineers only cover the API aspect of the contract. Rama \cite{Rama2015structural} defends this practice and claims that \textit{``ideally, the users of a module need to look no further than its API''}. For instance, OSGi's components expose packages and services (Java interfaces) and binding is allowed if APIs match. No deeper \DIFaddbegin \textit{\DIFadd{semantic}} \DIFaddend analysis is performed\DIFdelbegin \DIFdel{as it is assumed that two components are compatible if their APIs match}\DIFdelend . The checks performed by Maven are even coarser. Maven composes components (JAR files) based on their symbolic versions. Once a referenced component exists in a repository, composition is allowed. 
 
-API-based compatibility checks simplify the issue from the developers point of view at the price of unsoundness: certain incompatibilities will be missed. This is a classical trade-off made between complexity and usability. The main rationale is that API compatibility can be investigated by means of static analysis that can be easily integrated into standard build and deployment processes. This is \DIFdelbegin \DIFdel{particular }\DIFdelend \DIFaddbegin \DIFadd{particularly }\DIFaddend beneficial as there are several static analysis tools that have now been widely adapted and are part of the standard toolbox used by many developers, such as \texttt{PMD}\footnote{https://github.com/pmd}, \texttt{Checkstyle}\footnote{http://checkstyle.sourceforge.net/}, and \texttt{Findbugs}\footnote{http://findbugs.sourceforge.net/}. 
+API-based compatibility checks simplify the issue from the developers point of view at the price of unsoundness: certain incompatibilities will be missed. This is a classical trade-off made between complexity and usability. The main rationale is that API compatibility can be investigated by means of \DIFdelbegin \DIFdel{static analysis }\DIFdelend \DIFaddbegin \textit{\DIFadd{static analysis}} \DIFaddend that can be easily integrated into standard build and deployment processes. This is \DIFdelbegin \DIFdel{particular }\DIFdelend \DIFaddbegin \DIFadd{particularly }\DIFaddend beneficial as there are several static analysis tools that have now been widely adapted and are part of the standard toolbox used by many developers, such as \texttt{PMD}\footnote{https://github.com/pmd}, \texttt{Checkstyle}\footnote{http://checkstyle.sourceforge.net/}, and \texttt{Findbugs}\footnote{http://findbugs.sourceforge.net/}. 
 
 Recent empirical studies have clearly demonstrated the need for better tools: many developers are not aware of the rules that specify when component evolution is compatible \cite{dietrich2014whatjava}, and empirical studies have demonstrated that this causes issues in real-world systems \cite{dietrich14broken,raemaekers2014semantic}.
 
@@ -247,7 +249,7 @@ Recent empirical studies have clearly demonstrated the need for better tools: ma
 The aim of this paper is to review existing tools to check the compatibility of Java components as a starting point for future development and research.
 For this purpose, we \DIFaddbegin \DIFadd{have }\DIFaddend collected several existing tools that can be used to check API compatibility\DIFdelbegin \DIFdel{, the complete list own in Table \ref{tab:tools}}\DIFdelend . The methodology used was to start with the analysis of some tools we were aware of, then adding tools referenced on the respective web sites, and finally considering further tools references on developer forums. 
 
-\DIFdelbegin \DIFdel{The contribution of this paper is twofold}\DIFdelend \DIFaddbegin \DIFadd{Our work addressed the following two research questions:
+\DIFdelbegin \DIFdel{The contribution of this paper is twofold}\DIFdelend \DIFaddbegin \DIFadd{Our work addresses the following two research questions:
 }
 
 %DIF >  \todo[inline]{Do we need RQ for datacorpus?}
@@ -256,7 +258,7 @@ For this purpose, we \DIFaddbegin \DIFadd{have }\DIFaddend collected several exi
 }\item[RQ2] \DIFadd{Does any of the tools correctly distinguish between source and binary compatibility?
 } \end{enumerate} 
 
-\DIFadd{This paper makes two contributions}\DIFaddend . Firstly, we catalogue existing API compatibility checking tools and investigate their capabilities. Secondly, we provide an extensible dataset used for benchmarking such (existing and future) tools. 
+\DIFadd{This paper makes two contributions}\DIFaddend . Firstly, we catalogue existing API compatibility checking tools and investigate their capabilities\DIFaddbegin \DIFadd{, answering the two research questions}\DIFaddend . Secondly, we provide an extensible dataset used for benchmarking such (existing and future) tools. 
 
 The remainder of this paper is organised as follows: Sections \ref{sec:related} and \ref{sec:background} discuss related work and summarise some fundamental concepts \DIFdelbegin \DIFdel{of }\DIFdelend \DIFaddbegin \DIFadd{related to }\DIFaddend compatibility. In Section \ref{sec:corpus}, we discuss the dataset developed, followed by the evaluation of the various tools in Section \ref{sec:tools}. A brief conclusion is provided in Section \ref{sec:conclusion}.
 
@@ -268,11 +270,8 @@ and the technical \cite{forman1995release,osgi2010semvers,oracle2015compatibilit
 mostly dealing with the issue of correct replacement and interoperability.
 
 \DIFaddbegin \subsection{API Evolution}
-\DIFaddend Belguidoum and Dagnat \cite{Belguidoum08formalization} distinguish between \textit{vertical} and \textit{horizontal} compatibility. This can  be paraphrased as backward vs client-provider compatibility. Vertical compatibility plays \DIFaddbegin \DIFadd{a }\DIFaddend role when vendors want to produce backward compatible libraries, which allow for smooth system updates. On the other hand, the purpose of horizontal compatibility is to aid the checking system composition. 
-\DIFaddbegin \DIFadd{Using this terminology, our  work targets vertical compatibility as we propose a data set simulating evolution of  libraries and then use this to assess tools for checking API compatibility. However, we also study horizontal compatibility in order to build an oracle of compatible and incompatible changes. In particular, we have developed clients that invoke the API so that we could then check if an evolved API remains compatible with this client code. This provided us with the information about compatibility breaking change for every evolution.
-}
-
-\DIFadd{Using this terminology, our work targets vertical compatibility as we propose a data set simulating evolution of libraries and then benchmark tools checking API breaking evolution. However, we also worked with horizontal compatibility in order to build an oracle of compatible and incompatible changes. In brief, to detect if an API change is compatible, we developed clients that invoke the APIs. This gave as information about compatibility breaking change for every evolution. 
+\DIFaddend Belguidoum and Dagnat \cite{Belguidoum08formalization} distinguish between \textit{vertical} and \textit{horizontal} compatibility. This can  be paraphrased as backward vs client-provider compatibility. Vertical compatibility plays \DIFaddbegin \DIFadd{a }\DIFaddend role when vendors want to produce backward compatible libraries, which allow for smooth system updates. On the other hand, the purpose of horizontal compatibility is to aid \DIFdelbegin \DIFdel{the checking }\DIFdelend \DIFaddbegin \DIFadd{safe }\DIFaddend system composition. 
+\DIFaddbegin \DIFadd{Using this terminology, our  work targets vertical compatibility as we propose a data set simulating evolution of  libraries and then use this to assess tools for checking API compatibility. However, we also study horizontal compatibility in order to build an oracle of compatible and incompatible changes. In particular, we have developed clients that invoke the API so that we could then check if an evolved API remains compatible with these clients. This provided us with the information about compatibility breaking change for every evolution.
 }\DIFaddend 
 
 Both concepts should be taken into account in order to successfully produce and use components that are \textit{``units of  independent deployment and third-party composition''} \cite[4.1.1,]{szyperski02component}. 
@@ -312,17 +311,17 @@ Sawant studied how APIs are used \cite{Sawant2015dataset} and developed a meta-m
 \DIFaddend To analyse API evolution, it is important to understand which changes are contract-breaking. 
 API-breaking changes for Java have been catalogued by des Rivi\`{e}res \cite{EvolvingJavaAPIs:2007}, this catalogue has directly influenced the design of the benchmark we have developed in order to assess and compare tools. The end user survey conducted by Dietrich et al \cite{dietrich2014whatjava} uses a similar catalogue. 
 
-\DIFaddbegin \subsection{Incompatibility Resolution}
+\DIFaddbegin \subsection{Mitigation}
 
-\DIFaddend Cossette and Walker \cite{Cossette2012seeking} have discussed several available techniques to refactor clients to adapt to changed APIs. \DIFaddbegin \DIFadd{They have also expressed the need for a data corpus to study API changes: ``we need a collection of all points of breaking change between a set of API versions'' and put together a set of five open-source libraries (Struts, Log4j, jDOM, DBCP and SLF4J) to address this need. While using real-word programs has some obvious benefits, it remains incomplete as in particularly such a small set does not exhibit a complete set of possible changes, and is therefore unsuitable to benchmark tools. For this reason, we decided to create a synthetic dataset that exhibits a full set of compatibility issues while still being manageable in terms of size and complexity. 
+\DIFaddend Cossette and Walker \cite{Cossette2012seeking} have discussed several available techniques to refactor clients to adapt to changed APIs. \DIFaddbegin \DIFadd{They have also expressed the need for a data corpus to study API changes: }\textit{\DIFadd{``we need a collection of all points of breaking change between a set of API versions''}} \DIFadd{and put together a set of five open-source libraries (Struts, Log4j, jDOM, DBCP and SLF4J) to address this need. While using real-word programs has some obvious benefits, it remains incomplete as in particularly such a small set does not exhibit a complete set of possible changes, and is therefore unsuitable to benchmark tools. For this reason, we decided to create a synthetic dataset that exhibits a full set of compatibility issues while still being manageable in terms of size and complexity. 
 }
 
-\DIFaddend Raemaekers et al \cite{Raemaekers2013testing} have investigated the correlation between API breaking changes with several other properties such us number of modifications. Taneja et al \cite{Taneja2007automated} tried to automatically find changed methods replacements by employing metrics such as name similarity, method size and closeness of method arguments. 
-\DIFaddbegin 
+%DIF >  Jens: merged sections, this is really still about resolution 
+%DIF >  \subsection{Mitigation Techniques}
 
-\subsection{Mitigation Techniques}
-
-\DIFaddend In our previous work we have demonstrated how changes to the Java compiler can mitigate certain binary compatibility problems that have been observed \cite{jezek2016dynamo}. \DIFaddbegin \DIFadd{The solution proposed aims to simplify the situation by at least narrowing the gap between source and binary compatibility in Java. However, this requires some rather invasive changes to the Java compiler, and is therefore unlikely to be deployed into standard Java. 
+\DIFadd{In our previous work we have demonstrated how changes to the Java compiler can mitigate certain binary compatibility problems that have been observed \mbox{%DIFAUXCMD
+\cite{jezek2016dynamo}}%DIFAUXCMD
+. The solution proposed aims to simplify the situation by at least narrowing the gap between source and binary compatibility in Java. However, this requires some rather invasive changes to the Java compiler, and is therefore unlikely to be deployed into standard Java. 
 }
 
 \DIFadd{There are also proposals to address this problem on the model level, where checks performed on those models can guarantee compatibility. Such approaches include ProCom~\mbox{%DIFAUXCMD
@@ -330,33 +329,50 @@ API-breaking changes for Java have been catalogued by des Rivi\`{e}res \cite{Evo
 and SaveCCM~\mbox{%DIFAUXCMD
 \cite{Hanson2004SaveCCM}}%DIFAUXCMD
 .
-}\DIFaddend 
+}
 
-% Jens: to vague
-%Nonetheless, research into API is huge, counting Eclipse platform, web and many more empirical studies \cite{Grechanik2010empirical,Dig2006howevolve,Kagdi2007survey,Businge2015eclipse,Espinha2014web,Espinha2015web}.
+%DIF >  Jens: to vague
+%DIF > Nonetheless, research into API is huge, counting Eclipse platform, web and many more empirical studies \cite{Grechanik2010empirical,Dig2006howevolve,Kagdi2007survey,Businge2015eclipse,Espinha2014web,Espinha2015web}.
+
+
+%DIF >  Jens: new subsection for oddballs
+\subsection{Miscellaneous}
+
+\DIFaddend Raemaekers et al \cite{Raemaekers2013testing} have investigated the correlation between API breaking changes with several other properties such us number of modifications. Taneja et al \cite{Taneja2007automated} tried to automatically find changed methods replacements by employing metrics such as name similarity, method size and closeness of method arguments. 
+\DIFdelbegin \DIFdel{In our previous work we have demonstrated how changes to the Java compiler can mitigate certain binary compatibility problems that have been observed \mbox{%DIFAUXCMD
+\cite{jezek2016dynamo}}%DIFAUXCMD
+. 
+}%DIFDELCMD < 
+
+%DIFDELCMD < %%%
+%DIF <  Jens: to vague
+%DIF < Nonetheless, research into API is huge, counting Eclipse platform, web and many more empirical studies \cite{Grechanik2010empirical,Dig2006howevolve,Kagdi2007survey,Businge2015eclipse,Espinha2014web,Espinha2015web}.
+\DIFdelend 
+
+
 
 \section{Background: About Compatibility}
 \label{sec:background}
 
 
-A senior JDK engineer once noticed that "every change is an incompatible change" (quote from \cite{KindsOfCompatibility}). I.e., every modification of a library may influence the way other libraries can use, interact, extend, observe or substitute it. Tools like compilers, linkers and static analysis tools define compatibility as API stability. That means that if a change in a library  \DIFdelbegin \DIFdel{that }\DIFdelend does not prevent clients from linking and/or compiling, the change is expected to be compatible, even if it results in changed behaviour or performance. For instance, while a change from \texttt{List} to \texttt{Set} is acceptable for assignment to a field typed to \texttt{Collection}, the change may have an impact on clients that rely on a particular order of elements in the collection.
+A senior JDK engineer once noticed that \DIFdelbegin \DIFdel{"every change is an incompatible change" }\DIFdelend \DIFaddbegin \textit{\DIFadd{``every change is an incompatible change''}} \DIFaddend (quote from \cite{KindsOfCompatibility}). \DIFdelbegin \DIFdel{I.e., }\DIFdelend \DIFaddbegin \DIFadd{This means that }\DIFaddend every modification of a library may influence the way \DIFdelbegin \DIFdel{other libraries }\DIFdelend \DIFaddbegin \DIFadd{clients }\DIFaddend can use, interact, extend, observe or substitute it. Tools like compilers, linkers and static analysis tools define compatibility as API stability. That means that if a change in a library  \DIFdelbegin \DIFdel{that }\DIFdelend does not prevent clients from linking and/or compiling, the change is expected to be compatible, even if it results in changed behaviour or performance. For instance, while a change from \texttt{List} to \texttt{Set} is acceptable for assignment to a field typed \DIFdelbegin \DIFdel{to }\DIFdelend \DIFaddbegin \DIFadd{as }\DIFaddend \texttt{Collection}, the change may have an impact on clients that rely on a particular order of elements in the collection.
 
 The Java Language Specification formally defines acceptable API changes in terms of binary compatibility
 \cite[ch. 13]{Java7Spec}:
 %\begin{quotation}
-\textit{"a set of changes that developers are
+\textit{\DIFdelbegin \DIFdel{"}\DIFdelend \DIFaddbegin \DIFadd{``}\DIFaddend a set of changes that developers are
 permitted to make to a package or to a class or interface type while preserving (not
-breaking) compatibility with pre-existing binaries."}
+breaking) compatibility with pre-existing binaries.\DIFdelbegin \DIFdel{"}\DIFdelend \DIFaddbegin \DIFadd{''}\DIFaddend }
 %\end{quotation} 
 The rules are strictly defined with respect to the static analysis performed during linking, which
 significantly differs from the notion of source compatibility, which is checked by the compiler \DIFdelbegin \DIFdel{as }\DIFdelend \DIFaddbegin \DIFadd{in order to establish }\DIFaddend the consistency between a program and a library.
 For this reason, the specification explicitly recommends: 
-\textit{"tools for the Java programming language should support automatic recompilation."}
+\textit{\DIFdelbegin \DIFdel{"}\DIFdelend \DIFaddbegin \DIFadd{``}\DIFaddend tools for the Java programming language should support automatic recompilation.\DIFdelbegin \DIFdel{"}\DIFdelend \DIFaddbegin \DIFadd{''}\DIFaddend }
 In the same chapter, however, it is stated that 
 %\begin{quotation}
-\textit{"it is often impractical or impossible to automatically recompile
+\textit{\DIFdelbegin \DIFdel{"}\DIFdelend \DIFaddbegin \DIFadd{``}\DIFaddend it is often impractical or impossible to automatically recompile
 the pre-existing binaries that directly or indirectly depend on a type that is to be
-changed."}
+changed.\DIFdelbegin \DIFdel{"}\DIFdelend \DIFaddbegin \DIFadd{''}\DIFaddend }
 %\end{quotation}
 
 
@@ -369,7 +385,7 @@ Compatibility also depends on how a library is used, for instance, whether a lib
 \section{A Data Corpus to Study API Changes}
 \label{sec:corpus}
 
-In order to conduct an evaluation of existing compatibility checkers, we needed a suitable data set. The data set we developed for this purpose consists of several small Java programs that all exhibit certain compatibility issues. We had considered the use of existing data sets, but none was suitable for our purpose. DaCapo \cite{blackburn2006dacapo} is rather small and does only contain one version for each program. The Qualitas Corpus \cite{tempero2010qualitas} is larger and contains multiple versions for each program in its evolution edition, but the number of interesting evolution changes we wanted the tools to be expose to is very small relative to the overall size of the programs. We therefore decided to create our own synthetic data set. \DIFdelbegin %DIFDELCMD < 
+In order to conduct an evaluation of existing compatibility checkers, we needed a suitable data set. The data set we developed for this purpose consists of several small Java programs that all exhibit certain compatibility issues. We had considered the use of existing data sets, but none was suitable for our purpose. DaCapo \cite{blackburn2006dacapo} is rather small and does only contain one version for each program. The Qualitas Corpus \cite{tempero2010qualitas} is larger and contains multiple versions for each program in its evolution edition, but the number of interesting evolution changes we wanted the tools to be expose to is very small relative to the overall size of the \DIFdelbegin \DIFdel{programs}\DIFdelend \DIFaddbegin \DIFadd{corpus}\DIFaddend . We therefore decided to create our own synthetic data set. \DIFdelbegin %DIFDELCMD < 
 
 %DIFDELCMD < %%%
 \DIFdelend The data set proposed here contains small programs that \DIFdelbegin \DIFdel{the }\DIFdelend model the evolution and usage of \DIFdelbegin \DIFdel{consequent }\DIFdelend \DIFaddbegin \DIFadd{consecutive }\DIFaddend versions of a library. 
@@ -387,17 +403,17 @@ In order to conduct an evaluation of existing compatibility checkers, we needed 
 and information found on developer forums to guide the design of the dataset.  
 }
 
-\DIFadd{Firstly, we have defined eight categories to address the what dimension}\DIFaddend : access modifiers, data types, exceptions, generics, inheritance, class members, other (non-access) modifiers and miscellaneous. 
+\DIFadd{Firstly, we defined eight categories to address the what dimension}\DIFaddend : access modifiers, data types, exceptions, generics, inheritance, class members, other (non-access) modifiers and miscellaneous. 
  \DIFdelbegin \DIFdel{Each category has several programs constructed using ideas from section 13 of the Java Language Specification, }\DIFdelend \DIFaddbegin 
 
-\DIFadd{Secondly, we have searched where those changes can appear and  defined a set of seven Java language elements: class, inner class, interface, method, constructor, field, generic type. 
+\DIFadd{Secondly, we searched where those changes can appear in code and defined a set of seven Java language elements: class, inner class, interface, method, constructor, field, generic type. 
  }
 
-\DIFadd{Finally, we have investigated how a language element can be changed and defined a few possible change. Basically, a change could may be a removed element, an added element or a modified element. 
+\DIFadd{Finally, we investigated how a language element can be changed and defined a few possible change. Basically, a change can be a removed element, an added element or a modified element. 
 While the number of possible changes between elements differs, in most case we encounter four possible changes: one for addition, one for removal and two modifications: strengthening and weakening. 
 }
 
-\DIFadd{This results in 224 possible combinations (7 elements $\times$ 8 categories  $\times$ 4 changes). However, the number of final test-cases differ due to following reasons: some combinations are not possible (e.g. interface methods may be only public, so no test for modified access modification is possible). We detected these situations simply by trying all combination for passing Java compilation.  On the other hand, certain combinations of an element and a category may contain more changes. This is the case for methods where two cases must be tested: a data type can be used either as a parameter or as a return type. Furthermore, the data type may have more then four modifications (for instance, also including boxing and unboxing for primitive / wrapper types), detailed later in Section \ref{sec:datatypes}).  Finally, generics are divided into two more sub-categories containing generic wild-cards and generic parametrised types, producing another dimension. Although generics are relatively complex, capturing possible combinations for evolving API is fairly straightforward.  Both wild-card and parametrised types may be parametrised by other types repeating the same modification patter such as addition, removal, etc.
+\DIFadd{This results in 224 possible combinations (7 elements $\times$ 8 categories  $\times$ 4 changes). However, the number of final test-cases differ due to following reasons: some combinations are not possible (e.g. interface methods may be only public, so no test for modified access modification is possible). We detected these situations simply by trying all combination for passing Java compilation.  On the other hand, certain combinations of an element and a category may contain more changes. This is the case for methods where two cases must be tested: a data type can be used either as a parameter or as a return type. Furthermore, the data type may have more then four modifications (for instance, also including boxing and unboxing for primitive / wrapper types, detailed later in Section \ref{sec:datatypes}).  Finally, generics are divided into two more sub-categories containing generic wild-cards and generic parametrised types, producing another dimension. Although generics are relatively complex, capturing possible combinations for evolving API is fairly straightforward.  Both wild-card and parametrised types may be parametrised by other types repeating the same modification patter such as addition, removal, etc.
 }
 
 %DIF >  Jens: I commented out one sentence that did not make much sense to me
@@ -441,22 +457,22 @@ The whole structure of the corpus looks as follows (\texttt{<>} is shortcut for 
   compatibility.sh
 \end{verbatim}
 
-The \DIFaddbegin \DIFadd{design based on a naming convention facilitates extensibility of the corpus by simply adding new cases to sub-directories (packages) following this convention. In detail, a user is expected to provide three Java source files to extend the corpus. One file is stored in the }\texttt{\DIFadd{lib-v1}} \DIFadd{directory to represent a library version, one file is stored in }\texttt{\DIFadd{lib-v2}} \DIFadd{to represent an update and finally one file represents a client code in the folder }\texttt{\DIFadd{client}}\DIFadd{. All the files should be in the same Java package (subdirectory) following the naming pattern }\texttt{\DIFadd{<category><element><change>}}\DIFadd{.
+The \DIFaddbegin \DIFadd{design based on a naming convention facilitates extensibility of the corpus by simply adding new cases to sub-directories (packages) following this convention. Basically, a user is expected to provide three Java source files to extend the corpus. One file is stored in the }\texttt{\DIFadd{lib-v1}} \DIFadd{directory to represent a library version, one file is stored in }\texttt{\DIFadd{lib-v2}} \DIFadd{to represent an update and finally one file represents a client code in the folder }\texttt{\DIFadd{client}}\DIFadd{. All the files should be in the same Java package (subdirectory) following the naming pattern }\texttt{\DIFadd{<category><element><change>}}\DIFadd{.
 In fact, the naming convention is not enforced, but recommended in order to facilitate work with the relatively large corpus. 
 }
 
 \DIFadd{The }\DIFaddend corpus also contains a simple script \texttt{compatibility.sh}  to produce an oracle for tool evaluation. 
-The scripts will compile and execute all scenarios, and will \DIFdelbegin \DIFdel{monitor them for compilation error }\DIFdelend \DIFaddbegin \DIFadd{report compilation errors }\DIFaddend indicating source incompatibility, and linkage errors indicating binary \DIFdelbegin \DIFdel{compatibility}\DIFdelend \DIFaddbegin \DIFadd{incompatibility}\DIFaddend . The script generates a CSV file with three columns\DIFdelbegin \DIFdel{respectively listing}\DIFdelend : the name of the scenario as described above, and two columns indicating source and binary compatibility -- using ``$1$'' to indicate compatibility and ``$0$'' otherwise. 
+\DIFdelbegin \DIFdel{The scripts }\DIFdelend \DIFaddbegin \DIFadd{This script }\DIFaddend will compile and execute all scenarios, and will \DIFdelbegin \DIFdel{monitor them for compilation error }\DIFdelend \DIFaddbegin \DIFadd{report compilation errors }\DIFaddend indicating source incompatibility, and linkage errors indicating binary \DIFdelbegin \DIFdel{compatibility}\DIFdelend \DIFaddbegin \DIFadd{incompatibility}\DIFaddend . The script generates a CSV file with three columns\DIFdelbegin \DIFdel{respectively listing}\DIFdelend : the name of the scenario as described above, and two columns indicating source and binary compatibility -- using ``$1$'' to indicate compatibility and ``$0$'' otherwise. 
 
 The script performs the following steps:
 
  \begin{enumerate} 
-\item compile \texttt{lib-v1} and \texttt{lib-v2} directories
-\item compile the client against \texttt{lib-v1.jar} -- this \DIFdelbegin \DIFdel{should always }\DIFdelend \DIFaddbegin \DIFadd{is baseline and must }\DIFaddend succeed
+\item compile \DIFaddbegin \DIFadd{the sources in the }\DIFaddend \texttt{lib-v1} and \texttt{lib-v2} directories \DIFaddbegin \DIFadd{and build the respective libraries }\texttt{\DIFadd{lib-v1.jar}} \DIFadd{and }\texttt{\DIFadd{lib-v2.jar}}
+\DIFaddend \item compile the client against \texttt{lib-v1.jar} -- this \DIFdelbegin \DIFdel{should always }\DIFdelend \DIFaddbegin \DIFadd{is the baseline and must }\DIFaddend succeed
 \item compile the client against \texttt{lib-v2.jar} to check source compatibility -- \DIFdelbegin \DIFdel{this may fail
-}\DIFdelend \DIFaddbegin \DIFadd{if this step fails with compilation error, a source incompatible change is detected
-}\DIFaddend \item invokes the client originally compiled against \texttt{lib-v1.jar} with \texttt{lib-v2.jar}  to check binary compatibility -- \DIFdelbegin \DIFdel{this may fail
-}\DIFdelend \DIFaddbegin \DIFadd{if this step fails with linkage error, a binary incompatible change is detected
+}\DIFdelend \DIFaddbegin \DIFadd{if this step fails with a compilation error, a source incompatible change is detected
+}\DIFaddend \item \DIFdelbegin \DIFdel{invokes }\DIFdelend \DIFaddbegin \DIFadd{invoke }\DIFaddend the client originally compiled against \texttt{lib-v1.jar} with \texttt{lib-v2.jar}  to check binary compatibility -- \DIFdelbegin \DIFdel{this may fail
+}\DIFdelend \DIFaddbegin \DIFadd{if this step fails with a linkage error, a binary incompatible change is detected
 }\DIFaddend \item \DIFdelbegin \DIFdel{writes result (``1/0'') }\DIFdelend \DIFaddbegin \DIFadd{based on results from steps 3 and 4 append either $1$ or $0$ }\DIFaddend to the CSV file \DIFaddbegin \DIFadd{to indicate (in)compatibility 
 }\DIFaddend  \end{enumerate} 
 
@@ -479,9 +495,10 @@ The repository also contains a pre-generated oracle that has been checked manual
 \cite{JL7Spec}}%DIFAUXCMD
 }\DIFdelend \DIFaddbegin \DIFadd{\mbox{%DIFAUXCMD
 \cite{Java7Spec}}%DIFAUXCMD
-}\DIFaddend . This is to address the situation that the oracle can be generated by an implementation or version of Java not compatible with the specification.  
+}\DIFaddend . This is to address the situation that the oracle can be generated by an implementation or version of \DIFdelbegin \DIFdel{Java not compatible }\DIFdelend \DIFaddbegin \DIFadd{the Java compiler or runtime not compliant }\DIFaddend with the specification.  
 
-The following \DIFdelbegin \DIFdel{sub-sections }\DIFdelend \DIFaddbegin \DIFadd{sub sections }\DIFaddend contain a more detailed discussion of the corpus by category.
+The following \DIFdelbegin \DIFdel{sub-sections }\DIFdelend \DIFaddbegin \DIFadd{sub sections }\DIFaddend contain a more detailed discussion of the corpus by category. \DIFaddbegin \DIFadd{Table \ref{tab:data-overview} shows the number of scenarios in each category and their typical impact on compatibility (source/binary). The following sections will discuss changes in each category in more detail, followed with examples to show a typical change in a category.
+}\DIFaddend 
 
 \begin{table}[h]
 \centering
@@ -489,24 +506,27 @@ The following \DIFdelbegin \DIFdel{sub-sections }\DIFdelend \DIFaddbegin \DIFadd
 \hline
 Category         & \DIFdelbeginFL \DIFdelFL{Tests }\DIFdelendFL \DIFaddbeginFL \DIFaddFL{Scenario }\DIFaddendFL & Incompatibilities	\\
 \hline 
-Data Types       & 49    & s/b		\\
-Exception        & 26    & s 		\\
-Generics         & 88    & s		\\
-Inheritance      & 16    & s/b		\\
-Members          & 28    & s/b		\\
-Access Modifiers & 18    & s/b      \\
-Other Modifiers  & 30    & s/b		\\
-\DIFdelbeginFL \DIFdelFL{Borderline Cases }\DIFdelendFL \DIFaddbeginFL \DIFaddFL{Miscellaneous	 }\DIFaddendFL & 4     & b    	\\ \hline      
+Data Types       & 49    & \DIFdelbeginFL \DIFdelFL{s/b		}\DIFdelendFL \DIFaddbeginFL \DIFaddFL{source and binary		}\DIFaddendFL \\
+Exception        & 26    & \DIFdelbeginFL \DIFdelFL{s 		}\DIFdelendFL \DIFaddbeginFL \DIFaddFL{source 		}\DIFaddendFL \\
+Generics         & 88    & \DIFdelbeginFL \DIFdelFL{s		}\DIFdelendFL \DIFaddbeginFL \DIFaddFL{source		}\DIFaddendFL \\
+Inheritance      & 16    & \DIFdelbeginFL \DIFdelFL{s/b		}\DIFdelendFL \DIFaddbeginFL \DIFaddFL{source and binary		}\DIFaddendFL \\
+Members          & 28    & \DIFdelbeginFL \DIFdelFL{s/b		}\DIFdelendFL \DIFaddbeginFL \DIFaddFL{source and binary		}\DIFaddendFL \\
+Access Modifiers & 18    & \DIFdelbeginFL \DIFdelFL{s/b      }\DIFdelendFL \DIFaddbeginFL \DIFaddFL{source and binary      }\DIFaddendFL \\
+Other Modifiers  & 30    & \DIFdelbeginFL \DIFdelFL{s/b		}\DIFdelendFL \DIFaddbeginFL \DIFaddFL{source and binary		}\DIFaddendFL \\
+\DIFdelbeginFL \DIFdelFL{Borderline Cases }\DIFdelendFL \DIFaddbeginFL \DIFaddFL{Miscellaneous	 }\DIFaddendFL & 4     & \DIFdelbeginFL \DIFdelFL{b    	}\DIFdelendFL \DIFaddbeginFL \DIFaddFL{binary    	}\DIFaddendFL \\ \hline      
 \end{tabular}
 \caption{Corpus overview by category}
 \label{tab:data-overview}
 \end{table}
 
 
-Table \ref{tab:data-overview} shows the number of scenarios in each category and \DIFdelbegin \DIFdel{its }\DIFdelend \DIFaddbegin \DIFadd{their }\DIFaddend typical impact on compatibility (source/binary). \DIFaddbegin \DIFadd{The following sections will discuss changes in each category in more detail, followed with examples to show a typical change in a category.
-}\DIFaddend 
 
-\subsection{Data Types}
+
+\DIFdelbegin \DIFdel{Table \ref{tab:data-overview} shows the number of scenarios in each category and its typical impact on compatibility (source/binary).
+}%DIFDELCMD < 
+
+%DIFDELCMD < %%%
+\DIFdelend \subsection{Data Types}
 \DIFaddbegin \label{sec:datatypes}
 \DIFaddend 
 
@@ -531,7 +551,7 @@ To take some of the Java language-specific features, in particular the distincti
 Finally, Java allows for two more conversions to simplify work with primitive and wrapper types:
  \begin{itemize} 
 \item Box -- a primitive type is converted to its wrapper type, for instance, \texttt{int} to \texttt{java.lang.Integer}
-\item Unbox -- a wrapper type \DIFaddbegin \DIFadd{is }\DIFaddend converted to the matching primitive type
+\item Unbox -- a wrapper type \DIFdelbegin \DIFdel{converted to the }\DIFdelend \DIFaddbegin \DIFadd{is converted to its }\DIFaddend matching primitive type
  \end{itemize} 
 
 Changes in this category often result in subtle differences between source and binary compatibility. In particular, \texttt{Gen}, \texttt{Spe}, \texttt{Narrow}, \texttt{Widen}, \texttt{Box} and \texttt{Unbox} are conversions performed only by the Java compiler, not the linker. Therefore, these changes are always binary incompatible, but can be source compatible depending on usage. \texttt{Gen} is \DIFaddbegin \DIFadd{a }\DIFaddend usually source compatible conversion for a method parameter type \footnote{There are some exceptions to this rule that occur if the compiler cannot resolve ambiguity between overloaded methods \DIFdelbegin \DIFdel{\mbox{%DIFAUXCMD
@@ -542,7 +562,7 @@ Changes in this category often result in subtle differences between source and b
 
 Changes in the categories \texttt{Del} and \texttt{Mut} are generally neither source nor binary compatible.
 
-\DIFaddbegin \DIFadd{Examples of possible changes in method parameters follow: 
+\DIFaddbegin \DIFadd{Examples of possible changes in method parameters are: 
 }
 
 \begin{verbatim}
@@ -574,7 +594,7 @@ Java distinguishes between checked and unchecked exceptions. Checked exceptions 
 
 The handling of exceptions in client code is checked only by the compiler, not the linker. As a consequence, changes to exceptions in method signatures only affect source but not binary compatibility. 
 
-When a library method is updated by adding a new checked exception, the original client code cannot be compiled and must be refactored to accommodate proper exception handling. On the other hand, if the same library is used in conjunction with an already compiled client, it will successfully link. It is worth noting here that this can be misleading. For instance, while changing a library so that a method declares and throws a checked exception does not compromise linking, it is likely to have a profound effect on the behavioural compatibility: the client programs is likely to fail when the exception is actually thrown. 
+When a library method is updated by adding a new checked exception, the original client code cannot be compiled and must be refactored to accommodate proper exception handling. On the other hand, if the same library is used in conjunction with an already compiled client, it will successfully link. It is worth noting here that this can be misleading. For instance, while changing a library so that a method declares and throws a checked exception does not compromise linking, it is likely to have a profound effect on \DIFdelbegin \DIFdel{the }\DIFdelend behavioural compatibility: \DIFdelbegin \DIFdel{the client programs }\DIFdelend \DIFaddbegin \DIFadd{a client }\DIFaddend is likely to fail when the exception is actually thrown. 
 
 The corpus combines examples where exceptions in method signatures are added, removed, specialised, generalised or mutated, with variants for both checked and unchecked exceptions. 
 
@@ -604,9 +624,9 @@ Generics were added to Java relatively late in version 1.5 with strong considera
 
 While client code is checked by the compiler for correct usage of generic types, binary code that uses generics may be combined with the code not using generics due to erasures. The impact \DIFdelbegin \DIFdel{to }\DIFdelend \DIFaddbegin \DIFadd{on }\DIFaddend compatibility is evident. \DIFdelbegin \DIFdel{A lot of changes }\DIFdelend \DIFaddbegin \DIFadd{Changes }\DIFaddend that are binary compatible are not necessarily source compatible. 
 
-For instance, if a list is declared as \texttt{java.util.List<String>} only instances of \texttt{String}  may be added to the list, and this is enforced by the compiler. However, when the definition is changed to \texttt{java.util.List<Number>} and only the binaries of the respective library are replaced, the program will successfully link. This is another case where (binary) compatibility is deceptive and issues are ``shifted'' into behavioural (in-)compatibility -- the program is likely to fail at runtime with a \texttt{ClassCastException} as the compiler introduces \texttt{checkast} instructions that fail when the client program attempts to add strings to the list.
+For instance, if a list is declared as \texttt{java.util.List<String>} only instances of \texttt{String}  may be added to the list, and this is enforced by the compiler. However, when the definition is changed to \texttt{java.util.List<Number>} and only the binaries of the respective library are replaced, the program will successfully link. This is another case where (binary) compatibility is deceptive and issues are ``shifted'' into behavioural (\DIFdelbegin \DIFdel{in-}\DIFdelend \DIFaddbegin \DIFadd{in}\DIFaddend )compatibility -- the program is likely to fail at runtime with a \texttt{ClassCastException} as the compiler introduces \texttt{checkast} instructions that fail when the client program attempts to add strings to the list.
 
-\DIFaddbegin \DIFadd{Examples:
+\DIFaddbegin \DIFadd{Examples in this category are:
 }\begin{verbatim}
 # Parameterized types: Source incompatible but binary compatible
 Mut: void method1(List<String> param1)  -> void method1(List<Integer> param1)
@@ -636,9 +656,10 @@ Gen: void method1(List<? extends Integer> param1)
 
 \DIFaddend \subsection{Inheritance}
 
-Some authors actively discourage implementations/extensions of types from APIs provided by libraries. For instance, Grand \cite[p. 55]{Grand2002patterns} advises that:\textit{``if a class is declared as a subclass, there is risk that these classes not under your control will change in an incompatible way''}. 
+Some authors actively discourage implementations/extensions of types from APIs provided by libraries. For instance, Grand \cite[p. 55]{Grand2002patterns} advises that:\textit{``if a class is declared as a subclass, there is risk that these classes not under your control will change in an incompatible way''}. \DIFdelbegin %DIFDELCMD < 
 
-Some changes to super types such as removed methods clearly break compatibility, but some breaking changes are less evident, such as the addition of an method to an interface or \DIFdelbegin \DIFdel{making a methodmore visible}\DIFdelend \DIFaddbegin \DIFadd{increasing the visibility of a method}\DIFaddend . For instance, changing the visibility of a method from \texttt{private} to \texttt{public} may seem harmless, but the new public method may overlap with the same method in some subtype. When the subtype method enforced stricter access, compilation fails as access cannot be weakened in overridden methods. 
+%DIFDELCMD < %%%
+\DIFdelend Some changes to super types such as removed methods clearly break compatibility, but some breaking changes are less evident, such as the addition of an method to an interface or \DIFdelbegin \DIFdel{making a methodmore visible}\DIFdelend \DIFaddbegin \DIFadd{increasing the visibility of a method}\DIFaddend . For instance, changing the visibility of a method from \texttt{private} to \texttt{public} may seem harmless, but the new public method may overlap with the same method in some subtype. When the subtype method enforced stricter access, compilation fails as access cannot be weakened in overridden methods. 
 
 \DIFdelbegin \DIFdel{Since the changes possibly impacting inheritance are partly }\DIFdelend \DIFaddbegin \DIFadd{Some of those changes are }\DIFaddend covered by other categories (method, modifier, types etc. changes)\DIFdelbegin \DIFdel{, this }\DIFdelend \DIFaddbegin \DIFadd{. This }\DIFaddend category contributes with several more examples with class/interface definitions modified in a subtypes. Several examples where methods are moved up and down the hierarchy tree are included as well. \DIFaddbegin \DIFadd{Examples in this category include:
 }
@@ -679,14 +700,16 @@ A change making an element more accessible is usually compatible while restricti
 
 \DIFaddend \subsection{Other Modifiers}
 
-Other (non-access) modifiers have various purposes in Java and for this reason have different impacts to compatibility. The modifiers \texttt{volatile}, \texttt{transient}, \texttt{native} or \texttt{strictfp} signal special behaviour of the respective members, \texttt{final} or \texttt{abstract} are used in conjunction with inheritance, and \texttt{static} deals with access context. Sometimes one modifier is used for multiple purposes, e.g. constants are implemented as \texttt{final} fields, while \texttt{final} is also used to denote classes that cannot be \DIFdelbegin \DIFdel{subclasses}\DIFdelend \DIFaddbegin \DIFadd{sub-classed}\DIFaddend , and methods that cannot be overridden. 
+Other (non-access) modifiers have \DIFdelbegin \DIFdel{various purposes in Java and for this reason have different impacts to }\DIFdelend \DIFaddbegin \DIFadd{different impacts on }\DIFaddend compatibility. The modifiers \texttt{volatile}, \texttt{transient}, \texttt{native} or \texttt{strictfp} signal special behaviour of the respective members, \texttt{final} or \texttt{abstract} are used in conjunction with inheritance, and \texttt{static} deals with access context. Sometimes one modifier is used for multiple purposes, e.g. constants are implemented as \texttt{final} fields, while \texttt{final} is also used to denote classes that cannot be \DIFdelbegin \DIFdel{subclasses}\DIFdelend \DIFaddbegin \DIFadd{sub-classed}\DIFaddend , and methods that cannot be overridden. 
 
 There is no pattern how these modifiers impact compatibility. For instance, an added modifier \texttt{transient} does not break compatibility while adding \texttt{native} does. This is because \texttt{native} requires a special treatment by \DIFaddbegin \DIFadd{the }\DIFaddend JVM while \texttt{transient} is only meta-information. The modifiers \texttt{final} and \texttt{abstract} have the obvious effect that adding or removing them breaks the compatibility of inheriting classes. 
 
 An interesting case is the \texttt{static} modifier. The language permits the access to static fields and the invocation of static methods from non-static contexts, although most compilers emit a warning. However, changes (making a non-static method or field static or visa versa) are binary incompatible as different byte-code instructions are used for static and non-static access or invocation. 
 
-\DIFaddbegin \DIFadd{Examples:
-}\begin{verbatim}
+\DIFaddbegin \DIFadd{Examples in this category include:
+}
+
+\begin{verbatim}
 # Static added: source compatible but binary incompatibe 
  Method: void method() - > static void method()
  Field:  int field -> static int field
@@ -714,8 +737,10 @@ Java contains several specific features that are grouped in this category. It co
 
 Another example in this category is a change from a class to interface or vice-versa \cite[Section 4]{jezek2014howjava}. This is interesting because there is no difference between the invocation of class and interface methods in source-code. However, different byte-code instructions are used, leading to binary compatibility problems that require recompilation of client code. 
 
-\DIFaddbegin \DIFadd{Examples:
-}\begin{verbatim}
+\DIFaddbegin \DIFadd{Examples in this category are:
+}
+
+\begin{verbatim}
 # Interface to/from class: source compatible but binary incompatible
   class Foo <-> interface Foo
 
@@ -765,7 +790,7 @@ libray  &    &  yes  &    &    &    &    &    &    &  yes	\\
 
 \subsection{Methodology}
 
-The \DIFdelbegin \DIFdel{tools were }\DIFdelend \DIFaddbegin \DIFadd{selection of tools for the benchmark is driven by a single use-case. The user inputs two files -- a version of a library and its update -- and the tool produces a report listing API compatibility-breaking changes. Any tool supporting this use-case fits into this study. To find suitable tools we manually searched the Internet. We started with a few tools we knew about and searched for keywords such as ``alternatives'', ``replacement'' etc. Some of the tools we found also refer to alternatives on their web-pages. Finally, we searched developer forums, most noticeably }\url{stackoverflow.com}\DIFadd{. The overall finding revealed that the number of existing tools is small and for this reason we included all of them.
+The \DIFdelbegin \DIFdel{tools were }\DIFdelend \DIFaddbegin \DIFadd{selection of tools for the benchmark is driven by a single use case. The user inputs two files -- a version of a library and its update -- and the tool produces a report listing API compatibility-breaking changes. Any tool supporting this use case fits into this study. To find suitable tools we manually searched the Internet. We started with a few tools we knew about and searched for keywords such as ``alternatives'', ``replacement'' etc. Some of the tools we found also refer to alternatives on their web-pages. Finally, we searched developer forums, most noticeably }\url{stackoverflow.com}\DIFadd{. The overall finding revealed that the number of existing tools is small and for this reason we included all of them.
 }
 
 \DIFadd{The tools found were then }\DIFaddend evaluated using following approach: 
@@ -821,9 +846,9 @@ The structure of the corpus including the tools benchmark looks as follows:
 \subsection{Results}
 
 The result of the experiment conducted indicate that the tools differ widely in their ability to detect compatibility-breaking changes. A result summary is  provided in Table \ref{tab:result-categories}, 
-in this table we report the percentages of successfully detected compatibility-breaking changes, classified by category.
+in this table we report the percentages of successfully detected \DIFaddbegin \DIFadd{API }\DIFaddend compatibility-breaking changes, classified by category.
 
-While the results show clearly that the tool with weakest performance is \texttt{clirr} and the best is \texttt{sigtest}, detailed analysis reveals that \texttt{clirr} may \DIFaddbegin \DIFadd{still }\DIFaddend be a better choice than some of the better performing tools in certain \DIFdelbegin \DIFdel{use cases}\DIFdelend \DIFaddbegin \DIFadd{circumstances}\DIFaddend .
+While the results show clearly that the tool with weakest performance is \texttt{clirr} and the \DIFdelbegin \DIFdel{best }\DIFdelend \DIFaddbegin \DIFadd{best-performing tool }\DIFaddend is \texttt{sigtest}, detailed analysis reveals that \texttt{clirr} may \DIFaddbegin \DIFadd{still }\DIFaddend be a better choice than some of the better performing tools in certain \DIFdelbegin \DIFdel{use cases}\DIFdelend \DIFaddbegin \DIFadd{circumstances}\DIFaddend .
 
 Active development of \texttt{Clirr} stopped in 2005, and it is therefore not surprising that it does not recognize issues caused by the use of generics. Its focus is to check binary compatibility as defined in the Java Language Specification, and therefore it misses issues related to source compatibility, example is the Exceptions category. However, it works well in other categories and may be still useful for detecting only binary incompatible changes.
 
@@ -966,8 +991,7 @@ The main possible threat of this paper is data completeness. If there were more 
 \section{Conclusion}
 \label{sec:conclusion}
 
-In this paper, we have investigated how existing open-source tools cope with detecting \DIFdelbegin \DIFdel{API incompatibilities }\DIFdelend \DIFaddbegin \DIFadd{incompatibilities in evolving APIs}\DIFaddend . We found that while the tools vary in performance and have only small and in some cases none supporting community, there are some highly usable and accurate tools available. The best performing tool was \texttt{Sigtest}.
-
+In this paper, we have investigated how existing open-source tools cope with detecting \DIFdelbegin \DIFdel{API incompatibilities }\DIFdelend \DIFaddbegin \DIFadd{incompatibilities in evolving APIs}\DIFaddend . We found that while the tools vary in performance and have only small and in some cases \DIFdelbegin \DIFdel{none }\DIFdelend \DIFaddbegin \DIFadd{no }\DIFaddend supporting community, there are some highly usable and accurate tools available. The best performing tool was \texttt{Sigtest}.
 
 %DIF > Jens: I added something: "a script to produce this oracle that can also be used to assess future and alternative compilers and Java runtimes"
 We have also created and made public a benchmark data set for compatibility issues that occur during program evolution which can be used for other studies. \DIFaddbegin \DIFadd{This corpus is unique as it contains a oracle of all API-breaking changes we are aware of, and a script to produce this oracle that can also be used to assess future and alternative compilers and Java runtimes. The synthetic corpus we have created for this purpose is compact and minimalistic by design. 
@@ -979,7 +1003,7 @@ Possible future work is on extending the benchmark to cover more aspects of inhe
 % use section* for acknowledgment
 \section*{Acknowledgment}
 
-This publication was supported by the project LO1506 of the Czech Ministry of Education, Youth and Sports.
+This publication was supported by the project LO1506 of the Czech Ministry of Education, Youth and Sports\DIFaddbegin \DIFadd{. The work of the second author was supported by a gift by Oracle Labs Australia}\DIFaddend .
 
 The authors would like to thank  Michal Bratner and Rudolf Augusta for their thorough preparation of test data, and for their support to find tools and documenting their usage.
 
