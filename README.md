@@ -9,9 +9,12 @@ Backward compatibility is an issue to cope with today. To assess the backward co
 ## About this version
 In this updated version, several new features were introduced to Kamil Jezek and Jens Dietrich's [original benchmark](https://github.com/kjezek/api-evolution-data-corpus). 
 These improvements include the atomization of all the breaking change files for a more granular evaluation, and the incorporation 
-of a new tool named `roseau` alongside the existing ones. In addition to that, the precision, recall and execution time for each tool is now assessed, providing insights into its ability to detect both true and false positives, while also evaluating the overall tool performance.
-The results are not only presented in the benchmark.csv file but also displayed in the bar charts `precision_recall_chart.png` & `execution_times_chart.png` to facilitate visual comparison. 
+of a new tool named `roseau` alongside the existing ones. In addition to that, the precision, recall and execution time for each tool are now assessed, providing insights into its ability to detect both true and false positives, while also evaluating the overall tool performance.
+
+The results are not only presented in the benchmark.csv file but equally displayed in the bar charts `precision_recall_chart.png` & `execution_times_chart.png` to facilitate visual comparison. 
 These metrics are also organized in separate .csv files for convenient data access, namely `precisions.csv`, `recalls.csv` and `execution_times.csv`.
+
+
 All said files are automatically generated upon running the `./benchmark.sh` command, maintaining the same user-friendly benchmark usage.
 
 
