@@ -2,7 +2,7 @@ package genericsIfazeTypeBoundsAdd;
 
 import testing_lib.genericsIfazeTypeBoundsAdd.GenericsIfazeTypeBoundsAdd;
 
-public class Main implements GenericsIfazeTypeBoundsAdd<Integer>{
+public class Main implements GenericsIfazeTypeBoundsAdd<String>{
 
 	public static void main(String[] args) {
 		

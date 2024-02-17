@@ -148,7 +148,7 @@ genericsIfazeMethodTypeDeleteSecond,0,1
 genericsIfazeMethodTypeSwap,1,1
 genericsIfazeTypeAddN,1,1
 genericsIfazeTypeAddSecond,0,1
-genericsIfazeTypeBoundsAdd,1,1
+genericsIfazeTypeBoundsAdd,0,1
 genericsIfazeTypeBoundsAddSecond,0,1
 genericsIfazeTypeBoundsDelete,1,1
 genericsIfazeTypeBoundsDeleteSecond,1,1
