@@ -100,7 +100,7 @@ record_execution_time "Japicc" "perl japi-compliance-checker-1.5/japi-compliance
 
 echo "********* Roseau *********"
 cd roseau
-record_execution_time "Roseau" "java -jar roseau-0.0.1-SNAPSHOT-jar-with-dependencies.jar ../../lib-v1 ../../lib-v2  > ../.reports/roseau.txt"
+record_execution_time "Roseau" "java -jar roseau-0.0.2-SNAPSHOT-jar-with-dependencies.jar --diff --v1 ../../lib-v1 --v2 ../../lib-v2  > ../.reports/roseau.txt"
 
 
 mv "$CSV_FILE" ..
