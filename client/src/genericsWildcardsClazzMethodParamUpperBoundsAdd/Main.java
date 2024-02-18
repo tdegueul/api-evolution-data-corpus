@@ -8,7 +8,7 @@ public class Main {
 
 	public static void main(String[] args) {
 		GenericsWildcardsClazzMethodParamUpperBoundsAdd constr = new GenericsWildcardsClazzMethodParamUpperBoundsAdd();
-		ArrayList<Integer> param1 = new ArrayList<Integer>();
+		ArrayList<String> param1 = new ArrayList<String>();
 		constr.method1(param1);
 	}
 	
