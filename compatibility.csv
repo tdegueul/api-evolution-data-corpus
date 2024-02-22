@@ -124,7 +124,7 @@ genericsClazzMethodTypeDeleteSecond,0,1
 genericsClazzMethodTypeSwap,1,1
 genericsClazzTypeAddN,1,1
 genericsClazzTypeAddSecond,0,1
-genericsClazzTypeBoundsAddN,1,1
+genericsClazzTypeBoundsAddN,0,1
 genericsClazzTypeBoundsAddSecond,0,1
 genericsClazzTypeBoundsDeleteN,1,1
 genericsClazzTypeBoundsDeleteSecond,1,1

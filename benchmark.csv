@@ -124,7 +124,7 @@ genericsClazzMethodTypeDeleteSecond,0,1,0,0,0,0,0,0,0,1
 genericsClazzMethodTypeSwap,1,1,0,0,0,0,0,0,0,0
 genericsClazzTypeAddN,1,1,0,1,0,0,0,0,0,0
 genericsClazzTypeAddSecond,0,1,0,1,0,0,0,0,0,1
-genericsClazzTypeBoundsAddN,1,1,0,0,0,0,0,0,0,1
+genericsClazzTypeBoundsAddN,0,1,0,0,0,0,0,0,0,1
 genericsClazzTypeBoundsAddSecond,0,1,0,0,0,0,0,0,0,1
 genericsClazzTypeBoundsDeleteN,1,1,0,0,0,0,0,0,0,0
 genericsClazzTypeBoundsDeleteSecond,1,1,0,0,0,0,0,0,0,0
@@ -266,5 +266,5 @@ otherClazzToIfaze,0,0,1,1,0,1,0,0,0,1
 otherIfazeAdd,1,1,0,0,0,1,0,0,0,0
 otherIfazeDelete,0,0,1,0,0,1,0,0,0,1
 otherIfazeToClass,0,0,1,1,0,1,0,0,0,1
-Precision, ,,95.4500,79.1000,0.00,74.0500,0.00,0.00,0.00,91.6600
-Recall, ,,59.6500,60.2200,0.00,66.4700,0.00,0.00,0.00,100.0000
+Precision, ,,95.4500,79.1000,0.00,74.0500,0.00,0.00,0.00,92.1800
+Recall, ,,59.3200,59.8800,0.00,66.1000,0.00,0.00,0.00,100.0000
