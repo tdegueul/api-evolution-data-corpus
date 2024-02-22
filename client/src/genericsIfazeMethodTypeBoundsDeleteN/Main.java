@@ -1,8 +1,8 @@
 package genericsIfazeMethodTypeBoundsDeleteN;
 
-import testing_lib.genericsIfazeMethodTypeBoundsDelete.GenericsIfazeMethodTypeBoundsDelete;
+import testing_lib.genericsIfazeMethodTypeBoundsDeleteN.GenericsIfazeMethodTypeBoundsDeleteN;
 
-public class Main implements GenericsIfazeMethodTypeBoundsDelete {
+public class Main implements GenericsIfazeMethodTypeBoundsDeleteN {
 
 	public static void main(String[] args) {
 		Main constr = new Main();
