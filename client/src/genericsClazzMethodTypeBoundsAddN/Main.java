@@ -2,7 +2,7 @@ package genericsClazzMethodTypeBoundsAddN;
 
 import testing_lib.genericsClazzMethodTypeBoundsAddN.GenericsClazzMethodTypeBoundsAddN;
 
-public class Main {
+public class Main extends GenericsClazzMethodTypeBoundsAddN {
 
 
 	public static void main(String[] args) {
@@ -10,6 +10,11 @@ public class Main {
 		GenericsClazzMethodTypeBoundsAddN constr = new GenericsClazzMethodTypeBoundsAddN();
 		constr.<Object>method1();
 		
+	}
+
+	@Override
+	public <T> void method1() {
+
 	}
 	
 }

@@ -114,12 +114,12 @@ genericsClazzMethodTypeAddN,1,1
 genericsClazzMethodTypeAddSecond,0,1
 genericsClazzMethodTypeBoundsAddN,0,1
 genericsClazzMethodTypeBoundsAddSecond,0,1
-genericsClazzMethodTypeBoundsDeleteN,1,1
-genericsClazzMethodTypeBoundsDeleteSecond,1,1
-genericsClazzMethodTypeBoundsGeneralization,1,1
+genericsClazzMethodTypeBoundsDeleteN,0,1
+genericsClazzMethodTypeBoundsDeleteSecond,0,1
+genericsClazzMethodTypeBoundsGeneralization,0,1
 genericsClazzMethodTypeBoundsMutation,0,1
 genericsClazzMethodTypeBoundsSpecialization,0,1
-genericsClazzMethodTypeDeleteN,1,1
+genericsClazzMethodTypeDeleteN,0,1
 genericsClazzMethodTypeDeleteSecond,0,1
 genericsClazzMethodTypeSwap,1,1
 genericsClazzTypeAddN,1,1
