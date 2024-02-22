@@ -1,4 +1,4 @@
-package testing_lib.genericsClazzConstructorTypeBoundsDelete;
+package testing_lib.genericsClazzConstructorTypeBoundsDeleteN;
 
 public class GenericsClazzConstructorTypeBoundsDelete {
 	

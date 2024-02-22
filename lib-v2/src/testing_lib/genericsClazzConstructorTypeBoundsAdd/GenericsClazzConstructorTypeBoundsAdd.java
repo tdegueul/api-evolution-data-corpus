@@ -1,4 +1,4 @@
-package testing_lib.genericsClazzConstructorTypeBoundsAdd;
+package testing_lib.genericsClazzConstructorTypeBoundsAddN;
 
 public class GenericsClazzConstructorTypeBoundsAdd {
 	

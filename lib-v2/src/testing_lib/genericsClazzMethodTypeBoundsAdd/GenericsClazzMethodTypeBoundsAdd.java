@@ -1,4 +1,4 @@
-package testing_lib.genericsClazzMethodTypeBoundsAdd;
+package testing_lib.genericsClazzMethodTypeBoundsAddN;
 
 public class GenericsClazzMethodTypeBoundsAdd {
 	

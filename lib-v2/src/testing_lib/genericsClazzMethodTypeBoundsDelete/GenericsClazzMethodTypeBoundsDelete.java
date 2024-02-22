@@ -1,4 +1,4 @@
-package testing_lib.genericsClazzMethodTypeBoundsDelete;
+package testing_lib.genericsClazzMethodTypeBoundsDeleteN;
 
 public class GenericsClazzMethodTypeBoundsDelete {
 	

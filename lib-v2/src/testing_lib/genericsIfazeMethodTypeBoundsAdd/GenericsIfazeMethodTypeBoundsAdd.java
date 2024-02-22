@@ -1,4 +1,4 @@
-package testing_lib.genericsIfazeMethodTypeBoundsAdd;
+package testing_lib.genericsIfazeMethodTypeBoundsAddN;
 
 public interface GenericsIfazeMethodTypeBoundsAdd {
 	
