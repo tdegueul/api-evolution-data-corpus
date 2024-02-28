@@ -2,13 +2,13 @@ package genericsWildcardsClazzConstructorParamLowerBoundsSpecialization;
 
 import java.util.ArrayList;
 
-import testing_lib.genericsWildcardsClazzConstructorParamLowerBoundsSpecialization.GenericsWildcardsClazzConstructorParamLowerBoundsSpecializaion;
+import testing_lib.genericsWildcardsClazzConstructorParamLowerBoundsSpecialization.GenericsWildcardsClazzConstructorParamLowerBoundsSpecialization;
 
 public class Main {
 
 	public static void main(String[] args) {
 		ArrayList<Number> param1 = new ArrayList<Number>(); 
-		GenericsWildcardsClazzConstructorParamLowerBoundsSpecializaion constr =  new GenericsWildcardsClazzConstructorParamLowerBoundsSpecializaion(param1);
+		GenericsWildcardsClazzConstructorParamLowerBoundsSpecialization constr =  new GenericsWildcardsClazzConstructorParamLowerBoundsSpecialization(param1);
 		constr.toString();
 	}
 	
