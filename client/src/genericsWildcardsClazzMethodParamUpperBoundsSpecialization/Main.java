@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 import testing_lib.genericsWildcardsClazzMethodParamUpperBoundsSpecialization.GenericsWildcardsClazzMethodParamUpperBoundsSpecialization;
 
-public class Main {
+public class Main extends GenericsWildcardsClazzMethodParamUpperBoundsSpecialization {
 
 	public static void main(String[] args) {
 		GenericsWildcardsClazzMethodParamUpperBoundsSpecialization constr = new GenericsWildcardsClazzMethodParamUpperBoundsSpecialization();
@@ -13,5 +13,9 @@ public class Main {
 		constr.method1(param1);
 		
 	}
-	
+
+	@Override
+	public void method1(ArrayList<? extends Number> param1) {
+
+	}
 }
