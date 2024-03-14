@@ -66,7 +66,7 @@ japize as japitools/japizeSigFile2 packages ../lib-v2.jar "$RT_JAR" +testing_lib
 japicompat -o "$REPORTS"/japitool.txt japitools/japizeSigFile.japi.gz japitools/japizeSigFile2.japi.gz
 
 echo "********* Revapi *********"
-record_execution_time "Revapi" "revapi/revapi.sh --extensions=org.revapi:revapi-java:0.8.0,org.revapi:revapi-reporting-text:0.4.1 --old=../lib-v1.jar --new=../lib-v2.jar -D revapi.reporter.text.minSeverity=NON_BREAKING > "$REPORTS"/revapi.txt"
+record_execution_time "Revapi" "revapi/revapi.sh --extensions=org.revapi:revapi-java:0.28.1,org.revapi:revapi-reporter-text:0.15.0 --old=../lib-v1.jar --new=../lib-v2.jar -Drevapi.reporter.text.minSeverity=POTENTIALLY_BREAKING > "$REPORTS"/revapi.txt"
 
 echo "********* Clirr *********"
 record_execution_time "japi checker" "java -jar clirr/clirr-core-0.6-uber.jar -o ../lib-v1.jar -n ../lib-v2.jar -f "$REPORTS"/clirr.txt"
@@ -109,8 +109,8 @@ mv "$CSV_FILE" ..
 #  Caution: not all the tools show if a change is incompatible at all!
 #  for this reason it is not straightforward to see what to filter out.
 
-grep -Pzo  'new:.*\n.*: BREAKING' "$REPORTS"/revapi.txt > revapi.txt.tmp
-mv revapi.txt.tmp "$REPORTS"/revapi.txt
+#grep -Pzo  'new:.*\n.*: BREAKING' "$REPORTS"/revapi.txt > revapi.txt.tmp
+#mv revapi.txt.tmp "$REPORTS"/revapi.txt
 
 grep  -v 'INFO.*' "$REPORTS"/clirr.txt > clirr.txt.tmp
 mv clirr.txt.tmp "$REPORTS"/clirr.txt
