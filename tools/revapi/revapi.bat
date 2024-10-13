@@ -1,5 +1,5 @@
 @REM
-@REM Copyright 2014-2019 Lukas Krejci
+@REM Copyright 2014-2024 Lukas Krejci
 @REM and other contributors as indicated by the @author tags.
 @REM
 @REM Licensed under the Apache License, Version 2.0 (the "License");

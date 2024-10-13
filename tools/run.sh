@@ -78,7 +78,7 @@ echo "********* japi checker *********"
 record_execution_time "japiChecker" "java -jar japi_checker/japi-checker-cli-0.2.1-SNAPSHOT.jar ../lib-v1.jar ../lib-v2.jar -bin > "$REPORTS"/japiChecker.txt"
 
 echo "********* japicmp *********"
-record_execution_time "japicmp" "java -jar japicmp/japicmp-0.15.3-jar-with-dependencies.jar -o ../lib-v1.jar -n ../lib-v2.jar -a private > "$REPORTS"/japicmp.txt"
+record_execution_time "japicmp" "java -jar japicmp/japicmp-0.23.0-jar-with-dependencies.jar -o ../lib-v1.jar -n ../lib-v2.jar -m > "$REPORTS"/japicmp.txt"
 
 echo "********* sigtest *********"
 record_execution_time "sigtest" "java -jar sigtest/sigtestdev.jar SetupAndTest -Backward  -reference ../lib-v1.jar:"$RT_JAR" -test ../lib-v2.jar:"$RT_JAR" -package testing_lib -H -Out "$REPORTS"/sigtest.txt"
@@ -100,7 +100,7 @@ record_execution_time "Japicc" "perl japi-compliance-checker-1.5/japi-compliance
 
 echo "********* Roseau *********"
 cd roseau
-record_execution_time "Roseau" "java -jar roseau-0.0.2-SNAPSHOT-jar-with-dependencies.jar --diff --v1 ../../lib-v1 --v2 ../../lib-v2  > ../.reports/roseau.txt"
+record_execution_time "Roseau" "java -jar roseau-0.0.4-SNAPSHOT-jar-with-dependencies.jar --diff --v1 ../../lib-v1 --v2 ../../lib-v2  > ../.reports/roseau.txt"
 
 
 mv "$CSV_FILE" ..
