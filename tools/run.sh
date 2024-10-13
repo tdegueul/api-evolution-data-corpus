@@ -78,7 +78,7 @@ echo "********* japi checker *********"
 record_execution_time "japiChecker" "java -jar japi_checker/japi-checker-cli-0.2.1-SNAPSHOT.jar ../lib-v1.jar ../lib-v2.jar -bin > "$REPORTS"/japiChecker.txt"
 
 echo "********* japicmp *********"
-record_execution_time "japicmp" "java -jar japicmp/japicmp-0.23.0-jar-with-dependencies.jar -o ../lib-v1.jar -n ../lib-v2.jar -m > "$REPORTS"/japicmp.txt"
+record_execution_time "japicmp" "java -jar japicmp/japicmp-0.23.0-jar-with-dependencies.jar -o ../lib-v1.jar -n ../lib-v2.jar -b -m > "$REPORTS"/japicmp.txt"
 
 echo "********* sigtest *********"
 record_execution_time "sigtest" "java -jar sigtest/sigtestdev.jar SetupAndTest -Backward  -reference ../lib-v1.jar:"$RT_JAR" -test ../lib-v2.jar:"$RT_JAR" -package testing_lib -H -Out "$REPORTS"/sigtest.txt"
