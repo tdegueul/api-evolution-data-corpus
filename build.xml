@@ -1,6 +1,4 @@
 <project default="jar">
-
-
     <!-- with the run-experiment target, this class is then executed with both the old and the new version of the 3rd party lib -->
     <property name="package" value="accessModifierClazzAccessDecrease"/>
     <property name="error1" value="clear"/>
@@ -9,6 +7,7 @@
     <property name="client" value="client"/>
     <property name="lib.old" value="lib-v1"/>
     <property name="lib.new" value="lib-v2"/>
+    <property name="output_folder" value="output"/>
 
     <!-- sources -->
     <property name="client.src" value="${client}/src/"/>
@@ -16,21 +15,20 @@
     <property name="lib.old.src" value="${lib.old}/src/"/>
 
     <!-- tmp folders for compilation -->
-    <property name="client.bin" value="bin/bin-client"/>
-    <property name="client.old.bin" value="bin/bin-client-old"/>
-    <property name="client.new.bin" value="bin/bin-client-new"/>
-    <property name="lib.old.bin" value="bin/bin-lib1"/>
-    <property name="lib.new.bin" value="bin/bin-lib2"/>
+    <property name="client.bin" value="${output_folder}/bin/bin-client"/>
+    <property name="client.old.bin" value="${output_folder}/bin/bin-client-old"/>
+    <property name="client.new.bin" value="${output_folder}/bin/bin-client-new"/>
+    <property name="lib.old.bin" value="${output_folder}/bin/bin-lib1"/>
+    <property name="lib.new.bin" value="${output_folder}/bin/bin-lib2"/>
 
     <!-- jar file names -->
-    <property name="client.jar" value="${client}.jar"/>
-    <property name="lib.new.jar" value="${lib.new}.jar"/>
-    <property name="lib.old.jar" value="${lib.old}.jar"/>
+    <property name="client.jar" value="${output_folder}/build/${client}.jar"/>
+    <property name="lib.new.jar" value="${output_folder}/build/${lib.new}.jar"/>
+    <property name="lib.old.jar" value="${output_folder}/build/${lib.old}.jar"/>
 
     <!-- output file names -->
-    <property name="binary.file" value="binary.txt"/>
-    <property name="source.file" value="source.txt"/>
-
+    <property name="binary.file" value="${output_folder}/binary.txt"/>
+    <property name="source.file" value="${output_folder}/source.txt"/>
 
     <!-- Compile sources to classes -->
     <target name="compile" description="Compile source files to classes">
@@ -143,5 +141,4 @@
         />
         <record name="${source.file}" action="stop"/>
     </target>
-
 </project>

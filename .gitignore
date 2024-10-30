@@ -4,3 +4,7 @@ jezek_dietrich_tool_challenge.blg
 jezek_dietrich_tool_challenge.bbl
 jezek_dietrich_tool_challenge.synctex.gz
 jezek_dietrich_tool_challenge.aux
+
+cache/
+logs/
+output/

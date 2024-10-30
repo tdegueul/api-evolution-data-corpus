@@ -1,0 +1,25 @@
+# Changes applied to original project
+
+- [x] Removing not maintained tools (updated in last 3 years)
+  - Clirr (27 September 2005)
+  - Java API Compliance Checker (Project webpage no more available)
+  - japitools (6 July 2012)
+  - japi-checker (20 November 2018)
+  - jour (12 December 2008)
+  - SigTest (12 Mai 2017)
+- [x] Updating tools version
+  - japicmp 0.23.0
+  - revapi-standalone 0.12.1
+  - roseau 0.0.4
+- [x] Renaming some clients by adding suffix N to avoid conflicts in results extraction
+- [x] Fix genericsIfazeTypeBoundsAdd client to make it break
+- [x] Fix genericsWildcardsClazzMethodParamUpperBoundsAdd client to make it break
+- [x] Fix genericsClazzTypeBoundsAddN client to make it break
+- [x] Fix genericsWildcardsClazzMethodParam* clients to make them break
+- [x] Fix typo in GenericsWildcardsClazzConstructorParamLowerBoundsSpecialization
+- [x] All the genericsClazzMethod* clients should try to implement the modified method
+- [x] Explicit visibilities for accessModifierIfaze* cases
+- [x] Updating Java version to 17
+- [x] Adding python script to generate plots
+- [x] Cleaning scripts and redirecting outputs in specific folder
+- [ ] Updating README.md

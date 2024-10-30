@@ -1,192 +1,150 @@
 #!/usr/bin/env bash
 
-CSV_FILE="compatibility.csv"
-CSV_FILE_TMP="compatibility.csv.tmp"
-CSV_BENCHMARK_FILE="benchmark.csv"
+OUTPUT_DIRECTORY="output"
 
-## return "1" if incompatibility was detected in the row
-## detected incompatibility is found by grep pattern matching
-function incompatibilityDetected() {
+TOOLS_REPORTS_DIRECTORY="$OUTPUT_DIRECTORY/reports"
 
-    report="tools/.reports/$1"
+GROUND_TRUTH_CSV_FILE="$OUTPUT_DIRECTORY/ground_truth.csv"
+BENCHMARK_RESULTS_CSV_FILE="$OUTPUT_DIRECTORY/benchmark.csv"
+BENCHMARK_TMP_CSV_FILE="$OUTPUT_DIRECTORY/benchmark.tmp.csv"
+PRECISIONS_CSV_FILE="$OUTPUT_DIRECTORY/precisions.csv"
+RECALLS_CSV_FILE="$OUTPUT_DIRECTORY/recalls.csv"
 
-    if grep -q "$2" $report ; then echo 1
+
+function incompatibility_detected() {
+    report="$TOOLS_REPORTS_DIRECTORY/$1"
+
+    if grep -q "$2" "$report" ; then echo 1
     else echo 0 ; fi
 }
 
 
-
-# make sure the compatibility table is generated
-#./compatibility.sh
-
-cd tools
-# make sure the reports are generated
-./run.sh
-
-# All tools.
-TOOL_REPORTS=()
-
-# iterate reports and get report names from file-names
-for d in .reports/* ; do
-
-    # cut only file name
-    filename=$(basename "$d")
-    TOOL_REPORTS+=("$filename")
+# Check necessary tools are installed
+tools=("ant" "mvn" "pip3" "python3")
+for tool in "${tools[@]}"; do
+    if ! command -v "$tool" &> /dev/null; then
+        echo "$tool is not installed. Please install it."
+        exit 1
+    fi
 done
 
-cd ..
+pip3 install -r requirements.txt
 
+[ -f "$OUTPUT_DIRECTORY" ] || mkdir -p "$OUTPUT_DIRECTORY"
 
+sh build_ground_truth.sh
 
+sh tools/run.sh
 
-#####
-# Caution: we grep only incompatible results
-# The reason is: a test scenario could actually pass source/binary compatibility check
-####
+echo "Analyzing results..."
+tool_reports=()
+for d in "$TOOLS_REPORTS_DIRECTORY"/* ; do
+    filename=$(basename "$d")
+    tool_reports+=("$filename")
+done
 
-# cp $CSV_FILE $CSV_BENCHMARK_FILE
-# header
-echo "change,source,binary" > $CSV_BENCHMARK_FILE
-# compatible results (it has at least one "0" in the row
-cp $CSV_FILE $CSV_BENCHMARK_FILE
-# source incompatible only
-#grep "0,1" $CSV_FILE >> $CSV_BENCHMARK_FILE
-# binary incompatible + any source 
-#grep '.*,0$' $CSV_FILE >> $CSV_BENCHMARK_FILE
-
-
-# Initialize arrays for source and binary columns
-source_array=()
-binary_array=()
+echo "change,source,binary" > $BENCHMARK_RESULTS_CSV_FILE
+cp $GROUND_TRUTH_CSV_FILE $BENCHMARK_RESULTS_CSV_FILE
 
 # Read the benchmark CSV file
+source_array=()
+binary_array=()
 while IFS=, read -r change source binary; do
-    # Skip the header line
     if [ "$change" = "change" ]; then
         continue
     fi
 
-    # Append values to arrays
     source_array+=("$source")
     binary_array+=("$binary")
-done < "$CSV_BENCHMARK_FILE"
+done < "$BENCHMARK_RESULTS_CSV_FILE"
 
-
-
-# Calculating the number of BCs (allRelevant)
 breaking_array=()
-allRelevant=0
-
+breaking_changes_count=0
 for ((i = 0; i < ${#source_array[@]}; i++)); do
     # A change is breaking if source == 0 or binary == 0
     if [ "${source_array[i]}" = "0" ] || [ "${binary_array[i]}" = "0" ]; then
         breaking_array+=("0")
-        allRelevant=$((allRelevant + 1))
+        breaking_changes_count=$((breaking_changes_count + 1))
     else
         breaking_array+=("1")
-        
     fi
 done
 
-# Print the number of breaking changes (allRelevant)
-echo "Sum of Array Elements: $allRelevant"
+echo "Number of breaking changes: $breaking_changes_count"
 
+# Compute stats for each tool
+precisions_array=()
+recalls_array=()
+tool_names=()
+for filename in "${tool_reports[@]}"; do
+    rm -f "$BENCHMARK_TMP_CSV_FILE"
 
-
-
-
-
-# Initialize arrays to store the stats for each tool
-precisionsArray=()
-recallsArray=()
-
-
-# iterate tools
-for filename in "${TOOL_REPORTS[@]}"; do
-    rm -f "$CSV_FILE_TMP"
-    allRetrieved=0  # Reset the sum of all retrieved BCs for each tool
-    relevantRetrieved=0 # Reset the sum of relevant retrieved BCs for each tool
-    index=0 
-    toolValues=() # Initialize an array to store values for the current tool
-
-    # iterate compatibility.csv
+    tool_name=$(echo "$filename" | cut -f 1 -d '.')
+    tool_names+=("$tool_name")
+    all_retrieved=0
+    relevant_retrieved=0
+    index=0
+    tool_values=()
     while read -r line; do
         change=$(echo "$line" | cut -d, -f1)
-        toolName=$(echo "$filename" | cut -f 1 -d '.')
 
         if [ "$change" = "change" ]; then
-            value="$toolName"
+            value="$tool_name"
         else
-            value=$(incompatibilityDetected "$filename" "$change")
-            allRetrieved=$((allRetrieved + value))  # Sum the values for each tool
-            
-            toolValues+=("$value")
-            
-            # Check the condition for relevantRetrieved increment
+            value=$(incompatibility_detected "$filename" "$change")
+            all_retrieved=$((all_retrieved + value))
+
+            tool_values+=("$value")
+
             if [ "${binary_array[index]}" -eq 0 ] || [ "${source_array[index]}" -eq 0 ]; then
-                relevantRetrieved=$((relevantRetrieved + value))
+                relevant_retrieved=$((relevant_retrieved + value))
             fi
             index=$((index + 1))
         fi
         
-        
-   
-        echo "${line},${value}" >> "$CSV_FILE_TMP"
-    done < "$CSV_BENCHMARK_FILE"
+        echo "${line},${value}" >> "$BENCHMARK_TMP_CSV_FILE"
+    done < "$BENCHMARK_RESULTS_CSV_FILE"
 
-    # Calculate precision if allRetrieved is not zero
-    if [ "$allRetrieved" -ne 0 ]; then
-        precision=$(echo "scale=4; $relevantRetrieved / $allRetrieved * 100 "  | bc)
-        
-        
+    if [ "$all_retrieved" -ne 0 ]; then
+        precision=$(echo "scale=4; $relevant_retrieved / $all_retrieved * 100 "  | bc)
     else
         precision=0.00
     fi
 
-    # Calculate recall if allRetrieved is not zero
-    if [ "$allRetrieved" -ne 0 ]; then
-        recall=$(echo "scale=4; $relevantRetrieved / $allRelevant * 100 "  | bc)
-        
-        
+    if [ "$breaking_changes_count" -ne 0 ]; then
+        recall=$(echo "scale=4; $relevant_retrieved / $breaking_changes_count * 100 "  | bc)
     else
         recall=0.00
     fi
 
-    echo "Precision for $filename: $precision"
-    echo "Recall for $filename: $recall"
+    echo "Precision for $tool_name: $precision"
+    echo "Recall for $tool_name: $recall"
 
-    # Append to the precisions array
-    recallsArray+=("$recall")
-    precisionsArray+=("$precision")
+    recalls_array+=("$recall")
+    precisions_array+=("$precision")
     
-    cp "$CSV_FILE_TMP" "$CSV_BENCHMARK_FILE"
+    cp "$BENCHMARK_TMP_CSV_FILE" "$BENCHMARK_RESULTS_CSV_FILE"
 done
-
-
-# Add the tools' precisions and recalls lines to the benchmark.csv file
-precisionsArrayLine="Precision, ,"
-for precision in "${precisionsArray[@]}"; do
-    precisionsArrayLine+=",$precision"
-done
-echo "$precisionsArrayLine" >> "$CSV_BENCHMARK_FILE"
-
-recallsArrayLine="Recall, ,"
-for recall in "${recallsArray[@]}"; do
-    recallsArrayLine+=",$recall"
-done
-echo "$recallsArrayLine" >> "$CSV_BENCHMARK_FILE"
-
-
 
 # Clean up
-rm "$CSV_FILE_TMP"
+rm -f "$BENCHMARK_TMP_CSV_FILE"
+
+precisions_array_line="Precision,,"
+for precision in "${precisions_array[@]}"; do
+    precisions_array_line+=",$precision"
+done
+echo "$precisions_array_line" >> "$BENCHMARK_RESULTS_CSV_FILE"
+
+recalls_array_line="Recall,,"
+for recall in "${recalls_array[@]}"; do
+    recalls_array_line+=",$recall"
+done
+echo "$recalls_array_line" >> "$BENCHMARK_RESULTS_CSV_FILE"
 
 # Save the precisions and recalls arrays to separate CSV files
-
-echo "tool,precision" > precisions.csv
-paste -d ',' <(printf "%s\n" "${TOOL_REPORTS[@]}") <(printf "%s\n" "${precisionsArray[@]}") >> precisions.csv
-echo "tool,recall" > recalls.csv
-paste -d ',' <(printf "%s\n" "${TOOL_REPORTS[@]}") <(printf "%s\n" "${recallsArray[@]}") >> recalls.csv
+echo "tool,precision" > "$PRECISIONS_CSV_FILE"
+paste -d ',' <(printf "%s\n" "${tool_names[@]}") <(printf "%s\n" "${precisions_array[@]}") >> "$PRECISIONS_CSV_FILE"
+echo "tool,recall" > "$RECALLS_CSV_FILE"
+paste -d ',' <(printf "%s\n" "${tool_names[@]}") <(printf "%s\n" "${recalls_array[@]}") >> "$RECALLS_CSV_FILE"
 
 python3 plot.py
-
