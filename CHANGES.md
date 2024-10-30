@@ -22,4 +22,4 @@
 - [x] Updating Java version to 17
 - [x] Adding python script to generate plots
 - [x] Cleaning scripts and redirecting outputs in specific folder
-- [ ] Updating README.md
+- [x] Updating README.md
