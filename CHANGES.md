@@ -1,12 +1,12 @@
 # Changes applied to original project
 
 - [x] Removing not maintained tools (updated in last 3 years)
-  - Clirr (27 September 2005)
-  - Java API Compliance Checker (Project webpage no more available)
-  - japitools (6 July 2012)
-  - japi-checker (20 November 2018)
-  - jour (12 December 2008)
-  - SigTest (12 Mai 2017)
+  - Clirr (09/27/2005)
+  - Java API Compliance Checker (01/20/2018)
+  - japitools (06/19/2015)
+  - japi-checker (11/20/2012)
+  - jour (12/12/2008)
+  - SigTest (05/12/2017)
 - [x] Updating tools version
   - japicmp 0.23.0
   - revapi-standalone 0.12.1
