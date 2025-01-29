@@ -32,7 +32,7 @@ pip3 install -r requirements.txt
 
 [ -f "$OUTPUT_DIRECTORY" ] || mkdir -p "$OUTPUT_DIRECTORY"
 
-sh build_ground_truth.sh
+#sh build_ground_truth.sh
 
 sh tools/run.sh
 
