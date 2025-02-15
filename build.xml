@@ -39,20 +39,20 @@
         <javac srcdir="${lib.old.src}"
                destdir="${lib.old.bin}"
                debug="on"
-               source="17"
+               source="21"
                includeAntRuntime="false"/>
 
         <javac srcdir="${lib.new.src}"
                destdir="${lib.new.bin}"
                debug="on"
-               source="17"
+               source="21"
                includeAntRuntime="false"/>
 
         <javac srcdir="${client.src}"
                destdir="${client.bin}"
                classpath="${lib.old.bin}"
                debug="on"
-               source="17"
+               source="21"
                includeAntRuntime="false"/>
     </target>
 
@@ -108,7 +108,7 @@
                classpath="${lib.old.jar}"
                includes="${package}/**"
                debug="on"
-               source="17"
+               source="21"
                includeAntRuntime="false"/>
     </target>
 
@@ -135,7 +135,7 @@
                classpath="${lib.new.jar}"
                includes="${package}/**"
                debug="on"
-               source="17"
+               source="21"
                includeAntRuntime="false"
                failonerror="false"
         />
