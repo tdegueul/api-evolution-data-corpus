@@ -86,7 +86,7 @@ Tools included in the benchmark:
 
 ## Results
 
-| 	         | japicmp | revapi | roseau |
-|-----------|---------|--------|--------|
-| Precision | 97.24%  | 84.13% | 98.36% |
-| Recall    | 58.24%  | 96.15% | 98.9%  |
+| 	        | japicmp | revapi | roseau (sources) | roseau (JAR)
+|-----------|---------|--------|--------|--------|
+| Precision | 97.24%  | 84.13% | 98.36% | 98.36% |
+| Recall    | 58.24%  | 96.15% | 98.90% | 98.90% |

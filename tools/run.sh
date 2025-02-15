@@ -29,9 +29,12 @@ record_execution_time "Revapi" "tools/revapi/revapi.sh --extensions=org.revapi:r
 echo "********* japicmp *********"
 record_execution_time "japicmp" "java -jar tools/japicmp/japicmp-0.23.1-jar-with-dependencies.jar -o output/build/lib-v1.jar -n output/build/lib-v2.jar -b -m > $REPORTS_DIRECTORY/japicmp.txt"
 
-echo "********* Roseau *********"
-record_execution_time "Roseau" "java -jar tools/roseau/roseau-0.0.4-SNAPSHOT-jar-with-dependencies.jar --diff --v1 lib-v1 --v2 lib-v2  > $REPORTS_DIRECTORY/roseau.txt"
+echo "********* Roseau (sources) *********"
+record_execution_time "Roseau-sources" "java -jar tools/roseau/roseau-0.0.4-SNAPSHOT-jar-with-dependencies.jar --diff --v1 lib-v1 --v2 lib-v2  > $REPORTS_DIRECTORY/roseau-sources.txt"
 
-grep -v '===  UNCHANGED' "$REPORTS_DIRECTORY"/roseau.txt > roseau.txt.tmp
-mv roseau.txt.tmp "$REPORTS_DIRECTORY"/roseau.txt
-rm -f report.csv
+echo "********* Roseau (JAR) *********"
+record_execution_time "Roseau-JAR" "java -jar tools/roseau/roseau-0.0.4-SNAPSHOT-jar-with-dependencies.jar --diff --v1 output/build/lib-v1.jar --v2 output/build/lib-v2.jar  > $REPORTS_DIRECTORY/roseau-jar.txt"
+
+#grep -v '===  UNCHANGED' "$REPORTS_DIRECTORY"/roseau.txt > roseau.txt.tmp
+#mv roseau.txt.tmp "$REPORTS_DIRECTORY"/roseau.txt
+#rm -f report.csv
