@@ -1,0 +1,3 @@
+package testing_lib.classnowcheckedexceptiontestSpecificUncheckedExceptionBecomesSpecificCheckedException;
+
+public class A extends java.io.IOException {}
