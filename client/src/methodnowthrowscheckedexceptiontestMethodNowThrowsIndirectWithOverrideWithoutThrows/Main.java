@@ -8,6 +8,7 @@ public class Main extends B {
 	}
 
 	public static void main(String[] args) {
+		new A().m();
 		new B().m();
 	/*V1:
 

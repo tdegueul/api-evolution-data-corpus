@@ -2,8 +2,8 @@ package methodnolongerthrowscheckedexceptiontestMethodNoLongerThrowsIndirectWith
 
 import testing_lib.methodnolongerthrowscheckedexceptiontestMethodNoLongerThrowsIndirectWithOverrideWithoutThrows.*;
 
-public class Main extends B {
-	@Override public void m() {
+public class Main extends A {
+	@Override public void m() throws Exception {
 		super.m();
 	}
 

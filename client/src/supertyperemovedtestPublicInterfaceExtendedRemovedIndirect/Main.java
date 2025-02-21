@@ -6,6 +6,9 @@ public class Main {
 	public static void main(String[] args) {
 		C c = null;
 		A a = (A) c;
+		if (c instanceof A) {
+			
+		}
 	/*V1:
 
 public interface A {}
